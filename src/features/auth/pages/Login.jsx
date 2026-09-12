@@ -1,0 +1,226 @@
+import React, { useState } from "react";
+import "../../../Styles/Login.css"; // تعديل المسار للربط بملف الـ CSS
+
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
+
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      alert("Please enter your email and password.");
+      return;
+    }
+    alert(`Signing in with Email: ${email}`);
+  };
+
+  const handleQuickSignIn = () => {
+    alert("Biometric Sign-In clicked!");
+  };
+
+  return (
+    <div className="login-page-container">
+      <div className="login-wrapper">
+        {/* LEFT SIDE: BRANDING */}
+        <div className="hero-side">
+          <div className="brand">
+            <div className="brand-logo">HR</div>
+            <div>
+              <div className="brand-name">SMART HR</div>
+              <div className="brand-subtitle">Employee Companion Portal</div>
+            </div>
+          </div>
+
+          <div className="hero-body">
+            <h2>Streamline Your Workspace & People Operations</h2>
+            <p>
+              Access your portal securely to manage your daily workspace,
+              benefits, and workplace tools.
+            </p>
+          </div>
+
+          <div className="security-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" />
+              <path d="M9.5 12l1.7 1.7 3.4-3.4" />
+            </svg>
+            <span>Enterprise v2026 — Secure Workspace</span>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE: FORM */}
+        <main className="form-side">
+          <h1 className="title">Welcome Back</h1>
+          <p className="subtitle">
+            Don't have an account?{" "}
+            <a href="/register" className="signup-link">
+              Create one
+            </a>
+          </p>
+
+          <form onSubmit={handleSignIn}>
+            {/* Email */}
+            <div className="form-group">
+              <label htmlFor="email">Work Email</label>
+              <div className="input-wrapper">
+                <svg
+                  className="input-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="name@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Password */}
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="input-wrapper">
+                <svg
+                  className="input-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect x="5" y="10" width="14" height="11" rx="2" />
+                  <path d="M8 10V7a4 4 0 018 0v3" />
+                </svg>
+                <input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                  className="password-toggle"
+                  type="button"
+                  onClick={togglePassword}
+                >
+                  <svg
+                    id="eyeIcon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
+                    <circle cx="12" cy="12" r="2.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Options */}
+            <div className="form-options">
+              <label className="remember">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+                <span className="checkbox">
+                  {rememberMe && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12l4 4L19 6" />
+                    </svg>
+                  )}
+                </span>
+                <span>Keep me signed in</span>
+              </label>
+              <a href="/forgot-password" className="forgot">
+                Forgot Password?
+              </a>
+            </div>
+
+            {/* Sign In Button */}
+            <button type="submit" className="sign-in">
+              Sign In
+            </button>
+          </form>
+
+          {/* OR Separator */}
+          <div className="separator">
+            <span>OR</span>
+          </div>
+
+          {/* Quick Sign In */}
+          <button className="quick-signin" onClick={handleQuickSignIn}>
+            <div className="fingerprint">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 10a5 5 0 0110 0c0 5-1 8-3 10" />
+                <path d="M9 10a3 3 0 016 0c0 4-.5 7-2 9" />
+                <path d="M5 10a7 7 0 0114 0c0 4-.5 7-2 10" />
+                <path d="M11 10a1 1 0 012 0c0 4-.3 6-1 8" />
+                <path d="M3 10a9 9 0 0118 0c0 3-.5 6-1.5 8" />
+                <path d="M8 14c-.2 2-.7 4-1.5 5" />
+                <path d="M16 14c-.1 2-.4 3.5-1 5" />
+              </svg>
+            </div>
+            <div className="quick-text">
+              <div className="quick-title">Quick Sign-In</div>
+              <div className="quick-subtitle">Use Fingerprint or Face ID</div>
+            </div>
+            <svg
+              className="arrow"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </main>
+      </div>
+    </div>
+  );
+}
