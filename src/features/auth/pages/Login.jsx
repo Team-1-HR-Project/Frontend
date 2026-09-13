@@ -1,6 +1,5 @@
-
-import React, { useState } from "react";
-import "../../../Styles/Login.css";
+import { useState } from "react";
+import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
@@ -100,6 +99,7 @@ export default function Login() {
               className="password-toggle"
               type="button"
               onClick={togglePassword}
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               <svg
                 id="eyeIcon"
@@ -187,13 +187,9 @@ export default function Login() {
         </div>
 
         <div className="quick-text">
-          <div className="quick-title">
-            Quick Sign-In
-          </div>
+          <div className="quick-title">Quick Sign-In</div>
 
-          <div className="quick-subtitle">
-            Use Fingerprint or Face ID
-          </div>
+          <div className="quick-subtitle">Use Fingerprint or Face ID</div>
         </div>
 
         <svg

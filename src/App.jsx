@@ -1,9 +1,11 @@
-import Login from "./features/auth/pages/Login"; // أو المسار الذي وضعت فيه مكون الـ Login
+// import Login from "./features/auth/pages/Login";
+import ResetPassword from "./features/auth/pages/ResetPassword";
 
 function App() {
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
+      <ResetPassword />
     </div>
   );
 }
