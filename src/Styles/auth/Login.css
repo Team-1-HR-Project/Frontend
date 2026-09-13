@@ -2,7 +2,9 @@
    GLOBAL
 ===================================================== */
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,14 +16,17 @@ body {
   min-height: 100vh;
 }
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 /* =====================================================
    AUTH PAGE CONTAINER
 ===================================================== */
 
 .login-page-container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
   color: #10243a;
 
@@ -48,8 +53,7 @@ body {
 
   border-radius: 20px;
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
   border: 1px solid #eaedf1;
 
@@ -66,12 +70,11 @@ body {
 .hero-side {
   flex: 1;
 
-  background:
-    linear-gradient(
-      135deg,
-      #1e354d 0%,
-      #243f5a 100%
-    );
+  background: linear-gradient(
+    135deg,
+    #1e354d 0%,
+    #243f5a 100%
+  );
 
   color: #ffffff;
 
@@ -95,12 +98,13 @@ body {
 .brand {
   display: flex;
   align-items: center;
-
   gap: 12px;
 }
 
 
-/* Logo */
+/* =====================================================
+   BRAND LOGO
+===================================================== */
 
 .brand-logo {
   width: 48px;
@@ -121,7 +125,9 @@ body {
 }
 
 
-/* Brand Name */
+/* =====================================================
+   BRAND NAME
+===================================================== */
 
 .brand-name {
   font-size: 18px;
@@ -131,7 +137,9 @@ body {
 }
 
 
-/* Brand Subtitle */
+/* =====================================================
+   BRAND SUBTITLE
+===================================================== */
 
 .brand-subtitle {
   margin-top: 3px;
@@ -154,6 +162,8 @@ body {
   line-height: 1.3;
 
   margin-bottom: 12px;
+
+  color: #ffffff;
 }
 
 .hero-body p {
@@ -180,7 +190,7 @@ body {
 
   border-radius: 20px;
 
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.1);
 
   border: 1px solid rgba(255, 255, 255, 0.15);
 
@@ -342,7 +352,7 @@ body {
 
   padding: 0 44px;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   font-size: 15px;
 
@@ -350,11 +360,18 @@ body {
 
   outline: none;
 
-  transition: 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .input-wrapper input::placeholder {
   color: #91a0b1;
+}
+
+.input-wrapper input:hover {
+  border-color: #c4cfda;
 }
 
 .input-wrapper input:focus {
@@ -362,8 +379,7 @@ body {
 
   border-color: #243f5a;
 
-  box-shadow:
-    0 0 0 3px rgba(36, 63, 90, 0.1);
+  box-shadow: 0 0 0 3px rgba(36, 63, 90, 0.1);
 }
 
 
@@ -393,6 +409,10 @@ body {
   align-items: center;
 
   justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #243f5a;
 }
 
 .password-toggle svg {
@@ -439,7 +459,9 @@ body {
 }
 
 
-/* Checkbox */
+/* =====================================================
+   CHECKBOX
+===================================================== */
 
 .checkbox {
   width: 18px;
@@ -500,7 +522,7 @@ body {
 
   color: #ffffff;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   font-size: 16px;
 
@@ -508,10 +530,12 @@ body {
 
   cursor: pointer;
 
-  box-shadow:
-    0 4px 10px rgba(36, 63, 90, 0.15);
+  box-shadow: 0 4px 10px rgba(36, 63, 90, 0.15);
 
-  transition: 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .sign-in:hover {
@@ -588,7 +612,9 @@ body {
 }
 
 
-/* Fingerprint */
+/* =====================================================
+   FINGERPRINT
+===================================================== */
 
 .fingerprint {
   width: 38px;
@@ -615,7 +641,9 @@ body {
 }
 
 
-/* Quick Text */
+/* =====================================================
+   QUICK TEXT
+===================================================== */
 
 .quick-text {
   margin-left: 12px;
@@ -644,7 +672,9 @@ body {
 }
 
 
-/* Arrow */
+/* =====================================================
+   ARROW
+===================================================== */
 
 .arrow {
   color: #61758a;
@@ -731,7 +761,7 @@ body {
 
   padding: 0 15px 0 44px;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   font-size: 14px;
 
@@ -758,8 +788,7 @@ body {
 
   border-color: #243f5a;
 
-  box-shadow:
-    0 0 0 3px rgba(36, 63, 90, 0.1);
+  box-shadow: 0 0 0 3px rgba(36, 63, 90, 0.1);
 }
 
 
@@ -893,7 +922,9 @@ body {
 }
 
 
-/* Dot */
+/* =====================================================
+   PASSWORD REQUIREMENT DOT
+===================================================== */
 
 .register-form .hint-item .dot {
   width: 7px;
@@ -911,7 +942,9 @@ body {
 }
 
 
-/* Valid */
+/* =====================================================
+   VALID PASSWORD REQUIREMENT
+===================================================== */
 
 .register-form .hint-item.valid {
   color: #345675;
@@ -997,7 +1030,9 @@ body {
 }
 
 
-/* Error Message */
+/* =====================================================
+   ERROR MESSAGE
+===================================================== */
 
 .register-form .form-message.error {
   background: #fff7f7;
@@ -1008,7 +1043,9 @@ body {
 }
 
 
-/* Success Message */
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
 
 .register-form .form-message.success {
   background: #f5faf7;
@@ -1019,7 +1056,9 @@ body {
 }
 
 
-/* Message Icon */
+/* =====================================================
+   MESSAGE ICON
+===================================================== */
 
 .register-form .message-icon {
   width: 21px;
@@ -1041,7 +1080,9 @@ body {
 }
 
 
-/* Error Icon */
+/* =====================================================
+   ERROR ICON
+===================================================== */
 
 .register-form .form-message.error .message-icon {
   background: #f3dada;
@@ -1050,7 +1091,9 @@ body {
 }
 
 
-/* Success Icon */
+/* =====================================================
+   SUCCESS ICON
+===================================================== */
 
 .register-form .form-message.success .message-icon {
   background: #dceee3;
@@ -1059,7 +1102,9 @@ body {
 }
 
 
-/* Message Animation */
+/* =====================================================
+   MESSAGE ANIMATION
+===================================================== */
 
 @keyframes registerMessage {
   from {
@@ -1093,7 +1138,7 @@ body {
 
   color: #ffffff;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   font-size: 15px;
 
@@ -1101,8 +1146,7 @@ body {
 
   cursor: pointer;
 
-  box-shadow:
-    0 4px 10px rgba(36, 63, 90, 0.15);
+  box-shadow: 0 4px 10px rgba(36, 63, 90, 0.15);
 
   transition:
     background 0.2s ease,
@@ -1115,8 +1159,7 @@ body {
 
   transform: translateY(-1px);
 
-  box-shadow:
-    0 5px 12px rgba(36, 63, 90, 0.18);
+  box-shadow: 0 5px 12px rgba(36, 63, 90, 0.18);
 }
 
 .register-form .submit-btn:active {
@@ -1162,15 +1205,11 @@ body {
 ===================================================== */
 
 @media (max-width: 850px) {
-
   .login-wrapper {
     flex-direction: column;
 
     max-width: 460px;
   }
-
-
-  /* Hero */
 
   .hero-side {
     padding: 32px;
@@ -1178,15 +1217,9 @@ body {
     gap: 24px;
   }
 
-
-  /* Form */
-
   .form-side {
     padding: 32px;
   }
-
-
-  /* Register Name Fields */
 
   .register-form .form-row {
     grid-template-columns: 1fr;
@@ -1201,11 +1234,9 @@ body {
 ===================================================== */
 
 @media (max-width: 480px) {
-
   .login-page-container {
     padding: 15px;
   }
-
 
   .login-wrapper {
     border-radius: 15px;
@@ -1213,13 +1244,9 @@ body {
     min-height: auto;
   }
 
-
-  /* Hero */
-
   .hero-side {
     padding: 25px;
   }
-
 
   .hero-body h2 {
     font-size: 23px;
@@ -1229,25 +1256,17 @@ body {
     font-size: 14px;
   }
 
-
-  /* Form */
-
   .form-side {
     padding: 25px 20px;
   }
-
 
   .title {
     font-size: 23px;
   }
 
-
-  /* Login options */
-
   .form-options {
     gap: 10px;
   }
-
 
   .remember {
     font-size: 13px;
@@ -1257,9 +1276,6 @@ body {
     font-size: 13px;
   }
 
-
-  /* Register password hints */
-
   .register-form .password-hints {
     flex-direction: column;
 
@@ -1268,15 +1284,9 @@ body {
     gap: 6px;
   }
 
-
-  /* Register message */
-
   .register-form .form-message {
     font-size: 11.5px;
   }
-
-
-  /* Terms */
 
   .register-form .terms-text {
     font-size: 10.5px;

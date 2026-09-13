@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
@@ -22,8 +23,10 @@ export default function Login() {
 
   return (
     <MainAuthForm>
+      {/* Title */}
       <h1 className="title">Welcome Back</h1>
 
+      {/* Subtitle */}
       <p className="subtitle">
         Don't have an account?{" "}
         <Link to="/register" className="signup-link">
@@ -32,7 +35,10 @@ export default function Login() {
       </p>
 
       <form onSubmit={handleSignIn}>
-        {/* Contact */}
+        {/* =====================================================
+            CONTACT
+        ===================================================== */}
+
         <div className="form-group">
           <label htmlFor="loginContact">Email or Phone</label>
 
@@ -60,7 +66,10 @@ export default function Login() {
           </div>
         </div>
 
-        {/* Password */}
+        {/* =====================================================
+            PASSWORD
+        ===================================================== */}
+
         <div className="form-group">
           <label htmlFor="loginPassword">Password</label>
 
@@ -86,13 +95,12 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
+            {/* Show / Hide Password */}
             <button
               type="button"
               className="password-toggle"
               onClick={() => setShowPassword((prev) => !prev)}
-              aria-label={
-                showPassword ? "Hide password" : "Show password"
-              }
+              aria-label={showPassword ? "Hide password" : "Show password"}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -120,7 +128,10 @@ export default function Login() {
           </div>
         </div>
 
-        {/* Remember + Forgot */}
+        {/* =====================================================
+            REMEMBER ME + FORGOT PASSWORD
+        ===================================================== */}
+
         <div className="form-options">
           <label className="remember">
             <input
@@ -147,22 +158,31 @@ export default function Login() {
             Remember me
           </label>
 
-          <a href="#forgot-password" className="forgot">
-            Forgot password?
-          </a>
+          <Link to="/ForgotPassword" className="forgot">
+            Forgot Password?
+          </Link>
         </div>
 
-        {/* Sign In */}
+        {/* =====================================================
+            SIGN IN BUTTON
+        ===================================================== */}
+
         <button type="submit" className="sign-in">
           Sign In
         </button>
 
-        {/* Separator */}
+        {/* =====================================================
+            SEPARATOR
+        ===================================================== */}
+
         <div className="separator">
           <span>OR</span>
         </div>
 
-        {/* Quick Sign In */}
+        {/* =====================================================
+            QUICK SIGN IN
+        ===================================================== */}
+
         <button type="button" className="quick-signin">
           <span className="fingerprint">
             <svg
