@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "../../../Styles/auth/Login.css";
+import logo from "../../../assets/Logos.svg";
 import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
 const MainAuthForm = ({ children }) => {
@@ -13,11 +14,16 @@ const MainAuthForm = ({ children }) => {
 
       <div className="login-wrapper">
         {/* LEFT SIDE: BRANDING */}
-        {/* الجزء ده ثابت في كل صفحات الـ Auth */}
 
         <div className="hero-side">
           <div className="brand">
-            <div className="brand-logo">HR</div>
+            <div className="brand-logo">
+              <img
+                src={logo}
+                alt="Logo"
+                style={{ width: "90%", height: "90%", objectFit: "contain" }}
+              />
+            </div>
 
             <div>
               <div className="brand-name">{t("auth.branding.name")}</div>
@@ -50,8 +56,6 @@ const MainAuthForm = ({ children }) => {
         </div>
 
         {/* RIGHT SIDE: FORM */}
-        {/* هنا هيظهر محتوى Login أو Register أو غيره */}
-
         <main className="form-side">{children}</main>
       </div>
     </div>

@@ -30,7 +30,7 @@
   },
   "auth": {
     "branding": {
-      "name": "SMART HR",
+      "name": "Workwise",
       "subtitle": "Employee Companion Portal",
       "heroTitle": "Streamline Your Workspace & People Operations",
       "heroDescription": "Access your portal securely to manage your daily workspace, benefits, and workplace tools.",
@@ -127,7 +127,7 @@
       "reqNumber": "Contains a number",
       "createAccount": "Create Account",
       "registerButton": "Create Account",
-      "agreePrefix": "By creating an account, you agree to Smart HR's ",
+      "agreePrefix": "By creating an account, you agree to Workwise's ",
       "termsOfService": "Terms of Service",
       "and": " and ",
       "privacyPolicy": "Privacy Policy",
