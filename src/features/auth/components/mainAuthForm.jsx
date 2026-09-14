@@ -1,8 +1,16 @@
+import { useTranslation } from "react-i18next";
 import "../../../Styles/auth/Login.css";
+import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
 const MainAuthForm = ({ children }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="login-page-container">
+      <div className="auth-language-switcher-wrapper">
+        <LanguageSwitcher />
+      </div>
+
       <div className="login-wrapper">
         {/* LEFT SIDE: BRANDING */}
         {/* الجزء ده ثابت في كل صفحات الـ Auth */}
@@ -12,19 +20,16 @@ const MainAuthForm = ({ children }) => {
             <div className="brand-logo">HR</div>
 
             <div>
-              <div className="brand-name">SMART HR</div>
+              <div className="brand-name">{t("auth.branding.name")}</div>
 
-              <div className="brand-subtitle">Employee Companion Portal</div>
+              <div className="brand-subtitle">{t("auth.branding.subtitle")}</div>
             </div>
           </div>
 
           <div className="hero-body">
-            <h2>Streamline Your Workspace & People Operations</h2>
+            <h2>{t("auth.branding.heroTitle")}</h2>
 
-            <p>
-              Access your portal securely to manage your daily workspace,
-              benefits, and workplace tools.
-            </p>
+            <p>{t("auth.branding.heroDescription")}</p>
           </div>
 
           <div className="security-badge">
@@ -40,7 +45,7 @@ const MainAuthForm = ({ children }) => {
               <path d="M9.5 12l1.7 1.7 3.4-3.4" />
             </svg>
 
-            <span>Enterprise v2026 — Secure Workspace</span>
+            <span>{t("auth.branding.securityBadge")}</span>
           </div>
         </div>
 

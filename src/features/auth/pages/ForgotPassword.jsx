@@ -1,32 +1,34 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../../../styles/auth/ForgotPassword.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function ForgotPassword() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email) {
-      alert("Please enter your work email.");
+      alert(t("auth.forgotPassword.emailRequired"));
       return;
     }
 
-    alert(`OTP sent to ${email}`);
+    alert(t("auth.forgotPassword.otpSent", { email }));
   };
 
   return (
     <MainAuthForm>
-      <h1 className="title">Forgot Password?</h1>
+      <h1 className="title">{t("auth.forgotPassword.title")}</h1>
 
       <p className="subtitle">
-        Enter your work email and we'll send you a verification code.
+        {t("auth.forgotPassword.subtitle")}
       </p>
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="email">Work Email</label>
+          <label htmlFor="email">{t("auth.forgotPassword.workEmail")}</label>
 
           <div className="input-wrapper">
             <svg
@@ -45,7 +47,7 @@ export default function ForgotPassword() {
             <input
               id="email"
               type="email"
-              placeholder="name@company.com"
+              placeholder={t("auth.forgotPassword.emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -53,12 +55,12 @@ export default function ForgotPassword() {
         </div>
 
         <button type="submit" className="sign-in">
-          Send Verification Code
+          {t("auth.forgotPassword.sendCode")}
         </button>
       </form>
 
       <div className="back-login">
-        <a href="/login">← Back to Sign In</a>
+        <a href="/login">{t("auth.forgotPassword.backToSignIn")}</a>
       </div>
     </MainAuthForm>
   );

@@ -1,0 +1,251 @@
+{
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "back": "رجوع",
+    "next": "التالي",
+    "search": "بحث",
+    "filter": "تصفية",
+    "loading": "جاري التحميل...",
+    "noData": "لا توجد بيانات متاحة",
+    "submit": "إرسال",
+    "confirm": "تأكيد",
+    "close": "إغلاق",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "view": "عرض",
+    "download": "تنزيل",
+    "export": "تصدير",
+    "import": "استيراد",
+    "refresh": "تحديث",
+    "success": "نجاح",
+    "error": "خطأ",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "selectLanguage": "اختر اللغة",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "auth": {
+    "branding": {
+      "name": "سمارت إتش آر",
+      "subtitle": "بوابة رفيق الموظف",
+      "heroTitle": "ارتقِ بإدارة مساحة عملك وشؤون الموظفين",
+      "heroDescription": "ادخل إلى بوابتك بأمان لإدارة مساحة عملك اليومية ومزاياك وأدوات العمل بكفاءة.",
+      "securityBadge": "نسخة المؤسسات 2026 — مساحة عمل آمنة"
+    },
+    "login": {
+      "title": "مرحبًا بعودتك",
+      "noAccount": "ليس لديك حساب؟",
+      "createOne": "إنشاء حساب",
+      "workEmail": "البريد الإلكتروني للعمل",
+      "emailPlaceholder": "name@company.com",
+      "password": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "rememberMe": "تذكر تسجيل دخولي",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "signIn": "تسجيل الدخول",
+      "or": "أو",
+      "quickSignIn": "تسجيل دخول سريع",
+      "quickSignInDesc": "استخدم بصمة الإصبع أو بصمة الوجه",
+      "emailPasswordRequired": "يرجى إدخال البريد الإلكتروني وكلمة المرور.",
+      "signingInAlert": "جاري تسجيل الدخول بالبريد: {{email}}",
+      "quickSignInAlert": "تم النقر على تسجيل الدخول الحيوي!",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور"
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور؟",
+      "subtitle": "أدخل بريدك الإلكتروني للعمل وسنرسل لك رمز التحقق.",
+      "workEmail": "البريد الإلكتروني للعمل",
+      "emailPlaceholder": "name@company.com",
+      "sendCode": "إرسال رمز التحقق",
+      "backToSignIn": "← العودة إلى تسجيل الدخول",
+      "emailRequired": "يرجى إدخال بريدك الإلكتروني للعمل.",
+      "otpSent": "تم إرسال رمز التحقق إلى {{email}}"
+    },
+    "verifyOtp": {
+      "title": "تأكيد بريدك الإلكتروني",
+      "subtitle": "أدخل رمز التحقق المكون من 6 أرقام المرسل إلى بريدك الإلكتروني.",
+      "codeLabel": "رمز التحقق",
+      "verifyButton": "تأكيد الرمز",
+      "resendCode": "إعادة إرسال الرمز",
+      "resendPrompt": "إعادة إرسال الرمز",
+      "resendIn": "خلال {{time}}",
+      "didntReceive": "لم يصلك الرمز؟",
+      "backToSignIn": "← العودة إلى تسجيل الدخول",
+      "codeLengthError": "يرجى إدخال رمز التحقق المكون من 6 أرقام.",
+      "verifiedSuccess": "تم التحقق من الرمز بنجاح!",
+      "resendSuccess": "تم إرسال رمز تحقق جديد بنجاح!"
+    },
+    "resetPassword": {
+      "title": "إنشاء كلمة مرور جديدة",
+      "subtitle": "يجب أن تكون كلمة المرور الجديدة مختلفة عن كلمة المرور السابقة.",
+      "newPassword": "كلمة المرور الجديدة",
+      "newPasswordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور الجديدة",
+      "confirmPasswordPlaceholder": "أعد إدخال كلمة المرور الجديدة",
+      "strength": "قوة كلمة المرور",
+      "reqLength": "8 أحرف على الأقل",
+      "reqUppercase": "حرف كبير واحد على الأقل",
+      "reqLowercase": "حرف صغير واحد على الأقل",
+      "reqNumber": "رقم واحد على الأقل",
+      "reqSpecial": "رمز خاص واحد على الأقل",
+      "errorRequirements": "يرجى استيفاء جميع شروط كلمة المرور.",
+      "errorMismatch": "كلمتا المرور غير متطابقتين.",
+      "errorGeneric": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+      "resetting": "جاري إعادة التعيين...",
+      "resetButton": "إعادة تعيين كلمة المرور"
+    },
+    "passwordResetSuccess": {
+      "title": "تمت إعادة تعيين كلمة المرور بنجاح",
+      "description": "تمت إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
+      "signInButton": "الذهاب إلى تسجيل الدخول"
+    },
+    "register": {
+      "title": "إنشاء حساب جديد",
+      "subtitle": "انضم إلى مساحة العمل وتواصل مع فريقك.",
+      "fullName": "الاسم بالكامل",
+      "fullNamePlaceholder": "محمد أحمد",
+      "workEmail": "البريد الإلكتروني للعمل",
+      "emailPlaceholder": "name@company.com",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "registerButton": "إنشاء الحساب",
+      "alreadyHaveAccount": "لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول"
+    },
+    "verifyEmail": {
+      "title": "تأكيد البريد الإلكتروني",
+      "subtitle": "تم إرسال رابط تأكيد إلى بريدك الإلكتروني. يُرجى النقر عليه لتفعيل حسابك.",
+      "resendEmail": "إعادة إرسال رابط التأكيد",
+      "checkInbox": "يرجى التحقق من صندوق الوارد لديك."
+    }
+  },
+  "dashboard": {
+    "overview": "نظرة عامة",
+    "totalEmployees": "إجمالي الموظفين",
+    "activeTasks": "المهام النشطة",
+    "attendanceRate": "نسبة الحضور",
+    "pendingRequests": "الطلبات المعلقة",
+    "recentActivity": "النشاط الأخير",
+    "quickActions": "إجراءات سريعة",
+    "welcomeMessage": "مرحبًا بعودتك إلى مساحة عملك"
+  },
+  "employees": {
+    "title": "الموظفون",
+    "addEmployee": "إضافة موظف",
+    "employeeList": "دليل الموظفين",
+    "department": "القسم",
+    "position": "المسمى الوظيفي",
+    "contact": "بيانات الاتصال",
+    "hireDate": "تاريخ التعيين",
+    "active": "نشط",
+    "inactive": "غير نشط",
+    "profile": "الملف الشخصي للموظف"
+  },
+  "attendance": {
+    "title": "الحضور والانصراف",
+    "checkIn": "تسجيل حضور",
+    "checkOut": "تسجيل انصراف",
+    "present": "حاضر",
+    "absent": "غائب",
+    "late": "متأخر",
+    "workHours": "ساعات العمل",
+    "history": "سجل الحضور",
+    "overtime": "العمل الإضافي"
+  },
+  "leaves": {
+    "title": "الإجازات",
+    "requestLeave": "طلب إجازة",
+    "leaveBalance": "رصيد الإجازات",
+    "annualLeave": "إجازة سنوية",
+    "sickLeave": "إجازة مرضية",
+    "unpaidLeave": "إجازة غير مدفوعة",
+    "approved": "مقبول",
+    "pending": "معلق",
+    "rejected": "مرفوض"
+  },
+  "tasks": {
+    "title": "المهام",
+    "createTask": "إنشاء مهمة",
+    "myTasks": "مهامي",
+    "assignedTo": "مكلف إلى",
+    "dueDate": "تاريخ الاستحقاق",
+    "priority": "الأولوية",
+    "high": "عالية",
+    "medium": "متوسطة",
+    "low": "منخفضة",
+    "inProgress": "قيد التنفيذ",
+    "completed": "مكتملة"
+  },
+  "submissions": {
+    "title": "التسليمات",
+    "submitWork": "تسليم العمل",
+    "submissionHistory": "سجل التسليمات",
+    "status": "حالة التسليم",
+    "attachments": "المرفقات",
+    "feedback": "الملاحظات",
+    "reviewDate": "تاريخ المراجعة"
+  },
+  "goals": {
+    "title": "الأهداف",
+    "companyGoals": "أهداف الشركة",
+    "personalGoals": "الأهداف الشخصية",
+    "progress": "التقدم",
+    "targetDate": "التاريخ المستهدف",
+    "achieved": "مُنجز",
+    "onTrack": "على المسار الصحيح",
+    "delayed": "متأخر"
+  },
+  "evaluations": {
+    "title": "التقييمات",
+    "performanceReview": "مراجعة الأداء",
+    "annualEvaluation": "التقييم السنوي",
+    "quarterlyEvaluation": "التقييم الربع سنوي",
+    "rating": "التقييم",
+    "feedback": "الملاحظات والتعليقات",
+    "reviewer": "المُقيّم"
+  },
+  "performance": {
+    "title": "الأداء",
+    "kpis": "مؤشرات الأداء الرئيسية",
+    "productivity": "الإنتاجية",
+    "score": "النتيجة",
+    "improvementPlan": "خطة التحسين",
+    "metrics": "المقاييس"
+  },
+  "aiInsights": {
+    "title": "رؤى الذكاء الاصطناعي",
+    "suggestions": "المقترحات",
+    "anomalies": "الأنماط غير المعتادة",
+    "summary": "الملخص التنفيذي",
+    "workforceTrends": "اتجاهات القوى العاملة",
+    "productivityAnalysis": "تحليل الإنتاجية"
+  },
+  "policies": {
+    "title": "السياسات",
+    "codeOfConduct": "ميثاق السلوك المهني",
+    "leavePolicy": "سياسة الإجازات",
+    "remoteWorkPolicy": "سياسة العمل عن بعد",
+    "benefitsGuide": "دليل المزايا",
+    "downloadPolicy": "تحميل السياسة"
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "markAllAsRead": "تحديد الكل كمقروء",
+    "noNotifications": "لا توجد إشعارات جديدة",
+    "unread": "غير مقروءة",
+    "recentNotifications": "أحدث الإشعارات"
+  },
+  "reports": {
+    "title": "التقارير",
+    "generateReport": "إنشاء تقرير",
+    "exportPdf": "تصدير بصيغة PDF",
+    "exportExcel": "تصدير بصيغة Excel",
+    "monthlyAttendance": "تقرير الحضور الشهري",
+    "payrollSummary": "ملخص الرواتب"
+  }
+}
