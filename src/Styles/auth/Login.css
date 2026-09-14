@@ -70,11 +70,9 @@ body {
 .hero-side {
   flex: 1;
 
-  background: linear-gradient(
-    135deg,
-    #1e354d 0%,
-    #243f5a 100%
-  );
+  background: linear-gradient(135deg,
+      #1e354d 0%,
+      #243f5a 100%);
 
   color: #ffffff;
 
@@ -132,7 +130,7 @@ body {
 .brand-name {
   font-size: 18px;
   font-weight: 700;
-
+  color: #d9e3f0;
   line-height: 1.2;
 }
 
