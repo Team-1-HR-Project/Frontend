@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
@@ -18,15 +20,15 @@ export default function Login() {
     e.preventDefault();
 
     if (!email || !password) {
-      alert(t("auth.login.emailPasswordRequired"));
+      toast.error(t("auth.login.emailPasswordRequired"));
       return;
     }
 
-    alert(t("auth.login.signingInAlert", { email }));
+    toast.success(t("auth.login.signingInAlert", { email }));
   };
 
   const handleQuickSignIn = () => {
-    alert(t("auth.login.quickSignInAlert"));
+    toast.success(t("auth.login.quickSignInAlert"));
   };
 
   return (
@@ -37,9 +39,9 @@ export default function Login() {
 
       <p className="subtitle">
         {t("auth.login.noAccount")}{" "}
-        <a href="/register" className="signup-link">
+        <Link to="/register" className="signup-link">
           {t("auth.login.createOne")}
-        </a>
+        </Link>
       </p>
 
       <form onSubmit={handleSignIn}>
@@ -101,7 +103,11 @@ export default function Login() {
               className="password-toggle"
               type="button"
               onClick={togglePassword}
-              aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")}
+              aria-label={
+                showPassword
+                  ? t("auth.login.hidePassword")
+                  : t("auth.login.showPassword")
+              }
             >
               <svg
                 id="eyeIcon"
@@ -147,9 +153,9 @@ export default function Login() {
             <span>{t("auth.login.rememberMe")}</span>
           </label>
 
-          <a href="/ForgotPassword" className="forgot">
+          <Link to="/ForgotPassword" className="forgot">
             {t("auth.login.forgotPassword")}
-          </a>
+          </Link>
         </div>
 
         {/* Sign In Button */}
@@ -180,7 +186,7 @@ export default function Login() {
           >
             <path d="M7 10a5 5 0 0110 0c0 5-1 8-3 10" />
             <path d="M9 10a3 3 0 016 0c0 4-.5 7-2 9" />
-            <path d="M5 10a7 7 0 0114 0c0 4-.5 7-2 10" />
+            <path d="M5 10a7 7 0 0114 0c0 4-.5 6-2 10" />
             <path d="M11 10a1 1 0 012 0c0 4-.3 6-1 8" />
             <path d="M3 10a9 9 0 0118 0c0 3-.5 6-1.5 8" />
             <path d="M8 14c-.2 2-.7 4-1.5 5" />
@@ -191,7 +197,9 @@ export default function Login() {
         <div className="quick-text">
           <div className="quick-title">{t("auth.login.quickSignIn")}</div>
 
-          <div className="quick-subtitle">{t("auth.login.quickSignInDesc")}</div>
+          <div className="quick-subtitle">
+            {t("auth.login.quickSignInDesc")}
+          </div>
         </div>
 
         <svg
