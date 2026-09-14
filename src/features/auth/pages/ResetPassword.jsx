@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../../../styles/auth/ResetPassword.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import MainAuthForm from "../components/mainAuthForm";
 
 const ResetPassword = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [newPassword, setNewPassword] = useState("");
@@ -34,29 +36,18 @@ const ResetPassword = () => {
 
     // Check password requirements
     if (strengthScore < 5) {
-      setError("Please meet all password requirements.");
+      setError(t("auth.resetPassword.errorRequirements"));
       return;
     }
 
     // Check matching passwords
     if (newPassword !== confirmPassword) {
-      setError("Passwords do not match.");
+      setError(t("auth.resetPassword.errorMismatch"));
       return;
     }
 
     try {
       setIsLoading(true);
-
-      // هنا تحطي API بتاع الـ backend
-      // مثال:
-      //
-      // const response = await axios.post("/api/reset-password", {
-      //   password: newPassword,
-      // });
-      //
-      // if (!response.data.success) {
-      //   throw new Error(response.data.message);
-      // }
 
       // مؤقتًا للتجربة
       await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -64,7 +55,7 @@ const ResetPassword = () => {
       // لو الـ reset نجح
       navigate("/password-reset-success");
     } catch (err) {
-      setError(err.message || "Something went wrong. Please try again.");
+      setError(err.message || t("auth.resetPassword.errorGeneric"));
     } finally {
       setIsLoading(false);
     }
@@ -73,21 +64,21 @@ const ResetPassword = () => {
   return (
     <MainAuthForm>
       <div className="reset-password-card">
-        <h1>Create a new password</h1>
+        <h1>{t("auth.resetPassword.title")}</h1>
 
         <p className="reset-password-description">
-          Your new password must be different from your previous password.
+          {t("auth.resetPassword.subtitle")}
         </p>
 
         {/* New Password */}
         <div className="password-field">
-          <label htmlFor="newPassword">New password</label>
+          <label htmlFor="newPassword">{t("auth.resetPassword.newPassword")}</label>
 
           <div className="password-input-wrapper">
             <input
               id="newPassword"
               type={showNewPassword ? "text" : "password"}
-              placeholder="Enter a new password"
+              placeholder={t("auth.resetPassword.newPasswordPlaceholder")}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
@@ -111,7 +102,7 @@ const ResetPassword = () => {
             />
           </div>
 
-          <span>Password strength</span>
+          <span>{t("auth.resetPassword.strength")}</span>
 
           <div className="requirements">
             <div
@@ -122,7 +113,7 @@ const ResetPassword = () => {
               }
             >
               <span className="requirement-circle" />
-              At least 8 characters
+              {t("auth.resetPassword.reqLength")}
             </div>
 
             <div
@@ -133,7 +124,7 @@ const ResetPassword = () => {
               }
             >
               <span className="requirement-circle" />
-              One uppercase letter
+              {t("auth.resetPassword.reqUppercase")}
             </div>
 
             <div
@@ -144,7 +135,7 @@ const ResetPassword = () => {
               }
             >
               <span className="requirement-circle" />
-              One lowercase letter
+              {t("auth.resetPassword.reqLowercase")}
             </div>
 
             <div
@@ -155,7 +146,7 @@ const ResetPassword = () => {
               }
             >
               <span className="requirement-circle" />
-              One number
+              {t("auth.resetPassword.reqNumber")}
             </div>
 
             <div
@@ -166,20 +157,20 @@ const ResetPassword = () => {
               }
             >
               <span className="requirement-circle" />
-              One special character
+              {t("auth.resetPassword.reqSpecial")}
             </div>
           </div>
         </div>
 
         {/* Confirm Password */}
         <div className="password-field confirm-field">
-          <label htmlFor="confirmPassword">Confirm new password</label>
+          <label htmlFor="confirmPassword">{t("auth.resetPassword.confirmPassword")}</label>
 
           <div className="password-input-wrapper">
             <input
               id="confirmPassword"
               type={showConfirmPassword ? "text" : "password"}
-              placeholder="Re-enter your new password"
+              placeholder={t("auth.resetPassword.confirmPasswordPlaceholder")}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
@@ -202,7 +193,7 @@ const ResetPassword = () => {
           onClick={handleResetPassword}
           disabled={isLoading}
         >
-          {isLoading ? "Resetting..." : "Reset password"}
+          {isLoading ? t("auth.resetPassword.resetting") : t("auth.resetPassword.resetButton")}
         </button>
       </div>
     </MainAuthForm>

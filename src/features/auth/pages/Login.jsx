@@ -1,46 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
-  const [contact, setContact] = useState("");
+  const { t } = useTranslation();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
+
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    console.log("Login:", {
-      contact,
-      password,
-      rememberMe,
-    });
+    if (!email || !password) {
+      alert(t("auth.login.emailPasswordRequired"));
+      return;
+    }
 
-    // هنا بعدين ممكن تربطي الـ API
+    alert(t("auth.login.signingInAlert", { email }));
+  };
+
+  const handleQuickSignIn = () => {
+    alert(t("auth.login.quickSignInAlert"));
   };
 
   return (
     <MainAuthForm>
-      {/* Title */}
-      <h1 className="title">Welcome Back</h1>
+      {/* RIGHT SIDE: FORM */}
 
-      {/* Subtitle */}
+      <h1 className="title">{t("auth.login.title")}</h1>
+
       <p className="subtitle">
-        Don't have an account?{" "}
-        <Link to="/register" className="signup-link">
-          Create one
-        </Link>
+        {t("auth.login.noAccount")}{" "}
+        <a href="/register" className="signup-link">
+          {t("auth.login.createOne")}
+        </a>
       </p>
 
       <form onSubmit={handleSignIn}>
-        {/* =====================================================
-            CONTACT
-        ===================================================== */}
-
+        {/* Email */}
         <div className="form-group">
-          <label htmlFor="loginContact">Email or Phone</label>
+          <label htmlFor="email">{t("auth.login.workEmail")}</label>
 
           <div className="input-wrapper">
             <svg
@@ -57,21 +62,18 @@ export default function Login() {
             </svg>
 
             <input
-              id="loginContact"
-              type="text"
-              placeholder="Enter your email or phone"
-              value={contact}
-              onChange={(e) => setContact(e.target.value)}
+              id="email"
+              type="email"
+              placeholder={t("auth.login.emailPlaceholder")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
 
-        {/* =====================================================
-            PASSWORD
-        ===================================================== */}
-
+        {/* Password */}
         <div className="form-group">
-          <label htmlFor="loginPassword">Password</label>
+          <label htmlFor="password">{t("auth.login.password")}</label>
 
           <div className="input-wrapper">
             <svg
@@ -88,21 +90,21 @@ export default function Login() {
             </svg>
 
             <input
-              id="loginPassword"
+              id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder={t("auth.login.passwordPlaceholder")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {/* Show / Hide Password */}
             <button
-              type="button"
               className="password-toggle"
-              onClick={() => setShowPassword((prev) => !prev)}
-              aria-label={showPassword ? "Hide password" : "Show password"}
+              type="button"
+              onClick={togglePassword}
+              aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")}
             >
               <svg
+                id="eyeIcon"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -110,32 +112,19 @@ export default function Login() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                {showPassword ? (
-                  <>
-                    <path d="M3 3l18 18" />
-                    <path d="M10.6 10.6a2 2 0 002.8 2.8" />
-                    <path d="M9.9 4.2A10.7 10.7 0 0112 4c7 0 10 8 10 8a16.4 16.4 0 01-3.1 4.5" />
-                    <path d="M6.6 6.6C3.8 8.5 2 12 2 12s3 8 10 8a10.5 10.5 0 004-.8" />
-                  </>
-                ) : (
-                  <>
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </>
-                )}
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
+                <circle cx="12" cy="12" r="2.5" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* =====================================================
-            REMEMBER ME + FORGOT PASSWORD
-        ===================================================== */}
-
+        {/* Options */}
         <div className="form-options">
           <label className="remember">
             <input
               type="checkbox"
+              id="remember"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
             />
@@ -155,76 +144,68 @@ export default function Login() {
               )}
             </span>
 
-            Remember me
+            <span>{t("auth.login.rememberMe")}</span>
           </label>
 
-          <Link to="/ForgotPassword" className="forgot">
-            Forgot Password?
-          </Link>
+          <a href="/ForgotPassword" className="forgot">
+            {t("auth.login.forgotPassword")}
+          </a>
         </div>
 
-        {/* =====================================================
-            SIGN IN BUTTON
-        ===================================================== */}
-
+        {/* Sign In Button */}
         <button type="submit" className="sign-in">
-          Sign In
+          {t("auth.login.signIn")}
         </button>
+      </form>
 
-        {/* =====================================================
-            SEPARATOR
-        ===================================================== */}
+      {/* OR Separator */}
+      <div className="separator">
+        <span>{t("auth.login.or")}</span>
+      </div>
 
-        <div className="separator">
-          <span>OR</span>
-        </div>
-
-        {/* =====================================================
-            QUICK SIGN IN
-        ===================================================== */}
-
-        <button type="button" className="quick-signin">
-          <span className="fingerprint">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 11a2 2 0 012 2v1" />
-              <path d="M8 13a4 4 0 018 0v2" />
-              <path d="M6 13a6 6 0 0112 0v3" />
-              <path d="M4 13a8 8 0 0116 0v2" />
-              <path d="M10 13a2 2 0 014 0v4" />
-            </svg>
-          </span>
-
-          <span className="quick-text">
-            <span className="quick-title">
-              Quick Sign In
-            </span>
-
-            <span className="quick-subtitle">
-              Use your registered device
-            </span>
-          </span>
-
+      {/* Quick Sign In */}
+      <button
+        className="quick-signin"
+        type="button"
+        onClick={handleQuickSignIn}
+      >
+        <div className="fingerprint">
           <svg
-            className="arrow"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <path d="M5 12h14" />
-            <path d="M13 6l6 6-6 6" />
+            <path d="M7 10a5 5 0 0110 0c0 5-1 8-3 10" />
+            <path d="M9 10a3 3 0 016 0c0 4-.5 7-2 9" />
+            <path d="M5 10a7 7 0 0114 0c0 4-.5 7-2 10" />
+            <path d="M11 10a1 1 0 012 0c0 4-.3 6-1 8" />
+            <path d="M3 10a9 9 0 0118 0c0 3-.5 6-1.5 8" />
+            <path d="M8 14c-.2 2-.7 4-1.5 5" />
+            <path d="M16 14c-.1 2-.4 3.5-1 5" />
           </svg>
-        </button>
-      </form>
+        </div>
+
+        <div className="quick-text">
+          <div className="quick-title">{t("auth.login.quickSignIn")}</div>
+
+          <div className="quick-subtitle">{t("auth.login.quickSignInDesc")}</div>
+        </div>
+
+        <svg
+          className="arrow"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
     </MainAuthForm>
   );
 }
