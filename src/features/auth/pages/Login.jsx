@@ -145,7 +145,7 @@ export default function Login() {
             <span>Keep me signed in</span>
           </label>
 
-          <a href="/forgot-password" className="forgot">
+          <a href="/ForgotPassword" className="forgot">
             Forgot Password?
           </a>
         </div>

@@ -1,14 +1,20 @@
 import { useState } from "react";
-import "../../../Styles/auth/ResetPassword.css";
+import { useNavigate } from "react-router-dom";
+import "../../../styles/auth/ResetPassword.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import MainAuthForm from "../components/mainAuthForm";
 
 const ResetPassword = () => {
+  const navigate = useNavigate();
+
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const passwordRequirements = {
     length: newPassword.length >= 8,
@@ -20,7 +26,49 @@ const ResetPassword = () => {
 
   const strengthScore =
     Object.values(passwordRequirements).filter(Boolean).length;
+
   const strengthPercentage = (strengthScore / 5) * 100;
+
+  const handleResetPassword = async () => {
+    setError("");
+
+    // Check password requirements
+    if (strengthScore < 5) {
+      setError("Please meet all password requirements.");
+      return;
+    }
+
+    // Check matching passwords
+    if (newPassword !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    try {
+      setIsLoading(true);
+
+      // هنا تحطي API بتاع الـ backend
+      // مثال:
+      //
+      // const response = await axios.post("/api/reset-password", {
+      //   password: newPassword,
+      // });
+      //
+      // if (!response.data.success) {
+      //   throw new Error(response.data.message);
+      // }
+
+      // مؤقتًا للتجربة
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // لو الـ reset نجح
+      navigate("/password-reset-success");
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <MainAuthForm>
@@ -48,7 +96,6 @@ const ResetPassword = () => {
               type="button"
               className="password-toggle"
               onClick={() => setShowNewPassword(!showNewPassword)}
-              aria-label={showNewPassword ? "Hide password" : "Show password"}
             >
               {showNewPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -61,7 +108,7 @@ const ResetPassword = () => {
             <div
               className="strength-bar-fill"
               style={{ width: `${strengthPercentage}%` }}
-            ></div>
+            />
           </div>
 
           <span>Password strength</span>
@@ -74,7 +121,7 @@ const ResetPassword = () => {
                   : "requirement"
               }
             >
-              <span className="requirement-circle"></span>
+              <span className="requirement-circle" />
               At least 8 characters
             </div>
 
@@ -85,7 +132,7 @@ const ResetPassword = () => {
                   : "requirement"
               }
             >
-              <span className="requirement-circle"></span>
+              <span className="requirement-circle" />
               One uppercase letter
             </div>
 
@@ -96,7 +143,7 @@ const ResetPassword = () => {
                   : "requirement"
               }
             >
-              <span className="requirement-circle"></span>
+              <span className="requirement-circle" />
               One lowercase letter
             </div>
 
@@ -107,7 +154,7 @@ const ResetPassword = () => {
                   : "requirement"
               }
             >
-              <span className="requirement-circle"></span>
+              <span className="requirement-circle" />
               One number
             </div>
 
@@ -118,7 +165,7 @@ const ResetPassword = () => {
                   : "requirement"
               }
             >
-              <span className="requirement-circle"></span>
+              <span className="requirement-circle" />
               One special character
             </div>
           </div>
@@ -141,16 +188,22 @@ const ResetPassword = () => {
               type="button"
               className="password-toggle"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              aria-label={
-                showConfirmPassword ? "Hide password" : "Show password"
-              }
             >
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
         </div>
 
-        <button className="reset-password-button">Reset password</button>
+        {/* Error */}
+        {error && <p className="reset-password-error">{error}</p>}
+
+        <button
+          className="reset-password-button"
+          onClick={handleResetPassword}
+          disabled={isLoading}
+        >
+          {isLoading ? "Resetting..." : "Reset password"}
+        </button>
       </div>
     </MainAuthForm>
   );

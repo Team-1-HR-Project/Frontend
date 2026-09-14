@@ -4,6 +4,9 @@ const MainAuthForm = ({ children }) => {
   return (
     <div className="login-page-container">
       <div className="login-wrapper">
+        {/* LEFT SIDE: BRANDING */}
+        {/* الجزء ده ثابت في كل صفحات الـ Auth */}
+
         <div className="hero-side">
           <div className="brand">
             <div className="brand-logo">HR</div>
