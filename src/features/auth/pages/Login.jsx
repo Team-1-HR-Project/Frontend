@@ -1,10 +1,23 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
+import {
+  FiMail,
+  FiLock,
+  FiEye,
+  FiEyeOff,
+  FiCheck,
+  FiShield,
+  FiChevronRight,
+} from "react-icons/fi";
+
 import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
   const { t } = useTranslation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,11 +31,11 @@ export default function Login() {
     e.preventDefault();
 
     if (!email || !password) {
-      alert(t("auth.login.emailPasswordRequired"));
+      toast.error(t("auth.login.emailPasswordRequired"));
       return;
     }
 
-    alert(t("auth.login.signingInAlert", { email }));
+    toast.success(t("auth.login.signingInAlert", { email }));
   };
 
   const handleGoogleSignIn = () => {
@@ -37,9 +50,9 @@ export default function Login() {
 
       <p className="subtitle">
         {t("auth.login.noAccount")}{" "}
-        <a href="/register" className="signup-link">
+        <Link to="/register" className="signup-link">
           {t("auth.login.createOne")}
-        </a>
+        </Link>
       </p>
 
       <form onSubmit={handleSignIn}>
@@ -48,18 +61,7 @@ export default function Login() {
           <label htmlFor="email">{t("auth.login.workEmail")}</label>
 
           <div className="input-wrapper">
-            <svg
-              className="input-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="M3 7l9 6 9-6" />
-            </svg>
+            <FiMail className="input-icon" />
 
             <input
               id="email"
@@ -76,18 +78,7 @@ export default function Login() {
           <label htmlFor="password">{t("auth.login.password")}</label>
 
           <div className="input-wrapper">
-            <svg
-              className="input-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="5" y="10" width="14" height="11" rx="2" />
-              <path d="M8 10V7a4 4 0 018 0v3" />
-            </svg>
+            <FiLock className="input-icon" />
 
             <input
               id="password"
@@ -101,20 +92,17 @@ export default function Login() {
               className="password-toggle"
               type="button"
               onClick={togglePassword}
-              aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")}
+              aria-label={
+                showPassword
+                  ? t("auth.login.hidePassword")
+                  : t("auth.login.showPassword")
+              }
             >
-              <svg
-                id="eyeIcon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
-                <circle cx="12" cy="12" r="2.5" />
-              </svg>
+              {showPassword ? (
+                <FiEyeOff id="eyeIcon" />
+              ) : (
+                <FiEye id="eyeIcon" />
+              )}
             </button>
           </div>
         </div>
@@ -129,27 +117,14 @@ export default function Login() {
               onChange={(e) => setRememberMe(e.target.checked)}
             />
 
-            <span className="checkbox">
-              {rememberMe && (
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12l4 4L19 6" />
-                </svg>
-              )}
-            </span>
+            <span className="checkbox">{rememberMe && <FiCheck />}</span>
 
             <span>{t("auth.login.rememberMe")}</span>
           </label>
 
-          <a href="/ForgotPassword" className="forgot">
+          <Link to="/ForgotPassword" className="forgot">
             {t("auth.login.forgotPassword")}
-          </a>
+          </Link>
         </div>
 
         {/* Sign In Button */}
@@ -191,6 +166,7 @@ export default function Login() {
         <span style={{ fontSize: "14px", fontWeight: "600", color: "#10243a" }}>
           {t("auth.login.googleSignIn", "Sign in with Google")}
         </span>
+        <FiChevronRight className="arrow" />
       </button>
     </MainAuthForm>
   );

@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
+import { FiMail } from "react-icons/fi";
 import "../../../styles/auth/ForgotPassword.css";
 import MainAuthForm from "../components/mainAuthForm";
 
@@ -7,42 +10,36 @@ export default function ForgotPassword() {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email) {
-      alert(t("auth.forgotPassword.emailRequired"));
+    if (!email.trim()) {
+      toast.error(t("auth.forgotPassword.emailRequired"));
       return;
     }
 
-    alert(t("auth.forgotPassword.otpSent", { email }));
+    toast.success(t("auth.forgotPassword.otpSent", { email }));
+
+    setTimeout(() => {
+      navigate("/VerifyOTP");
+    }, 1500);
+    // Navigate to Verify OTP after showing the toast
   };
 
   return (
     <MainAuthForm>
       <h1 className="title">{t("auth.forgotPassword.title")}</h1>
 
-      <p className="subtitle">
-        {t("auth.forgotPassword.subtitle")}
-      </p>
+      <p className="subtitle">{t("auth.forgotPassword.subtitle")}</p>
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="email">{t("auth.forgotPassword.workEmail")}</label>
 
           <div className="input-wrapper">
-            <svg
-              className="input-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="M3 7l9 6 9-6" />
-            </svg>
+            <FiMail className="input-icon" />
 
             <input
               id="email"
@@ -58,10 +55,6 @@ export default function ForgotPassword() {
           {t("auth.forgotPassword.sendCode")}
         </button>
       </form>
-
-      <div className="back-login">
-        <a href="/login">{t("auth.forgotPassword.backToSignIn")}</a>
-      </div>
     </MainAuthForm>
   );
 }

@@ -4,8 +4,9 @@ import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import "../../../styles/auth/VerifyOTP.css";
 import MainAuthForm from "../components/mainAuthForm";
-
 export default function VerifyOTP() {
+  console.log("VERIFY OTP PAGE RENDERED");
+
   const { t } = useTranslation();
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
@@ -74,9 +75,7 @@ export default function VerifyOTP() {
     <MainAuthForm>
       <h1 className="title">{t("auth.verifyOtp.title")}</h1>
 
-      <p className="subtitle">
-        {t("auth.verifyOtp.subtitle")}
-      </p>
+      <p className="subtitle">{t("auth.verifyOtp.subtitle")}</p>
 
       <form onSubmit={handleVerify}>
         <div className="form-group">
@@ -108,7 +107,11 @@ export default function VerifyOTP() {
         {timer > 0 ? (
           <span>
             {t("auth.verifyOtp.resendPrompt")}{" "}
-            <strong>{t("auth.verifyOtp.resendIn", { time: `00:${timer.toString().padStart(2, "0")}` })}</strong>
+            <strong>
+              {t("auth.verifyOtp.resendIn", {
+                time: `00:${timer.toString().padStart(2, "0")}`,
+              })}
+            </strong>
           </span>
         ) : (
           <>
