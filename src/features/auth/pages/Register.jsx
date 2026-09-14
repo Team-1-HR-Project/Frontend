@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Register() {
+  const { t } = useTranslation();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [contact, setContact] = useState("");
@@ -13,7 +16,8 @@ export default function Register() {
   const [showConfirmPassword, setShowConfirmPassword] =
     useState(false);
 
-  const [message, setMessage] = useState("");
+  const [messageKey, setMessageKey] = useState("");
+  const [messageParams, setMessageParams] = useState(null);
   const [messageType, setMessageType] = useState("");
 
   /* =========================
@@ -31,7 +35,8 @@ export default function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    setMessage("");
+    setMessageKey("");
+    setMessageParams(null);
     setMessageType("");
 
     // Required fields
@@ -42,31 +47,28 @@ export default function Register() {
       !password ||
       !confirmPassword
     ) {
-      setMessage("Please fill in all required fields.");
+      setMessageKey("auth.register.errorRequired");
       setMessageType("error");
       return;
     }
 
     // Password requirements
     if (!hasMinLength || !hasLetter || !hasNumber) {
-      setMessage(
-        "Please make sure your password meets all requirements."
-      );
+      setMessageKey("auth.register.errorRequirements");
       setMessageType("error");
       return;
     }
 
     // Password match
     if (password !== confirmPassword) {
-      setMessage("Passwords do not match.");
+      setMessageKey("auth.register.errorMismatch");
       setMessageType("error");
       return;
     }
 
     // Success
-    setMessage(
-      `Account created successfully for ${firstName} ${lastName}.`
-    );
+    setMessageKey("auth.register.successMessage");
+    setMessageParams({ firstName, lastName });
     setMessageType("success");
 
     console.log("Register:", {
@@ -79,12 +81,12 @@ export default function Register() {
 
   return (
     <MainAuthForm>
-      <h1 className="title">Create an account</h1>
+      <h1 className="title">{t("auth.register.title")}</h1>
 
       <p className="subtitle">
-        Already have an account?{" "}
+        {t("auth.register.alreadyHaveAccount")}{" "}
         <Link to="/login" className="signup-link">
-          Sign in
+          {t("auth.register.signIn")}
         </Link>
       </p>
 
@@ -100,7 +102,7 @@ export default function Register() {
           {/* First Name */}
           <div className="form-group">
             <label htmlFor="firstName">
-              First Name
+              {t("auth.register.firstName")}
             </label>
 
             <div className="input-wrapper">
@@ -120,7 +122,7 @@ export default function Register() {
               <input
                 id="firstName"
                 type="text"
-                placeholder="Enter your first name"
+                placeholder={t("auth.register.firstNamePlaceholder")}
                 value={firstName}
                 onChange={(e) =>
                   setFirstName(e.target.value)
@@ -132,7 +134,7 @@ export default function Register() {
           {/* Last Name */}
           <div className="form-group">
             <label htmlFor="lastName">
-              Last Name
+              {t("auth.register.lastName")}
             </label>
 
             <div className="input-wrapper">
@@ -152,7 +154,7 @@ export default function Register() {
               <input
                 id="lastName"
                 type="text"
-                placeholder="Enter your last name"
+                placeholder={t("auth.register.lastNamePlaceholder")}
                 value={lastName}
                 onChange={(e) =>
                   setLastName(e.target.value)
@@ -168,7 +170,7 @@ export default function Register() {
 
         <div className="form-group">
           <label htmlFor="contact">
-            Contact
+            {t("auth.register.contact")}
           </label>
 
           <div className="input-wrapper">
@@ -194,7 +196,7 @@ export default function Register() {
             <input
               id="contact"
               type="text"
-              placeholder="Enter your email or phone number"
+              placeholder={t("auth.register.contactPlaceholder")}
               value={contact}
               onChange={(e) =>
                 setContact(e.target.value)
@@ -203,8 +205,7 @@ export default function Register() {
           </div>
 
           <span className="field-hint">
-            You can register using either an email address
-            or a phone number.
+            {t("auth.register.contactHint")}
           </span>
         </div>
 
@@ -214,7 +215,7 @@ export default function Register() {
 
         <div className="form-group password-group">
           <label htmlFor="password">
-            Password
+            {t("auth.register.password")}
           </label>
 
           <div className="input-wrapper">
@@ -240,7 +241,7 @@ export default function Register() {
             <input
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder={t("auth.register.passwordPlaceholder")}
               value={password}
               onChange={(e) =>
                 setPassword(e.target.value)
@@ -255,8 +256,8 @@ export default function Register() {
               }
               aria-label={
                 showPassword
-                  ? "Hide password"
-                  : "Show password"
+                  ? t("auth.register.hidePassword")
+                  : t("auth.register.showPassword")
               }
             >
               <svg
@@ -292,7 +293,7 @@ export default function Register() {
               }`}
             >
               <span className="dot"></span>
-              8+ characters
+              {t("auth.register.reqLength")}
             </span>
 
             <span
@@ -301,7 +302,7 @@ export default function Register() {
               }`}
             >
               <span className="dot"></span>
-              Contains a letter
+              {t("auth.register.reqLetter")}
             </span>
 
             <span
@@ -310,7 +311,7 @@ export default function Register() {
               }`}
             >
               <span className="dot"></span>
-              Contains a number
+              {t("auth.register.reqNumber")}
             </span>
           </div>
         </div>
@@ -321,7 +322,7 @@ export default function Register() {
 
         <div className="form-group password-group">
           <label htmlFor="confirmPassword">
-            Confirm Password
+            {t("auth.register.confirmPassword")}
           </label>
 
           <div className="input-wrapper">
@@ -351,7 +352,7 @@ export default function Register() {
                   ? "text"
                   : "password"
               }
-              placeholder="Re-enter your password"
+              placeholder={t("auth.register.confirmPasswordPlaceholder")}
               value={confirmPassword}
               onChange={(e) =>
                 setConfirmPassword(e.target.value)
@@ -368,8 +369,8 @@ export default function Register() {
               }
               aria-label={
                 showConfirmPassword
-                  ? "Hide confirm password"
-                  : "Show confirm password"
+                  ? t("auth.register.hideConfirmPassword")
+                  : t("auth.register.showConfirmPassword")
               }
             >
               <svg
@@ -401,7 +402,7 @@ export default function Register() {
           {confirmPassword &&
             password !== confirmPassword && (
               <span className="confirm-error">
-                Passwords do not match.
+                {t("auth.register.errorMismatch")}
               </span>
             )}
         </div>
@@ -414,14 +415,14 @@ export default function Register() {
           type="submit"
           className="submit-btn"
         >
-          Create Account
+          {t("auth.register.createAccount")}
         </button>
 
         {/* =========================
             MESSAGE
         ========================= */}
 
-        {message && (
+        {messageKey && (
           <div
             className={`form-message ${messageType}`}
           >
@@ -429,7 +430,7 @@ export default function Register() {
               {messageType === "success" ? "✓" : "!"}
             </span>
 
-            <span>{message}</span>
+            <span>{t(messageKey, messageParams)}</span>
           </div>
         )}
 
@@ -438,9 +439,11 @@ export default function Register() {
         ========================= */}
 
         <p className="terms-text">
-          By creating an account, you agree to Smart HR's{" "}
-          <a href="#terms">Terms of Service</a> and{" "}
-          <a href="#privacy">Privacy Policy</a>.
+          {t("auth.register.agreePrefix")}
+          <a href="#terms">{t("auth.register.termsOfService")}</a>
+          {t("auth.register.and")}
+          <a href="#privacy">{t("auth.register.privacyPolicy")}</a>
+          {t("auth.register.termsSuffix")}
         </p>
       </form>
     </MainAuthForm>

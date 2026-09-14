@@ -60,3 +60,26 @@
   margin-left: 0;
   margin-right: 5px;
 }
+
+/* Register Page RTL Support */
+[dir="rtl"] .register-form .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .register-form .input-wrapper input {
+  padding: 0 44px 0 15px;
+}
+
+[dir="rtl"] .register-form .password-group input {
+  padding: 0 44px 0 48px;
+}
+
+[dir="rtl"] .register-form .input-icon {
+  left: auto;
+  right: 15px;
+}
+
+[dir="rtl"] .register-form .password-toggle {
+  right: auto;
+  left: 12px;
+}
