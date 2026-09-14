@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import "../../../Styles/Login.css";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import "../../../Styles/auth/Login.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -16,34 +18,34 @@ export default function Login() {
     e.preventDefault();
 
     if (!email || !password) {
-      alert("Please enter your email and password.");
+      alert(t("auth.login.emailPasswordRequired"));
       return;
     }
 
-    alert(`Signing in with Email: ${email}`);
+    alert(t("auth.login.signingInAlert", { email }));
   };
 
   const handleQuickSignIn = () => {
-    alert("Biometric Sign-In clicked!");
+    alert(t("auth.login.quickSignInAlert"));
   };
 
   return (
     <MainAuthForm>
       {/* RIGHT SIDE: FORM */}
 
-      <h1 className="title">Welcome Back</h1>
+      <h1 className="title">{t("auth.login.title")}</h1>
 
       <p className="subtitle">
-        Don't have an account?{" "}
+        {t("auth.login.noAccount")}{" "}
         <a href="/register" className="signup-link">
-          Create one
+          {t("auth.login.createOne")}
         </a>
       </p>
 
       <form onSubmit={handleSignIn}>
         {/* Email */}
         <div className="form-group">
-          <label htmlFor="email">Work Email</label>
+          <label htmlFor="email">{t("auth.login.workEmail")}</label>
 
           <div className="input-wrapper">
             <svg
@@ -62,7 +64,7 @@ export default function Login() {
             <input
               id="email"
               type="email"
-              placeholder="name@company.com"
+              placeholder={t("auth.login.emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -71,7 +73,7 @@ export default function Login() {
 
         {/* Password */}
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">{t("auth.login.password")}</label>
 
           <div className="input-wrapper">
             <svg
@@ -90,7 +92,7 @@ export default function Login() {
             <input
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder={t("auth.login.passwordPlaceholder")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -99,6 +101,7 @@ export default function Login() {
               className="password-toggle"
               type="button"
               onClick={togglePassword}
+              aria-label={showPassword ? t("auth.login.hidePassword") : t("auth.login.showPassword")}
             >
               <svg
                 id="eyeIcon"
@@ -141,23 +144,23 @@ export default function Login() {
               )}
             </span>
 
-            <span>Keep me signed in</span>
+            <span>{t("auth.login.rememberMe")}</span>
           </label>
 
           <a href="/ForgotPassword" className="forgot">
-            Forgot Password?
+            {t("auth.login.forgotPassword")}
           </a>
         </div>
 
         {/* Sign In Button */}
         <button type="submit" className="sign-in">
-          Sign In
+          {t("auth.login.signIn")}
         </button>
       </form>
 
       {/* OR Separator */}
       <div className="separator">
-        <span>OR</span>
+        <span>{t("auth.login.or")}</span>
       </div>
 
       {/* Quick Sign In */}
@@ -186,9 +189,9 @@ export default function Login() {
         </div>
 
         <div className="quick-text">
-          <div className="quick-title">Quick Sign-In</div>
+          <div className="quick-title">{t("auth.login.quickSignIn")}</div>
 
-          <div className="quick-subtitle">Use Fingerprint or Face ID</div>
+          <div className="quick-subtitle">{t("auth.login.quickSignInDesc")}</div>
         </div>
 
         <svg
