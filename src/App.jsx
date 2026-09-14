@@ -1,7 +1,7 @@
-
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
+import Home from "./features/home";
 import Login from "./features/auth/pages/Login";
 import Register from "./features/auth/pages/Register";
 import ForgotPassword from "./features/auth/pages/ForgotPassword";
@@ -21,31 +21,19 @@ function App() {
       />
 
       <Routes>
-        {/* Default Route */}
-        <Route
-          path="/"
-          element={<Navigate to="/login" replace />}
-        />
+        {/* Home Route */}
+        <Route path="/" element={<Home />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {/* Password Reset */}
-        <Route
-          path="/ForgotPassword"
-          element={<ForgotPassword />}
-        />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
-        <Route
-          path="/VerifyOTP"
-          element={<VerifyOTP />}
-        />
+        <Route path="/VerifyOTP" element={<VerifyOTP />} />
 
-        <Route
-          path="/ResetPassword"
-          element={<ResetPassword />}
-        />
+        <Route path="/ResetPassword" element={<ResetPassword />} />
 
         <Route
           path="/password-reset-success"
