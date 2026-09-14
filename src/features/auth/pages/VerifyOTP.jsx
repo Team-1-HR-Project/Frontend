@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import "../../../styles/auth/VerifyOTP.css";
 import MainAuthForm from "../components/mainAuthForm";
 
 export default function VerifyOTP() {
+  const { t } = useTranslation();
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(60);
 
@@ -49,11 +51,11 @@ export default function VerifyOTP() {
     const code = otp.join("");
 
     if (code.length !== 6) {
-      toast.error("Please enter the 6-digit verification code.");
+      toast.error(t("auth.verifyOtp.codeLengthError"));
       return;
     }
 
-    toast.success("OTP verified successfully!");
+    toast.success(t("auth.verifyOtp.verifiedSuccess"));
 
     // Go to Reset Password page
     navigate("/ResetPassword");
@@ -65,20 +67,20 @@ export default function VerifyOTP() {
 
     inputRefs.current[0]?.focus();
 
-    toast.success("A new verification code has been sent!");
+    toast.success(t("auth.verifyOtp.resendSuccess"));
   };
 
   return (
     <MainAuthForm>
-      <h1 className="title">Verify Your Email</h1>
+      <h1 className="title">{t("auth.verifyOtp.title")}</h1>
 
       <p className="subtitle">
-        Enter the 6-digit verification code sent to your email.
+        {t("auth.verifyOtp.subtitle")}
       </p>
 
       <form onSubmit={handleVerify}>
         <div className="form-group">
-          <label>Verification Code</label>
+          <label>{t("auth.verifyOtp.codeLabel")}</label>
 
           <div className="otp-container">
             {otp.map((digit, index) => (
@@ -98,29 +100,29 @@ export default function VerifyOTP() {
         </div>
 
         <button type="submit" className="sign-in">
-          Verify Code
+          {t("auth.verifyOtp.verifyButton")}
         </button>
       </form>
 
       <div className="resend-code">
         {timer > 0 ? (
           <span>
-            Resend code{" "}
-            <strong>in 00:{timer.toString().padStart(2, "0")}</strong>
+            {t("auth.verifyOtp.resendPrompt")}{" "}
+            <strong>{t("auth.verifyOtp.resendIn", { time: `00:${timer.toString().padStart(2, "0")}` })}</strong>
           </span>
         ) : (
           <>
-            <span>Didn't receive the code?</span>
+            <span>{t("auth.verifyOtp.didntReceive")}</span>
 
             <button type="button" onClick={handleResend}>
-              Resend Code
+              {t("auth.verifyOtp.resendCode")}
             </button>
           </>
         )}
       </div>
 
       <div className="back-login">
-        <a href="/login">← Back to Sign In</a>
+        <a href="/login">{t("auth.verifyOtp.backToSignIn")}</a>
       </div>
     </MainAuthForm>
   );
