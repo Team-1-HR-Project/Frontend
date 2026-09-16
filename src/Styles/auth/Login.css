@@ -69,6 +69,8 @@ body {
 
   background: linear-gradient(135deg, #1e354d 0%, #243f5a 100%);
 
+  background: linear-gradient(135deg, #1e354d 0%, #243f5a 100%);
+
   color: #ffffff;
 
   padding: 48px;
@@ -122,7 +124,7 @@ body {
 .brand-name {
   font-size: 18px;
   font-weight: 700;
-
+  color: #d9e3f0;
   line-height: 1.2;
 }
 
