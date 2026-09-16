@@ -2,35 +2,40 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import { NotificationProvider } from "../context/NotificationContext";
 import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // للتجربة والعمل: تم تغيير الدور إلى admin للعمل على لوحة تحكم الإدارة
-  const currentUserRole = "admin"; 
+
+  // الدور حاليًا للتجربة
+  // بعدين هييجي من الـ Backend
+  const currentUserRole = "admin";
 
   return (
-    <div className="portal-shell">
-      {/* السايد بار الثابت */}
-      <Sidebar 
-        role={currentUserRole} 
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-      />
-      
-      {/* القسم الرئيسي */}
-      <div className="main-area">
-        <Header 
-          role={currentUserRole} 
-          onToggleMenu={() => setMobileMenuOpen(!mobileMenuOpen)}
+    <NotificationProvider>
+      <div className="portal-shell">
+
+        <Sidebar
+          role={currentUserRole}
+          isOpen={mobileMenuOpen}
+          onClose={() => setMobileMenuOpen(false)}
         />
-        
-        {/* محتوى الصفحة المتغير */}
-        <main className="content-outlet">
-          <Outlet /> 
-        </main>
+
+        <div className="main-area">
+
+          <Header
+            role={currentUserRole}
+            onToggleMenu={() => setMobileMenuOpen(!mobileMenuOpen)}
+          />
+
+          <main className="content-outlet">
+            <Outlet />
+          </main>
+
+        </div>
       </div>
-    </div>
+    </NotificationProvider>
   );
 };
 

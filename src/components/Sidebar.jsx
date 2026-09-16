@@ -2,11 +2,14 @@ import { NavLink } from "react-router-dom";
 import { FiArrowRight, FiMoreHorizontal, FiHelpCircle } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import { navConfig } from "../navigation/navConfig";
+import { useNotifications } from "../context/NotificationContext";
 import logoImg from "../assets/Logos.svg";
 import "./Sidebar.css";
 
 const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t } = useTranslation();
+  const { unreadCount } = useNotifications();
+
   const links = navConfig[role] || [];
 
   // Initials for avatar
@@ -19,7 +22,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
     <>
       {/* Mobile backdrop */}
       {isOpen && (
-        <div 
+        <div
           onClick={onClose}
           style={{
             position: "fixed",
@@ -58,6 +61,10 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               >
                 {Icon && <Icon />}
                 <span>{title}</span>
+                {link.path === "/admin/notifications" && unreadCount > 0 && (
+                  <b>{unreadCount}</b>
+                )}
+
                 {link.badge && <b>{link.badge}</b>}
               </NavLink>
             );
