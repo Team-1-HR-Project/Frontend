@@ -4,6 +4,7 @@ import {
   MdAttachMoney,
   MdEventNote,
   MdSettings,
+  MdHistory,
 } from "react-icons/md";
 
 export const navConfig = {
@@ -19,6 +20,12 @@ export const navConfig = {
       title: "All Users",
       path: "/admin/users",
       icon: MdPeople,
+    },
+    {
+      titleKey: "portal.activityLog",
+      title: "Activity Log",
+      path: "/admin/activity-log",
+      icon: MdHistory,
     },
     {
       titleKey: "portal.settings",
