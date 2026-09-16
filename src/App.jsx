@@ -9,6 +9,7 @@ import VerifyOTP from "./features/auth/pages/VerifyOTP";
 import ResetPassword from "./features/auth/pages/ResetPassword";
 import PasswordResetSuccess from "./features/auth/pages/PasswordResetSuccess";
 import DashboardLayout from "./layouts/DashboardLayout";
+import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
 import { useTranslation } from "react-i18next";
 
 function DashboardPlaceholder({ messageKey, defaultMessage }) {
@@ -43,7 +44,7 @@ function App() {
         {/* --- مسارات لوحة التحكم (Dashboard) --- */}
         <Route element={<DashboardLayout />}>
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="/admin/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeAdmin" defaultMessage="مرحباً بك في لوحة تحكم الإدارة" />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<DashboardPlaceholder messageKey="portal.allUsers" defaultMessage="جميع المستخدمين" />} />
           <Route path="/admin/settings" element={<DashboardPlaceholder messageKey="portal.settings" defaultMessage="الإعدادات" />} />
           <Route path="/hr/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeHr" defaultMessage="مرحباً بك في لوحة تحكم الـ HR" />} />
