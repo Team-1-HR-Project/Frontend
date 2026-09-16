@@ -8,7 +8,6 @@ import {
   FiEye,
   FiEyeOff,
   FiCheck,
-  FiShield,
   FiChevronRight,
 } from "react-icons/fi";
 

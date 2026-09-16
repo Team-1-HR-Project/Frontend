@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Home from "./features/home";
@@ -17,18 +17,13 @@ function App() {
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
-
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
         {/* Password Reset */}
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
-
         <Route path="/VerifyOTP" element={<VerifyOTP />} />
-
         <Route path="/ResetPassword" element={<ResetPassword />} />
-
         <Route
           path="/password-reset-success"
           element={<PasswordResetSuccess />}
