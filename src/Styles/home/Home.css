@@ -100,6 +100,7 @@
    HEADER & NAVBAR (FIXED STICKY)
 ===================================================== */
 .site-header {
+  border: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1691,4 +1692,48 @@ h2 em {
   right: 0 !important;
   width: 100% !important;
   z-index: 99999 !important;
+}
+
+/* =====================================================
+   TRUST STRIP — MARQUEE (Swiper)
+===================================================== */
+
+/* الكونتينر الخارجي: يمنع أي سكرول أفقي ويضبط القص */
+.trust-items-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Swiper الأساسي */
+.trust-items-swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* حركة خطية ناعمة بدون تسارع/تباطؤ عند كل شريحة */
+.trust-items-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+  align-items: center;
+}
+
+/* كل Slide: تنسيق الخط والألوان الأساسية بنفس هوية trust-items القديمة */
+.trust-items-swiper .swiper-slide {
+  width: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #486581; /* Steel Blue */
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: #ffffff;
+}
+
+/* تمييز اختياري عند الحاجة لعنصر بارز داخل الشريط */
+.trust-items-swiper .swiper-slide:hover {
+  color: #243b53;
+  /* Deep Navy */
 }

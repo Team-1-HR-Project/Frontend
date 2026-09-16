@@ -18,7 +18,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="hero">
       <div className="container">
-        <div className="hero-grid">
+        <div className="hero-grid" style={{marginTop:'2.5rem'}}>
           {/* =========================
               LEFT COLUMN
           ========================= */}
