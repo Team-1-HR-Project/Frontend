@@ -1,7 +1,24 @@
-import React, { useState } from "react";
-import "../../../Styles/Login.css"; // تعديل المسار للربط بملف الـ CSS
+import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
+import {
+  FiMail,
+  FiLock,
+  FiEye,
+  FiEyeOff,
+  FiCheck,
+  FiShield,
+  FiChevronRight,
+} from "react-icons/fi";
+
+import "../../../Styles/auth/Login.css";
+import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
+  const { t } = useTranslation();
+  const loginMutation = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -13,214 +30,174 @@ export default function Login() {
 
   const handleSignIn = (e) => {
     e.preventDefault();
+
     if (!email || !password) {
-      alert("Please enter your email and password.");
+      toast.error(t("auth.login.emailPasswordRequired"));
       return;
     }
-    alert(`Signing in with Email: ${email}`);
+
+    // toast.success(t("auth.login.signingInAlert", { email }));
+    loginMutation.mutate(
+      {
+        email,
+        password,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("Login response:", data);
+
+          toast.success(t("auth.login.signingInAlert", { email }));
+        },
+
+        onError: (error) => {
+          console.log("Login error:", error);
+
+          toast.error(
+            error?.response?.data?.message ||
+              "Something went wrong. Please try again.",
+          );
+        },
+      },
+    );
   };
 
-  const handleQuickSignIn = () => {
-    alert("Biometric Sign-In clicked!");
+  const handleGoogleSignIn = () => {
+    alert("Google Sign-In clicked!");
   };
 
   return (
-    <div className="login-page-container">
-      <div className="login-wrapper">
-        {/* LEFT SIDE: BRANDING */}
-        <div className="hero-side">
-          <div className="brand">
-            <div className="brand-logo">HR</div>
-            <div>
-              <div className="brand-name">SMART HR</div>
-              <div className="brand-subtitle">Employee Companion Portal</div>
-            </div>
-          </div>
+    <MainAuthForm>
+      {/* RIGHT SIDE: FORM */}
 
-          <div className="hero-body">
-            <h2>Streamline Your Workspace & People Operations</h2>
-            <p>
-              Access your portal securely to manage your daily workspace,
-              benefits, and workplace tools.
-            </p>
-          </div>
+      <h1 className="title">{t("auth.login.title")}</h1>
 
-          <div className="security-badge">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z" />
-              <path d="M9.5 12l1.7 1.7 3.4-3.4" />
-            </svg>
-            <span>Enterprise v2026 — Secure Workspace</span>
+      <p className="subtitle">
+        {t("auth.login.noAccount")}{" "}
+        <Link to="/register" className="signup-link">
+          {t("auth.login.createOne")}
+        </Link>
+      </p>
+
+      <form onSubmit={handleSignIn}>
+        {/* Email */}
+        <div className="form-group">
+          <label htmlFor="email">{t("auth.login.workEmail")}</label>
+
+          <div className="input-wrapper">
+            <FiMail className="input-icon" />
+
+            <input
+              id="email"
+              type="email"
+              placeholder={t("auth.login.emailPlaceholder")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
         </div>
 
-        {/* RIGHT SIDE: FORM */}
-        <main className="form-side">
-          <h1 className="title">Welcome Back</h1>
-          <p className="subtitle">
-            Don't have an account?{" "}
-            <a href="/register" className="signup-link">
-              Create one
-            </a>
-          </p>
+        {/* Password */}
+        <div className="form-group">
+          <label htmlFor="password">{t("auth.login.password")}</label>
 
-          <form onSubmit={handleSignIn}>
-            {/* Email */}
-            <div className="form-group">
-              <label htmlFor="email">Work Email</label>
-              <div className="input-wrapper">
-                <svg
-                  className="input-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="M3 7l9 6 9-6" />
-                </svg>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="name@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-            </div>
+          <div className="input-wrapper">
+            <FiLock className="input-icon" />
 
-            {/* Password */}
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <div className="input-wrapper">
-                <svg
-                  className="input-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="5" y="10" width="14" height="11" rx="2" />
-                  <path d="M8 10V7a4 4 0 018 0v3" />
-                </svg>
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <button
-                  className="password-toggle"
-                  type="button"
-                  onClick={togglePassword}
-                >
-                  <svg
-                    id="eyeIcon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" />
-                    <circle cx="12" cy="12" r="2.5" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder={t("auth.login.passwordPlaceholder")}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-            {/* Options */}
-            <div className="form-options">
-              <label className="remember">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                <span className="checkbox">
-                  {rememberMe && (
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12l4 4L19 6" />
-                    </svg>
-                  )}
-                </span>
-                <span>Keep me signed in</span>
-              </label>
-              <a href="/forgot-password" className="forgot">
-                Forgot Password?
-              </a>
-            </div>
-
-            {/* Sign In Button */}
-            <button type="submit" className="sign-in">
-              Sign In
-            </button>
-          </form>
-
-          {/* OR Separator */}
-          <div className="separator">
-            <span>OR</span>
-          </div>
-
-          {/* Quick Sign In */}
-          <button className="quick-signin" onClick={handleQuickSignIn}>
-            <div className="fingerprint">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 10a5 5 0 0110 0c0 5-1 8-3 10" />
-                <path d="M9 10a3 3 0 016 0c0 4-.5 7-2 9" />
-                <path d="M5 10a7 7 0 0114 0c0 4-.5 7-2 10" />
-                <path d="M11 10a1 1 0 012 0c0 4-.3 6-1 8" />
-                <path d="M3 10a9 9 0 0118 0c0 3-.5 6-1.5 8" />
-                <path d="M8 14c-.2 2-.7 4-1.5 5" />
-                <path d="M16 14c-.1 2-.4 3.5-1 5" />
-              </svg>
-            </div>
-            <div className="quick-text">
-              <div className="quick-title">Quick Sign-In</div>
-              <div className="quick-subtitle">Use Fingerprint or Face ID</div>
-            </div>
-            <svg
-              className="arrow"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            <button
+              className="password-toggle"
+              type="button"
+              onClick={togglePassword}
+              aria-label={
+                showPassword
+                  ? t("auth.login.hidePassword")
+                  : t("auth.login.showPassword")
+              }
             >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </main>
+              {showPassword ? (
+                <FiEyeOff id="eyeIcon" />
+              ) : (
+                <FiEye id="eyeIcon" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Options */}
+        <div className="form-options">
+          <label className="remember">
+            <input
+              type="checkbox"
+              id="remember"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+
+            <span className="checkbox">{rememberMe && <FiCheck />}</span>
+
+            <span>{t("auth.login.rememberMe")}</span>
+          </label>
+
+          <Link to="/ForgotPassword" className="forgot">
+            {t("auth.login.forgotPassword")}
+          </Link>
+        </div>
+
+        {/* Sign In Button */}
+        {/* <button type="submit" className="sign-in">
+          {t("auth.login.signIn")}
+        </button> */}
+        <button
+          type="submit"
+          className="sign-in"
+          disabled={loginMutation.isPending}
+        >
+          {loginMutation.isPending ? "Signing in..." : t("auth.login.signIn")}
+        </button>
+      </form>
+
+      {/* OR Separator */}
+      <div className="separator">
+        <span>{t("auth.login.or")}</span>
       </div>
-    </div>
+
+      {/* Google Sign In */}
+      <button
+        className="quick-signin"
+        type="button"
+        onClick={handleGoogleSignIn}
+        style={{ justifyContent: "center", gap: "10px" }}
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20">
+          <path
+            fill="#4285F4"
+            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+          />
+          <path
+            fill="#34A853"
+            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+          />
+          <path
+            fill="#FBBC05"
+            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+          />
+          <path
+            fill="#EA4335"
+            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+          />
+        </svg>
+        <span style={{ fontSize: "14px", fontWeight: "600", color: "#10243a" }}>
+          {t("auth.login.googleSignIn", "Sign in with Google")}
+        </span>
+        <FiChevronRight className="arrow" />
+      </button>
+    </MainAuthForm>
   );
 }
