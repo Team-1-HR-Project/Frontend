@@ -1,0 +1,252 @@
+:root {
+  --navy: #243b53;
+  --navy-2: #102a43;
+  --steel: #486581;
+  --green: #5b8c6a;
+  --success: #3f7d5a;
+  --canvas: #f5f7f8;
+  --border: #d9e2ec;
+  --muted: #627d98;
+  --ink: #243b53;
+  --soft: #eef2f5;
+  --radius: 12px;
+}
+
+.sidebar {
+  background: var(--navy);
+  color: #d9e2ec;
+  z-index: 40;
+  flex-direction: column;
+  width: 256px;
+  padding: 22px 14px 16px;
+  display: flex;
+  position: fixed;
+  inset: 0 auto 0 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.brand {
+  color: #fff;
+  letter-spacing: -0.02em;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px 24px;
+  font-size: 20px;
+  font-weight: 750;
+  display: flex;
+}
+
+.brand-logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.brand span {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.workspace-label {
+  color: #829ab1;
+  letter-spacing: 0.12em;
+  padding: 0 13px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.side-nav {
+  flex-direction: column;
+  gap: 3px;
+  display: flex;
+}
+
+.nav-item {
+  color: #bcccdc;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 13px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.nav-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #fff;
+  background: #334e68;
+}
+
+.nav-item.active {
+  box-shadow: inset 3px 0 #73b6a0;
+}
+
+.nav-item b {
+  color: #fff;
+  background: #e56b6f;
+  border-radius: 10px;
+  margin-left: auto;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.help-card {
+  background: #2d4a65;
+  border: 1px solid #486581;
+  border-radius: 9px;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding: 12px;
+  display: flex;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.help-card:hover {
+  background: #335575;
+}
+
+.help-card svg:first-child {
+  color: #8ed2b1;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.help-card div {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+
+.help-card strong,
+.user-mini strong {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.help-card span,
+.user-mini span {
+  color: #9fb3c8;
+  margin-top: 2px;
+  font-size: 10px;
+}
+
+.help-card svg:last-child {
+  width: 14px;
+  height: 14px;
+  color: #9fb3c8;
+  flex-shrink: 0;
+}
+
+.user-mini {
+  border-top: 1px solid #486581;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 4px 0;
+  display: flex;
+}
+
+.user-mini div:nth-child(2) {
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+
+.avatar {
+  color: #3f7d5a;
+  background: #d9eee7;
+  border-radius: 50%;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  font-weight: 800;
+  display: grid;
+  flex-shrink: 0;
+}
+
+.user-mini > svg {
+  color: #9fb3c8;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 760px) {
+  .sidebar {
+    transform: translate(-100%);
+    box-shadow: 10px 0 30px #102a4330;
+  }
+  .sidebar.sidebar-open {
+    transform: translate(0);
+  }
+}
+
+/* RTL Direction Support */
+[dir="rtl"] .sidebar,
+.rtl .sidebar {
+  inset: 0 0 0 auto;
+}
+
+[dir="rtl"] .nav-item,
+.rtl .nav-item {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-item.active,
+.rtl .nav-item.active {
+  box-shadow: inset -3px 0 #73b6a0;
+}
+
+[dir="rtl"] .nav-item b,
+.rtl .nav-item b {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .help-card .card-arrow,
+.rtl .help-card .card-arrow {
+  transform: scaleX(-1);
+}
+
+@media (max-width: 760px) {
+  [dir="rtl"] .sidebar,
+  .rtl .sidebar {
+    transform: translate(100%);
+    box-shadow: -10px 0 30px #102a4330;
+  }
+  [dir="rtl"] .sidebar.sidebar-open,
+  .rtl .sidebar.sidebar-open {
+    transform: translate(0);
+  }
+}

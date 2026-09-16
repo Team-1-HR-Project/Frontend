@@ -572,5 +572,30 @@
       },
       "copyright": "© 2026 WorkWise. All rights reserved."
     }
+  },
+  "portal": {
+    "searchPlaceholder": "Search tasks, policies, calendar...",
+    "employeePortal": "EMPLOYEE PORTAL",
+    "hrPortal": "HR PORTAL",
+    "managerPortal": "MANAGER PORTAL",
+    "adminPortal": "ADMIN PORTAL",
+    "dashboard": "Dashboard",
+    "myLeaves": "My Leaves",
+    "myPayslip": "My Payslip",
+    "allUsers": "All Users",
+    "settings": "Settings",
+    "employees": "Employees",
+    "payroll": "Payroll",
+    "leaves": "Leaves",
+    "myTeam": "My Team",
+    "teamLeaves": "Team Leaves",
+    "needAHand": "Need a hand?",
+    "askAi": "Ask the AI Assistant",
+    "employeeAccount": "Employee Account",
+    "staffMember": "Staff Member",
+    "adminAccount": "Admin Account",
+    "hrAccount": "HR Account",
+    "managerAccount": "Manager Account",
+    "welcomeEmployee": "Welcome to Employee Dashboard"
   }
 }
