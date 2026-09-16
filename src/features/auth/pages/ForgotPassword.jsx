@@ -5,27 +5,46 @@ import toast from "react-hot-toast";
 import { FiMail } from "react-icons/fi";
 import "../../../styles/auth/ForgotPassword.css";
 import MainAuthForm from "../components/mainAuthForm";
-
+import { useForgotPassword } from "../hooks/useForgotPassword";
 export default function ForgotPassword() {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
-
+  const forgotPasswordMutation = useForgotPassword();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email.trim()) {
-      toast.error(t("auth.forgotPassword.emailRequired"));
+      toast.error("Please enter your email.");
       return;
     }
 
-    toast.success(t("auth.forgotPassword.otpSent", { email }));
+    forgotPasswordMutation.mutate(
+      {
+        email,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("Forgot Password response:", data);
 
-    setTimeout(() => {
-      navigate("/VerifyOTP");
-    }, 1500);
-    // Navigate to Verify OTP after showing the toast
+          toast.success("OTP sent successfully!");
+
+          setTimeout(() => {
+            navigate("/VerifyOTP");
+          }, 1000);
+        },
+
+        onError: (error) => {
+          console.log("Forgot Password error:", error);
+
+          toast.error(
+            error?.response?.data?.message ||
+              "Something went wrong. Please try again.",
+          );
+        },
+      },
+    );
   };
 
   return (
@@ -50,9 +69,14 @@ export default function ForgotPassword() {
             />
           </div>
         </div>
-
-        <button type="submit" className="sign-in">
-          {t("auth.forgotPassword.sendCode")}
+        <button
+          type="submit"
+          className="sign-in"
+          disabled={forgotPasswordMutation.isPending}
+        >
+          {forgotPasswordMutation.isPending
+            ? "Sending..."
+            : t("auth.forgotPassword.sendCode")}
         </button>
       </form>
     </MainAuthForm>

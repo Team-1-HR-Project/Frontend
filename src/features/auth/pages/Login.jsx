@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
@@ -17,7 +18,7 @@ import MainAuthForm from "../components/mainAuthForm";
 
 export default function Login() {
   const { t } = useTranslation();
-
+  const loginMutation = useLogin();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +36,29 @@ export default function Login() {
       return;
     }
 
-    toast.success(t("auth.login.signingInAlert", { email }));
+    // toast.success(t("auth.login.signingInAlert", { email }));
+    loginMutation.mutate(
+      {
+        email,
+        password,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("Login response:", data);
+
+          toast.success(t("auth.login.signingInAlert", { email }));
+        },
+
+        onError: (error) => {
+          console.log("Login error:", error);
+
+          toast.error(
+            error?.response?.data?.message ||
+              "Something went wrong. Please try again.",
+          );
+        },
+      },
+    );
   };
 
   const handleGoogleSignIn = () => {
@@ -128,8 +151,15 @@ export default function Login() {
         </div>
 
         {/* Sign In Button */}
-        <button type="submit" className="sign-in">
+        {/* <button type="submit" className="sign-in">
           {t("auth.login.signIn")}
+        </button> */}
+        <button
+          type="submit"
+          className="sign-in"
+          disabled={loginMutation.isPending}
+        >
+          {loginMutation.isPending ? "Signing in..." : t("auth.login.signIn")}
         </button>
       </form>
 

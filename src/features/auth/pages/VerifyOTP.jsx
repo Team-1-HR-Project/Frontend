@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import "../../../styles/auth/VerifyOTP.css";
 import MainAuthForm from "../components/mainAuthForm";
+import { useVerifyEmail } from "../hooks/useVerifyEmail";
 export default function VerifyOTP() {
   console.log("VERIFY OTP PAGE RENDERED");
 
@@ -13,7 +14,7 @@ export default function VerifyOTP() {
 
   const inputRefs = useRef([]);
   const navigate = useNavigate();
-
+  const verifyOTPMutation = useVerifyEmail();
   // Timer
   useEffect(() => {
     if (timer === 0) return;
@@ -49,17 +50,38 @@ export default function VerifyOTP() {
   const handleVerify = (e) => {
     e.preventDefault();
 
-    const code = otp.join("");
+    const otpValue = otp.join("");
 
-    if (code.length !== 6) {
-      toast.error(t("auth.verifyOtp.codeLengthError"));
+    if (otpValue.length !== 6) {
+      toast.error("Please enter the 6-digit verification code.");
       return;
     }
 
-    toast.success(t("auth.verifyOtp.verifiedSuccess"));
+    verifyOTPMutation.mutate(
+      {
+        otp: otpValue,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("Verify OTP response:", data);
 
-    // Go to Reset Password page
-    navigate("/ResetPassword");
+          toast.success("Email verified successfully!");
+
+          setTimeout(() => {
+            navigate("/ResetPassword");
+          }, 1000);
+        },
+
+        onError: (error) => {
+          console.log("Verify OTP error:", error);
+
+          toast.error(
+            error?.response?.data?.message ||
+              "Invalid verification code. Please try again.",
+          );
+        },
+      },
+    );
   };
 
   const handleResend = () => {
@@ -117,8 +139,14 @@ export default function VerifyOTP() {
           <>
             <span>{t("auth.verifyOtp.didntReceive")}</span>
 
-            <button type="button" onClick={handleResend}>
-              {t("auth.verifyOtp.resendCode")}
+            <button
+              type="submit"
+              className="verify-btn"
+              disabled={verifyOTPMutation.isPending}
+            >
+              {verifyOTPMutation.isPending
+                ? "Verifying..."
+                : t("auth.verifyOTP.verify")}
             </button>
           </>
         )}
