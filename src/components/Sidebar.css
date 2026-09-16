@@ -27,7 +27,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.brand {
+.logotitle {
   color: #fff;
   letter-spacing: -0.02em;
   align-items: center;
@@ -38,13 +38,13 @@
   display: flex;
 }
 
-.brand-logo-img {
+.logotitle-logo-img {
   width: 32px;
   height: 32px;
   object-fit: contain;
 }
 
-.brand span {
+.logotitle span {
   color: #ffffff;
   font-size: 20px;
   font-weight: 700;

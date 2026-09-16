@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "./Header.css";
 
-const Header = ({ role = "employee", onToggleMenu }) => {
+const Header = ({ role = "admin", onToggleMenu }) => {
   const { t } = useTranslation();
   const avatarLetter = role ? role.charAt(0).toUpperCase() : "E";
   const displayName = t(`portal.${role}Account`, `${role.charAt(0).toUpperCase() + role.slice(1)} Account`);

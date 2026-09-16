@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import Home from "./features/home";
@@ -42,8 +42,11 @@ function App() {
 
         {/* --- مسارات لوحة التحكم (Dashboard) --- */}
         <Route element={<DashboardLayout />}>
-          <Route path="/hr/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeHr" defaultMessage="مرحباً بك في لوحة تحكم الـ HR" />} />
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeAdmin" defaultMessage="مرحباً بك في لوحة تحكم الإدارة" />} />
+          <Route path="/admin/users" element={<DashboardPlaceholder messageKey="portal.allUsers" defaultMessage="جميع المستخدمين" />} />
+          <Route path="/admin/settings" element={<DashboardPlaceholder messageKey="portal.settings" defaultMessage="الإعدادات" />} />
+          <Route path="/hr/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeHr" defaultMessage="مرحباً بك في لوحة تحكم الـ HR" />} />
           <Route path="/employee/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeEmployee" defaultMessage="مرحباً بك في صفحة الموظف" />} />
         </Route>
       </Routes>

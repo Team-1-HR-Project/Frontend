@@ -638,6 +638,8 @@
     "adminAccount": "حساب الإدارة",
     "hrAccount": "حساب الموارد البشرية",
     "managerAccount": "حساب المدير",
-    "welcomeEmployee": "مرحباً بك في صفحة الموظف"
+    "welcomeEmployee": "مرحباً بك في صفحة الموظف",
+    "welcomeAdmin": "مرحباً بك في لوحة تحكم الإدارة",
+    "welcomeHr": "مرحباً بك في لوحة تحكم الموارد البشرية (HR)"
   }
 }

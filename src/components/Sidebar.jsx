@@ -5,7 +5,7 @@ import { navConfig } from "../navigation/navConfig";
 import logoImg from "../assets/Logos.svg";
 import "./Sidebar.css";
 
-const Sidebar = ({ role = "employee", isOpen = false, onClose }) => {
+const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t } = useTranslation();
   const links = navConfig[role] || [];
 
@@ -32,8 +32,8 @@ const Sidebar = ({ role = "employee", isOpen = false, onClose }) => {
 
       <aside className={`sidebar ${isOpen ? "sidebar-open" : ""}`}>
         {/* Brand */}
-        <div className="brand">
-          <img src={logoImg} alt="Workwise Logo" className="brand-logo-img" />
+        <div className="logotitle">
+          <img src={logoImg} alt="Workwise Logo" className="logotitle-logo-img" />
           <span>Workwise</span>
         </div>
 
