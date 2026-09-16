@@ -8,6 +8,7 @@ import {
   MdBusiness,
   MdAssessment,
   MdSecurity,
+  MdHistory,
 } from "react-icons/md";
 
 export const navConfig = {
@@ -30,6 +31,12 @@ export const navConfig = {
       path: "/admin/activity-log",
       icon: MdHistory,
     },
+    {
+  titleKey: "portal.notifications",
+  title: "Notifications",
+  path: "/admin/notifications",
+  icon: MdNotifications,
+},
     {
       titleKey: "portal.settings",
       title: "Settings",
