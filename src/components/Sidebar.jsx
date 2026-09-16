@@ -5,7 +5,7 @@ import { navConfig } from "../navigation/navConfig";
 import logoImg from "../assets/Logos.svg";
 import "./Sidebar.css";
 
-const Sidebar = ({ role = "employee", isOpen = false, onClose }) => {
+const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t } = useTranslation();
   const links = navConfig[role] || [];
 

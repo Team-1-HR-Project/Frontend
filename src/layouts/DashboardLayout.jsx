@@ -6,8 +6,8 @@ import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // للتجربة: نقوم بتغيير هذا الدور لنجرب شكل السايد بار والهيدر
-  const currentUserRole = "employee"; 
+  // للتجربة والعمل: تم تغيير الدور إلى admin للعمل على لوحة تحكم الإدارة
+  const currentUserRole = "admin"; 
 
   return (
     <div className="portal-shell">

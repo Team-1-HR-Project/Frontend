@@ -613,6 +613,8 @@
     "adminAccount": "Admin Account",
     "hrAccount": "HR Account",
     "managerAccount": "Manager Account",
-    "welcomeEmployee": "Welcome to Employee Dashboard"
+    "welcomeEmployee": "Welcome to Employee Dashboard",
+    "welcomeAdmin": "Welcome to Admin Dashboard",
+    "welcomeHr": "Welcome to HR Dashboard"
   }
 }
