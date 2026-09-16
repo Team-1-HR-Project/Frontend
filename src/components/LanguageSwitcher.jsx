@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { updateDocumentDirection } from "../i18n/config";
 import "./LanguageSwitcher.css";
 
 export default function LanguageSwitcher() {
@@ -7,16 +8,15 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const currentLang = i18n.language === "ar" ? "ar" : "en";
+  const currentLang = i18n.language && i18n.language.startsWith("ar") ? "ar" : "en";
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
   };
 
   const handleSelectLanguage = (langCode) => {
-    if (langCode !== currentLang) {
-      i18n.changeLanguage(langCode);
-    }
+    i18n.changeLanguage(langCode);
+    updateDocumentDirection(langCode);
     setIsOpen(false);
   };
 

@@ -368,6 +368,20 @@
       "badge": "Tailored Experience",
       "title": "Designed for Every Stakeholder",
       "subtitle": "WorkWise adapts to each user role, providing relevant tools and clean interfaces without clutter.",
+      "aiBanner": {
+        "kicker": "SMARTER DECISIONS, POWERED BY DATA",
+        "titlePart1": "Turn HR data into ",
+        "titleHighlight": "smarter decisions.",
+        "desc": "Smart HR helps you see what is happening across your organization and understand what to do next.",
+        "cta": "Discover AI Insights",
+        "cardTitle": "AI Insights",
+        "cardUpdated": "Updated today",
+        "scoreLabel": "Team health score",
+        "scoreMax": "/100",
+        "trend": "8.4% vs last month",
+        "noticeTitle": "What we noticed",
+        "noticeDesc": "Engagement has improved across 3 departments."
+      },
       "tabs": {
         "hr": "HR Managers",
         "employee": "Employees",
@@ -376,6 +390,7 @@
       },
       "cards": {
         "hr": {
+          "label": "HR Leaders",
           "title": "Complete Operational Control",
           "desc": "Automate repetitive workflows, maintain compliance, manage organizational hierarchies, and gain instant reporting with minimal manual effort.",
           "points": [
@@ -385,6 +400,7 @@
           ]
         },
         "employee": {
+          "label": "Employees",
           "title": "Intuitive Self-Service Portal",
           "desc": "Give your employees seamless access to request leaves, track attendance, review personal goals, and manage profile information on any device.",
           "points": [
@@ -394,6 +410,7 @@
           ]
         },
         "manager": {
+          "label": "Managers & C-Level",
           "title": "Team Oversight & Agile Approvals",
           "desc": "Equip managers to review team attendance, approve leave requests in seconds, conduct structured evaluations, and foster team growth.",
           "points": [
@@ -572,5 +589,30 @@
       },
       "copyright": "© 2026 WorkWise. All rights reserved."
     }
+  },
+  "portal": {
+    "searchPlaceholder": "Search tasks, policies, calendar...",
+    "employeePortal": "EMPLOYEE PORTAL",
+    "hrPortal": "HR PORTAL",
+    "managerPortal": "MANAGER PORTAL",
+    "adminPortal": "ADMIN PORTAL",
+    "dashboard": "Dashboard",
+    "myLeaves": "My Leaves",
+    "myPayslip": "My Payslip",
+    "allUsers": "All Users",
+    "settings": "Settings",
+    "employees": "Employees",
+    "payroll": "Payroll",
+    "leaves": "Leaves",
+    "myTeam": "My Team",
+    "teamLeaves": "Team Leaves",
+    "needAHand": "Need a hand?",
+    "askAi": "Ask the AI Assistant",
+    "employeeAccount": "Employee Account",
+    "staffMember": "Staff Member",
+    "adminAccount": "Admin Account",
+    "hrAccount": "HR Account",
+    "managerAccount": "Manager Account",
+    "welcomeEmployee": "Welcome to Employee Dashboard"
   }
 }
