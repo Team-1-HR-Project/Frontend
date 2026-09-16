@@ -102,13 +102,13 @@
 }
 
 .nav-item b {
-  color: #fff;
-  background: #e56b6f;
+  color: #243b53;
+  background: #79b88b;
   border-radius: 10px;
   margin-left: auto;
-  padding: 2px 6px;
+  padding: 2px 7px;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .sidebar-bottom {

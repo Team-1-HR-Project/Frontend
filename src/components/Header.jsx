@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { FiSearch, FiBell, FiChevronDown, FiMenu } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "./Header.css";
 
 const Header = ({ role = "admin", onToggleMenu }) => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const avatarLetter = role ? role.charAt(0).toUpperCase() : "E";
   const displayName = t(`portal.${role}Account`, `${role.charAt(0).toUpperCase() + role.slice(1)} Account`);
@@ -29,7 +31,16 @@ const Header = ({ role = "admin", onToggleMenu }) => {
         <LanguageSwitcher />
 
         {/* Notifications */}
-        <button className="icon-button" aria-label="Notifications">
+        <button 
+          className="icon-button" 
+          aria-label="Notifications"
+          onClick={() => {
+            if (role === "admin") {
+              navigate("/admin/notifications");
+            }
+          }}
+          title={t("portal.notifications", "Notifications")}
+        >
           <FiBell />
           <i />
         </button>
