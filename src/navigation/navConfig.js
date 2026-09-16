@@ -2,6 +2,7 @@ import {
   MdDashboard,
   MdPeople,
   MdAttachMoney,
+  MdLocationCity,
   MdEventNote,
   MdSettings,
   MdNotifications,
@@ -26,9 +27,16 @@ export const navConfig = {
       icon: MdPeople,
     },
     {
-      titleKey: "portal.activityLog",
-      title: "Activity Log",
-      path: "/admin/activity-log",
+      titleKey: "portal.branches",
+      title: "Branches",
+      path: "/admin/branches",
+      icon: MdLocationCity,
+    },
+
+    {
+      titleKey: "portal.audit-logs",
+      title: "Audit Logs",
+      path: "/admin/audit-logs",
       icon: MdHistory,
     },
     {

@@ -15,7 +15,10 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   // Initials for avatar
   const avatarLetter = role ? role.charAt(0).toUpperCase() : "E";
   const portalLabel = t(`portal.${role}Portal`, `${role.toUpperCase()} PORTAL`);
-  const displayName = t(`portal.${role}Account`, `${role.charAt(0).toUpperCase() + role.slice(1)} User`);
+  const displayName = t(
+    `portal.${role}Account`,
+    `${role.charAt(0).toUpperCase() + role.slice(1)} User`,
+  );
   const displayTitle = t(`portal.staffMember`, "Workwise Workspace");
 
   return (
@@ -36,20 +39,24 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
       <aside className={`sidebar ${isOpen ? "sidebar-open" : ""}`}>
         {/* Brand */}
         <div className="logotitle">
-          <img src={logoImg} alt="Workwise Logo" className="logotitle-logo-img" />
+          <img
+            src={logoImg}
+            alt="Workwise Logo"
+            className="logotitle-logo-img"
+          />
           <span>Workwise</span>
         </div>
 
         {/* Workspace Label */}
-        <div className="workspace-label">
-          {portalLabel}
-        </div>
+        <div className="workspace-label">{portalLabel}</div>
 
         {/* Navigation Links based on role */}
         <nav className="side-nav">
           {links.map((link) => {
             const Icon = link.icon;
-            const title = link.titleKey ? t(link.titleKey, link.title) : link.title;
+            const title = link.titleKey
+              ? t(link.titleKey, link.title)
+              : link.title;
             return (
               <NavLink
                 key={link.path}
