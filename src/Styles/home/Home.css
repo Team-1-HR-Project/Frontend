@@ -975,6 +975,296 @@ h2 em {
 }
 
 /* =====================================================
+   ROLES AI INSIGHTS BANNER
+===================================================== */
+.roles-ai-banner {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  align-items: center;
+  gap: 56px;
+  padding-top: 16px;
+}
+
+.roles-ai-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.roles-ai-kicker {
+  color: #3f7d5a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.roles-ai-title {
+  margin: 0 0 16px;
+  color: #243b53;
+  font-family: var(--font-heading, "Manrope", sans-serif);
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.12;
+}
+
+.roles-ai-title span {
+  color: #3f7d5a;
+  display: inline;
+}
+
+.roles-ai-desc {
+  margin: 0 0 26px;
+  color: #6b7785;
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 440px;
+}
+
+.roles-ai-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #243b53;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.roles-ai-link:hover {
+  color: #3f7d5a;
+}
+
+.roles-ai-arrow {
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.roles-ai-link:hover .roles-ai-arrow {
+  transform: translateX(5px);
+}
+
+/* AI INSIGHTS CARD */
+.roles-ai-card-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.roles-ai-card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 16px;
+  padding: 24px 26px;
+  box-shadow: 0 16px 40px -8px rgba(36, 59, 83, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.roles-ai-card:hover {
+  box-shadow: 0 22px 48px -8px rgba(36, 59, 83, 0.12);
+}
+
+.roles-ai-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eaedf1;
+  margin-bottom: 22px;
+}
+
+.roles-ai-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #243b53;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.roles-ai-card-badge svg {
+  color: #486581;
+  font-size: 16px;
+}
+
+.roles-ai-card-updated {
+  color: #829ab1;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.roles-ai-card-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.roles-ai-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.roles-ai-score-label {
+  color: #829ab1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.roles-ai-score-value {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.roles-ai-score-number {
+  font-family: var(--font-heading, "Manrope", sans-serif);
+  font-size: 42px;
+  font-weight: 800;
+  color: #243b53;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.roles-ai-score-total {
+  font-size: 15px;
+  font-weight: 600;
+  color: #829ab1;
+}
+
+.roles-ai-score-trend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #6b7785;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.roles-ai-trend-icon {
+  font-size: 13px;
+  color: #3f7d5a;
+}
+
+/* CHART */
+.roles-ai-chart {
+  position: relative;
+  width: 170px;
+  height: 92px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.roles-ai-grid-lines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.roles-ai-grid-line {
+  height: 1px;
+  width: 100%;
+  background: #eaedf1;
+}
+
+.roles-ai-bars {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 4px;
+}
+
+.roles-ai-bar {
+  width: 13px;
+  border-radius: 4px 4px 1px 1px;
+  transform-origin: bottom;
+}
+
+.roles-ai-bar.bar-green {
+  background: #5b8c6a;
+}
+
+.roles-ai-bar.bar-navy {
+  background: #334e68;
+}
+
+/* NOTICE PILL */
+.roles-ai-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #edf2f7;
+  border-radius: 10px;
+  padding: 12px 14px;
+  transition: background 0.2s ease;
+}
+
+.roles-ai-notice:hover {
+  background: #f1f5f9;
+}
+
+.roles-ai-notice-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.roles-ai-notice-icon {
+  font-size: 14px;
+  color: #486581;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.roles-ai-notice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roles-ai-notice-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #243b53;
+}
+
+.roles-ai-notice-desc {
+  font-size: 11px;
+  color: #6b7785;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.roles-ai-notice-chevron {
+  font-size: 14px;
+  color: #9aa5b1;
+  flex-shrink: 0;
+}
+
+/* =====================================================
    PLANS & PRICING
 ===================================================== */
 .plans-section {
@@ -1254,8 +1544,21 @@ h2 em {
 [dir="rtl"] .role-card,
 [dir="rtl"] .plan-card,
 [dir="rtl"] .about-card-right,
-[dir="rtl"] .cta-box {
+[dir="rtl"] .cta-box,
+[dir="rtl"] .roles-ai-banner {
   text-align: right;
+}
+
+[dir="rtl"] .roles-ai-link:hover .roles-ai-arrow {
+  transform: translateX(-5px);
+}
+
+[dir="rtl"] .roles-ai-arrow {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .roles-ai-notice-chevron {
+  transform: rotate(180deg);
 }
 
 [dir="rtl"] .proof-avatars span {
