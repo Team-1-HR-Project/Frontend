@@ -196,7 +196,7 @@ const AdminDashboard = () => {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-2xl md:text-[28px] font-bold text-[#1e293b] tracking-tight">
-            {t("adminDashboard.overview", "Overview")}
+            {t("adminDashboard.dashboard", "Dashboard")}
           </h1>
           <p className="text-sm text-[#64748b] mt-1 font-normal">
             {t(

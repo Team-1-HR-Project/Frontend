@@ -15,11 +15,11 @@ import {
 export const navConfig = {
   admin: [
     {
-      titleKey: "portal.overview",
-      title: "Overview",
-      path: "/admin/dashboard",
-      icon: MdDashboard,
-    },
+  titleKey: "portal.dashboard",
+  title: "Dashboard",
+  path: "/admin/dashboard",
+  icon: MdDashboard,
+},
     {
       titleKey: "portal.users",
       title: "Users",

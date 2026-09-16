@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 import Home from "./features/home";
 
@@ -13,7 +14,6 @@ import PasswordResetSuccess from "./features/auth/pages/PasswordResetSuccess";
 import Branches from "./features/admin/pages/branches";
 import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
 import Notification from "./features/admin/pages/Notification";
-import { useTranslation } from "react-i18next";
 import ActivityLog from "./features/admin/pages/audit-logs";
 
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -59,42 +59,45 @@ function App() {
 
         {/* ==================== Dashboard ==================== */}
         <Route element={<DashboardLayout />}>
-          {/* /admin → /admin/dashboard */}
+
+          {/* Admin */}
           <Route
             path="/admin"
             element={<Navigate to="/admin/dashboard" replace />}
           />
 
-          {/* Admin Dashboard */}
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/users" element={<DashboardPlaceholder messageKey="portal.users" defaultMessage="المستخدمون" />} />
-          <Route path="/admin/branches" element={<DashboardPlaceholder messageKey="portal.branches" defaultMessage="الفروع" />} />
-          <Route path="/admin/performance" element={<DashboardPlaceholder messageKey="portal.performance" defaultMessage="الأداء والأهداف" />} />
-          <Route path="/admin/notifications" element={<Notification />} />
-          <Route path="/admin/audit-logs" element={<DashboardPlaceholder messageKey="portal.auditLogs" defaultMessage="سجلات التدقيق" />} />
-          <Route path="/admin/settings" element={<DashboardPlaceholder messageKey="portal.settings" defaultMessage="الإعدادات" />} />
-          <Route path="/hr/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeHr" defaultMessage="مرحباً بك في لوحة تحكم الـ HR" />} />
-          <Route path="/employee/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeEmployee" defaultMessage="مرحباً بك في صفحة الموظف" />} />
+          <Route
+            path="/admin/dashboard"
+            element={<AdminDashboard />}
+          />
 
-          {/* Users */}
           <Route
             path="/admin/users"
             element={
               <DashboardPlaceholder
-                messageKey="portal.allUsers"
-                defaultMessage="جميع المستخدمين"
+                messageKey="portal.users"
+                defaultMessage="المستخدمون"
               />
             }
           />
 
           {/* Branches */}
-          <Route path="/admin/branches" element={<Branches />} />
+          <Route
+            path="/admin/branches"
+            element={<Branches />}
+          />
 
-          {/* Activity Log */}
-          <Route path="/admin/activity-log" element={<ActivityLog />} />
+          {/* Notifications */}
+          <Route
+            path="/admin/notifications"
+            element={<Notification />}
+          />
 
           {/* Audit Logs */}
-          <Route path="/admin/audit-logs" element={<ActivityLog />} />
+          <Route
+            path="/admin/audit-logs"
+            element={<ActivityLog />}
+          />
 
           {/* Settings */}
           <Route
@@ -107,7 +110,18 @@ function App() {
             }
           />
 
-          {/* HR Dashboard */}
+          {/* Performance */}
+          <Route
+            path="/admin/performance"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.performance"
+                defaultMessage="الأداء والأهداف"
+              />
+            }
+          />
+
+          {/* HR */}
           <Route
             path="/hr/dashboard"
             element={
@@ -118,7 +132,7 @@ function App() {
             }
           />
 
-          {/* Employee Dashboard */}
+          {/* Employee */}
           <Route
             path="/employee/dashboard"
             element={
