@@ -781,5 +781,25 @@
     "manager": "مدير",
     "hrManager": "مدير موارد بشرية",
     "administrator": "مسؤول النظام"
+  },
+  "auditLogs": {
+    "breadcrumbAdmin": "الإدارة",
+    "breadcrumbApp": "WiseWork",
+    "title": "سجلات التدقيق",
+    "subtitle": "تهيئة وإدارة سجلات تدقيق WiseWork الخاصة بك.",
+    "exportConfig": "تصدير الإعدادات",
+    "cardTitle": "سجلات التدقيق",
+    "cardSubtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
+    "searchPlaceholder": "البحث في سجلات التدقيق...",
+    "filterAll": "الكل",
+    "filterSuccess": "نجاح",
+    "filterWarning": "تحذير",
+    "filterInfo": "معلومات",
+    "colAction": "الإجراء",
+    "colActor": "المنفذ",
+    "colTimestamp": "الوقت والتاريخ",
+    "colSeverity": "مستوى الأهمية",
+    "noLogsFound": "لم يتم العثور على سجلات تطابق معايير البحث",
+    "exportSuccess": "تم تصدير إعدادات السجلات بنجاح"
   }
 }

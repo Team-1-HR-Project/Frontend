@@ -756,5 +756,25 @@
     "manager": "Manager",
     "hrManager": "HR Manager",
     "administrator": "Administrator"
+  },
+  "auditLogs": {
+    "breadcrumbAdmin": "Administration",
+    "breadcrumbApp": "WiseWork",
+    "title": "Audit Logs",
+    "subtitle": "Configure and manage your WiseWork audit logs.",
+    "exportConfig": "Export configuration",
+    "cardTitle": "Audit logs",
+    "cardSubtitle": "A searchable record of administrative actions and system events.",
+    "searchPlaceholder": "Search audit logs...",
+    "filterAll": "All",
+    "filterSuccess": "Success",
+    "filterWarning": "Warning",
+    "filterInfo": "Info",
+    "colAction": "ACTION",
+    "colActor": "ACTOR",
+    "colTimestamp": "TIMESTAMP",
+    "colSeverity": "SEVERITY",
+    "noLogsFound": "No audit logs found matching your criteria",
+    "exportSuccess": "Audit configuration exported successfully"
   }
 }

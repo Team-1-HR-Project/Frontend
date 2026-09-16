@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { 
-  FiUsers, 
-  FiShield, 
-  FiFileText, 
-  FiClock, 
-  FiMoreHorizontal, 
-  FiChevronDown, 
+import {
+  FiUsers,
+  FiShield,
+  FiFileText,
+  FiClock,
+  FiMoreHorizontal,
+  FiChevronDown,
   FiChevronRight,
-  FiUser
+  FiUser,
 } from "react-icons/fi";
 
 const AdminDashboard = () => {
@@ -199,11 +199,14 @@ const AdminDashboard = () => {
             {t("adminDashboard.overview", "Overview")}
           </h1>
           <p className="text-sm text-[#64748b] mt-1 font-normal">
-            {t("adminDashboard.overviewSubtitle", "Manage your organization's people, access, and settings.")}
+            {t(
+              "adminDashboard.overviewSubtitle",
+              "Manage your organization's people, access, and settings.",
+            )}
           </p>
         </div>
         <div className="relative">
-          <button 
+          <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#e2e8f0] bg-white text-[#64748b] hover:text-[#1e293b] hover:bg-[#f8fafc] shadow-xs transition"
             aria-label="More options"
@@ -211,16 +214,18 @@ const AdminDashboard = () => {
             <FiMoreHorizontal className="w-5 h-5" />
           </button>
           {menuOpen && (
-            <div className={`absolute ${isRtl ? 'left-0' : 'right-0'} mt-2 w-48 bg-white rounded-xl shadow-lg border border-[#e2e8f0] py-1.5 z-20 text-xs`}>
-              <button 
+            <div
+              className={`absolute ${isRtl ? "left-0" : "right-0"} mt-2 w-48 bg-white rounded-xl shadow-lg border border-[#e2e8f0] py-1.5 z-20 text-xs`}
+            >
+              <button
                 onClick={() => setMenuOpen(false)}
-                className={`w-full ${isRtl ? 'text-right' : 'text-left'} px-4 py-2 hover:bg-[#f8fafc] text-[#1e293b]`}
+                className={`w-full ${isRtl ? "text-right" : "text-left"} px-4 py-2 hover:bg-[#f8fafc] text-[#1e293b]`}
               >
                 {t("adminDashboard.exportReport", "Export report")}
               </button>
-              <button 
+              <button
                 onClick={() => setMenuOpen(false)}
-                className={`w-full ${isRtl ? 'text-right' : 'text-left'} px-4 py-2 hover:bg-[#f8fafc] text-[#1e293b]`}
+                className={`w-full ${isRtl ? "text-right" : "text-left"} px-4 py-2 hover:bg-[#f8fafc] text-[#1e293b]`}
               >
                 {t("adminDashboard.refreshData", "Refresh data")}
               </button>
@@ -242,7 +247,9 @@ const AdminDashboard = () => {
               className="bg-white rounded-2xl p-5 border border-[#e2e8f0]/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-md transition flex flex-col justify-between"
             >
               <div className="flex items-center justify-between">
-                <div className={`w-10 h-10 rounded-xl ${metric.bg} ${metric.color} flex items-center justify-center`}>
+                <div
+                  className={`w-10 h-10 rounded-xl ${metric.bg} ${metric.color} flex items-center justify-center`}
+                >
                   <Icon className="w-5 h-5" />
                 </div>
                 <span className="text-xs font-semibold text-[#10b981]">
@@ -272,24 +279,30 @@ const AdminDashboard = () => {
                 {t("adminDashboard.userGrowth", "User growth")}
               </h2>
               <p className="text-xs text-[#64748b] mt-0.5 font-normal">
-                {t("adminDashboard.userGrowthSubtitle", "Active users across your organization")}
+                {t(
+                  "adminDashboard.userGrowthSubtitle",
+                  "Active users across your organization",
+                )}
               </p>
             </div>
             <div className="relative">
-              <button 
+              <button
                 onClick={() => setRangeDropdownOpen(!rangeDropdownOpen)}
                 className="flex items-center gap-2 border border-[#e2e8f0] rounded-lg px-3 py-1.5 text-xs font-medium text-[#475569] hover:bg-[#f8fafc] transition shadow-2xs"
               >
                 <span>
                   {t(
                     `adminDashboard.${selectedRangeKey}`,
-                    rangeOptions.find((o) => o.key === selectedRangeKey)?.defaultLabel
+                    rangeOptions.find((o) => o.key === selectedRangeKey)
+                      ?.defaultLabel,
                   )}
                 </span>
                 <FiChevronDown className="w-3.5 h-3.5 text-[#94a3b8]" />
               </button>
               {rangeDropdownOpen && (
-                <div className={`absolute ${isRtl ? 'left-0' : 'right-0'} mt-1.5 w-36 bg-white border border-[#e2e8f0] rounded-xl shadow-md py-1 z-10 text-xs`}>
+                <div
+                  className={`absolute ${isRtl ? "left-0" : "right-0"} mt-1.5 w-36 bg-white border border-[#e2e8f0] rounded-xl shadow-md py-1 z-10 text-xs`}
+                >
                   {rangeOptions.map((item) => (
                     <button
                       key={item.key}
@@ -297,8 +310,10 @@ const AdminDashboard = () => {
                         setSelectedRangeKey(item.key);
                         setRangeDropdownOpen(false);
                       }}
-                      className={`w-full ${isRtl ? 'text-right' : 'text-left'} px-3 py-1.5 hover:bg-[#f8fafc] ${
-                        selectedRangeKey === item.key ? 'font-semibold text-[#3f7d5a]' : 'text-slate-600'
+                      className={`w-full ${isRtl ? "text-right" : "text-left"} px-3 py-1.5 hover:bg-[#f8fafc] ${
+                        selectedRangeKey === item.key
+                          ? "font-semibold text-[#3f7d5a]"
+                          : "text-slate-600"
                       }`}
                     >
                       {t(`adminDashboard.${item.key}`, item.defaultLabel)}
@@ -310,8 +325,12 @@ const AdminDashboard = () => {
           </div>
 
           {/* SVG Line Chart */}
-          <div className="w-full h-[230px] relative pt-2">
-            <svg className="w-full h-full overflow-visible" viewBox="0 0 600 200" preserveAspectRatio="none">
+          <div className="w-full h-57.5 relative pt-2">
+            <svg
+              className="w-full h-full overflow-visible"
+              viewBox="0 0 600 200"
+              preserveAspectRatio="none"
+            >
               <defs>
                 <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#3f7d5a" stopOpacity="0.16" />
@@ -320,17 +339,59 @@ const AdminDashboard = () => {
               </defs>
 
               {/* Grid lines & Labels */}
-              <line x1="35" y1="20" x2="600" y2="20" stroke="#f1f5f9" strokeWidth="1" />
-              <text x="5" y="24" fill="#94a3b8" fontSize="11" fontWeight="500">300</text>
+              <line
+                x1="35"
+                y1="20"
+                x2="600"
+                y2="20"
+                stroke="#f1f5f9"
+                strokeWidth="1"
+              />
+              <text x="5" y="24" fill="#94a3b8" fontSize="11" fontWeight="500">
+                300
+              </text>
 
-              <line x1="35" y1="73" x2="600" y2="73" stroke="#f1f5f9" strokeWidth="1" />
-              <text x="5" y="77" fill="#94a3b8" fontSize="11" fontWeight="500">200</text>
+              <line
+                x1="35"
+                y1="73"
+                x2="600"
+                y2="73"
+                stroke="#f1f5f9"
+                strokeWidth="1"
+              />
+              <text x="5" y="77" fill="#94a3b8" fontSize="11" fontWeight="500">
+                200
+              </text>
 
-              <line x1="35" y1="126" x2="600" y2="126" stroke="#f1f5f9" strokeWidth="1" />
-              <text x="5" y="130" fill="#94a3b8" fontSize="11" fontWeight="500">100</text>
+              <line
+                x1="35"
+                y1="126"
+                x2="600"
+                y2="126"
+                stroke="#f1f5f9"
+                strokeWidth="1"
+              />
+              <text x="5" y="130" fill="#94a3b8" fontSize="11" fontWeight="500">
+                100
+              </text>
 
-              <line x1="35" y1="180" x2="600" y2="180" stroke="#f1f5f9" strokeWidth="1" />
-              <text x="12" y="184" fill="#94a3b8" fontSize="11" fontWeight="500">0</text>
+              <line
+                x1="35"
+                y1="180"
+                x2="600"
+                y2="180"
+                stroke="#f1f5f9"
+                strokeWidth="1"
+              />
+              <text
+                x="12"
+                y="184"
+                fill="#94a3b8"
+                fontSize="11"
+                fontWeight="500"
+              >
+                0
+              </text>
 
               {/* Area fill */}
               <path
@@ -375,20 +436,24 @@ const AdminDashboard = () => {
 
             {/* Floating Tooltip */}
             {activeHoverPoint !== null && (
-              <div 
+              <div
                 className="absolute -top-4 bg-slate-900 text-white text-[11px] py-1 px-2.5 rounded-lg shadow-md pointer-events-none transform -translate-x-1/2 transition-opacity"
-                style={{ left: `${(chartPoints[activeHoverPoint].x / 600) * 100}%` }}
+                style={{
+                  left: `${(chartPoints[activeHoverPoint].x / 600) * 100}%`,
+                }}
               >
-                {isRtl ? chartPoints[activeHoverPoint].monthAr : chartPoints[activeHoverPoint].monthEn}: {chartPoints[activeHoverPoint].users} {t("adminDashboard.usersCount", "users")}
+                {isRtl
+                  ? chartPoints[activeHoverPoint].monthAr
+                  : chartPoints[activeHoverPoint].monthEn}
+                : {chartPoints[activeHoverPoint].users}{" "}
+                {t("adminDashboard.usersCount", "users")}
               </div>
             )}
 
             {/* X-Axis Months */}
             <div className="flex justify-between pl-8 pr-2 pt-2 text-xs font-medium text-[#94a3b8]">
               {chartPoints.map((pt) => (
-                <span key={pt.monthEn}>
-                  {isRtl ? pt.monthAr : pt.monthEn}
-                </span>
+                <span key={pt.monthEn}>{isRtl ? pt.monthAr : pt.monthEn}</span>
               ))}
             </div>
           </div>
@@ -403,12 +468,17 @@ const AdminDashboard = () => {
                   {t("adminDashboard.attentionNeeded", "Attention needed")}
                 </h2>
                 <p className="text-xs text-[#64748b] mt-0.5 font-normal">
-                  {t("adminDashboard.attentionSubtitle", "Items that need your review")}
+                  {t(
+                    "adminDashboard.attentionSubtitle",
+                    "Items that need your review",
+                  )}
                 </p>
               </div>
               <button className="text-xs font-semibold text-[#2f6f4d] hover:text-[#23583c] flex items-center gap-1 transition">
                 <span>{t("adminDashboard.viewAll", "View all")}</span>
-                <FiChevronRight className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? 'rotate-180' : ''}`} />
+                <FiChevronRight
+                  className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? "rotate-180" : ""}`}
+                />
               </button>
             </div>
 
@@ -421,7 +491,9 @@ const AdminDashboard = () => {
                     className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f8fafc] transition cursor-pointer group"
                   >
                     <div className="flex items-center gap-3.5">
-                      <div className={`w-10 h-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0`}>
+                      <div
+                        className={`w-10 h-10 rounded-xl ${item.bg} ${item.color} flex items-center justify-center shrink-0`}
+                      >
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -433,7 +505,9 @@ const AdminDashboard = () => {
                         </p>
                       </div>
                     </div>
-                    <FiChevronRight className={`w-4 h-4 text-[#94a3b8] group-hover:translate-x-0.5 transition ${isRtl ? 'rotate-180 group-hover:-translate-x-0.5' : ''}`} />
+                    <FiChevronRight
+                      className={`w-4 h-4 text-[#94a3b8] group-hover:translate-x-0.5 transition ${isRtl ? "rotate-180 group-hover:-translate-x-0.5" : ""}`}
+                    />
                   </div>
                 );
               })}
@@ -453,12 +527,17 @@ const AdminDashboard = () => {
                   {t("adminDashboard.recentActivity", "Recent activity")}
                 </h2>
                 <p className="text-xs text-[#64748b] mt-0.5 font-normal">
-                  {t("adminDashboard.recentActivitySubtitle", "Latest changes in your workspace")}
+                  {t(
+                    "adminDashboard.recentActivitySubtitle",
+                    "Latest changes in your workspace",
+                  )}
                 </p>
               </div>
               <button className="text-xs font-semibold text-[#2f6f4d] hover:text-[#23583c] flex items-center gap-1 transition">
                 <span>{t("adminDashboard.seeActivity", "See activity")}</span>
-                <FiChevronRight className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? 'rotate-180' : ''}`} />
+                <FiChevronRight
+                  className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? "rotate-180" : ""}`}
+                />
               </button>
             </div>
 
@@ -471,7 +550,9 @@ const AdminDashboard = () => {
                     className="flex items-start justify-between py-3.5 first:pt-0 last:pb-0"
                   >
                     <div className="flex items-start gap-3.5">
-                      <div className={`w-10 h-10 rounded-full ${act.bg} ${act.color} flex items-center justify-center shrink-0`}>
+                      <div
+                        className={`w-10 h-10 rounded-full ${act.bg} ${act.color} flex items-center justify-center shrink-0`}
+                      >
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -507,7 +588,9 @@ const AdminDashboard = () => {
               </div>
               <button className="text-xs font-semibold text-[#2f6f4d] hover:text-[#23583c] flex items-center gap-1 transition">
                 <span>{t("adminDashboard.manage", "Manage")}</span>
-                <FiChevronRight className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? 'rotate-180' : ''}`} />
+                <FiChevronRight
+                  className={`w-3.5 h-3.5 stroke-[2.5] ${isRtl ? "rotate-180" : ""}`}
+                />
               </button>
             </div>
 
@@ -515,11 +598,15 @@ const AdminDashboard = () => {
               {roles.map((role) => (
                 <div key={role.nameKey}>
                   <div className="flex justify-between text-sm font-medium mb-1.5">
-                    <span className="text-[#1e293b]">{t(role.nameKey, role.nameDefault)}</span>
-                    <span className="text-[#475569] font-normal">{role.count}</span>
+                    <span className="text-[#1e293b]">
+                      {t(role.nameKey, role.nameDefault)}
+                    </span>
+                    <span className="text-[#475569] font-normal">
+                      {role.count}
+                    </span>
                   </div>
                   <div className="w-full bg-[#f1f5f9] h-2.5 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className={`${role.color} h-full rounded-full transition-all duration-500`}
                       style={{ width: `${role.percentage}%` }}
                     />

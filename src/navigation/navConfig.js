@@ -25,29 +25,10 @@ export const navConfig = {
       icon: MdPeople,
     },
     {
-      titleKey: "portal.branches",
-      title: "Branches",
-      path: "/admin/branches",
-      icon: MdBusiness,
-    },
-    {
-      titleKey: "portal.performance",
-      title: "Performance & Goals",
-      path: "/admin/performance",
-      icon: MdAssessment,
-    },
-    {
-      titleKey: "portal.notifications",
-      title: "Notifications",
-      path: "/admin/notifications",
-      icon: MdNotifications,
-      badge: "3",
-    },
-    {
-      titleKey: "portal.auditLogs",
-      title: "Audit Logs",
-      path: "/admin/audit-logs",
-      icon: MdSecurity,
+      titleKey: "portal.activityLog",
+      title: "Activity Log",
+      path: "/admin/activity-log",
+      icon: MdHistory,
     },
     {
       titleKey: "portal.settings",
