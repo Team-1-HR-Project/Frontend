@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FiMenu, FiX } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "../../../assets/logo.jpeg";
 import LanguageSwitcher from "../../../components/LanguageSwitcher";
 
@@ -23,10 +24,12 @@ export default function Navbar() {
         "plans",
         "contact",
       ];
+
       const scrollPos = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
+
         if (el && el.offsetTop <= scrollPos) {
           setActiveSection(sections[i]);
           break;
@@ -35,14 +38,19 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id) => {
     setMobileMenuOpen(false);
+
     const el = document.getElementById(id);
+
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({
+        behavior: "smooth",
+      });
     }
   };
 
@@ -54,9 +62,111 @@ export default function Navbar() {
     { id: "plans", label: t("home.nav.plans") },
   ];
 
+  /* =========================
+     ANIMATION VARIANTS
+  ========================= */
+
+  const navbarVariants = {
+    hidden: {
+      y: -80,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const brandVariants = {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+      },
+    },
+  };
+
+  const navContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const navItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.35,
+      },
+    },
+  };
+
+  const actionsVariants = {
+    hidden: {
+      opacity: 0,
+      x: 20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.4,
+      },
+    },
+  };
+
+  const mobileMenuVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      y: -10,
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      y: 0,
+      transition: {
+        duration: 0.35,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      y: -10,
+      transition: {
+        duration: 0.25,
+        ease: "easeIn",
+      },
+    },
+  };
+
   return (
-    <header
+    <motion.header
       className={`site-header ${scrolled ? "scrolled" : ""}`}
+      variants={navbarVariants}
+      initial="hidden"
+      animate="visible"
       style={{
         position: "fixed",
         top: 0,
@@ -68,82 +178,231 @@ export default function Navbar() {
     >
       <div className="container">
         <nav className="nav">
-          {/* Brand */}
-          <a
+          {/* =========================
+              BRAND
+          ========================= */}
+
+          <motion.a
             href="#home"
             className="brand"
+            variants={brandVariants}
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("home");
             }}
+            whileHover={{
+              scale: 1.03,
+            }}
+            transition={{
+              duration: 0.2,
+            }}
           >
-            <img src={logoImg} alt="WorkWise" className="brand-logo-img" />
-            <span>WorkWise</span>
-          </a>
+            <motion.img
+              src={logoImg}
+              alt="WorkWise"
+              className="brand-logo-img"
+              whileHover={{
+                rotate: 3,
+                scale: 1.05,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+            />
 
-          {/* Desktop Navigation Links */}
-          <ul className="nav-links">
+            <span>WorkWise</span>
+          </motion.a>
+
+          {/* =========================
+              DESKTOP NAVIGATION
+          ========================= */}
+
+          <motion.ul
+            className="nav-links"
+            variants={navContainerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {navLinks.map((link) => (
-              <li key={link.id}>
-                <a
+              <motion.li key={link.id} variants={navItemVariants}>
+                <motion.a
                   href={`#${link.id}`}
                   className={activeSection === link.id ? "active" : ""}
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection(link.id);
                   }}
+                  whileHover={{
+                    y: -2,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                  }}
                 >
                   {link.label}
-                </a>
-              </li>
+                </motion.a>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
-          {/* Actions */}
-          <div className="nav-actions">
-            <LanguageSwitcher />
-            <Link to="/login" className="button button-primary">
-              {t("home.nav.signIn")}
-            </Link>
-          </div>
+          {/* =========================
+              ACTIONS
+          ========================= */}
 
-          {/* Mobile Menu Button */}
-          <button
+          <motion.div
+            className="nav-actions"
+            variants={actionsVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
+            >
+              <LanguageSwitcher />
+            </motion.div>
+
+            <motion.div
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
+            >
+              <Link to="/login" className="button button-primary">
+                {t("home.nav.signIn")}
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* =========================
+              MOBILE MENU BUTTON
+          ========================= */}
+
+          <motion.button
             className="menu-button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation"
+            whileTap={{
+              scale: 0.9,
+            }}
           >
-            {mobileMenuOpen ? <FiX /> : <FiMenu />}
-          </button>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={mobileMenuOpen ? "close" : "menu"}
+                initial={{
+                  opacity: 0,
+                  rotate: -90,
+                  scale: 0.7,
+                }}
+                animate={{
+                  opacity: 1,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  rotate: 90,
+                  scale: 0.7,
+                }}
+                transition={{
+                  duration: 0.2,
+                }}
+              >
+                {mobileMenuOpen ? <FiX /> : <FiMenu />}
+              </motion.span>
+            </AnimatePresence>
+          </motion.button>
         </nav>
       </div>
 
-      {/* Mobile Nav Drawer */}
-      <div className={`mobile-nav ${mobileMenuOpen ? "open" : ""}`}>
-        {navLinks.map((link) => (
-          <a
-            key={link.id}
-            href={`#${link.id}`}
-            className={activeSection === link.id ? "active" : ""}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(link.id);
-            }}
+      {/* =========================
+          MOBILE NAV DRAWER
+      ========================= */}
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="mobile-nav open"
+            variants={mobileMenuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
           >
-            {link.label}
-          </a>
-        ))}
-        <div className="mobile-nav-bottom">
-          <LanguageSwitcher />
-          <Link
-            to="/login"
-            className="button button-primary"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t("home.nav.signIn")}
-          </Link>
-        </div>
-      </div>
-    </header>
+            {navLinks.map((link, index) => (
+              <motion.a
+                key={link.id}
+                href={`#${link.id}`}
+                className={activeSection === link.id ? "active" : ""}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.id);
+                }}
+                initial={{
+                  opacity: 0,
+                  x: -20,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: index * 0.06,
+                  duration: 0.25,
+                }}
+                whileHover={{
+                  x: 5,
+                }}
+              >
+                {link.label}
+              </motion.a>
+            ))}
+
+            <motion.div
+              className="mobile-nav-bottom"
+              initial={{
+                opacity: 0,
+                y: 10,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.3,
+                duration: 0.3,
+              }}
+            >
+              <LanguageSwitcher />
+
+              <motion.div
+                whileHover={{
+                  scale: 1.04,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+              >
+                <Link
+                  to="/login"
+                  className="button button-primary"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t("home.nav.signIn")}
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
