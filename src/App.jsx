@@ -10,6 +10,7 @@ import ResetPassword from "./features/auth/pages/ResetPassword";
 import PasswordResetSuccess from "./features/auth/pages/PasswordResetSuccess";
 import DashboardLayout from "./layouts/DashboardLayout";
 import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
+import Notification from "./features/admin/pages/Notification";
 import { useTranslation } from "react-i18next";
 
 function DashboardPlaceholder({ messageKey, defaultMessage }) {
@@ -45,7 +46,11 @@ function App() {
         <Route element={<DashboardLayout />}>
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/users" element={<DashboardPlaceholder messageKey="portal.allUsers" defaultMessage="جميع المستخدمين" />} />
+          <Route path="/admin/users" element={<DashboardPlaceholder messageKey="portal.users" defaultMessage="المستخدمون" />} />
+          <Route path="/admin/branches" element={<DashboardPlaceholder messageKey="portal.branches" defaultMessage="الفروع" />} />
+          <Route path="/admin/performance" element={<DashboardPlaceholder messageKey="portal.performance" defaultMessage="الأداء والأهداف" />} />
+          <Route path="/admin/notifications" element={<Notification />} />
+          <Route path="/admin/audit-logs" element={<DashboardPlaceholder messageKey="portal.auditLogs" defaultMessage="سجلات التدقيق" />} />
           <Route path="/admin/settings" element={<DashboardPlaceholder messageKey="portal.settings" defaultMessage="الإعدادات" />} />
           <Route path="/hr/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeHr" defaultMessage="مرحباً بك في لوحة تحكم الـ HR" />} />
           <Route path="/employee/dashboard" element={<DashboardPlaceholder messageKey="portal.welcomeEmployee" defaultMessage="مرحباً بك في صفحة الموظف" />} />
