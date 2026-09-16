@@ -1,22 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FiCheckCircle, FiZap, FiLayers } from "react-icons/fi";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
-const trustFeatures = [
-  "Centralized Data",
-  "Automated Shifts",
-  "Leave Workflows",
-  "Performance KPIs",
-  "Audit Ready",
-  "GPS Geofencing",
-  "AI Career Coach",
-  "Real-Time Payroll",
-  "Skill-Gap Insights",
-  "Role Governance",
-];
+// const trustFeatures = [
+//   "Centralized Data",
+//   "Automated Shifts",
+//   "Leave Workflows",
+//   "Performance KPIs",
+//   "Audit Ready",
+//   "GPS Geofencing",
+//   "AI Career Coach",
+//   "Real-Time Payroll",
+//   "Skill-Gap Insights",
+//   "Role Governance",
+// ];
 export default function AboutSection() {
   const { t } = useTranslation();
 
