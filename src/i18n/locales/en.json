@@ -686,5 +686,27 @@
     "colSeverity": "SEVERITY",
     "noLogsFound": "No audit logs found matching your criteria",
     "exportSuccess": "Audit configuration exported successfully"
+  },
+  "branchesPage": {
+    "breadcrumbApp": "WiseWork",
+    "breadcrumbPage": "Branches",
+    "title": "Branches",
+    "subtitle": "Configure and manage your WiseWork branches.",
+    "exportConfig": "Export Config",
+    "cardTitle": "Branch locations",
+    "cardSubtitle": "Configure GPS enforcement for each branch",
+    "addBranch": "Add Branch",
+    "gpsCoordinatesLabel": "GPS coordinates:",
+    "gpsEnforcement": "GPS enforcement",
+    "gpsEnforcementDesc": "Require employees to be within the branch",
+    "radiusSuffix": "radius",
+    "modalTitle": "Add New Branch",
+    "branchNameLabel": "Branch name",
+    "branchNamePlaceholder": "e.g. Cairo HQ",
+    "gpsCoordinatesFieldLabel": "GPS coordinates",
+    "geofenceRadiusLabel": "Geofence radius (meters)",
+    "cancel": "Cancel",
+    "toggleGpsAriaLabel": "Toggle GPS enforcement for {{name}}",
+    "closeModal": "Close modal"
   }
 }

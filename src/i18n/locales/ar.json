@@ -711,5 +711,27 @@
     "colSeverity": "مستوى الأهمية",
     "noLogsFound": "لم يتم العثور على سجلات تطابق معايير البحث",
     "exportSuccess": "تم تصدير إعدادات السجلات بنجاح"
+  },
+  "branchesPage": {
+    "breadcrumbApp": "WiseWork",
+    "breadcrumbPage": "الفروع",
+    "title": "الفروع",
+    "subtitle": "تهيئة وإدارة فروع WiseWork الخاصة بك.",
+    "exportConfig": "تصدير الإعدادات",
+    "cardTitle": "مواقع الفروع",
+    "cardSubtitle": "تهيئة فرض نظام تحديد الموقع GPS لكل فرع",
+    "addBranch": "إضافة فرع",
+    "gpsCoordinatesLabel": "إحداثيات GPS:",
+    "gpsEnforcement": "فرض تحديد الموقع",
+    "gpsEnforcementDesc": "تطلب من الموظفين أن يكونوا داخل نطاق الفرع",
+    "radiusSuffix": "نطاق",
+    "modalTitle": "إضافة فرع جديد",
+    "branchNameLabel": "اسم الفرع",
+    "branchNamePlaceholder": "مثال: المقر الرئيسي بالقاهرة",
+    "gpsCoordinatesFieldLabel": "إحداثيات GPS",
+    "geofenceRadiusLabel": "نطاق السياج الجغرافي (بالمتر)",
+    "cancel": "إلغاء",
+    "toggleGpsAriaLabel": "تبديل فرض تحديد الموقع للفرع {{name}}",
+    "closeModal": "إغلاق النافذة"
   }
 }

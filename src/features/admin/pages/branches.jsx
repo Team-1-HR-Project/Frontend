@@ -6,8 +6,11 @@ import {
   LuPlus,
   LuX,
 } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 export default function Branches() {
+  const { t } = useTranslation();
+
   // =========================
   // Branches Data
   // =========================
@@ -16,14 +19,14 @@ export default function Branches() {
       id: "cairo",
       name: "Cairo HQ",
       coordinates: "30.0444° N, 31.2357° E",
-      radius: "100m radius",
+      radius: "100m",
       gpsEnforced: true,
     },
     {
       id: "alexandria",
       name: "Alexandria Hub",
       coordinates: "31.2001° N, 29.9187° E",
-      radius: "100m radius",
+      radius: "100m",
       gpsEnforced: true,
     },
   ]);
@@ -93,7 +96,7 @@ export default function Branches() {
       id: `branch-${Date.now()}`,
       name: branchName.trim(),
       coordinates: gpsCoordinates.trim() || "30.0444° N, 31.2357° E",
-      radius: `${geofenceRadius.trim() || "100"}m radius`,
+      radius: `${geofenceRadius.trim() || "100"}m`,
       gpsEnforced: true,
     };
 
@@ -139,21 +142,23 @@ export default function Branches() {
           <div>
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-[12px] font-semibold text-[#829ab1] mb-2">
-              <span>WiseWork</span>
+              <span>{t("branchesPage.breadcrumbApp")}</span>
 
               <LuChevronRight size={14} className="text-[#9fb3c8]" />
 
-              <span className="text-[#486581]">Branches</span>
+              <span className="text-[#486581]">
+                {t("branchesPage.breadcrumbPage")}
+              </span>
             </div>
 
             {/* Page Title */}
             <h1 className="text-[28px] font-bold leading-[1.2] text-[#243b53] tracking-[-0.02em]">
-              Branches
+              {t("branchesPage.title")}
             </h1>
 
             {/* Page Subtitle */}
             <p className="text-[14px] text-[#627d98] mt-[6px] leading-[1.4]">
-              Configure and manage your WiseWork branches.
+              {t("branchesPage.subtitle")}
             </p>
           </div>
 
@@ -182,7 +187,7 @@ export default function Branches() {
           >
             <LuArrowUpRight size={17} />
 
-            <span>Export Config</span>
+            <span>{t("branchesPage.exportConfig")}</span>
           </button>
         </div>
 
@@ -213,11 +218,11 @@ export default function Branches() {
             {/* Card Information */}
             <div>
               <h2 className="text-[18px] font-bold text-[#243b53] m-0 leading-[1.3]">
-                Branch locations
+                {t("branchesPage.cardTitle")}
               </h2>
 
               <p className="text-[14px] text-[#829ab1] mt-1 leading-[1.4]">
-                Configure GPS enforcement for each branch
+                {t("branchesPage.cardSubtitle")}
               </p>
             </div>
 
@@ -245,7 +250,7 @@ export default function Branches() {
             >
               <LuPlus size={17} />
 
-              <span>Add Branch</span>
+              <span>{t("branchesPage.addBranch")}</span>
             </button>
           </div>
 
@@ -353,7 +358,9 @@ export default function Branches() {
                       "
                     />
 
-                    <span>{branch.radius}</span>
+                    <span>
+                      {branch.radius} {t("branchesPage.radiusSuffix")}
+                    </span>
                   </div>
                 </div>
 
@@ -381,7 +388,7 @@ export default function Branches() {
                         leading-[1.2]
                       "
                     >
-                      GPS enforcement
+                      {t("branchesPage.gpsEnforcement")}
                     </p>
 
                     <p
@@ -393,7 +400,7 @@ export default function Branches() {
                         leading-[1.3]
                       "
                     >
-                      Require employees to be within the branch
+                      {t("branchesPage.gpsEnforcementDesc")}
                     </p>
                   </div>
 
@@ -401,7 +408,9 @@ export default function Branches() {
                   <button
                     type="button"
                     onClick={() => handleToggleGps(branch.id)}
-                    aria-label={`Toggle GPS enforcement for ${branch.name}`}
+                    aria-label={t("branchesPage.toggleGpsAriaLabel", {
+                      name: branch.name,
+                    })}
                     aria-pressed={branch.gpsEnforced}
                     className={`
                       relative
@@ -488,14 +497,14 @@ export default function Branches() {
                   m-0
                 "
               >
-                Add New Branch
+                {t("branchesPage.modalTitle")}
               </h2>
 
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setIsAddModalOpen(false)}
-                aria-label="Close modal"
+                aria-label={t("branchesPage.closeModal")}
                 className="
                   bg-transparent
                   border-0
@@ -535,13 +544,13 @@ export default function Branches() {
                     text-[#486581]
                   "
                 >
-                  Branch name
+                  {t("branchesPage.branchNameLabel")}
                 </label>
 
                 <input
                   id="branch-name"
                   type="text"
-                  placeholder="e.g. Cairo HQ"
+                  placeholder={t("branchesPage.branchNamePlaceholder")}
                   value={branchName}
                   onChange={(event) => setBranchName(event.target.value)}
                   required
@@ -576,7 +585,7 @@ export default function Branches() {
                     text-[#486581]
                   "
                 >
-                  GPS coordinates
+                  {t("branchesPage.gpsCoordinatesFieldLabel")}
                 </label>
 
                 <input
@@ -616,7 +625,7 @@ export default function Branches() {
                     text-[#486581]
                   "
                 >
-                  Geofence radius (meters)
+                  {t("branchesPage.geofenceRadiusLabel")}
                 </label>
 
                 <input
@@ -676,7 +685,7 @@ export default function Branches() {
                     hover:bg-[#f0f4f7]
                   "
                 >
-                  Cancel
+                  {t("branchesPage.cancel")}
                 </button>
 
                 {/* Submit */}
@@ -696,7 +705,7 @@ export default function Branches() {
                     hover:bg-[#334e68]
                   "
                 >
-                  Add Branch
+                  {t("branchesPage.addBranch")}
                 </button>
               </div>
             </form>
