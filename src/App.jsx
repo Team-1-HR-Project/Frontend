@@ -10,6 +10,8 @@ import ResetPassword from "./features/auth/pages/ResetPassword";
 import PasswordResetSuccess from "./features/auth/pages/PasswordResetSuccess";
 import Branches from "./features/admin/pages/branches";
 import DashboardLayout from "./layouts/DashboardLayout";
+import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
+import ActivityLog from "./features/admin/pages/audit-logs";
 import { useTranslation } from "react-i18next";
 
 function DashboardPlaceholder({ messageKey, defaultMessage }) {
@@ -73,6 +75,50 @@ function App() {
             }
           />
           <Route path="/admin/branches" element={<Branches />} />
+          <Route
+            path="/admin/settings"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.settings"
+                defaultMessage="الإعدادات"
+              />
+            }
+          />
+          <Route
+            path="/hr/dashboard"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.welcomeHr"
+                defaultMessage="مرحباً بك في لوحة تحكم الـ HR"
+              />
+            }
+          />
+          <Route
+            path="/employee/dashboard"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.welcomeEmployee"
+                defaultMessage="مرحباً بك في صفحة الموظف"
+              />
+            }
+          />
+
+          <Route
+            path="/admin"
+            element={<Navigate to="/admin/dashboard" replace />}
+          />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/admin/users"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.allUsers"
+                defaultMessage="جميع المستخدمين"
+              />
+            }
+          />
+          <Route path="/admin/activity-log" element={<ActivityLog />} />
+          <Route path="/admin/audit-logs" element={<ActivityLog />} />
           <Route
             path="/admin/settings"
             element={

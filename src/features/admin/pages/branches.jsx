@@ -7,8 +7,6 @@ import {
   LuX,
 } from "react-icons/lu";
 
-import "../../../styles/admin/branches.css";
-
 export default function Branches() {
   // =========================
   // Branches Data
@@ -93,26 +91,17 @@ export default function Branches() {
 
     const newBranch = {
       id: `branch-${Date.now()}`,
-
       name: branchName.trim(),
-
       coordinates: gpsCoordinates.trim() || "30.0444° N, 31.2357° E",
-
       radius: `${geofenceRadius.trim() || "100"}m radius`,
-
       gpsEnforced: true,
     };
 
     setBranches((previousBranches) => [...previousBranches, newBranch]);
 
-    // Reset form
     setBranchName("");
-
     setGpsCoordinates("30.0444° N, 31.2357° E");
-
     setGeofenceRadius("100");
-
-    // Close modal
     setIsAddModalOpen(false);
   };
 
@@ -127,47 +116,43 @@ export default function Branches() {
     const downloadAnchor = document.createElement("a");
 
     downloadAnchor.href = data;
-
     downloadAnchor.download = "wisework_branches_config.json";
 
     document.body.appendChild(downloadAnchor);
-
     downloadAnchor.click();
-
     downloadAnchor.remove();
   };
 
-  // =========================
-  // JSX
-  // =========================
   return (
     <>
       {/* =====================================================
           BRANCHES PAGE
       ===================================================== */}
 
-      <div className="branches-page-wrapper">
+      <div className="w-full max-w-[1400px] mx-auto box-border">
         {/* =====================================================
             HEADER
         ===================================================== */}
 
-        <div className="branches-header">
+        <div className="flex justify-between items-end mb-[28px] gap-4 flex-wrap">
           {/* Header Left */}
           <div>
             {/* Breadcrumb */}
-            <div className="branches-breadcrumb">
+            <div className="flex items-center gap-2 text-[12px] font-semibold text-[#829ab1] mb-2">
               <span>WiseWork</span>
 
-              <LuChevronRight size={14} />
+              <LuChevronRight size={14} className="text-[#9fb3c8]" />
 
-              <span className="branches-breadcrumb-current">Branches</span>
+              <span className="text-[#486581]">Branches</span>
             </div>
 
             {/* Page Title */}
-            <h1 className="branches-title">Branches</h1>
+            <h1 className="text-[28px] font-bold leading-[1.2] text-[#243b53] tracking-[-0.02em]">
+              Branches
+            </h1>
 
             {/* Page Subtitle */}
-            <p className="branches-subtitle">
+            <p className="text-[14px] text-[#627d98] mt-[6px] leading-[1.4]">
               Configure and manage your WiseWork branches.
             </p>
           </div>
@@ -175,8 +160,25 @@ export default function Branches() {
           {/* Export Button */}
           <button
             type="button"
-            className="branches-export-btn"
             onClick={handleExportConfig}
+            className="
+              inline-flex items-center justify-center
+              gap-2
+              h-10
+              px-4
+              bg-white
+              border border-[#bcccdc]
+              rounded-lg
+              text-[#486581]
+              text-[14px]
+              font-semibold
+              cursor-pointer
+              shadow-[0_1px_2px_rgba(16,42,67,0.04)]
+              transition-all duration-150 ease-in-out
+              whitespace-nowrap
+              hover:bg-[#f0f4f7]
+              hover:border-[#9fb3c8]
+            "
           >
             <LuArrowUpRight size={17} />
 
@@ -188,14 +190,33 @@ export default function Branches() {
             MAIN CARD
         ===================================================== */}
 
-        <div className="branches-main-card">
+        <div
+          className="
+            bg-white
+            border border-[#d9e2ec]
+            rounded-[14px]
+            py-6
+            px-7
+            shadow-[0_1px_3px_rgba(16,42,67,0.03)]
+            box-border
+          "
+        >
           {/* Card Header */}
-          <div className="branches-card-header">
+          <div
+            className="
+              flex justify-between items-start
+              mb-6
+              gap-4
+              flex-wrap
+            "
+          >
             {/* Card Information */}
             <div>
-              <h2 className="branches-card-title">Branch locations</h2>
+              <h2 className="text-[18px] font-bold text-[#243b53] m-0 leading-[1.3]">
+                Branch locations
+              </h2>
 
-              <p className="branches-card-desc">
+              <p className="text-[14px] text-[#829ab1] mt-1 leading-[1.4]">
                 Configure GPS enforcement for each branch
               </p>
             </div>
@@ -203,8 +224,24 @@ export default function Branches() {
             {/* Add Branch Button */}
             <button
               type="button"
-              className="branches-add-btn"
               onClick={() => setIsAddModalOpen(true)}
+              className="
+                inline-flex items-center justify-center
+                gap-2
+                h-10
+                px-[18px]
+                bg-[#243b53]
+                border-0
+                rounded-lg
+                text-white
+                text-[14px]
+                font-semibold
+                cursor-pointer
+                shadow-[0_1px_3px_rgba(16,42,67,0.12)]
+                transition-colors duration-150 ease-in-out
+                whitespace-nowrap
+                hover:bg-[#334e68]
+              "
             >
               <LuPlus size={17} />
 
@@ -216,32 +253,105 @@ export default function Branches() {
               BRANCHES GRID
           ===================================================== */}
 
-          <div className="branches-grid">
+          <div
+            className="
+              grid
+              grid-cols-1
+              min-[901px]:grid-cols-2
+              gap-4
+            "
+          >
             {branches.map((branch) => (
-              <div className="branch-item-card" key={branch.id}>
+              <div
+                key={branch.id}
+                className="
+                  bg-white
+                  border border-[#d9e2ec]
+                  rounded-xl
+                  py-5
+                  px-[22px]
+                  flex flex-col
+                  justify-between
+                  min-h-[154px]
+                  box-border
+                  transition-colors duration-150 ease-in-out
+                  hover:border-[#bcccdc]
+                "
+              >
                 {/* =================================================
                     TOP ROW
                 ================================================= */}
 
-                <div className="branch-top-row">
+                <div className="flex justify-between items-start gap-3">
                   {/* Branch Information */}
-                  <div className="branch-info-group">
+                  <div className="flex items-center gap-3 min-w-0">
                     {/* Branch Icon */}
-                    <div className="branch-icon-box">
+                    <div
+                      className="
+                        w-[42px]
+                        h-[42px]
+                        rounded-lg
+                        bg-[#e7eef5]
+                        text-[#486581]
+                        flex items-center justify-center
+                        shrink-0
+                      "
+                    >
                       <LuBuilding2 size={21} />
                     </div>
 
                     {/* Branch Name + Coordinates */}
-                    <div>
-                      <h3 className="branch-name">{branch.name}</h3>
+                    <div className="min-w-0">
+                      <h3
+                        className="
+                          text-[16px]
+                          font-bold
+                          text-[#243b53]
+                          m-0
+                          leading-[1.2]
+                        "
+                      >
+                        {branch.name}
+                      </h3>
 
-                      <p className="branch-coords">{branch.coordinates}</p>
+                      <p
+                        className="
+                          text-[12px]
+                          text-[#829ab1]
+                          mt-1
+                          leading-normal
+                          whitespace-nowrap
+                        "
+                      >
+                        {branch.coordinates}
+                      </p>
                     </div>
                   </div>
 
                   {/* Radius Badge */}
-                  <div className="branch-radius-badge">
-                    <span className="branch-radius-dot"></span>
+                  <div
+                    className="
+                      inline-flex items-center
+                      gap-[6px]
+                      h-[26px]
+                      px-[10px]
+                      bg-[#e7eef5]
+                      text-[#486581]
+                      rounded-full
+                      text-[12px]
+                      font-semibold
+                      shrink-0
+                      whitespace-nowrap
+                    "
+                  >
+                    <span
+                      className="
+                        w-[6px]
+                        h-[6px]
+                        rounded-full
+                        bg-[#486581]
+                      "
+                    />
 
                     <span>{branch.radius}</span>
                   </div>
@@ -251,12 +361,38 @@ export default function Branches() {
                     BOTTOM GPS ROW
                 ================================================= */}
 
-                <div className="branch-bottom-row">
+                <div
+                  className="
+                    flex justify-between items-center
+                    mt-[18px]
+                    pt-[14px]
+                    border-t border-[#eef1f4]
+                    gap-3
+                  "
+                >
                   {/* GPS Information */}
                   <div>
-                    <p className="branch-gps-label">GPS enforcement</p>
+                    <p
+                      className="
+                        text-[14px]
+                        font-semibold
+                        text-[#486581]
+                        m-0
+                        leading-[1.2]
+                      "
+                    >
+                      GPS enforcement
+                    </p>
 
-                    <p className="branch-gps-desc">
+                    <p
+                      className="
+                        text-[12px]
+                        text-[#829ab1]
+                        mt-[2px]
+                        m-0
+                        leading-[1.3]
+                      "
+                    >
                       Require employees to be within the branch
                     </p>
                   </div>
@@ -264,14 +400,36 @@ export default function Branches() {
                   {/* GPS Switch */}
                   <button
                     type="button"
-                    className={`branch-switch ${
-                      branch.gpsEnforced ? "switch-on" : "switch-off"
-                    }`}
                     onClick={() => handleToggleGps(branch.id)}
                     aria-label={`Toggle GPS enforcement for ${branch.name}`}
                     aria-pressed={branch.gpsEnforced}
+                    className={`
+                      relative
+                      w-11
+                      h-6
+                      rounded-full
+                      border-0
+                      cursor-pointer
+                      shrink-0
+                      p-0
+                      outline-none
+                      transition-colors duration-200 ease-in-out
+                      ${branch.gpsEnforced ? "bg-[#5b8c6a]" : "bg-[#bcccdc]"}
+                    `}
                   >
-                    <span className="branch-switch-knob"></span>
+                    <span
+                      className={`
+                        absolute
+                        top-1
+                        w-4
+                        h-4
+                        rounded-full
+                        bg-white
+                        shadow-[0_1px_3px_rgba(0,0,0,0.18)]
+                        transition-[left] duration-200 ease-in-out
+                        ${branch.gpsEnforced ? "left-6" : "left-1"}
+                      `}
+                    />
                   </button>
                 </div>
               </div>
@@ -286,28 +444,70 @@ export default function Branches() {
 
       {isAddModalOpen && (
         <div
-          className="modal-overlay"
+          className="
+            fixed
+            inset-0
+            z-[60]
+            flex items-center justify-center
+            bg-[rgba(16,42,67,0.5)]
+            p-4
+            box-border
+          "
           onMouseDown={(event) => {
-            // Close modal when clicking outside
             if (event.target === event.currentTarget) {
               setIsAddModalOpen(false);
             }
           }}
         >
-          <div className="modal-dialog">
+          <div
+            className="
+              w-full
+              max-w-[512px]
+              bg-white
+              rounded-2xl
+              p-6
+              shadow-[0_20px_30px_rgba(16,42,67,0.2)]
+              box-border
+            "
+          >
             {/* =================================================
                 MODAL HEADER
             ================================================= */}
 
-            <div className="modal-header">
-              <h2 className="modal-title">Add New Branch</h2>
+            <div
+              className="
+                flex justify-between items-center
+                mb-5
+              "
+            >
+              <h2
+                className="
+                  text-[18px]
+                  font-bold
+                  text-[#243b53]
+                  m-0
+                "
+              >
+                Add New Branch
+              </h2>
 
               {/* Close Button */}
               <button
                 type="button"
-                className="modal-close-btn"
                 onClick={() => setIsAddModalOpen(false)}
                 aria-label="Close modal"
+                className="
+                  bg-transparent
+                  border-0
+                  text-[#627d98]
+                  p-[6px]
+                  rounded-md
+                  cursor-pointer
+                  flex items-center justify-center
+                  transition-all duration-150
+                  hover:bg-[#f0f4f7]
+                  hover:text-[#243b53]
+                "
               >
                 <LuX size={20} />
               </button>
@@ -317,52 +517,105 @@ export default function Branches() {
                 FORM
             ================================================= */}
 
-            <form className="modal-form" onSubmit={handleAddBranchSubmit}>
-              {/* =================================================
-                  BRANCH NAME
-              ================================================= */}
+            <form
+              onSubmit={handleAddBranchSubmit}
+              className="
+                flex flex-col
+                gap-4
+              "
+            >
+              {/* BRANCH NAME */}
 
-              <div className="modal-field-group">
-                <label htmlFor="branch-name" className="modal-field-label">
+              <div className="flex flex-col gap-[6px]">
+                <label
+                  htmlFor="branch-name"
+                  className="
+                    text-[14px]
+                    font-medium
+                    text-[#486581]
+                  "
+                >
                   Branch name
                 </label>
 
                 <input
                   id="branch-name"
                   type="text"
-                  className="modal-input"
                   placeholder="e.g. Cairo HQ"
                   value={branchName}
                   onChange={(event) => setBranchName(event.target.value)}
                   required
+                  className="
+                    h-[42px]
+                    w-full
+                    border
+                    border-[#bcccdc]
+                    rounded-lg
+                    bg-white
+                    px-3
+                    text-[14px]
+                    text-[#243b53]
+                    outline-none
+                    box-border
+                    transition-all duration-150
+                    placeholder:text-[#829ab1]
+                    focus:border-[#486581]
+                    focus:shadow-[0_0_0_2px_#d9e2ec]
+                  "
                 />
               </div>
 
-              {/* =================================================
-                  GPS COORDINATES
-              ================================================= */}
+              {/* GPS COORDINATES */}
 
-              <div className="modal-field-group">
-                <label htmlFor="gps-coordinates" className="modal-field-label">
+              <div className="flex flex-col gap-[6px]">
+                <label
+                  htmlFor="gps-coordinates"
+                  className="
+                    text-[14px]
+                    font-medium
+                    text-[#486581]
+                  "
+                >
                   GPS coordinates
                 </label>
 
                 <input
                   id="gps-coordinates"
                   type="text"
-                  className="modal-input"
                   placeholder="30.0444° N, 31.2357° E"
                   value={gpsCoordinates}
                   onChange={(event) => setGpsCoordinates(event.target.value)}
+                  className="
+                    h-[42px]
+                    w-full
+                    border
+                    border-[#bcccdc]
+                    rounded-lg
+                    bg-white
+                    px-3
+                    text-[14px]
+                    text-[#243b53]
+                    outline-none
+                    box-border
+                    transition-all duration-150
+                    placeholder:text-[#829ab1]
+                    focus:border-[#486581]
+                    focus:shadow-[0_0_0_2px_#d9e2ec]
+                  "
                 />
               </div>
 
-              {/* =================================================
-                  GEOFENCE RADIUS
-              ================================================= */}
+              {/* GEOFENCE RADIUS */}
 
-              <div className="modal-field-group">
-                <label htmlFor="geofence-radius" className="modal-field-label">
+              <div className="flex flex-col gap-[6px]">
+                <label
+                  htmlFor="geofence-radius"
+                  className="
+                    text-[14px]
+                    font-medium
+                    text-[#486581]
+                  "
+                >
                   Geofence radius (meters)
                 </label>
 
@@ -370,10 +623,26 @@ export default function Branches() {
                   id="geofence-radius"
                   type="number"
                   min="1"
-                  className="modal-input"
                   placeholder="100"
                   value={geofenceRadius}
                   onChange={(event) => setGeofenceRadius(event.target.value)}
+                  className="
+                    h-[42px]
+                    w-full
+                    border
+                    border-[#bcccdc]
+                    rounded-lg
+                    bg-white
+                    px-3
+                    text-[14px]
+                    text-[#243b53]
+                    outline-none
+                    box-border
+                    transition-all duration-150
+                    placeholder:text-[#829ab1]
+                    focus:border-[#486581]
+                    focus:shadow-[0_0_0_2px_#d9e2ec]
+                  "
                 />
               </div>
 
@@ -381,18 +650,52 @@ export default function Branches() {
                   MODAL FOOTER
               ================================================= */}
 
-              <div className="modal-footer">
+              <div
+                className="
+                  flex justify-end
+                  gap-[10px]
+                  mt-2
+                "
+              >
                 {/* Cancel */}
                 <button
                   type="button"
-                  className="modal-btn-cancel"
                   onClick={() => setIsAddModalOpen(false)}
+                  className="
+                    h-10
+                    px-[18px]
+                    bg-white
+                    border
+                    border-[#bcccdc]
+                    rounded-lg
+                    text-[#486581]
+                    text-[14px]
+                    font-semibold
+                    cursor-pointer
+                    transition-all duration-150
+                    hover:bg-[#f0f4f7]
+                  "
                 >
                   Cancel
                 </button>
 
                 {/* Submit */}
-                <button type="submit" className="modal-btn-submit">
+                <button
+                  type="submit"
+                  className="
+                    h-10
+                    px-[18px]
+                    bg-[#243b53]
+                    border-0
+                    rounded-lg
+                    text-white
+                    text-[14px]
+                    font-semibold
+                    cursor-pointer
+                    transition-colors duration-150
+                    hover:bg-[#334e68]
+                  "
+                >
                   Add Branch
                 </button>
               </div>
