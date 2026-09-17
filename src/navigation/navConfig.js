@@ -1,6 +1,7 @@
 import { 
   MdDashboard, 
   MdPeople, 
+  MdLocationCity,
   MdAttachMoney, 
   MdEventNote,
   MdSettings 
@@ -10,6 +11,7 @@ export const navConfig = {
   admin: [
     { titleKey: "portal.dashboard", title: "Dashboard", path: "/admin/dashboard", icon: MdDashboard },
     { titleKey: "portal.allUsers", title: "All Users", path: "/admin/users", icon: MdPeople },
+    { titleKey: "portal.branches", title: "Branches", path: "/admin/branches", icon: MdLocationCity },
     { titleKey: "portal.settings", title: "Settings", path: "/admin/settings", icon: MdSettings },
   ],
   hr: [

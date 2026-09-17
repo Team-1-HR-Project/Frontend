@@ -1,85 +1,136 @@
 @import "tailwindcss";
 
+/* =====================================================
+   WISEWORK GLOBAL DESIGN TOKENS
+===================================================== */
+
 :root {
   --primary: #243b53;
   --primary-hover: #1e354d;
   --primary-light: rgba(36, 59, 83, 0.08);
+
   --secondary: #486581;
   --secondary-hover: #3d566e;
+
   --accent: #5b8c6a;
   --accent-hover: #4e7a5b;
   --accent-light: rgba(91, 140, 106, 0.12);
+
   --bg-main: #f5f7f8;
   --surface: #ffffff;
+
   --text-main: #202b33;
   --text-muted: #6b7785;
+
   --border-color: #d9e2ec;
   --border-subtle: #eaedf1;
+
   --success: #3f7d5a;
   --warning: #c58b2a;
   --error: #b44a4a;
 
   /* WiseWork Design Tokens */
+
   --navy: #243b53;
   --navy-2: #102a43;
   --steel: #486581;
   --green: #5b8c6a;
+
   --canvas: #f5f7f8;
   --border: #d9e2ec;
   --muted: #627d98;
   --ink: #243b53;
   --soft: #eef2f5;
+
   --radius: 12px;
 
-  --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading:
+    "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --font-body:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --shadow-sm: 0 1px 3px rgba(32, 43, 51, 0.05);
   --shadow-md: 0 4px 12px rgba(32, 43, 51, 0.08);
   --shadow-lg: 0 10px 30px rgba(32, 43, 51, 0.1);
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
 }
 
+/* =====================================================
+   RTL FONTS
+===================================================== */
+
 [lang="ar"],
 [dir="rtl"] {
-  --font-heading: 'Cairo', 'Manrope', -apple-system, sans-serif;
-  --font-body: 'Tajawal', 'Inter', -apple-system, sans-serif;
+  --font-heading: "Cairo", "Manrope", -apple-system, sans-serif;
+
+  --font-body: "Tajawal", "Inter", -apple-system, sans-serif;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* =====================================================
+   TAILWIND BASE LAYER
+   مهم جدًا: الـ reset لازم يكون داخل @layer base
+===================================================== */
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-  font-family: var(--font-body);
-  color: var(--text-main);
-  background-color: var(--bg-main);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  body {
+    margin: 0;
+    padding: 0;
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  color: var(--text-main);
-}
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-main);
 
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    line-height: 1.5;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
+    font-family: var(--font-heading);
+    color: var(--text-main);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
