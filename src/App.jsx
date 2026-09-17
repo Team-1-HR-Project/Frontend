@@ -18,6 +18,9 @@ import ActivityLog from "./features/admin/pages/audit-logs";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 
+// (إضافة 1) استيراد صفحة الـ Performance اللي عملناها
+import PerformancePage from "./features/admin/pages/PerformancePage";
+
 function DashboardPlaceholder({ messageKey, defaultMessage }) {
   const { t } = useTranslation();
 
@@ -59,7 +62,6 @@ function App() {
 
         {/* ==================== Dashboard ==================== */}
         <Route element={<DashboardLayout />}>
-
           {/* Admin */}
           <Route
             path="/admin"
@@ -113,12 +115,7 @@ function App() {
           {/* Performance */}
           <Route
             path="/admin/performance"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.performance"
-                defaultMessage="الأداء والأهداف"
-              />
-            }
+            element={<PerformancePage />}
           />
 
           {/* HR */}

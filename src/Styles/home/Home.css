@@ -115,6 +115,7 @@
     box-shadow 0.2s ease,
     background 0.2s ease;
 }
+
 .site-header {
   position: fixed;
   top: 0;
@@ -191,6 +192,7 @@
   color: #243b53;
   background-color: rgba(91, 140, 106, 0.12);
 }
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -246,7 +248,7 @@
 ===================================================== */
 .hero {
   position: relative;
-  padding: 80px 0 95px;
+  padding: 114px 0 95px;
   background: #f5f7f8;
   overflow: hidden;
 }
@@ -524,12 +526,10 @@ h2 em {
   gap: 8px;
   margin-top: 12px;
   padding: 0 4px;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 22px,
-    #d9e2ec 23px
-  );
+  background: repeating-linear-gradient(to bottom,
+      transparent,
+      transparent 22px,
+      #d9e2ec 23px);
 }
 
 .chart-lines span {
@@ -798,7 +798,7 @@ h2 em {
   margin-bottom: 42px;
 }
 
-.section-heading > p {
+.section-heading>p {
   max-width: 360px;
   margin: 0;
   color: #6b7785;
@@ -1608,19 +1608,23 @@ h2 em {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .feature-grid,
   .roles-grid,
   .plans-grid {
     grid-template-columns: 1fr 1fr;
   }
+
   .stats-grid {
     grid-template-columns: 1fr 1fr;
     gap: 20px 0;
   }
+
   .footer-grid {
     flex-wrap: wrap;
     gap: 40px;
@@ -1628,63 +1632,79 @@ h2 em {
 }
 
 @media (max-width: 768px) {
+
   .nav-links,
   .nav-actions {
     display: none;
   }
+
   .menu-button {
     display: block;
   }
+
   .hero {
     padding: 50px 0 65px;
   }
+
   .hero-visual {
     padding: 10px 0 25px;
   }
+
   .floating-card {
     transform: scale(0.85);
   }
+
   .floating-top {
     left: -15px;
   }
+
   .floating-bottom {
     right: -15px;
   }
+
   .section {
     padding: 65px 0;
   }
+
   .feature-grid,
   .roles-grid,
   .plans-grid,
   .stats-grid {
     grid-template-columns: 1fr;
   }
+
   .stat {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding: 14px 0;
   }
+
   .stat:last-child {
     border-bottom: none;
   }
+
   .cta-box {
     flex-direction: column;
     align-items: flex-start;
     padding: 36px 24px;
   }
+
   .footer-grid {
     flex-direction: column;
     gap: 30px;
   }
+
   .footer-links {
     flex-wrap: wrap;
     gap: 30px 40px;
   }
+
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
   }
 }
+
 .site-header {
   position: fixed !important;
   top: 0 !important;
