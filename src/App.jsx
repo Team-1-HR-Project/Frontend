@@ -15,7 +15,7 @@ import Branches from "./features/admin/pages/branches";
 import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
 import Notification from "./features/admin/pages/Notification";
 import ActivityLog from "./features/admin/pages/audit-logs";
-
+import Users from "./features/admin/pages/Users";
 import DashboardLayout from "./layouts/DashboardLayout";
 
 // (إضافة 1) استيراد صفحة الـ Performance اللي عملناها
@@ -73,15 +73,7 @@ function App() {
             element={<AdminDashboard />}
           />
 
-          <Route
-            path="/admin/users"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.users"
-                defaultMessage="المستخدمون"
-              />
-            }
-          />
+         <Route path="/admin/users" element={<Users />} />
 
           {/* Branches */}
           <Route

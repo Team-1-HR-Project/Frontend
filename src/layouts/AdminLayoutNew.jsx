@@ -1,16 +1,16 @@
 import React from 'react';
-import {
-    FiActivity,
-    FiUserCog,
-    FiBuilding,
-    FiClipboard,
-    FiBell,
-    FiShield,
-    FiGlobe,
-    FiMenu,
-    FiX,
-    FiChevronRight
-} from 'react-icons/fi';
+// import {
+//     FiActivity,
+//     FiUserCog,
+//     FiBuilding,
+//     FiClipboard,
+//     FiBell,
+//     FiShield,
+//     FiGlobe,
+//     FiMenu,
+//     FiX,
+//     FiChevronRight
+// } from 'react-icons/fi';
 
 const AdminLayout = ({ children }) => {
     return (
