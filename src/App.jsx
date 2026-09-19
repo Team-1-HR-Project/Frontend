@@ -28,7 +28,11 @@ import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import CompanyPolicies from "./features/employee/pages/policies";
+<<<<<<< HEAD
 import Tasks from "./features/employee/pages/Tasks";
+=======
+import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
+>>>>>>> 91db619756255c9e49433973ecc1c8985f87d7c3
 
 // ==================== Dashboard Placeholder ====================
 
@@ -267,8 +271,22 @@ function App() {
             path="/branches"
             element={<Branches />}
           />
+          <Route
+            path="/employee/profile"
+            element={<EmployeeProfileSettings />}
+          />
 
         </Route>
+
+
+
+
+        {/* ==================== Direct Branches Route ==================== */}
+
+        <Route
+          path="/branches"
+          element={<Branches />}
+        />
 
       </Routes>
     </BrowserRouter>

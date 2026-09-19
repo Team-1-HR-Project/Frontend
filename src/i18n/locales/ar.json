@@ -812,12 +812,14 @@
     "sarahAdmin": "سارة أحمد (مسؤول النظام)",
     "homeDashboard": "الرئيسية",
     "myAttendance": "حضوري",
+    "myAttendance": "حضوري وانصرافي",
     "myTasks": "مهامي",
     "leaveBalances": "الإجازات والأرصدة",
     "myPerformance": "أدائي",
     "aiAssistant": "المساعد الذكي",
     "companyPolicies": "سياسات الشركة",
     "profileSettings": "الملف الشخصي والإعدادات"
+    
   },
   "adminDashboard": {
     "overview": "نظرة عامة",
@@ -970,5 +972,40 @@
       "Training": "التدريب",
       "General": "عام"
     }
+    ,"companyPolicies": {
+    "eyebrow": "الموارد",
+    "title": "سياسات الشركة",
+    "subtitle": "كل ما تحتاجه للعمل بثقة.",
+    "handbookTitle": "دليل الموظف",
+    "handbookDesc": "أساسيات رحلتك في WiseWork.",
+    "leaveAttendanceTitle": "الإجازات والحضور",
+    "leaveAttendanceDesc": "الإجازات، ساعات العمل، وإرشادات الحضور.",
+    "benefitsTitle": "المزايا والرفاهية",
+    "benefitsDesc": "استكشف المزايا المتاحة لك.",
+    "securityTitle": "الأمان والخصوصية",
+    "securityDesc": "حافظ على أمان فريقنا ومعلوماتنا."
+  },
+    "profileSettingsPage": {
+    "eyebrow": "الحساب",
+    "title": "البروفايل والإعدادات",
+    "subtitle": "إدارة بيانات وتفضيلات حسابك الوظيفي.",
+    "editProfile": "تعديل البروفايل",
+    "directManager": "المدير المباشر",
+    "workLocation": "موقع العمل",
+    "workEmail": "البريد الإلكتروني للعمل",
+    "phone": "رقم الهاتف",
+    "accountSettings": "إعدادات الحساب",
+    "accountSettingsSubtitle": "خصّص طريقة عمل WiseWork بما يناسبك.",
+    "biometricLogin": "تسجيل الدخول بالبصمة",
+    "biometricLoginDesc": "استخدم بصمة جهازك لتسجيل دخول أسرع.",
+    "pushNotifications": "الإشعارات الفورية",
+    "pushNotificationsDesc": "استقبال تحديثات عن المهام والطلبات.",
+    "language": "اللغة",
+    "logout": "تسجيل الخروج",
+    "editProfileTitle": "تعديل البروفايل",
+    "fullNameLabel": "الاسم بالكامل",
+    "jobTitleLabel": "المسمى الوظيفي",
+    "cancelEdit": "إلغاء",
+    "saveChanges": "حفظ التغييرات"
   }
-}
+}}
