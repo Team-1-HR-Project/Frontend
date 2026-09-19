@@ -8,7 +8,7 @@ export const MOCK_USERS = [
   {
     userId: "user-ahmed",
     name: "Ahmed Nasser",
-    nameAr: "???? ????",
+    nameAr: "أحمد ناصر",
     initials: "AN",
     role: "admin",
     email: "ahmed@wisework.io",
@@ -17,7 +17,7 @@ export const MOCK_USERS = [
   {
     userId: "user-sara",
     name: "Sara Ahmed",
-    nameAr: "???? ????",
+    nameAr: "سارة أحمد",
     initials: "SA",
     role: "admin",
     email: "sara@wisework.io",
@@ -26,7 +26,7 @@ export const MOCK_USERS = [
   {
     userId: "user-mostafa",
     name: "Mostafa Khalil",
-    nameAr: "????? ????",
+    nameAr: "مصطفى خليل",
     initials: "MK",
     role: "hr",
     email: "mostafa@wisework.io",
@@ -35,7 +35,7 @@ export const MOCK_USERS = [
   {
     userId: "user-layla",
     name: "Layla Hassan",
-    nameAr: "???? ???",
+    nameAr: "ليلى حسن",
     initials: "LH",
     role: "employee",
     email: "layla@wisework.io",
@@ -48,7 +48,37 @@ const DEFAULT_USER = MOCK_USERS[0];
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(DEFAULT_USER);
+  const [currentUser, setCurrentUserState] = useState(() => {
+    try {
+      const saved =
+        localStorage.getItem("currentUser") ||
+        localStorage.getItem("user") ||
+        localStorage.getItem("admin");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        const resolved = parsed?.user || parsed?.data || parsed;
+        if (resolved && (resolved.name || resolved.email)) {
+          return resolved;
+        }
+      }
+    } catch {
+      // ignore JSON parse error
+    }
+    return DEFAULT_USER;
+  });
+
+  const setCurrentUser = (user) => {
+    setCurrentUserState(user);
+    try {
+      if (user) {
+        localStorage.setItem("currentUser", JSON.stringify(user));
+      } else {
+        localStorage.removeItem("currentUser");
+      }
+    } catch {
+      // ignore
+    }
+  };
 
   const switchUser = (userId) => {
     const user = MOCK_USERS.find((u) => u.userId === userId);

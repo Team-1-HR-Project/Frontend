@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FiArrowRight, FiMoreHorizontal } from "react-icons/fi";
 import { LuSparkles } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
@@ -13,27 +13,110 @@ import { APP_NAME, BRAND_NAME } from "../utils/global";
 
 const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const { unreadCount } = useNotifications();
   const { currentUser } = useAuth();
 
   const isRtl = i18n.language?.startsWith("ar");
 
-  const links = navConfig[role] || [];
+  // Determine if this is an admin page or admin role
+  const isAdminPage =
+    role === "admin" ||
+    location.pathname.startsWith("/admin") ||
+    location.pathname === "/admin" ||
+    location.pathname === "/branches";
 
-  const avatarLetter = (
-    currentUser?.initials ||
-    (role === "employee" ? "OH" : role.charAt(0))
-  ).toUpperCase();
+  const effectiveRole = isAdminPage ? "admin" : role;
+  const links = navConfig[effectiveRole] || navConfig[role] || [];
 
-  const portalLabel = t(`portal.${role}Portal`, `${role.toUpperCase()} PORTAL`);
+  // Resolve user info from localStorage or AuthContext
+  const storedUser = (() => {
+    try {
+      const raw =
+        localStorage.getItem("currentUser") ||
+        localStorage.getItem("user") ||
+        localStorage.getItem("admin") ||
+        localStorage.getItem("auth_user");
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      return parsed?.user || parsed?.data || parsed;
+    } catch {
+      return null;
+    }
+  })();
 
-  const displayName =
-    currentUser?.name ||
-    (role === "employee" ? "Omar Haddad" : t(`portal.${role}Account`, `${role} User`));
+  const activeUser = storedUser || currentUser;
 
-  const displayTitle =
-    currentUser?.jobTitle ||
-    (role === "employee" ? "Senior Product Analyst" : t("portal.staffMember", `${APP_NAME} Workspace`));
+  let avatarText = "OH";
+  let displayName = "Omar Haddad";
+  let displayTitle = "Senior Product Analyst";
+  let avatarBg = "#d7eee9";
+  let avatarColor = "#235850";
+
+  if (isAdminPage) {
+    const adminName =
+      (activeUser?.role === "admin" || !activeUser?.role) && activeUser?.name
+        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
+        : activeUser?.fullName ||
+          activeUser?.username ||
+          (isRtl ? "أحمد ناصر" : "Ahmed Nasser");
+
+    displayName = adminName;
+    displayTitle =
+      activeUser?.jobTitle ||
+      activeUser?.roleTitle ||
+      (isRtl ? "مسؤول النظام" : "Administrator");
+
+    if (activeUser?.initials) {
+      avatarText = activeUser.initials.toUpperCase();
+    } else if (displayName) {
+      const parts = displayName.trim().split(/\s+/);
+      avatarText =
+        parts.length > 1
+          ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+          : parts[0].slice(0, 2).toUpperCase();
+    } else {
+      avatarText = "AN";
+    }
+
+    avatarBg = "#daf0e3";
+    avatarColor = "#1e4b3c";
+  } else if (effectiveRole === "hr") {
+    displayName =
+      activeUser?.role === "hr" && activeUser?.name
+        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
+        : isRtl
+        ? "مصطفى خليل"
+        : "Mostafa Khalil";
+    displayTitle = isRtl ? "مسؤول موارد بشرية" : "HR Specialist";
+    avatarText = activeUser?.role === "hr" && activeUser?.initials ? activeUser.initials : "MK";
+    avatarBg = "#ede9fe";
+    avatarColor = "#5b21b6";
+  } else if (effectiveRole === "manager") {
+    displayName =
+      activeUser?.role === "manager" && activeUser?.name
+        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
+        : isRtl
+        ? "ليلى حسن"
+        : "Layla Hassan";
+    displayTitle = isRtl ? "مدير الفريق" : "Manager";
+    avatarText = activeUser?.role === "manager" && activeUser?.initials ? activeUser.initials : "LH";
+    avatarBg = "#fef3c7";
+    avatarColor = "#92400e";
+  } else {
+    displayName =
+      activeUser?.role === "employee" && activeUser?.name
+        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
+        : isRtl
+        ? "عمر حداد"
+        : "Omar Haddad";
+    displayTitle = isRtl ? "محلل منتجات أول" : "Senior Product Analyst";
+    avatarText = activeUser?.role === "employee" && activeUser?.initials ? activeUser.initials : "OH";
+    avatarBg = "#d7eee9";
+    avatarColor = "#235850";
+  }
+
+  const portalLabel = t(`portal.${effectiveRole}Portal`, `${effectiveRole.toUpperCase()} PORTAL`);
 
   // =========================
   // Role Accent Color
@@ -45,7 +128,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
       hr: "bg-[#6366f1]",
       manager: "bg-[#f59e0b]",
       employee: "bg-[#0ea5e9]",
-    }[role] || "bg-[#79B88B]";
+    }[effectiveRole] || "bg-[#79B88B]";
 
   const accentHex =
     {
@@ -53,7 +136,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
       hr: "#6366f1",
       manager: "#f59e0b",
       employee: "#0ea5e9",
-    }[role] || "#79B88B";
+    }[effectiveRole] || "#79B88B";
 
   // =========================
   // Sidebar Position
@@ -308,73 +391,75 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         ========================= */}
 
         <div className="mt-auto flex flex-col pt-3 shrink-0">
-          {/* Need a hand? Card */}
-          <NavLink
-            to="/employee/ai-assistant"
-            onClick={onClose}
-            style={{
-              backgroundColor: "#223d57",
-              borderColor: "#38597b",
-              borderWidth: "1px",
-              borderStyle: "solid",
-            }}
-            className="
-              group
-              flex
-              items-center
-              gap-3.5
-              rounded-xl
-              p-4
-              transition-all
-              duration-200
-              hover:border-[#4a729c]
-              hover:bg-[#284869]
-            "
-          >
-            {/* Sparkle Icon */}
-            <LuSparkles
+          {/* Need a hand? Card - Only for non-admin portals (specifically employee) */}
+          {!isAdminPage && effectiveRole === "employee" && (
+            <NavLink
+              to="/employee/ai-assistant"
+              onClick={onClose}
+              style={{
+                backgroundColor: "#223d57",
+                borderColor: "#38597b",
+                borderWidth: "1px",
+                borderStyle: "solid",
+              }}
               className="
-                h-6
-                w-6
-                shrink-0
-                text-[#52d1b2]
-                transition-transform
+                group
+                flex
+                items-center
+                gap-3.5
+                rounded-xl
+                p-4
+                transition-all
                 duration-200
-                group-hover:scale-110
+                hover:border-[#4a729c]
+                hover:bg-[#284869]
               "
-            />
+            >
+              {/* Sparkle Icon */}
+              <LuSparkles
+                className="
+                  h-6
+                  w-6
+                  shrink-0
+                  text-[#52d1b2]
+                  transition-transform
+                  duration-200
+                  group-hover:scale-110
+                "
+              />
 
-            {/* Texts */}
-            <div className="flex min-w-0 flex-1 flex-col">
-              <strong className="text-[13.5px] font-bold leading-tight text-white">
-                {t("portal.needAHand", "Need a hand?")}
-              </strong>
-              <span className="mt-1 text-[11.5px] leading-tight text-[#8fa8c1]">
-                {t("portal.askAi", "Ask the AI Assistant")}
-              </span>
-            </div>
+              {/* Texts */}
+              <div className="flex min-w-0 flex-1 flex-col">
+                <strong className="text-[13.5px] font-bold leading-tight text-white">
+                  {t("portal.needAHand", "Need a hand?")}
+                </strong>
+                <span className="mt-1 text-[11.5px] leading-tight text-[#8fa8c1]">
+                  {t("portal.askAi", "Ask the AI Assistant")}
+                </span>
+              </div>
 
-            {/* Arrow */}
-            <FiArrowRight
-              className={`
-                h-4
-                w-4
-                shrink-0
-                text-[#8fa8c1]
-                transition-transform
-                duration-200
-                group-hover:translate-x-1
-                ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}
-              `}
-            />
-          </NavLink>
+              {/* Arrow */}
+              <FiArrowRight
+                className={`
+                  h-4
+                  w-4
+                  shrink-0
+                  text-[#8fa8c1]
+                  transition-transform
+                  duration-200
+                  group-hover:translate-x-1
+                  ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}
+                `}
+              />
+            </NavLink>
+          )}
 
           {/* Divider Line */}
           <div
             style={{
               height: "1px",
               backgroundColor: "#294863",
-              margin: "14px 0",
+              margin: isAdminPage ? "8px 0 14px 0" : "14px 0",
               width: "100%",
               border: "none",
             }}
@@ -385,8 +470,8 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             {/* Avatar */}
             <div
               style={{
-                backgroundColor: "#d7eee9",
-                color: "#235850",
+                backgroundColor: avatarBg,
+                color: avatarColor,
               }}
               className="
                 flex
@@ -400,16 +485,16 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 font-bold
               "
             >
-              OH
+              {avatarText}
             </div>
 
             {/* User Info */}
             <div className="flex min-w-0 flex-1 flex-col">
               <strong className="truncate text-[13.5px] font-bold leading-tight text-white">
-                Omar Haddad
+                {displayName}
               </strong>
               <span className="mt-0.5 truncate text-[11.5px] leading-tight text-[#8fa8c1]">
-                Senior Product Analyst
+                {displayTitle}
               </span>
             </div>
 
