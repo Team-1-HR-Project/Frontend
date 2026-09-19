@@ -811,7 +811,6 @@
     "automatedEngine": "محرك السياسات التلقائي",
     "sarahAdmin": "سارة أحمد (مسؤول النظام)",
     "homeDashboard": "الرئيسية",
-    "myAttendance": "حضوري",
     "myAttendance": "حضوري وانصرافي",
     "myTasks": "مهامي",
     "leaveBalances": "الإجازات والأرصدة",
@@ -972,7 +971,8 @@
       "Training": "التدريب",
       "General": "عام"
     }
-    ,"companyPolicies": {
+  },
+  "companyPolicies": {
     "eyebrow": "الموارد",
     "title": "سياسات الشركة",
     "subtitle": "كل ما تحتاجه للعمل بثقة.",
@@ -985,7 +985,7 @@
     "securityTitle": "الأمان والخصوصية",
     "securityDesc": "حافظ على أمان فريقنا ومعلوماتنا."
   },
-    "profileSettingsPage": {
+  "profileSettingsPage": {
     "eyebrow": "الحساب",
     "title": "البروفايل والإعدادات",
     "subtitle": "إدارة بيانات وتفضيلات حسابك الوظيفي.",
@@ -1006,6 +1006,10 @@
     "fullNameLabel": "الاسم بالكامل",
     "jobTitleLabel": "المسمى الوظيفي",
     "cancelEdit": "إلغاء",
-    "saveChanges": "حفظ التغييرات"
+    "saveChanges": "حفظ التغييرات",
+    "logoutConfirmTitle": "تأكيد تسجيل الخروج",
+    "logoutConfirmMessage": "هل أنت متأكد من رغبتك في تسجيل الخروج من حسابك؟",
+    "confirmLogout": "تسجيل الخروج",
+    "cancelLogout": "إلغاء"
   }
-}}
+}

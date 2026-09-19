@@ -46,7 +46,7 @@ export const navConfig = {
       icon: MdLocationCity,
     },
     {
-      titleKey: "portal.audit-logs",
+      titleKey: "portal.auditLogs",
       title: "Audit Logs",
       path: "/admin/audit", // تم توحيد المسار هنا ليطابق App.jsx
       icon: MdHistory,
