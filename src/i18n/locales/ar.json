@@ -1007,4 +1007,125 @@
     "cancelEdit": "إلغاء",
     "saveChanges": "حفظ التغييرات"
   }
-}}
+},
+  "employee": {
+    "sidebar": {
+      "portal": "بوابة الموظف",
+      "homeDashboard": "لوحة التحكم الرئيسية",
+      "myAttendance": "حضوري",
+      "needAHand": "هل تحتاج إلى مساعدة؟",
+      "askAi": "اسأل المساعد الذكي",
+      "userName": "عمر حداد",
+      "userRole": "محلل منتجات أول"
+    },
+    "home": {
+      "date": "الاثنين، 9 يونيو 2026",
+      "welcome": "صباح الخير، عمر",
+      "subtitle": "إليك نظرة سريعة على يوم عملك.",
+      "viewCalendar": "عرض التقويم",
+      "onShift": "في الوردية",
+      "offShift": "خارج الوردية",
+      "location": "حرم وسط المدينة · البرج B",
+      "checkedIn": "تم تسجيل حضورك",
+      "checkedOut": "تم تسجيل انصرافك",
+      "checkedInAt": "تم تسجيل الحضور في 08:45 ص",
+      "shiftEnded": "انتهت ورديتك",
+      "insideRadius": "داخل نطاق مكان العمل · على بُعد 42م من المكتب",
+      "checkInFromWorkplace": "سجّل حضورك من مكان العمل للبدء",
+      "workedToday": "وقت العمل اليوم",
+      "checkIn": "تسجيل الحضور",
+      "checkOut": "تسجيل الانصراف",
+      "pendingTasks": "المهام المعلقة",
+      "tasks": "3 مهام",
+      "highPriority": "أولوية عالية واحدة",
+      "nextDeadline": "الموعد النهائي التالي",
+      "operationsReport": "تقرير كفاءة العمليات للربع الثاني",
+      "leaveBalance": "رصيد الإجازات",
+      "days": "13 يومًا",
+      "annualCasual": "سنوية + عارضة",
+      "quickActions": "إجراءات سريعة",
+      "shortcuts": "اختصارات للمهام الأكثر استخدامًا.",
+      "requestLeave": "طلب إجازة",
+      "submitTask": "إرسال مهمة",
+      "aiAssistant": "مساعد الموارد البشرية الذكي",
+      "todaysSchedule": "جدول اليوم",
+      "upcomingEvents": "فعاليات التقويم القادمة.",
+      "viewAll": "عرض الكل ←",
+      "productSync": "مزامنة المنتجات",
+      "meetingRoom": "غرفة الاجتماعات 4B · 45 دقيقة",
+      "focusTime": "وقت التركيز",
+      "recentActivity": "النشاط الأخير",
+      "latestUpdates": "آخر التحديثات من مساحة عملك.",
+      "seeAll": "عرض الكل ←",
+      "vendorChecklist": "تم إرسال قائمة الموردين",
+      "yesterdayAt432": "أمس الساعة 4:32 م",
+      "leaveUpdated": "تم تحديث رصيد الإجازات",
+      "yesterdayAt910": "أمس الساعة 9:10 ص",
+      "month": "مايو 2026",
+      "weekdays": {
+        "sun": "الأحد",
+        "mon": "الاثنين",
+        "tue": "الثلاثاء",
+        "wed": "الأربعاء",
+        "thu": "الخميس",
+        "fri": "الجمعة",
+        "sat": "السبت"
+      },
+      "casualLeave": "إجازة عارضة (14 مايو)",
+      "upcomingLeave": "إجازة قادمة",
+      "close": "إغلاق"
+    },
+    "attendancePage": {
+      "label": "الحضور",
+      "title": "حضوري",
+      "subtitle": "تابع يوم عملك وسجل الحضور والانصراف.",
+      "workdayStatus": "حالة يوم العمل",
+      "locationValidation": "التحقق من الموقع يحافظ على دقة الحضور.",
+      "validGps": "GPS صالح ±8م",
+      "insideRadius": "داخل نطاق مكان العمل",
+      "location": "حرم وسط المدينة · على بُعد 42م من المكتب",
+      "simulate": "محاكاة موقع خارج النطاق",
+      "todaySummary": "ملخص اليوم",
+      "date": "الاثنين، 9 يونيو 2026",
+      "shift": "الوردية",
+      "checkIn": "تسجيل الحضور",
+      "breakTime": "وقت الاستراحة",
+      "workedToday": "وقت العمل اليوم",
+      "history": "سجل الحضور",
+      "recentRecords": "سجلات حضورك الأخيرة.",
+      "month": "يونيو 2026",
+      "dateColumn": "التاريخ",
+      "shiftTime": "وقت الوردية",
+      "duration": "إجمالي المدة",
+      "status": "الحالة",
+      "onTime": "في الموعد",
+      "late": "متأخر",
+      "logs": [
+        {
+          "date": "الاثنين، 9 يونيو 2026",
+          "shiftTime": "08:45 ص – 05:30 م",
+          "duration": "08:45:00",
+          "status": "في الموعد"
+        },
+        {
+          "date": "الأحد، 8 يونيو 2026",
+          "shiftTime": "08:50 ص – 05:15 م",
+          "duration": "08:25:00",
+          "status": "في الموعد"
+        },
+        {
+          "date": "الخميس، 5 يونيو 2026",
+          "shiftTime": "09:15 ص – 05:00 م",
+          "duration": "07:45:00",
+          "status": "متأخر"
+        },
+        {
+          "date": "الأربعاء، 4 يونيو 2026",
+          "shiftTime": "08:45 ص – 05:30 م",
+          "duration": "08:45:00",
+          "status": "في الموعد"
+        }
+      ]
+    }
+  }
+}

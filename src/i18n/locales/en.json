@@ -982,4 +982,125 @@
     "cancelEdit": "Cancel",
     "saveChanges": "Save changes"
   }
-}}
+},
+  "employee": {
+    "sidebar": {
+      "portal": "Employee Portal",
+      "homeDashboard": "Home Dashboard",
+      "myAttendance": "My Attendance",
+      "needAHand": "Need a hand?",
+      "askAi": "Ask the AI Assistant",
+      "userName": "Omar Haddad",
+      "userRole": "Senior Product Analyst"
+    },
+    "home": {
+      "date": "MONDAY, JUNE 9, 2026",
+      "welcome": "Good morning, Omar",
+      "subtitle": "Here's your workday at a glance.",
+      "viewCalendar": "View calendar",
+      "onShift": "On Shift",
+      "offShift": "Off Shift",
+      "location": "Downtown Campus · Tower B",
+      "checkedIn": "You’re checked in",
+      "checkedOut": "You’re checked out",
+      "checkedInAt": "Checked in at 08:45 AM",
+      "shiftEnded": "Your shift has ended",
+      "insideRadius": "Inside workplace radius · 42m from office",
+      "checkInFromWorkplace": "Check in from your workplace to start",
+      "workedToday": "Worked today",
+      "checkIn": "Check in",
+      "checkOut": "Check out",
+      "pendingTasks": "Pending Tasks",
+      "tasks": "3 tasks",
+      "highPriority": "1 high priority",
+      "nextDeadline": "Next Deadline",
+      "operationsReport": "Q2 Operations efficiency report",
+      "leaveBalance": "Leave Balance",
+      "days": "13 days",
+      "annualCasual": "Annual + Casual",
+      "quickActions": "Quick actions",
+      "shortcuts": "Shortcuts for your most common tasks.",
+      "requestLeave": "Request leave",
+      "submitTask": "Submit task",
+      "aiAssistant": "AI HR Assistant",
+      "todaysSchedule": "Today’s schedule",
+      "upcomingEvents": "Your upcoming calendar events.",
+      "viewAll": "View all →",
+      "productSync": "Product sync",
+      "meetingRoom": "Meeting room 4B · 45 min",
+      "focusTime": "Focus time",
+      "recentActivity": "Recent activity",
+      "latestUpdates": "Latest updates from your workspace.",
+      "seeAll": "See all →",
+      "vendorChecklist": "Vendor checklist submitted",
+      "yesterdayAt432": "Yesterday at 4:32 PM",
+      "leaveUpdated": "Leave balance updated",
+      "yesterdayAt910": "Yesterday at 9:10 AM",
+      "month": "May 2026",
+      "weekdays": {
+        "sun": "SUN",
+        "mon": "MON",
+        "tue": "TUE",
+        "wed": "WED",
+        "thu": "THU",
+        "fri": "FRI",
+        "sat": "SAT"
+      },
+      "casualLeave": "CASUAL LEAVE (14 May)",
+      "upcomingLeave": "Upcoming Leave",
+      "close": "Close"
+    },
+    "attendancePage": {
+      "label": "ATTENDANCE",
+      "title": "My attendance",
+      "subtitle": "Track your workday and attendance history.",
+      "workdayStatus": "Workday status",
+      "locationValidation": "Location validation keeps attendance accurate.",
+      "validGps": "Valid GPS ±8m",
+      "insideRadius": "Inside workplace radius",
+      "location": "Downtown Campus · 42m from office",
+      "simulate": "Simulate out-of-range location",
+      "todaySummary": "Today’s summary",
+      "date": "Monday, June 9, 2026",
+      "shift": "Shift",
+      "checkIn": "Check-in",
+      "breakTime": "Break time",
+      "workedToday": "Worked today",
+      "history": "Attendance history",
+      "recentRecords": "Your recent attendance records.",
+      "month": "June 2026",
+      "dateColumn": "Date",
+      "shiftTime": "Shift time",
+      "duration": "Total duration",
+      "status": "Status",
+      "onTime": "On Time",
+      "late": "Late",
+      "logs": [
+        {
+          "date": "MON, JUN 9, 2026",
+          "shiftTime": "08:45 AM – 05:30 PM",
+          "duration": "08:45:00",
+          "status": "On Time"
+        },
+        {
+          "date": "SUN, JUN 8, 2026",
+          "shiftTime": "08:50 AM – 05:15 PM",
+          "duration": "08:25:00",
+          "status": "On Time"
+        },
+        {
+          "date": "THU, JUN 5, 2026",
+          "shiftTime": "09:15 AM – 05:00 PM",
+          "duration": "07:45:00",
+          "status": "Late"
+        },
+        {
+          "date": "WED, JUN 4, 2026",
+          "shiftTime": "08:45 AM – 05:30 PM",
+          "duration": "08:45:00",
+          "status": "On Time"
+        }
+      ]
+    }
+  }
+}
