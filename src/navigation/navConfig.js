@@ -6,16 +6,13 @@ import {
   MdEventNote,
   MdSettings,
   MdNotifications,
-  MdBusiness,
   MdAssessment,
-  MdSecurity,
   MdHistory,
   MdAutoAwesome,
   MdHome,
   MdAccessTime,
   MdCheckBox,
   MdTrendingUp,
-  MdAutoAwesome,
   MdMenuBook,
   MdPerson,
 } from "react-icons/md";
@@ -38,7 +35,7 @@ export const navConfig = {
       titleKey: "portal.performance",
       title: "Performance & Goals",
       path: "/admin/performance",
-      icon: MdAssessment, // <--- أضفناها هنا تحت الـ Users مباشرة بالترتيب المطلوب
+      icon: MdAssessment,
     },
     {
       titleKey: "portal.branches",
@@ -49,7 +46,7 @@ export const navConfig = {
     {
       titleKey: "portal.auditLogs",
       title: "Audit Logs",
-      path: "/admin/audit", // تم توحيد المسار هنا ليطابق App.jsx
+      path: "/admin/audit",
       icon: MdHistory,
     },
     {
@@ -65,6 +62,7 @@ export const navConfig = {
       icon: MdSettings,
     },
   ],
+
   hr: [
     {
       titleKey: "portal.dashboard",
@@ -97,6 +95,7 @@ export const navConfig = {
       icon: MdNotifications,
     },
   ],
+
   manager: [
     {
       titleKey: "portal.dashboard",
@@ -117,6 +116,7 @@ export const navConfig = {
       icon: MdEventNote,
     },
   ],
+
   employee: [
     {
       titleKey: "portal.homeDashboard",
@@ -125,8 +125,6 @@ export const navConfig = {
       icon: MdHome,
     },
     {
-      titleKey: "portal.leaveBalances",
-      title: "Leave & balances",
       titleKey: "portal.myAttendance",
       title: "My Attendance",
       path: "/employee/attendance",
@@ -161,6 +159,8 @@ export const navConfig = {
       title: "My Payslip",
       path: "/employee/payslip",
       icon: MdAttachMoney,
+    },
+    {
       titleKey: "portal.companyPolicies",
       title: "Company Policies",
       path: "/employee/policies",
