@@ -59,6 +59,14 @@ const Sidebar = ({
       employee: "bg-[#0ea5e9]",
     }[role] || "bg-[#79B88B]";
 
+  const accentHex =
+    {
+      admin: "#79B88B",
+      hr: "#6366f1",
+      manager: "#f59e0b",
+      employee: "#0ea5e9",
+    }[role] || "#79B88B";
+
   // =========================
   // Sidebar Position
   // =========================
@@ -208,6 +216,15 @@ const Sidebar = ({
                 key={link.path}
                 to={link.path}
                 onClick={onClose}
+                style={({ isActive }) =>
+                  isActive
+                    ? {
+                        boxShadow: isRtl
+                          ? `inset -3.5px 0 0 ${accentHex}`
+                          : `inset 3.5px 0 0 ${accentHex}`,
+                      }
+                    : undefined
+                }
                 className={({ isActive }) => `
                   relative
                   flex
@@ -215,90 +232,57 @@ const Sidebar = ({
                   gap-3
 
                   rounded-lg
+                  outline-none
+                  focus:outline-none
+                  focus-visible:outline-none
 
-                  px-3
+                  px-3.5
                   py-2.5
 
                   text-sm
                   font-medium
 
                   transition-all
-                  duration-200
+                  duration-150
 
                   ${
                     isActive
-                      ? "bg-[#486581] text-white"
-                      : "text-[#D9E2EC] hover:bg-[#334e68]"
+                      ? "bg-[#334e68] text-white font-semibold"
+                      : "text-[#D9E2EC] hover:bg-[#334e68]/60 hover:text-white"
                   }
                 `}
               >
-                {({ isActive }) => (
-                  <>
-                    {/* Active Indicator */}
+                {/* Icon */}
+                {Icon && (
+                  <Icon
+                    className="
+                      h-4
+                      w-4
+                      shrink-0
+                    "
+                  />
+                )}
 
-                    {isActive && (
-                      <span
-                        className={`
-                          absolute
-                          top-1/2
-                          h-6
-                          w-1
-                          -translate-y-1/2
-                          rounded-full
+                {/* Title */}
+                <span className="flex-1">
+                  {title}
+                </span>
 
-                          ${
-                            isRtl
-                              ? "right-0"
-                              : "left-0"
-                          }
-
-                          ${accentColor}
-                        `}
-                      />
-                    )}
-
-                    {/* Icon */}
-
-                    {Icon && (
-                      <Icon
-                        className="
-                          h-4
-                          w-4
-                          shrink-0
-                        "
-                      />
-                    )}
-
-                    {/* Title */}
-
-                    <span className="flex-1">
-                      {title}
-                    </span>
-
-                    {/* Notification Badge */}
-
-                    {link.path.includes(
-                      "notifications"
-                    ) &&
-                      unreadCount > 0 && (
-                        <span
-                          className={`
-                            rounded-full
-                            ${accentColor}
-
-                            px-1.5
-                            py-0.5
-
-                            text-[10px]
-                            font-bold
-
-                            text-[#243B53]
-                          `}
-                        >
-                          {unreadCount}
-                        </span>
-                      )}
-                  </>
+                {/* Notification Badge */}
+                {link.path.includes("notifications") && unreadCount > 0 && (
+                  <span
+                    className={`
+                      rounded-full
+                      ${accentColor}
+                      px-1.5
+                      py-0.5
+                      text-[10px]
+                      font-bold
+                      text-[#243B53]
+                    `}
+                  >
+                    {unreadCount}
+                  </span>
                 )}
               </NavLink>
             );

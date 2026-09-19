@@ -971,7 +971,8 @@
       "Training": "التدريب",
       "General": "عام"
     }
-    ,"companyPolicies": {
+  },
+  "companyPolicies": {
     "eyebrow": "الموارد",
     "title": "سياسات الشركة",
     "subtitle": "كل ما تحتاجه للعمل بثقة.",
@@ -984,7 +985,7 @@
     "securityTitle": "الأمان والخصوصية",
     "securityDesc": "حافظ على أمان فريقنا ومعلوماتنا."
   },
-    "profileSettingsPage": {
+  "profileSettingsPage": {
     "eyebrow": "الحساب",
     "title": "البروفايل والإعدادات",
     "subtitle": "إدارة بيانات وتفضيلات حسابك الوظيفي.",
@@ -1006,8 +1007,7 @@
     "jobTitleLabel": "المسمى الوظيفي",
     "cancelEdit": "إلغاء",
     "saveChanges": "حفظ التغييرات"
-  }
-},
+  },
   "employee": {
     "sidebar": {
       "portal": "بوابة الموظف",
@@ -1039,6 +1039,7 @@
       "tasks": "3 مهام",
       "highPriority": "أولوية عالية واحدة",
       "nextDeadline": "الموعد النهائي التالي",
+      "deadlineDate": "12 يونيو",
       "operationsReport": "تقرير كفاءة العمليات للربع الثاني",
       "leaveBalance": "رصيد الإجازات",
       "days": "13 يومًا",
@@ -1091,6 +1092,9 @@
       "checkIn": "تسجيل الحضور",
       "breakTime": "وقت الاستراحة",
       "workedToday": "وقت العمل اليوم",
+      "shiftTimeDefault": "08:45 ص – 05:30 م",
+      "checkInTimeDefault": "08:45 ص",
+      "breakTimeDefault": "01:00 ساعة",
       "history": "سجل الحضور",
       "recentRecords": "سجلات حضورك الأخيرة.",
       "month": "يونيو 2026",

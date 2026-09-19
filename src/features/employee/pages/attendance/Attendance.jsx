@@ -77,15 +77,15 @@ export default function Attendance() {
                             <div className="summary-rows">
                                 <div className="sum-row">
                                     <span className="sum-label">{t('employee.attendancePage.shift')}</span>
-                                    <span className="sum-val">08:45 AM – 05:30 PM</span>
+                                    <span className="sum-val">{t('employee.attendancePage.shiftTimeDefault', '08:45 AM – 05:30 PM')}</span>
                                 </div>
                                 <div className="sum-row">
                                     <span className="sum-label">{t('employee.attendancePage.checkIn')}</span>
-                                    <span className="sum-val">08:45 AM</span>
+                                    <span className="sum-val">{t('employee.attendancePage.checkInTimeDefault', '08:45 AM')}</span>
                                 </div>
                                 <div className="sum-row">
                                     <span className="sum-label">{t('employee.attendancePage.breakTime')}</span>
-                                    <span className="sum-val">01:00 hour</span>
+                                    <span className="sum-val">{t('employee.attendancePage.breakTimeDefault', '01:00 hour')}</span>
                                 </div>
                                 <div className="sum-row" style={{ borderBottom: 'none' }}>
                                     <span className="sum-label">{t('employee.attendancePage.workedToday')}</span>
@@ -117,8 +117,8 @@ export default function Attendance() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {Array.isArray(attendanceLogs) && attendanceLogs.map((log) => (
-                                    <tr key={log.id}>
+                                {Array.isArray(attendanceLogs) && attendanceLogs.map((log, index) => (
+                                    <tr key={log.id || index}>
                                         <td className="h-date">{log.date}</td>
                                         <td className="h-time">{log.shiftTime}</td>
                                         <td className="h-dur">{log.duration}</td>

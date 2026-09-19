@@ -78,6 +78,9 @@ function App() {
     document.body.dir = isArabic ? "rtl" : "ltr";
 
     // إضافة class للغة الحالية
+    document.documentElement.classList.toggle("rtl", isArabic);
+    document.body.classList.toggle("rtl", isArabic);
+
     document.documentElement.classList.toggle(
       "arabic-mode",
       isArabic

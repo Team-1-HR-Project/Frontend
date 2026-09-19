@@ -89,7 +89,7 @@ export default function HomeDashboard() {
                                 <div className="card-icon orange"><FiClock /></div>
                                 <span>{t('employee.home.nextDeadline')}</span>
                             </div>
-                            <h3 className="card-main-val">Jun 12</h3>
+                            <h3 className="card-main-val">{t('employee.home.deadlineDate', 'Jun 12')}</h3>
                             <p className="card-desc">{t('employee.home.operationsReport')}</p>
                         </div>
 

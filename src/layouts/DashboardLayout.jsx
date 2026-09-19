@@ -50,7 +50,6 @@ const DashboardInner = () => {
           <main
             className="
               flex-1
-              overflow-y-auto
               px-[38px]
               pt-[34px]
               pb-[50px]

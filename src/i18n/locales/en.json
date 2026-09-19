@@ -946,7 +946,8 @@
       "Training": "Training",
       "General": "General"
     }
-    ,"companyPolicies": {
+  },
+  "companyPolicies": {
     "eyebrow": "Resources",
     "title": "Company policies",
     "subtitle": "Everything you need to work with confidence.",
@@ -959,7 +960,7 @@
     "securityTitle": "Security & privacy",
     "securityDesc": "Keep our people and information safe."
   },
-    "profileSettingsPage": {
+  "profileSettingsPage": {
     "eyebrow": "Account",
     "title": "Profile & settings",
     "subtitle": "Manage your employee profile and preferences.",
@@ -981,8 +982,7 @@
     "jobTitleLabel": "Job title",
     "cancelEdit": "Cancel",
     "saveChanges": "Save changes"
-  }
-},
+  },
   "employee": {
     "sidebar": {
       "portal": "Employee Portal",
@@ -1014,6 +1014,7 @@
       "tasks": "3 tasks",
       "highPriority": "1 high priority",
       "nextDeadline": "Next Deadline",
+      "deadlineDate": "Jun 12",
       "operationsReport": "Q2 Operations efficiency report",
       "leaveBalance": "Leave Balance",
       "days": "13 days",
@@ -1066,6 +1067,9 @@
       "checkIn": "Check-in",
       "breakTime": "Break time",
       "workedToday": "Worked today",
+      "shiftTimeDefault": "08:45 AM – 05:30 PM",
+      "checkInTimeDefault": "08:45 AM",
+      "breakTimeDefault": "01:00 hour",
       "history": "Attendance history",
       "recentRecords": "Your recent attendance records.",
       "month": "June 2026",
