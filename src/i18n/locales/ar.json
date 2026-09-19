@@ -649,9 +649,9 @@
     "performance": "الأداء والأهداف",
     "auditLogs": "سجلات التدقيق",
     "administration": "الإدارة",
-    "wiseWork": "WiseWork",
+    "Workwise": "Workwise",
     "notificationsTitle": "الإشعارات",
-    "notificationsSubtitle": "إعداد وإدارة إشعارات ونظام تنبيهات WiseWork الخاصة بالإدارة.",
+    "notificationsSubtitle": "إعداد وإدارة إشعارات ونظام تنبيهات Workwise الخاصة بالإدارة.",
     "exportConfig": "تصدير التكوين",
     "systemAlertsTitle": "تنبيهات وإشعارات النظام",
     "systemAlertsSubtitle": "مراجعة أحداث النظام، تحديثات السياسات، والتنبيهات التشغيلية",
@@ -687,7 +687,7 @@
     "notif2Title": "إعداد السياج الجغرافي للفرع الجديد",
     "notif2Desc": "تم تحديث إعدادات السياج الجغرافي لفرع الإسكندرية وتطبيق الحضور عبر GPS للفرع.",
     "notif3Title": "اكتمال مزامنة بوابة سياسات الذكاء الاصطناعي",
-    "notif3Desc": "تمت مزامنة أحدث قواعد وسياسات مساحة العمل بنجاح عبر منصة WiseWork.",
+    "notif3Desc": "تمت مزامنة أحدث قواعد وسياسات مساحة العمل بنجاح عبر منصة Workwise.",
     "notif4Title": "تحديث صلاحيات الأدوار",
     "notif4Desc": "قامت سارة أحمد بتحديث الصلاحيات الإدارية لمساحة عمل الأفراد والثقافة.",
     "cycleDetailsText": "دورة تقييم الأداء للربع الثالث 2026 نشطة حالياً في جميع أقسام وفروع الشركة.",
@@ -730,7 +730,7 @@
     "scope": "النطاق",
     "allBranches": "جميع الفروع (القاهرة والإسكندرية)",
     "alexandriaHub": "فرع الإسكندرية",
-    "globalNetwork": "شبكة WiseWork العامة",
+    "globalNetwork": "شبكة Workwise العامة",
     "hrOps": "إدارة الموارد البشرية والعمليات",
     "securityOps": "مصطفى خليل (عمليات الأمان)",
     "automatedEngine": "محرك السياسات التلقائي",
@@ -785,9 +785,9 @@
   },
   "auditLogs": {
     "breadcrumbAdmin": "الإدارة",
-    "breadcrumbApp": "WiseWork",
+    "breadcrumbApp": "Workwise",
     "title": "سجلات التدقيق",
-    "subtitle": "تهيئة وإدارة سجلات تدقيق WiseWork الخاصة بك.",
+    "subtitle": "تهيئة وإدارة سجلات تدقيق Workwise الخاصة بك.",
     "exportConfig": "تصدير الإعدادات",
     "cardTitle": "سجلات التدقيق",
     "cardSubtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
@@ -804,10 +804,10 @@
     "exportSuccess": "تم تصدير إعدادات السجلات بنجاح"
   },
   "branchesPage": {
-    "breadcrumbApp": "WiseWork",
+    "breadcrumbApp": "Workwise",
     "breadcrumbPage": "الفروع",
     "title": "الفروع",
-    "subtitle": "تهيئة وإدارة فروع WiseWork الخاصة بك.",
+    "subtitle": "تهيئة وإدارة فروع Workwise الخاصة بك.",
     "exportConfig": "تصدير الإعدادات",
     "cardTitle": "مواقع الفروع",
     "cardSubtitle": "تهيئة فرض نظام تحديد الموقع GPS لكل فرع",
@@ -825,9 +825,9 @@
     "toggleGpsAriaLabel": "تبديل فرض تحديد الموقع للفرع {{name}}",
     "closeModal": "إغلاق النافذة"
   },
-    "usersPage": {
+  "usersPage": {
     "title": "المستخدمون",
-    "subtitle": "تهيئة وإدارة مستخدمي WiseWork الخاصين بك.",
+    "subtitle": "تهيئة وإدارة مستخدمي Workwise الخاصين بك.",
     "exportConfiguration": "تصدير الإعدادات",
     "userAccounts": "حسابات المستخدمين",
     "userAccountsSubtitle": "إدارة صلاحيات الوصول، الأدوار، وحالة الحسابات في مساحة العمل.",
@@ -852,5 +852,46 @@
     "department": "القسم",
     "cancel": "إلغاء",
     "createUser": "إنشاء المستخدم"
+  },
+  "auditLogs": {
+    "title": "سجلات التدقيق",
+    "subtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
+
+    "breadcrumbAdmin": "الإدارة",
+    "breadcrumbApp": "Workwise",
+
+    "exportConfig": "تصدير التكوين",
+    "exportSuccess": "تم تصدير إعدادات السجل بنجاح.",
+
+    "cardTitle": "سجلات التدقيق",
+    "cardSubtitle": "مراجعة الإجراءات الإدارية وأحداث النظام.",
+
+    "searchPlaceholder": "البحث في السجلات...",
+
+    "filterAll": "الكل",
+    "filterSuccess": "نجاح",
+    "filterWarning": "تحذير",
+    "filterInfo": "معلومات",
+
+    "colAction": "الإجراء",
+    "colActor": "المنفذ",
+    "colTimestamp": "الوقت والتاريخ",
+    "colSeverity": "مستوى الأهمية",
+
+    "noLogsFound": "لم يتم العثور على سجلات.",
+
+    "actions": {
+      "rolePermissionsUpdated": "تم تحديث صلاحيات الأدوار",
+      "gpsEnforcementDisabled": "تم تعطيل فرض نظام تحديد المواقع",
+      "q3ReviewCycleCreated": "تم إنشاء دورة مراجعة الربع الثالث",
+      "newUserAccountInvited": "تمت دعوة حساب مستخدم جديد"
+    },
+
+    "timestamps": {
+      "today": "اليوم، 10:30 ص",
+      "yesterday": "أمس، 03:15 م",
+      "sep12": "12 سبتمبر، 11:45 ص",
+      "sep11": "11 سبتمبر، 09:20 ص"
+    }
   }
 }

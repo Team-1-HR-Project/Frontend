@@ -624,9 +624,9 @@
     "performance": "Performance & Goals",
     "auditLogs": "Audit Logs",
     "administration": "Administration",
-    "wiseWork": "WiseWork",
+    "Workwise": "Workwise",
     "notificationsTitle": "Notifications",
-    "notificationsSubtitle": "Configure and manage your WiseWork notifications.",
+    "notificationsSubtitle": "Configure and manage your Workwise notifications.",
     "exportConfig": "Export configuration",
     "systemAlertsTitle": "System Notifications & Alerts",
     "systemAlertsSubtitle": "Review system events, policy updates, and operational reminders",
@@ -662,7 +662,7 @@
     "notif2Title": "New Branch Geofence Configured",
     "notif2Desc": "Alexandria Hub geofence settings were updated and GPS enforcement is now active for the branch.",
     "notif3Title": "AI Policy Gateway Sync Completed",
-    "notif3Desc": "The latest workplace policy rules were synchronized successfully across the WiseWork platform.",
+    "notif3Desc": "The latest workplace policy rules were synchronized successfully across the Workwise platform.",
     "notif4Title": "Role permissions updated",
     "notif4Desc": "Sarah Ahmed updated administrative permissions for the People & Culture workspace.",
     "cycleDetailsText": "The Q3 2026 performance evaluation cycle is active across all company departments and branches.",
@@ -705,7 +705,7 @@
     "scope": "Scope",
     "allBranches": "All Branches (Cairo & Alexandria)",
     "alexandriaHub": "Alexandria Hub",
-    "globalNetwork": "WiseWork Global Network",
+    "globalNetwork": "Workwise Global Network",
     "hrOps": "HR & Admin Operations",
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
@@ -760,9 +760,9 @@
   },
   "auditLogs": {
     "breadcrumbAdmin": "Administration",
-    "breadcrumbApp": "WiseWork",
+    "breadcrumbApp": "Workwise",
     "title": "Audit Logs",
-    "subtitle": "Configure and manage your WiseWork audit logs.",
+    "subtitle": "Configure and manage your Workwise audit logs.",
     "exportConfig": "Export configuration",
     "cardTitle": "Audit logs",
     "cardSubtitle": "A searchable record of administrative actions and system events.",
@@ -779,10 +779,10 @@
     "exportSuccess": "Audit configuration exported successfully"
   },
   "branchesPage": {
-    "breadcrumbApp": "WiseWork",
+    "breadcrumbApp": "Workwise",
     "breadcrumbPage": "Branches",
     "title": "Branches",
-    "subtitle": "Configure and manage your WiseWork branches.",
+    "subtitle": "Configure and manage your Workwise branches.",
     "exportConfig": "Export Config",
     "cardTitle": "Branch locations",
     "cardSubtitle": "Configure GPS enforcement for each branch",
@@ -800,9 +800,9 @@
     "toggleGpsAriaLabel": "Toggle GPS enforcement for {{name}}",
     "closeModal": "Close modal"
   },
-    "usersPage": {
+  "usersPage": {
     "title": "Users",
-    "subtitle": "Configure and manage your WiseWork users.",
+    "subtitle": "Configure and manage your Workwise users.",
     "exportConfiguration": "Export configuration",
     "userAccounts": "User accounts",
     "userAccountsSubtitle": "Manage workspace access, roles, and account status.",
@@ -827,5 +827,46 @@
     "department": "Department",
     "cancel": "Cancel",
     "createUser": "Create user"
+  },
+  "auditLogs": {
+    "title": "Audit Logs",
+    "subtitle": "A searchable record of administrative actions and system events.",
+
+    "breadcrumbAdmin": "Administration",
+    "breadcrumbApp": "Workwise",
+
+    "exportConfig": "Export configuration",
+    "exportSuccess": "Audit log configuration exported successfully.",
+
+    "cardTitle": "Audit logs",
+    "cardSubtitle": "Review administrative actions and system events.",
+
+    "searchPlaceholder": "Search logs...",
+
+    "filterAll": "All",
+    "filterSuccess": "Success",
+    "filterWarning": "Warning",
+    "filterInfo": "Info",
+
+    "colAction": "ACTION",
+    "colActor": "ACTOR",
+    "colTimestamp": "TIMESTAMP",
+    "colSeverity": "SEVERITY",
+
+    "noLogsFound": "No logs found.",
+
+    "actions": {
+      "rolePermissionsUpdated": "Role permissions updated",
+      "gpsEnforcementDisabled": "GPS enforcement disabled",
+      "q3ReviewCycleCreated": "Q3 review cycle created",
+      "newUserAccountInvited": "New user account invited"
+    },
+
+    "timestamps": {
+      "today": "Today, 10:30 AM",
+      "yesterday": "Yesterday, 03:15 PM",
+      "sep12": "Sep 12, 11:45 AM",
+      "sep11": "Sep 11, 09:20 AM"
+    }
   }
 }
