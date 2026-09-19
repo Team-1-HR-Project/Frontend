@@ -26,7 +26,7 @@ import Users from "./features/admin/pages/Users";
 import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
-
+import CompanyPolicies from "./features/employee/pages/policies";
 
 // ==================== Dashboard Placeholder ====================
 
@@ -243,7 +243,6 @@ function App() {
           />
 
 
-          {/* ==================== Employee Dashboard ==================== */}
 
           <Route
             path="/employee/dashboard"
@@ -263,15 +262,18 @@ function App() {
             element={<Notification />}
           />
 
-        </Route>
+          <Route
+            path="/employee/policies"
+            element={<CompanyPolicies />}
+          />
 
 
-        {/* ==================== Direct Branches Route ==================== */}
+          {/* ==================== Direct Branches Route ==================== */}
 
-        <Route
-          path="/branches"
-          element={<Branches />}
-        />
+          <Route
+            path="/branches"
+            element={<Branches />}
+          />
 
       </Routes>
 
