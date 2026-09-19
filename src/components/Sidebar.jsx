@@ -81,14 +81,19 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         {/* Bottom Area */}
         <div className="sidebar-bottom">
           {/* Need a hand card */}
-          <div className="help-card">
+          <NavLink
+            to="/employee/ai-assistant"
+            onClick={onClose}
+            className="help-card"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <FiHelpCircle />
             <div>
               <strong>{t("portal.needAHand", "Need a hand?")}</strong>
               <span>{t("portal.askAi", "Ask the AI Assistant")}</span>
             </div>
             <FiArrowRight className="card-arrow" />
-          </div>
+          </NavLink>
 
           {/* User Profile Mini */}
           <div className="user-mini">

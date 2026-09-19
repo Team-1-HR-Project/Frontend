@@ -10,6 +10,7 @@ import {
   MdAssessment,
   MdSecurity,
   MdHistory,
+  MdAutoAwesome,
 } from "react-icons/md";
 
 export const navConfig = {
@@ -111,10 +112,16 @@ export const navConfig = {
       icon: MdDashboard,
     },
     {
-      titleKey: "portal.myLeaves",
-      title: "My Leaves",
+      titleKey: "portal.leaveBalances",
+      title: "Leave & balances",
       path: "/employee/leaves",
       icon: MdEventNote,
+    },
+    {
+      titleKey: "portal.aiAssistant",
+      title: "AI Assistant",
+      path: "/employee/ai-assistant",
+      icon: MdAutoAwesome,
     },
     {
       titleKey: "portal.myPayslip",

@@ -24,6 +24,8 @@ import Notification from "./features/admin/pages/Notification";
 import ActivityLog from "./features/admin/pages/audit-logs";
 import Users from "./features/admin/pages/Users";
 import PerformancePage from "./features/admin/pages/PerformancePage";
+import LeaveBalances from "./features/emplyee/pages/Leave & balances";
+import AIAssistant from "./features/emplyee/pages/AI Assistant";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -253,6 +255,30 @@ function App() {
                 defaultMessage="مرحباً بك في صفحة الموظف"
               />
             }
+          />
+
+          {/* ==================== Employee Leave & Balances ==================== */}
+
+          <Route
+            path="/employee/leaves"
+            element={<LeaveBalances />}
+          />
+
+          <Route
+            path="/employee/leave-balances"
+            element={<Navigate to="/employee/leaves" replace />}
+          />
+
+          {/* ==================== Employee AI Assistant ==================== */}
+
+          <Route
+            path="/employee/ai-assistant"
+            element={<AIAssistant />}
+          />
+
+          <Route
+            path="/employee/assistant"
+            element={<Navigate to="/employee/ai-assistant" replace />}
           />
 
         </Route>

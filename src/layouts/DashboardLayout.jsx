@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { NotificationProvider } from "../context/NotificationContext";
@@ -7,10 +7,16 @@ import "./DashboardLayout.css";
 
 const DashboardLayout = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-  // الدور حاليًا للتجربة
-  // بعدين هييجي من الـ Backend
-  const currentUserRole = "admin";
+  // تحديد الدور تلقائياً من المسار الحالي ليعرض السايد بار الخاص بـ employee أو hr أو manager أو admin
+  const currentUserRole = location.pathname.startsWith("/employee")
+    ? "employee"
+    : location.pathname.startsWith("/hr")
+    ? "hr"
+    : location.pathname.startsWith("/manager")
+    ? "manager"
+    : "admin";
 
   return (
     <NotificationProvider>
