@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import {
     FiMapPin, FiArrowRight, FiChevronDown
 } from 'react-icons/fi';
-import EmployeeSidebar from '../../../../components/EmployeeSidebar';
 import './Attendance.css';
 
 export default function Attendance() {
@@ -17,12 +16,9 @@ export default function Attendance() {
     const attendanceLogs = t('employee.attendancePage.logs', { returnObjects: true });
 
     return (
-        <div className="dashboard-container">
-            <EmployeeSidebar />
-
+        <div className="dashboard-container" style={{ padding: 0, margin: 0 }}>
             {/* Main Content */}
-            <main className="main-content">
-
+            <main className="main-content" style={{ width: '100%', padding: 0 }}>
 
                 {/* Dashboard Body */}
                 <div className="dashboard-body">
@@ -121,7 +117,7 @@ export default function Attendance() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {attendanceLogs.map((log) => (
+                                {Array.isArray(attendanceLogs) && attendanceLogs.map((log) => (
                                     <tr key={log.id}>
                                         <td className="h-date">{log.date}</td>
                                         <td className="h-time">{log.shiftTime}</td>

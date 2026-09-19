@@ -4,7 +4,6 @@ import {
     FiCalendar, FiMapPin, FiArrowRight, FiActivity, FiChevronLeft, FiChevronRight,
     FiCheckSquare, FiClock, FiFileText, FiCpu, FiBell
 } from 'react-icons/fi';
-import EmployeeSidebar from '../../../../components/EmployeeSidebar';
 import './HomeDashboard.css';
 
 export default function HomeDashboard() {
@@ -20,10 +19,8 @@ export default function HomeDashboard() {
 
     return (
         <div className="dashboard-container">
-            <EmployeeSidebar />
-
             {/* Main Content */}
-            <main className="main-content">
+            <main className="main-content" style={{ marginLeft: 0, width: '100%' }}>
                 {/* Dashboard Body */}
                 <div className="dashboard-body">
                     {/* Welcome Section */}
