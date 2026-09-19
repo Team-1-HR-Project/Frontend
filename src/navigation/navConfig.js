@@ -11,6 +11,13 @@ import {
   MdSecurity,
   MdHistory,
   MdAutoAwesome,
+  MdHome,
+  MdAccessTime,
+  MdCheckBox,
+  MdTrendingUp,
+  MdAutoAwesome,
+  MdMenuBook,
+  MdPerson,
 } from "react-icons/md";
 
 export const navConfig = {
@@ -106,16 +113,36 @@ export const navConfig = {
   ],
   employee: [
     {
-      titleKey: "portal.dashboard",
-      title: "Dashboard",
+      titleKey: "portal.homeDashboard",
+      title: "Home Dashboard",
       path: "/employee/dashboard",
-      icon: MdDashboard,
+      icon: MdHome,
     },
     {
       titleKey: "portal.leaveBalances",
       title: "Leave & balances",
+      titleKey: "portal.myAttendance",
+      title: "My Attendance",
+      path: "/employee/attendance",
+      icon: MdAccessTime,
+    },
+    {
+      titleKey: "portal.myTasks",
+      title: "My Tasks",
+      path: "/employee/tasks",
+      icon: MdCheckBox,
+    },
+    {
+      titleKey: "portal.leaveBalances",
+      title: "Leave & Balances",
       path: "/employee/leaves",
       icon: MdEventNote,
+    },
+    {
+      titleKey: "portal.myPerformance",
+      title: "My Performance",
+      path: "/employee/performance",
+      icon: MdTrendingUp,
     },
     {
       titleKey: "portal.aiAssistant",
@@ -128,6 +155,22 @@ export const navConfig = {
       title: "My Payslip",
       path: "/employee/payslip",
       icon: MdAttachMoney,
+      titleKey: "portal.companyPolicies",
+      title: "Company Policies",
+      path: "/employee/policies",
+      icon: MdMenuBook,
+    },
+    {
+      titleKey: "portal.profileSettings",
+      title: "Profile & Settings",
+      path: "/employee/profile",
+      icon: MdPerson,
+    },
+    {
+      titleKey: "portal.notifications",
+      title: "Notifications",
+      path: "/employee/notifications",
+      icon: MdNotifications,
     },
   ],
 };
