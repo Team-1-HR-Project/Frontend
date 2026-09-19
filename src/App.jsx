@@ -28,6 +28,7 @@ import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import CompanyPolicies from "./features/employee/pages/policies";
+import Tasks from "./features/employee/pages/Tasks";
 
 // ==================== Dashboard Placeholder ====================
 
@@ -219,6 +220,14 @@ function App() {
             }
           />
 
+
+          {/* ==================== HR Notifications ==================== */}
+
+          <Route
+            path="/hr/notifications"
+            element={<Notification />}
+          />
+
           {/* ==================== Employee Dashboard ==================== */}
 
           <Route
@@ -229,6 +238,13 @@ function App() {
                 defaultMessage="مرحباً بك في صفحة الموظف"
               />
             }
+          />
+
+          {/* ==================== Employee Tasks ==================== */}
+
+          <Route
+            path="/employee/tasks"
+            element={<Tasks />}
           />
 
           {/* ==================== Employee Notifications ==================== */}

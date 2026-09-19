@@ -23,7 +23,7 @@ const DashboardInner = () => {
       <div className="flex min-h-screen w-full bg-[#f5f7f8]">
 
         <Sidebar
-          role={currentUser?.role || "admin"}
+          role={currentUserRole}
           isOpen={mobileMenuOpen}
           onClose={() => setMobileMenuOpen(false)}
         />
