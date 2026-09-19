@@ -26,7 +26,7 @@ import Users from "./features/admin/pages/Users";
 import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
-
+import CompanyPolicies from "./features/employee/pages/policies";
 
 // ==================== Dashboard Placeholder ====================
 
@@ -243,7 +243,6 @@ function App() {
           />
 
 
-          {/* ==================== Employee Dashboard ==================== */}
 
           <Route
             path="/employee/dashboard"
@@ -253,6 +252,12 @@ function App() {
                 defaultMessage="مرحباً بك في صفحة الموظف"
               />
             }
+          />
+
+
+          <Route
+            path="/employee/policies"
+            element={<CompanyPolicies />}
           />
 
         </Route>
