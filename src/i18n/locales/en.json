@@ -686,8 +686,7 @@
     "notificationsSubtitle": "Configure and manage your WiseWork notifications.",
 
     "Workwise": "Workwise",
-    "notificationsTitle": "Notifications",
-    "notificationsSubtitle": "Configure and manage your Workwise notifications.",
+
     "exportConfig": "Export configuration",
 
     "systemAlertsTitle": "System Notifications & Alerts",
@@ -742,7 +741,6 @@
     "notif3Title": "AI Policy Gateway Sync Completed",
     "notif3Desc": "The latest workplace policy rules were synchronized successfully across the WiseWork platform.",
 
-    "notif3Desc": "The latest workplace policy rules were synchronized successfully across the Workwise platform.",
     "notif4Title": "Role permissions updated",
     "notif4Desc": "Sarah Ahmed updated administrative permissions for the People & Culture workspace.",
 
