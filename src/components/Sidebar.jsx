@@ -68,7 +68,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               >
                 {Icon && <Icon />}
                 <span>{title}</span>
-                {link.path === "/admin/notifications" && unreadCount > 0 && (
+                {link.path.includes("notifications") && unreadCount > 0 && (
                   <b>{unreadCount}</b>
                 )}
 

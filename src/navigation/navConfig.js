@@ -122,5 +122,11 @@ export const navConfig = {
       path: "/employee/payslip",
       icon: MdAttachMoney,
     },
+    {
+      titleKey: "portal.notifications",
+      title: "Notifications",
+      path: "/employee/notifications",
+      icon: MdNotifications,
+    },
   ],
 };

@@ -255,6 +255,14 @@ function App() {
             }
           />
 
+
+          {/* ==================== Employee Notifications ==================== */}
+
+          <Route
+            path="/employee/notifications"
+            element={<Notification />}
+          />
+
         </Route>
 
 
