@@ -824,5 +824,33 @@
     "cancel": "إلغاء",
     "toggleGpsAriaLabel": "تبديل فرض تحديد الموقع للفرع {{name}}",
     "closeModal": "إغلاق النافذة"
+  },
+    "usersPage": {
+    "title": "المستخدمون",
+    "subtitle": "تهيئة وإدارة مستخدمي WiseWork الخاصين بك.",
+    "exportConfiguration": "تصدير الإعدادات",
+    "userAccounts": "حسابات المستخدمين",
+    "userAccountsSubtitle": "إدارة صلاحيات الوصول، الأدوار، وحالة الحسابات في مساحة العمل.",
+    "addUser": "إضافة مستخدم",
+    "searchPlaceholder": "البحث عن مستخدمين",
+    "filterAll": "الكل",
+    "filterHr": "الموارد البشرية",
+    "filterAdmin": "مسؤول النظام",
+    "filterManager": "مدير",
+    "filterEmployee": "موظف",
+    "colUser": "المستخدم",
+    "colRole": "الدور",
+    "colDepartment": "القسم",
+    "colStatus": "الحالة",
+    "colAccess": "الوصول",
+    "statusActive": "نشط",
+    "statusInactive": "غير نشط",
+    "addUserAccount": "إضافة حساب مستخدم",
+    "fullName": "الاسم بالكامل",
+    "emailAddress": "البريد الإلكتروني",
+    "role": "الدور",
+    "department": "القسم",
+    "cancel": "إلغاء",
+    "createUser": "إنشاء المستخدم"
   }
 }

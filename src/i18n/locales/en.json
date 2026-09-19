@@ -799,5 +799,33 @@
     "cancel": "Cancel",
     "toggleGpsAriaLabel": "Toggle GPS enforcement for {{name}}",
     "closeModal": "Close modal"
+  },
+    "usersPage": {
+    "title": "Users",
+    "subtitle": "Configure and manage your WiseWork users.",
+    "exportConfiguration": "Export configuration",
+    "userAccounts": "User accounts",
+    "userAccountsSubtitle": "Manage workspace access, roles, and account status.",
+    "addUser": "Add User",
+    "searchPlaceholder": "Search users",
+    "filterAll": "All",
+    "filterHr": "HR",
+    "filterAdmin": "Admin",
+    "filterManager": "Manager",
+    "filterEmployee": "Employee",
+    "colUser": "USER",
+    "colRole": "ROLE",
+    "colDepartment": "DEPARTMENT",
+    "colStatus": "STATUS",
+    "colAccess": "ACCESS",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "addUserAccount": "Add user account",
+    "fullName": "Full name",
+    "emailAddress": "Email address",
+    "role": "Role",
+    "department": "Department",
+    "cancel": "Cancel",
+    "createUser": "Create user"
   }
 }
