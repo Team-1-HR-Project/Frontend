@@ -755,7 +755,16 @@
     "hrOps": "HR & Admin Operations",
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
-    "sarahAdmin": "Sarah Ahmed (Admin)"
+    "sarahAdmin": "Sarah Ahmed (Admin)",
+    "homeDashboard": "Home Dashboard",
+    "myAttendance": "My Attendance",
+    "myTasks": "My Tasks",
+    "leaveBalances": "Leave & Balances",
+    "myPerformance": "My Performance",
+    "aiAssistant": "AI Assistant",
+    "companyPolicies": "Company Policies",
+    "profileSettings": "Profile & Settings"
+    
   },
   "adminDashboard": {
     "overview": "Overview",
@@ -873,5 +882,41 @@
     "department": "Department",
     "cancel": "Cancel",
     "createUser": "Create user"
+  },
+    "companyPolicies": {
+    "eyebrow": "Resources",
+    "title": "Company policies",
+    "subtitle": "Everything you need to work with confidence.",
+    "handbookTitle": "Employee Handbook",
+    "handbookDesc": "The essentials for your WiseWork journey.",
+    "leaveAttendanceTitle": "Leave & attendance",
+    "leaveAttendanceDesc": "Time off, working hours, and attendance guidance.",
+    "benefitsTitle": "Benefits & wellbeing",
+    "benefitsDesc": "Explore the benefits available to you.",
+    "securityTitle": "Security & privacy",
+    "securityDesc": "Keep our people and information safe."
+  },
+    "profileSettingsPage": {
+    "eyebrow": "Account",
+    "title": "Profile & settings",
+    "subtitle": "Manage your employee profile and preferences.",
+    "editProfile": "Edit profile",
+    "directManager": "Direct manager",
+    "workLocation": "Work location",
+    "workEmail": "Work email",
+    "phone": "Phone",
+    "accountSettings": "Account settings",
+    "accountSettingsSubtitle": "Personalize how WiseWork works for you.",
+    "biometricLogin": "Biometric login",
+    "biometricLoginDesc": "Use device biometrics for a faster sign in.",
+    "pushNotifications": "Push notifications",
+    "pushNotificationsDesc": "Receive updates about tasks and requests.",
+    "language": "Language",
+    "logout": "Log out",
+    "editProfileTitle": "Edit profile",
+    "fullNameLabel": "Full name",
+    "jobTitleLabel": "Job title",
+    "cancelEdit": "Cancel",
+    "saveChanges": "Save changes"
   }
 }

@@ -27,6 +27,7 @@ import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import CompanyPolicies from "./features/employee/pages/policies";
+import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
 
 // ==================== Dashboard Placeholder ====================
 
@@ -260,7 +261,15 @@ function App() {
             element={<CompanyPolicies />}
           />
 
+
+          <Route
+            path="/employee/profile"
+            element={<EmployeeProfileSettings />}
+          />
+
         </Route>
+
+
 
 
         {/* ==================== Direct Branches Route ==================== */}
