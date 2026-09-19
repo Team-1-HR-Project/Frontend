@@ -6,9 +6,7 @@ import {
   MdEventNote,
   MdSettings,
   MdNotifications,
-  MdBusiness,
   MdAssessment,
-  MdSecurity,
   MdHistory,
   MdHome,
   MdAccessTime,
@@ -37,7 +35,7 @@ export const navConfig = {
       titleKey: "portal.performance",
       title: "Performance & Goals",
       path: "/admin/performance",
-      icon: MdAssessment, // <--- أضفناها هنا تحت الـ Users مباشرة بالترتيب المطلوب
+      icon: MdAssessment,
     },
     {
       titleKey: "portal.branches",
@@ -46,9 +44,9 @@ export const navConfig = {
       icon: MdLocationCity,
     },
     {
-      titleKey: "portal.audit-logs",
+      titleKey: "portal.auditLogs",
       title: "Audit Logs",
-      path: "/admin/audit", // تم توحيد المسار هنا ليطابق App.jsx
+      path: "/admin/audit",
       icon: MdHistory,
     },
     {
@@ -64,6 +62,7 @@ export const navConfig = {
       icon: MdSettings,
     },
   ],
+
   hr: [
     {
       titleKey: "portal.dashboard",
@@ -96,6 +95,7 @@ export const navConfig = {
       icon: MdNotifications,
     },
   ],
+
   manager: [
     {
       titleKey: "portal.dashboard",
@@ -116,7 +116,8 @@ export const navConfig = {
       icon: MdEventNote,
     },
   ],
-   employee: [
+
+  employee: [
     {
       titleKey: "portal.homeDashboard",
       title: "Home Dashboard",

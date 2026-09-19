@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
@@ -11,17 +10,21 @@ const DashboardInner = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // الدور حاليًا بيتحدد من مسار الـ URL مؤقتًا لحد ما يتوصل بالـ Backend/Auth الحقيقي
-  const roleFromPath = location.pathname.split("/")[1];
-  const knownRoles = ["admin", "hr", "manager", "employee"];
-  const currentUserRole = knownRoles.includes(roleFromPath)
-    ? roleFromPath
-    : "admin";
+  // ==================== Determine Current User Role ====================
+  let currentUserRole = "admin";
+  if (location.pathname.startsWith("/employee")) {
+    currentUserRole = "employee";
+  } else if (location.pathname.startsWith("/hr")) {
+    currentUserRole = "hr";
+  } else if (location.pathname.startsWith("/manager")) {
+    currentUserRole = "manager";
+  } else if (location.pathname.startsWith("/admin")) {
+    currentUserRole = "admin";
+  }
 
   return (
     <NotificationProvider currentUserId={currentUser?.userId}>
       <div className="flex min-h-screen w-full bg-[#f5f7f8]">
-
         <Sidebar
           role={currentUserRole}
           isOpen={mobileMenuOpen}
@@ -42,6 +45,7 @@ const DashboardInner = () => {
           "
         >
           <Header
+            role={currentUserRole}
             onToggleMenu={() =>
               setMobileMenuOpen((prev) => !prev)
             }

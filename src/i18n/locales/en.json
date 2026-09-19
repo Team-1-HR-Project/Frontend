@@ -672,9 +672,12 @@
     "hrPortal": "HR PORTAL",
     "managerPortal": "MANAGER PORTAL",
     "adminPortal": "ADMIN PORTAL",
+
     "dashboard": "Dashboard",
     "branches": "Branches",
     "myLeaves": "My Leaves",
+    "leaveBalances": "Leave & balances",
+    "aiAssistant": "AI Assistant",
     "myPayslip": "My Payslip",
     "allUsers": "All Users",
     "settings": "Settings",
@@ -683,104 +686,154 @@
     "leaves": "Leaves",
     "myTeam": "My Team",
     "teamLeaves": "Team Leaves",
+
     "needAHand": "Need a hand?",
     "askAi": "Ask the AI Assistant",
+
     "employeeAccount": "Employee Account",
     "staffMember": "Staff Member",
     "adminAccount": "Admin Account",
     "hrAccount": "HR Account",
     "managerAccount": "Manager Account",
+
     "welcomeEmployee": "Welcome to Employee Dashboard",
     "welcomeAdmin": "Welcome to Admin Dashboard",
     "welcomeHr": "Welcome to HR Dashboard",
+
     "notifications": "Notifications",
     "overview": "Overview",
     "users": "Users",
     "performance": "Performance & Goals",
+    "myPerformance": "My Performance",
+
     "auditLogs": "Audit Logs",
+
     "administration": "Administration",
     "wiseWork": "WiseWork",
+
     "notificationsTitle": "Notifications",
     "notificationsSubtitle": "Configure and manage your WiseWork notifications.",
+
+    "Workwise": "Workwise",
+
     "exportConfig": "Export configuration",
+
     "systemAlertsTitle": "System Notifications & Alerts",
     "systemAlertsSubtitle": "Review system events, policy updates, and operational reminders",
+
     "markAllAsRead": "Mark all as read",
+
     "all": "All",
     "unread": "Unread",
     "read": "Read",
+
     "evaluations": "Evaluations",
     "security": "Security",
     "system": "System",
+
     "notificationCenter": "Notification center",
+
     "unreadCountMsg": "{{count}} unread notifications requiring your attention.",
     "allReviewedMsg": "All notifications have been reviewed.",
+
     "viewCycle": "View Cycle",
     "inspectLog": "Inspect Log",
     "dismiss": "Dismiss",
+
     "searchNotifications": "Search notifications...",
+
     "noNotificationsTitle": "No notifications found",
     "noNotificationsDesc": "There are no notifications matching your current filter.",
+
     "resetFilter": "Reset Filter",
+
     "markedAllSuccess": "All notifications marked as read",
     "notificationDismissed": "Notification dismissed",
     "exportSuccess": "Configuration exported successfully",
+
     "logDetailsTitle": "Audit Log Record",
     "cycleDetailsTitle": "Q3 2026 Evaluation Cycle",
+
     "closeModal": "Close",
+
     "tenMinAgo": "10 minutes ago",
     "yesterdayTime": "Yesterday at 3:45 PM",
     "sep12Time": "Sep 12, 2026 at 11:20 AM",
     "sep11Time": "Sep 11, 2026 at 9:42 AM",
+
     "notif1Title": "Q3 2026 Evaluation Cycle Activated",
     "notif1Desc": "The Q3 review cycle is now active for all company employees. Managers can begin submitting evaluations.",
+
     "notif2Title": "New Branch Geofence Configured",
     "notif2Desc": "Alexandria Hub geofence settings were updated and GPS enforcement is now active for the branch.",
+
     "notif3Title": "AI Policy Gateway Sync Completed",
     "notif3Desc": "The latest workplace policy rules were synchronized successfully across the WiseWork platform.",
+
     "notif4Title": "Role permissions updated",
     "notif4Desc": "Sarah Ahmed updated administrative permissions for the People & Culture workspace.",
+
     "cycleDetailsText": "The Q3 2026 performance evaluation cycle is active across all company departments and branches.",
+
     "cycleNameLabel": "Cycle Name:",
     "cycleNameVal": "Q3 2026 Performance Review",
+
     "cycleDurationLabel": "Duration:",
     "cycleDurationVal": "Sep 15, 2026 - Oct 15, 2026",
+
     "targetAudienceLabel": "Target Audience:",
     "targetAudienceVal": "All Employees (1,248 Users)",
+
     "branchesLabel": "Branches:",
     "branchesVal": "Cairo & Alexandria",
+
     "currentStatusLabel": "Current Status:",
     "cycleStatusVal": "Active • 64% completed",
+
     "logDetailsText": "Detailed security and administrative audit event recorded in the immutable system ledger.",
+
     "eventIdLabel": "Event ID:",
+
     "initiatorLabel": "Initiator:",
     "initiatorVal": "Sarah Ahmed (Admin)",
+
     "actionLabel": "Action:",
     "actionVal": "Geofence / Security Policy Update",
+
     "ipAddressLabel": "IP Address:",
     "ipAddressVal": "197.38.112.44 (Alexandria)",
+
     "statusLabel": "Status:",
     "logStatusVal": "Verified & Applied",
+
     "clearAll": "Clear All",
     "clearNotification": "Clear Notification",
+
     "markAsSeen": "Mark as Seen",
     "markAsUnread": "Mark as Unread",
+
     "seen": "Seen",
     "unseen": "Unread",
+
     "notificationDetails": "Notification Details",
+
     "clearedSuccess": "Notification cleared successfully",
     "clearedAllSuccess": "All notifications cleared successfully",
+
     "markedSeenSuccess": "Notification marked as seen",
     "markedUnreadSuccess": "Notification marked as unread",
+
     "initiator": "Initiator",
+
     "priority": "Priority",
     "priorityHigh": "High",
     "priorityMedium": "Medium",
     "priorityLow": "Normal",
+
     "scope": "Scope",
     "allBranches": "All Branches (Cairo & Alexandria)",
     "alexandriaHub": "Alexandria Hub",
-    "globalNetwork": "WiseWork Global Network",
+    "globalNetwork": "Workwise Global Network",
     "hrOps": "HR & Admin Operations",
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
@@ -794,6 +847,43 @@
     "companyPolicies": "Company Policies",
     "profileSettings": "Profile & Settings"
     
+  },
+
+  "employeePerformance": {
+    "eyebrow": "GROWTH & DEVELOPMENT",
+    "title": "My performance",
+    "subtitle": "A clear view of your progress and goals.",
+    "viewReviewHistory": "View review history",
+
+    "overallScore": "Overall score",
+    "fromLastMonth": "+5% from last month",
+
+    "atAGlance": "At a glance",
+    "tasksCompleted": "Tasks completed",
+    "qualityOfWork": "Quality of work",
+    "attendance": "Attendance",
+
+    "performanceTrend": "Performance trend",
+    "year": "2026",
+
+    "months": {
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep"
+    },
+
+    "currentGoals": "Current goals",
+    "viewAll": "View all",
+    "due": "Due",
+
+    "goals": {
+      "completeFlutterTraining": "Complete Flutter training",
+      "leadCrossTeamWorkshop": "Lead one cross-team workshop",
+      "automateMonthlyReporting": "Automate monthly reporting"
+    }
   },
   "adminDashboard": {
     "overview": "Overview",
@@ -842,31 +932,12 @@
     "hrManager": "HR Manager",
     "administrator": "Administrator"
   },
-  "auditLogs": {
-    "breadcrumbAdmin": "Administration",
-    "breadcrumbApp": "WiseWork",
-    "title": "Audit Logs",
-    "subtitle": "Configure and manage your WiseWork audit logs.",
-    "exportConfig": "Export configuration",
-    "cardTitle": "Audit logs",
-    "cardSubtitle": "A searchable record of administrative actions and system events.",
-    "searchPlaceholder": "Search audit logs...",
-    "filterAll": "All",
-    "filterSuccess": "Success",
-    "filterWarning": "Warning",
-    "filterInfo": "Info",
-    "colAction": "ACTION",
-    "colActor": "ACTOR",
-    "colTimestamp": "TIMESTAMP",
-    "colSeverity": "SEVERITY",
-    "noLogsFound": "No audit logs found matching your criteria",
-    "exportSuccess": "Audit configuration exported successfully"
-  },
+
   "branchesPage": {
-    "breadcrumbApp": "WiseWork",
+    "breadcrumbApp": "Workwise",
     "breadcrumbPage": "Branches",
     "title": "Branches",
-    "subtitle": "Configure and manage your WiseWork branches.",
+    "subtitle": "Configure and manage your Workwise branches.",
     "exportConfig": "Export Config",
     "cardTitle": "Branch locations",
     "cardSubtitle": "Configure GPS enforcement for each branch",
@@ -886,7 +957,7 @@
   },
   "usersPage": {
     "title": "Users",
-    "subtitle": "Configure and manage your WiseWork users.",
+    "subtitle": "Configure and manage your Workwise users.",
     "exportConfiguration": "Export configuration",
     "userAccounts": "User accounts",
     "userAccountsSubtitle": "Manage workspace access, roles, and account status.",
@@ -1105,6 +1176,183 @@
           "status": "On Time"
         }
       ]
+    }
+  },
+  "auditLogs": {
+    "title": "Audit Logs",
+    "subtitle": "A searchable record of administrative actions and system events.",
+    "breadcrumbAdmin": "Administration",
+    "breadcrumbApp": "Workwise",
+    "exportConfig": "Export configuration",
+    "exportSuccess": "Audit log configuration exported successfully.",
+    "cardTitle": "Audit logs",
+    "cardSubtitle": "Review administrative actions and system events.",
+    "searchPlaceholder": "Search logs...",
+    "filterAll": "All",
+    "filterSuccess": "Success",
+    "filterWarning": "Warning",
+    "filterInfo": "Info",
+    "colAction": "ACTION",
+    "colActor": "ACTOR",
+    "colTimestamp": "TIMESTAMP",
+    "colSeverity": "SEVERITY",
+    "noLogsFound": "No logs found.",
+    "actions": {
+      "rolePermissionsUpdated": "Role permissions updated",
+      "gpsEnforcementDisabled": "GPS enforcement disabled",
+      "q3ReviewCycleCreated": "Q3 review cycle created",
+      "newUserAccountInvited": "New user account invited"
+    },
+    "timestamps": {
+      "today": "Today, 10:30 AM",
+      "yesterday": "Yesterday, 03:15 PM",
+      "sep12": "Sep 12, 11:45 AM",
+      "sep11": "Sep 11, 09:20 AM"
+    }
+  },
+  "leaveBalances": {
+    "timeOffTag": "TIME OFF",
+    "title": "Leave & balances",
+    "subtitle": "Plan time away and keep track of your remaining allowance.",
+    "viewCalendar": "View calendar",
+    "calendarModalTitle": "Team & Leave Calendar",
+    "calendarModalSubtitle": "Review scheduled time off and upcoming company holidays.",
+    "annualLeave": "ANNUAL LEAVE",
+    "casualLeave": "CASUAL LEAVE",
+    "sickLeave": "SICK LEAVE",
+    "days": "days",
+    "daysRemaining": "{{count}} DAYS REMAINING",
+    "daysRemainingSingle": "{{count}} DAY REMAINING",
+    "requestLeave": "Request leave",
+    "requestSubtitle": "Submit a request for manager approval.",
+    "leaveType": "Leave type",
+    "selectLeaveType": "Select leave type",
+    "annual": "Annual leave",
+    "casual": "Casual leave",
+    "sick": "Sick leave",
+    "unpaid": "Unpaid leave",
+    "duration": "Duration",
+    "fullDay": "Full day",
+    "halfDayMorning": "Half day (Morning)",
+    "halfDayEvening": "Half day (Evening)",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "reason": "Reason",
+    "reasonPlaceholder": "Add a reason for your request...",
+    "attachDocument": "Attach supporting document",
+    "documentAttached": "Document attached",
+    "removeDocument": "Remove",
+    "submitRequest": "Submit request",
+    "recentRequests": "Recent requests",
+    "recentSubtitle": "Your latest time-off activity.",
+    "noRecentRequests": "No recent requests recorded.",
+    "statusApproved": "Approved",
+    "statusPending": "Pending",
+    "statusRejected": "Rejected",
+    "day": "day",
+    "daysPlural": "days",
+    "toastFillRequired": "Please complete all required fields.",
+    "toastInvalidDates": "End date cannot be earlier than start date.",
+    "toastInsufficientBalance": "You do not have enough remaining balance for this request.",
+    "toastSubmitted": "Leave request submitted successfully!",
+    "calendarLegendUpcoming": "Upcoming Leave",
+    "calendarLegendHoliday": "Official Holiday",
+    "calendarLegendToday": "Today",
+    "close": "Close"
+  },
+  "aiAssistant": {
+    "tag": "WISEWORK INTELLIGENCE",
+    "title": "AI Assistant",
+    "subtitle": "Your career coach and policy companion, in one place.",
+    "tabCareerCoach": "Career Coach",
+    "tabPolicyAssistant": "Policy Assistant",
+    "heroTitle": "Let's build your next chapter.",
+    "heroSubtitle": "Personalized guidance based on your work patterns, goals, and manager feedback.",
+    "explorePlan": "Explore my development plan",
+    "strengthsTitle": "Your strengths",
+    "strengthsSubtitle": "Patterns your recent work makes visible.",
+    "dataStorytelling": "Data storytelling",
+    "dataStorytellingQuote": "“You turn complex operational data into decisions the team can act on.”",
+    "crossTeamReliability": "Cross-team reliability",
+    "crossTeamReliabilityQuote": "“Partners consistently mention your thoughtful follow-through.”",
+    "developmentFocusTitle": "Development focus",
+    "developmentFocusSubtitle": "Small, actionable steps for this quarter.",
+    "delegation": "Delegation",
+    "delegationQuote": "“Create more room for strategic work by sharing ownership earlier.”",
+    "executiveBrevity": "Executive brevity",
+    "executiveBrevityQuote": "“Lead with the decision, then bring the detail when it helps.”",
+    "planModalTitle": "Quarterly Development Plan",
+    "planModalSubtitle": "Active milestones and coaching recommendations for this quarter.",
+    "planProgress": "Plan Progress",
+    "actionItems": "Action Items",
+    "step1Title": "Bi-weekly delegation review",
+    "step1Desc": "Identify 2 recurring tasks to hand over to junior associates with clear frameworks.",
+    "step2Title": "Executive summaries on reports",
+    "step2Desc": "Prefix all operational dashboards and slide decks with 1-page bottom-line conclusions.",
+    "step3Title": "Strategic cross-functional check-in",
+    "step3Desc": "Host alignment sync with Product and Operations leads before mid-quarter review.",
+    "aiTipsTitle": "Coach Observation",
+    "aiTipsContent": "Your recent project presentations showed high technical depth. Focusing on brief opening summaries will boost engagement with VP-level stakeholders.",
+    "close": "Close",
+    "policySearchPlaceholder": "Ask anything about company handbook, leaves, remote work, equipment...",
+    "policyQuickQuestions": "Popular Questions",
+    "policyQ1": "What is our remote work & flexible hours policy?",
+    "policyA1": "Employees in hybrid roles are eligible for up to 2 remote work days per week, subject to team coordination. Working hours remain flexible around core collaboration hours between 10:00 AM and 3:00 PM.",
+    "policyQ2": "How do sick leave submissions and medical certificates work?",
+    "policyA2": "Single-day sick leaves can be requested self-certified directly in the portal. Any sick leave exceeding 2 consecutive days requires an authorized medical report uploaded through the supporting documents field.",
+    "policyQ3": "What is the annual leave rollover allowance for 2026?",
+    "policyA3": "Employees may carry over up to 5 days of unused annual leave into the next calendar year. Carried-over days must be utilized within the first quarter (by March 31).",
+    "policyCategoryTimeOff": "Time Off & Leaves",
+    "policyCategoryBenefits": "Benefits & Insurance",
+    "policyCategoryWorkplace": "Workplace Conduct",
+    "policyCategoryExpenses": "Expenses & Travel",
+    "verifiedSource": "Verified against Employee Handbook v2026.1",
+    "askButton": "Ask Assistant",
+    "policyHeaderTitle": "Policy Assistant",
+    "policyHeaderSubtitle": "Grounded in WiseWork policies",
+    "policyPlaceholder": "Ask about a company policy...",
+    "sourceFootnote": "Source: Employee Handbook · Sec 4.2",
+    "pillSickLeave": "What is my sick leave balance?",
+    "pillRemoteWork": "What is the remote work policy?",
+    "chatAnnualCarryoverQ": "How many annual leave days can I carry over?",
+    "chatAnnualCarryoverA": "You can carry over up to 5 unused annual leave days into the next calendar year. Carryover requests should be submitted before December 15.",
+    "chatRemoteWorkQ": "What is the remote work policy?",
+    "chatRemoteWorkA": "Your policy answer is grounded in the Employee Handbook and your current employee record.",
+    "chatSickLeaveQ": "What is my sick leave balance?",
+    "chatSickLeaveA": "Your policy answer is grounded in the Employee Handbook and your current employee record."
+  },
+  "employeePerformance": {
+    "eyebrow": "GROWTH & DEVELOPMENT",
+    "title": "My Performance",
+    "subtitle": "Clear, objective visibility into your progress, feedback, and growth roadmap.",
+    "viewReviewHistory": "View review history",
+    "overallScore": "OVERALL SCORE",
+    "currentPerformancePeriod": "Current performance period",
+    "fromLastMonth": "+5% from last month",
+    "atAGlance": "At a Glance",
+    "performanceBreakdown": "Performance Breakdown",
+    "tasksCompleted": "Tasks Completed",
+    "qualityOfWork": "Quality of Work",
+    "attendance": "Attendance",
+    "performanceTrend": "Performance Trend",
+    "performanceLastSixMonths": "Your score over the last six months.",
+    "year": "2026",
+    "months": {
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep"
+    },
+    "currentGoals": "Current Goals",
+    "developmentPlan": "Stay on track with your development plan.",
+    "viewAll": "View all",
+    "due": "Due",
+    "goals": {
+      "completeFlutterTraining": "Complete Flutter training",
+      "leadCrossTeamWorkshop": "Lead one cross-team workshop",
+      "automateMonthlyReporting": "Automate monthly reporting"
     }
   }
 }
