@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import "../../../Styles/auth/Login.css";
 import logo from "../../../assets/Logos.svg";
 import LanguageSwitcher from "../../../components/LanguageSwitcher";
+import { APP_NAME, BRAND_NAME } from "../../../utils/global";
 
 const MainAuthForm = ({ children }) => {
   const { t } = useTranslation();
@@ -20,13 +21,16 @@ const MainAuthForm = ({ children }) => {
             <div className="brand-logo">
               <img
                 src={logo}
-                alt="Logo"
+                alt={`${APP_NAME} Logo`}
                 style={{ width: "90%", height: "90%", objectFit: "contain" }}
               />
             </div>
 
             <div>
-              <div className="brand-name">{t("auth.branding.name")}</div>
+              <div className="brand-name">
+                {BRAND_NAME.prefix}
+                <span style={{ color: BRAND_NAME.suffixColor }}>{BRAND_NAME.suffix}</span>
+              </div>
 
               <div className="brand-subtitle">{t("auth.branding.subtitle")}</div>
             </div>

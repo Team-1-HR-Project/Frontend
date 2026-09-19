@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import "../../../styles/auth/VerifyOTP.css";
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 import { useVerifyEmail } from "../hooks/useVerifyEmail";
 export default function VerifyOTP() {
   console.log("VERIFY OTP PAGE RENDERED");

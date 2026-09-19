@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiCalendar, FiCheckCircle } from "react-icons/fi";
+import { APP_NAME } from "../../../utils/global";
 
 export default function HeroSection() {
   const { t, i18n } = useTranslation();
@@ -250,7 +251,7 @@ export default function HeroSection() {
                           display: "block",
                         }}
                       >
-                        WorkWise Portal
+                        {APP_NAME} Portal
                       </strong>
 
                       <span

@@ -30,7 +30,7 @@
   },
   "auth": {
     "branding": {
-      "name": "WorkWise",
+      "name": "WiseWork",
       "subtitle": "بوابة إدارة الموارد البشرية والعمليات الذكية",
       "heroTitle": "ارتقِ بإدارة مساحة عملك وشؤون الموظفين",
       "heroDescription": "ادخل إلى بوابتك بأمان لإدارة مساحة عملك اليومية ومزاياك وأدوات العمل بكفاءة.",
@@ -131,7 +131,7 @@
       "termsOfService": "شروط الخدمة",
       "and": " و ",
       "privacyPolicy": "سياسة الخصوصية",
-      "termsSuffix": " الخاصة بـ Workwise.",
+      "termsSuffix": " الخاصة بـ WiseWork.",
       "errorRequired": "يرجى ملء جميع الحقول المطلوبة.",
       "errorRequirements": "يرجى التأكد من استيفاء كلمة المرور لجميع الشروط.",
       "errorMismatch": "كلمتا المرور غير متطابقتين.",
@@ -369,7 +369,7 @@
       "badge": "المنظومة المتكاملة لإدارة الموارد البشرية",
       "titleMain": "إدارة ذكية للموارد البشرية.",
       "titleAccent": "وفرق عمل أكثر إنتاجية.",
-      "description": "نظام WorkWise يحول إدارة العمليات والموظفين إلى تجربة سلسة ومتكاملة. تتبع الحضور، إدارة الإجازات، تقييم الأداء، واستكشاف مهارات فريقك في منصة موحدة وموثوقة.",
+      "description": "نظام WiseWork يحول إدارة العمليات والموظفين إلى تجربة سلسة ومتكاملة. تتبع الحضور، إدارة الإجازات، تقييم الأداء، واستكشاف مهارات فريقك في منصة موحدة وموثوقة.",
       "ctaPrimary": "ابدأ الاستخدام مجاناً",
       "ctaSecondary": "استكشف المميزات",
       "trustedBy": "موثوق به من المؤسسات الرائدة والفرق المتطورة",
@@ -387,12 +387,12 @@
       }
     },
     "about": {
-      "badge": "عن WorkWise",
+      "badge": "عن WiseWork",
       "title": "صُمم خصيصاً لإدارة عمليات الموارد البشرية الحديثة",
       "subtitle": "ننهي فوضى الجداول المتفرقة والعمليات اليدوية المعقدة لنمنح مؤسستك وضوحاً، سرعة، وتحليلات دقيقة.",
       "problemTitle": "التحدي في بيئة العمل الحالية",
       "problemDesc": "تواجه أقسام الموارد البشرية تشتت بيانات الموظفين، أنظمة حضور منفصلة، تأخر في دورات التقييم، وغياب الرؤية الواضحة لمطابقة المهارات مع الفرص المناسبة.",
-      "solutionTitle": "حل WorkWise المتكامل",
+      "solutionTitle": "حل WiseWork المتكامل",
       "solutionDesc": "بيئة عمل موحدة تجمع العمليات الإدارية الأساسية مع تحليلات كفاءات متقدمة وبوابات خدمة ذاتية مريحة للموظفين.",
       "pills": [
         {
@@ -443,7 +443,7 @@
     "roles": {
       "badge": "تجربة مخصصة",
       "title": "مصمم خصيصاً لكل دور في المنشأة",
-      "subtitle": "يتكيف نظام WorkWise مع طبيعة صلاحيات كل مستخدم ليقدم الأدوات المناسبة دون تعقيد.",
+      "subtitle": "يتكيف نظام WiseWork مع طبيعة صلاحيات كل مستخدم ليقدم الأدوات المناسبة دون تعقيد.",
       "aiBanner": {
         "kicker": "قرارات أذكى، مدعومة بالبيانات",
         "titlePart1": "حوّل بيانات الموارد البشرية إلى ",
@@ -505,7 +505,7 @@
     },
     "howItWorks": {
       "badge": "خطوات العمل",
-      "title": "كيف يعمل نظام WorkWise؟",
+      "title": "كيف يعمل نظام WiseWork؟",
       "subtitle": "أربع خطوات عملية تنقل إدارة الموارد البشرية في منشأتك إلى المستوى التالي.",
       "steps": [
         {
@@ -655,7 +655,7 @@
     },
     "cta": {
       "badge": "جاهز لتطوير إدارة الموارد البشرية؟",
-      "title": "ابدأ تجربة العمليات الذكية مع WorkWise اليوم",
+      "title": "ابدأ تجربة العمليات الذكية مع WiseWork اليوم",
       "subtitle": "انضم لمئات الشركات الرائدة التي تدير قواها العاملة بثقة وسهولة.",
       "btnPrimary": "ابدأ التجربة المجانية",
       "btnSecondary": "تحدث مع خبير",
@@ -677,22 +677,29 @@
         "security": "الأمان والامتثال",
         "api": "واجهة المطورين API",
         "help": "مركز المساعدة",
-        "about": "عن WorkWise",
+        "about": "عن WiseWork",
         "careers": "الوظائف",
         "privacy": "سياسة الخصوصية",
         "terms": "شروط الخدمة",
         "contact": "الدعم الفني"
       },
       "contactInfo": {
-        "email": "support@workwise.io",
+        "email": "support@wisework.io",
         "phone": "+1 (800) 555-0199",
         "location": "برج الأعمال، حي الابتكار والتقنية"
       },
-      "copyright": "© 2026 WorkWise. جميع الحقوق محفوظة."
+      "copyright": "© 2026 WiseWork. جميع الحقوق محفوظة."
     }
   },
   "portal": {
     "dashboard": "لوحة التحكم",
+    "homeDashboard": "الرئيسية",
+    "myAttendance": "حضوري وانصرافي",
+    "myTasks": "مهامي",
+    "leaveBalances": "الإجازات والأرصدة",
+    "aiAssistant": "المساعد الذكي",
+    "companyPolicies": "سياسات الشركة",
+    "profileSettings": "الملف الشخصي والإعدادات",
     "users": "المستخدمون",
     "employees": "الموظفون",
     "payroll": "الرواتب",
@@ -704,8 +711,9 @@
     "myPerformance": "أدائي",
     "branches": "الفروع",
     "auditLogs": "سجلات التدقيق",
-    "myPayslip": "مفردات المرتب",
     "allUsers": "جميع المستخدمين",
+    "settings": "الإعدادات",
+    "notifications": "الإشعارات",
     "needAHand": "تحتاج مساعدة؟",
     "askAi": "اسأل المساعد الذكي",
     "employeeAccount": "حساب الموظف",
@@ -715,12 +723,18 @@
     "managerAccount": "حساب المدير",
     "welcomeAdmin": "مرحباً بك في لوحة تحكم الإدارة",
     "welcomeEmployee": "مرحباً بك في صفحة الموظف",
-    "welcomeHr": "مرحباً بك في لوحة تحكم الموارد البشرية (HR)",
+    "welcomeHr": "مرحباً بك في لوحة تحكم الـ HR",
+    "searchPlaceholder": "ابحث في المهام، السياسات، التقويم...",
+    "employeePortal": "بوابة الموظف",
+    "hrPortal": "بوابة الموارد البشرية",
+    "managerPortal": "بوابة المدير",
+    "adminPortal": "بوابة الإدارة",
+    "wiseWork": "WiseWork",
     "overview": "نظرة عامة",
     "administration": "الإدارة",
-    "Workwise": "Workwise",
+    "WiseWork": "WiseWork",
     "notificationsTitle": "الإشعارات",
-    "notificationsSubtitle": "إعداد وإدارة إشعارات ونظام تنبيهات Workwise الخاصة بالإدارة.",
+    "notificationsSubtitle": "إعداد وإدارة إشعارات ونظام تنبيهات WiseWork الخاصة بالإدارة.",
     "exportConfig": "تصدير التكوين",
     "systemAlertsTitle": "تنبيهات وإشعارات النظام",
     "systemAlertsSubtitle": "مراجعة أحداث النظام، تحديثات السياسات، والتنبيهات التشغيلية",
@@ -756,7 +770,7 @@
     "notif2Title": "إعداد السياج الجغرافي للفرع الجديد",
     "notif2Desc": "تم تحديث إعدادات السياج الجغرافي لفرع الإسكندرية وتطبيق الحضور عبر GPS للفرع.",
     "notif3Title": "اكتمال مزامنة بوابة سياسات الذكاء الاصطناعي",
-    "notif3Desc": "تمت مزامنة أحدث قواعد وسياسات مساحة العمل بنجاح عبر منصة Workwise.",
+    "notif3Desc": "تمت مزامنة أحدث قواعد وسياسات مساحة العمل بنجاح عبر منصة WiseWork.",
     "notif4Title": "تحديث صلاحيات الأدوار",
     "notif4Desc": "قامت سارة أحمد بتحديث الصلاحيات الإدارية لمساحة عمل الأفراد والثقافة.",
     "cycleDetailsText": "دورة تقييم الأداء للربع الثالث 2026 نشطة حالياً في جميع أقسام وفروع الشركة.",
@@ -799,24 +813,14 @@
     "scope": "النطاق",
     "allBranches": "جميع الفروع (القاهرة والإسكندرية)",
     "alexandriaHub": "فرع الإسكندرية",
-    "globalNetwork": "شبكة Workwise العامة",
+    "globalNetwork": "شبكة WiseWork العامة",
     "hrOps": "إدارة الموارد البشرية والعمليات",
     "securityOps": "مصطفى خليل (عمليات الأمان)",
     "automatedEngine": "محرك السياسات التلقائي",
-    "sarahAdmin": "سارة أحمد (مسؤول النظام)",
-    "homeDashboard": "الرئيسية",
-    "myAttendance": "حضوري وانصرافي",
-    "myTasks": "مهامي",
-    "leaveBalances": "الإجازات والأرصدة",
-    "aiAssistant": "المساعد الذكي",
-    "companyPolicies": "سياسات الشركة",
-    "profileSettings": "الملف الشخصي والإعدادات",
-    "notifications": "الإشعارات",
-    "settings": "الإعدادات",
-    "welcomeHr": "مرحباً بك في لوحة تحكم الـ HR",
-    "welcomeEmployee": "مرحباً بك في صفحة الموظف"
+    "sarahAdmin": "سارة أحمد (مسؤول النظام)"
   },
   "adminDashboard": {
+    "dashboard": "لوحة التحكم",
     "overview": "نظرة عامة",
     "overviewSubtitle": "إدارة أفراد مؤسستك، الصلاحيات، والإعدادات.",
     "exportReport": "تصدير تقرير",
@@ -863,31 +867,11 @@
     "hrManager": "مدير موارد بشرية",
     "administrator": "مسؤول النظام"
   },
-  "auditLogs": {
-    "breadcrumbAdmin": "الإدارة",
-    "breadcrumbApp": "Workwise",
-    "title": "سجلات التدقيق",
-    "subtitle": "تهيئة وإدارة سجلات تدقيق Workwise الخاصة بك.",
-    "exportConfig": "تصدير الإعدادات",
-    "cardTitle": "سجلات التدقيق",
-    "cardSubtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
-    "searchPlaceholder": "البحث في سجلات التدقيق...",
-    "filterAll": "الكل",
-    "filterSuccess": "نجاح",
-    "filterWarning": "تحذير",
-    "filterInfo": "معلومات",
-    "colAction": "الإجراء",
-    "colActor": "المنفذ",
-    "colTimestamp": "الوقت والتاريخ",
-    "colSeverity": "مستوى الأهمية",
-    "noLogsFound": "لم يتم العثور على سجلات تطابق معايير البحث",
-    "exportSuccess": "تم تصدير إعدادات السجلات بنجاح"
-  },
   "branchesPage": {
-    "breadcrumbApp": "Workwise",
+    "breadcrumbApp": "WiseWork",
     "breadcrumbPage": "الفروع",
     "title": "الفروع",
-    "subtitle": "تهيئة وإدارة فروع Workwise الخاصة بك.",
+    "subtitle": "تهيئة وإدارة فروع WiseWork الخاصة بك.",
     "exportConfig": "تصدير الإعدادات",
     "cardTitle": "مواقع الفروع",
     "cardSubtitle": "تهيئة فرض نظام تحديد الموقع GPS لكل فرع",
@@ -907,7 +891,7 @@
   },
   "usersPage": {
     "title": "المستخدمون",
-    "subtitle": "تهيئة وإدارة مستخدمي Workwise الخاصين بك.",
+    "subtitle": "تهيئة وإدارة مستخدمي WiseWork الخاصين بك.",
     "exportConfiguration": "تصدير الإعدادات",
     "userAccounts": "حسابات المستخدمين",
     "userAccountsSubtitle": "إدارة صلاحيات الوصول، الأدوار، وحالة الحسابات في مساحة العمل.",
@@ -938,7 +922,7 @@
     "subtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
 
     "breadcrumbAdmin": "الإدارة",
-    "breadcrumbApp": "Workwise",
+    "breadcrumbApp": "WiseWork",
 
     "exportConfig": "تصدير التكوين",
     "exportSuccess": "تم تصدير إعدادات السجل بنجاح.",
@@ -1170,6 +1154,15 @@
       "completeFlutterTraining": "إكمال تدريب Flutter",
       "leadCrossTeamWorkshop": "قيادة ورشة عمل مشتركة بين الفرق",
       "automateMonthlyReporting": "أتمتة التقارير الشهرية"
+    },
+    "reviewHistory": {
+      "title": "سجل التقييمات",
+      "subtitle": "تقييمات الأداء السابقة وملاحظات الإدارة.",
+      "midYear": "تقييم منتصف العام",
+      "midYearDate": "يونيو 2026 • التقييم: يفوق التوقعات (4.8/5.0)",
+      "lastReview": "تقييم الأداء السنوي",
+      "lastReviewDate": "ديسمبر 2025 • التقييم: يلبي التوقعات (4.2/5.0)",
+      "close": "إغلاق"
     }
   },
   "leaveBalances": {

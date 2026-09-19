@@ -30,7 +30,7 @@
   },
   "auth": {
     "branding": {
-      "name": "WorkWise",
+      "name": "WiseWork",
       "subtitle": "Smart People Operations & Workforce Intelligence",
       "heroTitle": "Streamline Your Workspace & People Operations",
       "heroDescription": "Access your portal securely to manage your daily workspace, benefits, and workplace tools.",
@@ -127,7 +127,7 @@
       "reqNumber": "Contains a number",
       "createAccount": "Create Account",
       "registerButton": "Create Account",
-      "agreePrefix": "By creating an account, you agree to WorkWise's ",
+      "agreePrefix": "By creating an account, you agree to WiseWork's ",
       "termsOfService": "Terms of Service",
       "and": " and ",
       "privacyPolicy": "Privacy Policy",
@@ -369,7 +369,7 @@
       "badge": "Unified People Operations Platform",
       "titleMain": "Smarter HR Management.",
       "titleAccent": "Empowered Teams.",
-      "description": "WorkWise transforms traditional HR workflows into an intelligent, centralized system. Streamline employee directory, track attendance, manage leaves, evaluate performance, and uncover organizational talent seamlessly.",
+      "description": "WiseWork transforms traditional HR workflows into an intelligent, centralized system. Streamline employee directory, track attendance, manage leaves, evaluate performance, and uncover organizational talent seamlessly.",
       "ctaPrimary": "Get Started Free",
       "ctaSecondary": "Explore Features",
       "trustedBy": "Trusted by modern organizations & forward-thinking teams",
@@ -387,12 +387,12 @@
       }
     },
     "about": {
-      "badge": "About WorkWise",
+      "badge": "About WiseWork",
       "title": "Engineered for Modern People Operations",
       "subtitle": "We eliminate fragmented spreadsheets and chaotic manual workflows, bringing clarity, efficiency, and intelligence to your workforce.",
       "problemTitle": "The Challenge in Today's Workplace",
       "problemDesc": "HR departments struggle with scattered employee data, disconnected attendance tools, delayed review cycles, and blind talent matching without actionable data.",
-      "solutionTitle": "The WorkWise Solution",
+      "solutionTitle": "The WiseWork Solution",
       "solutionDesc": "A single, unified workspace combining core HR administration with cutting-edge talent intelligence and intuitive self-service portals.",
       "pills": [
         {
@@ -443,7 +443,7 @@
     "roles": {
       "badge": "Tailored Experience",
       "title": "Designed for Every Stakeholder",
-      "subtitle": "WorkWise adapts to each user role, providing relevant tools and clean interfaces without clutter.",
+      "subtitle": "WiseWork adapts to each user role, providing relevant tools and clean interfaces without clutter.",
       "aiBanner": {
         "kicker": "SMARTER DECISIONS, POWERED BY DATA",
         "titlePart1": "Turn HR data into ",
@@ -508,7 +508,7 @@
     },
     "howItWorks": {
       "badge": "Seamless Workflow",
-      "title": "How WorkWise Operates",
+      "title": "How WiseWork Operates",
       "subtitle": "From setup to daily operations, four clear steps to elevate your workplace.",
       "steps": [
         {
@@ -631,7 +631,7 @@
     "cta": {
       "badge": "Ready to Transform Your Workplace?",
       "title": "Experience Smarter People Operations Today",
-      "subtitle": "Join hundreds of forward-thinking companies streamlining their HR with WorkWise.",
+      "subtitle": "Join hundreds of forward-thinking companies streamlining their HR with WiseWork.",
       "btnPrimary": "Start Free Trial",
       "btnSecondary": "Talk to an Expert",
       "noCreditCard": "No credit card required • Instant setup • Cancel anytime"
@@ -652,18 +652,18 @@
         "security": "Security & Compliance",
         "api": "API Reference",
         "help": "Help Center",
-        "about": "About WorkWise",
+        "about": "About WiseWork",
         "careers": "Careers",
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
         "contact": "Contact Support"
       },
       "contactInfo": {
-        "email": "support@workwise.io",
+        "email": "support@wisework.io",
         "phone": "+1 (800) 555-0199",
         "location": "Enterprise Tower, Innovation District"
       },
-      "copyright": "© 2026 WorkWise. All rights reserved."
+      "copyright": "© 2026 WiseWork. All rights reserved."
     }
   },
   "portal": {
@@ -674,11 +674,15 @@
     "adminPortal": "ADMIN PORTAL",
 
     "dashboard": "Dashboard",
+    "homeDashboard": "Home Dashboard",
+    "myAttendance": "My Attendance",
+    "myTasks": "My Tasks",
+    "leaveBalances": "Leave & Balances",
+    "aiAssistant": "AI Assistant",
+    "companyPolicies": "Company Policies",
+    "profileSettings": "Profile & Settings",
     "branches": "Branches",
     "myLeaves": "My Leaves",
-    "leaveBalances": "Leave & balances",
-    "aiAssistant": "AI Assistant",
-    "myPayslip": "My Payslip",
     "allUsers": "All Users",
     "settings": "Settings",
     "employees": "Employees",
@@ -710,7 +714,7 @@
 
     "administration": "Administration",
     "wiseWork": "WiseWork",
-    "Workwise": "Workwise",
+    "WiseWork": "WiseWork",
     "notificationsTitle": "Notifications",
     "notificationsSubtitle": "Configure and manage your WiseWork notifications.",
     "exportConfig": "Export configuration",
@@ -829,58 +833,14 @@
     "scope": "Scope",
     "allBranches": "All Branches (Cairo & Alexandria)",
     "alexandriaHub": "Alexandria Hub",
-    "globalNetwork": "Workwise Global Network",
+    "globalNetwork": "WiseWork Global Network",
     "hrOps": "HR & Admin Operations",
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
-    "sarahAdmin": "Sarah Ahmed (Admin)",
-    "homeDashboard": "Home Dashboard",
-    "myAttendance": "My Attendance",
-    "myTasks": "My Tasks",
-    "leaveBalances": "Leave & Balances",
-    "myPerformance": "My Performance",
-    "aiAssistant": "AI Assistant",
-    "companyPolicies": "Company Policies",
-    "profileSettings": "Profile & Settings"
-  },
-
-  "employeePerformance": {
-    "eyebrow": "GROWTH & DEVELOPMENT",
-    "title": "My performance",
-    "subtitle": "A clear view of your progress and goals.",
-    "viewReviewHistory": "View review history",
-
-    "overallScore": "Overall score",
-    "fromLastMonth": "+5% from last month",
-
-    "atAGlance": "At a glance",
-    "tasksCompleted": "Tasks completed",
-    "qualityOfWork": "Quality of work",
-    "attendance": "Attendance",
-
-    "performanceTrend": "Performance trend",
-    "year": "2026",
-
-    "months": {
-      "apr": "Apr",
-      "may": "May",
-      "jun": "Jun",
-      "jul": "Jul",
-      "aug": "Aug",
-      "sep": "Sep"
-    },
-
-    "currentGoals": "Current goals",
-    "viewAll": "View all",
-    "due": "Due",
-
-    "goals": {
-      "completeFlutterTraining": "Complete Flutter training",
-      "leadCrossTeamWorkshop": "Lead one cross-team workshop",
-      "automateMonthlyReporting": "Automate monthly reporting"
-    }
+    "sarahAdmin": "Sarah Ahmed (Admin)"
   },
   "adminDashboard": {
+    "dashboard": "Dashboard",
     "overview": "Overview",
     "overviewSubtitle": "Manage your organization's people, access, and settings.",
     "exportReport": "Export report",
@@ -928,10 +888,10 @@
     "administrator": "Administrator"
   },
   "branchesPage": {
-    "breadcrumbApp": "Workwise",
+    "breadcrumbApp": "WiseWork",
     "breadcrumbPage": "Branches",
     "title": "Branches",
-    "subtitle": "Configure and manage your Workwise branches.",
+    "subtitle": "Configure and manage your WiseWork branches.",
     "exportConfig": "Export Config",
     "cardTitle": "Branch locations",
     "cardSubtitle": "Configure GPS enforcement for each branch",
@@ -951,7 +911,7 @@
   },
   "usersPage": {
     "title": "Users",
-    "subtitle": "Configure and manage your Workwise users.",
+    "subtitle": "Configure and manage your WiseWork users.",
     "exportConfiguration": "Export configuration",
     "userAccounts": "User accounts",
     "userAccountsSubtitle": "Manage workspace access, roles, and account status.",
@@ -982,7 +942,7 @@
     "subtitle": "A searchable record of administrative actions and system events.",
 
     "breadcrumbAdmin": "Administration",
-    "breadcrumbApp": "Workwise",
+    "breadcrumbApp": "WiseWork",
 
     "exportConfig": "Export configuration",
     "exportSuccess": "Audit log configuration exported successfully.",
@@ -1360,6 +1320,15 @@
       "completeFlutterTraining": "Complete Flutter training",
       "leadCrossTeamWorkshop": "Lead one cross-team workshop",
       "automateMonthlyReporting": "Automate monthly reporting"
+    },
+    "reviewHistory": {
+      "title": "Review History",
+      "subtitle": "Past performance reviews and managerial feedback.",
+      "midYear": "Mid-Year Performance Review",
+      "midYearDate": "June 2026 • Rating: Exceeds Expectations (4.8/5.0)",
+      "lastReview": "Annual Performance Review",
+      "lastReviewDate": "December 2025 • Rating: Meets Expectations (4.2/5.0)",
+      "close": "Close"
     }
   }
 }

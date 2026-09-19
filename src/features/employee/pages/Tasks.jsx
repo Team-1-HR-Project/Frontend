@@ -305,23 +305,23 @@ export default function Tasks() {
   const firstName = currentUser?.name?.split(" ")[0] || "there";
 
   const PRIORITY_META = {
-    high:   { label: t("tasks.high"),   cls: "bg-red-50 text-red-500 border-red-200",       dot: "bg-red-400"    },
-    medium: { label: t("tasks.medium"), cls: "bg-amber-50 text-amber-600 border-amber-200", dot: "bg-amber-400"  },
-    low:    { label: t("tasks.low"),    cls: "bg-green-50 text-green-600 border-green-200",  dot: "bg-green-400"  },
+    high: { label: t("tasks.high"), cls: "bg-red-50 text-red-500 border-red-200", dot: "bg-red-400" },
+    medium: { label: t("tasks.medium"), cls: "bg-amber-50 text-amber-600 border-amber-200", dot: "bg-amber-400" },
+    low: { label: t("tasks.low"), cls: "bg-green-50 text-green-600 border-green-200", dot: "bg-green-400" },
   };
-  
+
   const STATUS_META = {
-    "todo":        { label: t("tasks.todo"),       icon: FiCircle,      col: "bg-slate-100 text-slate-500" },
-    "in-progress": { label: t("tasks.inProgress"), icon: FiAlertCircle, col: "bg-blue-100 text-blue-600"   },
-    "done":        { label: t("tasks.done"),        icon: FiCheckCircle, col: "bg-green-100 text-green-600"  },
+    "todo": { label: t("tasks.todo"), icon: FiCircle, col: "bg-slate-100 text-slate-500" },
+    "in-progress": { label: t("tasks.inProgress"), icon: FiAlertCircle, col: "bg-blue-100 text-blue-600" },
+    "done": { label: t("tasks.done"), icon: FiCheckCircle, col: "bg-green-100 text-green-600" },
   };
 
   const stats = useMemo(() => ({
-    total:      tasks.length,
-    todo:       tasks.filter((t) => t.status === "todo").length,
+    total: tasks.length,
+    todo: tasks.filter((t) => t.status === "todo").length,
     inProgress: tasks.filter((t) => t.status === "in-progress").length,
-    done:       tasks.filter((t) => t.status === "done").length,
-    overdue:    tasks.filter((t) => isOverdue(t.dueDate, t.status)).length,
+    done: tasks.filter((t) => t.status === "done").length,
+    overdue: tasks.filter((t) => isOverdue(t.dueDate, t.status)).length,
     completion: tasks.length ? Math.round((tasks.filter((t) => t.status === "done").length / tasks.length) * 100) : 0,
   }), [tasks]);
 
@@ -388,10 +388,10 @@ export default function Tasks() {
       {/* Stats Row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
         {[
-          { label: t("tasks.total"),       value: stats.total,      icon: MdOutlineTask, color: "text-slate-600", bg: "bg-slate-100" },
-          { label: t("tasks.inProgress"), value: stats.inProgress, icon: FiClock,       color: "text-blue-600",  bg: "bg-blue-50"   },
-          { label: t("tasks.completed"),   value: stats.done,       icon: FiCheckCircle, color: "text-green-600", bg: "bg-green-50"  },
-          { label: t("tasks.overdue"),     value: stats.overdue,    icon: FiAlertCircle, color: "text-red-500",   bg: "bg-red-50"    },
+          { label: t("tasks.total"), value: stats.total, icon: MdOutlineTask, color: "text-slate-600", bg: "bg-slate-100" },
+          { label: t("tasks.inProgress"), value: stats.inProgress, icon: FiClock, color: "text-blue-600", bg: "bg-blue-50" },
+          { label: t("tasks.completed"), value: stats.done, icon: FiCheckCircle, color: "text-green-600", bg: "bg-green-50" },
+          { label: t("tasks.overdue"), value: stats.overdue, icon: FiAlertCircle, color: "text-red-500", bg: "bg-red-50" },
         ].map(({ label, value, icon: Icon, color, bg }) => (
           <div key={label} className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 flex items-center gap-3">
             <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center shrink-0`}>

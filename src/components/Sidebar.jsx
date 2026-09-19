@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { FiArrowRight, FiMoreHorizontal, FiHelpCircle } from "react-icons/fi";
+import { FiArrowRight, FiMoreHorizontal } from "react-icons/fi";
+import { LuSparkles } from "react-icons/lu";
 import { useTranslation } from "react-i18next";
 
 import { navConfig } from "../navigation/navConfig";
 import { useNotifications } from "../context/NotificationContext";
 import { useAuth } from "../context/AuthContext";
 
+
 import logoImg from "../assets/Logos.svg";
+import { APP_NAME, BRAND_NAME } from "../utils/global";
 
 const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t, i18n } = useTranslation();
@@ -17,14 +20,20 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
 
   const links = navConfig[role] || [];
 
-  const avatarLetter = (currentUser?.initials || role.charAt(0)).toUpperCase();
+  const avatarLetter = (
+    currentUser?.initials ||
+    (role === "employee" ? "OH" : role.charAt(0))
+  ).toUpperCase();
 
   const portalLabel = t(`portal.${role}Portal`, `${role.toUpperCase()} PORTAL`);
 
   const displayName =
-    currentUser?.name || t(`portal.${role}Account`, `${role} User`);
+    currentUser?.name ||
+    (role === "employee" ? "Omar Haddad" : t(`portal.${role}Account`, `${role} User`));
 
-  const displayTitle = t("portal.staffMember", "Workwise Workspace");
+  const displayTitle =
+    currentUser?.jobTitle ||
+    (role === "employee" ? "Senior Product Analyst" : t("portal.staffMember", `${APP_NAME} Workspace`));
 
   // =========================
   // Role Accent Color
@@ -51,7 +60,6 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   // =========================
 
   const sidebarPosition = isRtl ? "right-0" : "left-0";
-
   const hiddenPosition = isRtl ? "translate-x-full" : "-translate-x-full";
 
   return (
@@ -78,17 +86,28 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
       ========================= */}
 
       <aside
+        style={{
+          height: "100dvh",
+          maxHeight: "100dvh",
+        }}
         className={`
           fixed
           ${sidebarPosition}
-          inset-y-0
+          top-0
+          bottom-0
           z-40
 
           flex
           w-[256px]
           flex-col
+          overflow-hidden
 
-          bg-[#243B53]
+          bg-[#1c364f]
+          border-r
+          border-[#294861]
+          rtl:border-r-0
+          rtl:border-l
+          rtl:border-[#294861]
 
           px-4
           py-5
@@ -105,7 +124,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         `}
       >
         {/* =========================
-            Brand
+            Brand (Original Logo restored)
         ========================= */}
 
         <div
@@ -115,11 +134,12 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             items-center
             gap-3
             px-2
+            shrink-0
           "
         >
           <img
             src={logoImg}
-            alt="Workwise Logo"
+            alt={`${APP_NAME} Logo`}
             className="
               h-8
               w-8
@@ -136,8 +156,8 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               text-white
             "
           >
-            Wise
-            <span className="text-[#79B88B]">Work</span>
+            {BRAND_NAME.prefix}
+            <span style={{ color: BRAND_NAME.suffixColor }}>{BRAND_NAME.suffix}</span>
           </span>
         </div>
 
@@ -149,10 +169,12 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
           className="
             mb-3
             px-3
-            text-[10px]
+            shrink-0
+            text-[11px]
             font-bold
-            tracking-[0.16em]
-            text-[#9fb3c4]
+            uppercase
+            tracking-[0.14em]
+            text-[#7a9bb8]
           "
         >
           {portalLabel}
@@ -163,11 +185,22 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         ========================= */}
 
         <nav
+          style={{
+            flex: "1 1 0%",
+            minHeight: 0,
+          }}
           className="
             flex
-            flex-1
+            h-0
             flex-col
-            gap-1
+            gap-1.5
+            overflow-y-auto
+            overflow-x-hidden
+            pr-1
+            rtl:pr-0
+            rtl:pl-1
+            [scrollbar-width:thin]
+            [scrollbar-color:#2b4b68_transparent]
           "
         >
           {links.map((link) => {
@@ -185,36 +218,44 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                        boxShadow: isRtl
-                          ? `inset -3.5px 0 0 ${accentHex}`
-                          : `inset 3.5px 0 0 ${accentHex}`,
-                      }
-                    : undefined
+                      backgroundColor: "#2b4b68",
+                      borderLeft: isRtl ? "none" : "3.5px solid #52d1b2",
+                      borderRight: isRtl ? "3.5px solid #52d1b2" : "none",
+                      borderTop: "none",
+                      borderBottom: "none",
+                      borderRadius: "8px",
+                    }
+                    : {
+                      border: "none",
+                      backgroundColor: "transparent",
+                    }
                 }
                 className={({ isActive }) => `
+                  group
                   relative
                   flex
+                  h-[43px]
+                  shrink-0
                   items-center
-                  gap-3
+                  gap-3.5
 
-                  rounded-lg
+                  rounded-[8px]
+                  border-0
                   outline-none
                   focus:outline-none
-                  focus-visible:outline-none
 
                   px-3.5
-                  py-2.5
+                  py-1.5
 
-                  text-sm
+                  text-[13.5px]
                   font-medium
 
                   transition-all
                   duration-150
 
-                  ${
-                    isActive
-                      ? "bg-[#334e68] text-white font-semibold"
-                      : "text-[#D9E2EC] hover:bg-[#334e68]/60 hover:text-white"
+                  ${isActive
+                    ? "text-white font-semibold shadow-sm"
+                    : "text-[#8fa8c1] hover:bg-[#2b4b68]/50 hover:text-white"
                   }
                 `}
               >
@@ -222,32 +263,39 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 {Icon && (
                   <Icon
                     className="
-                      h-4
-                      w-4
+                      h-4.5
+                      w-4.5
                       shrink-0
                     "
                   />
                 )}
 
                 {/* Title */}
-                <span className="flex-1">
+                <span className="flex-1 truncate">
                   {title}
                 </span>
 
                 {/* Notification Badge */}
-                {link.path.includes("notifications") && unreadCount > 0 && (
+                {link.path.includes("notifications") && (
                   <span
-                    className={`
+                    className="
+                      ml-auto
+                      flex
+                      h-5
+                      w-5
+                      items-center
+                      justify-center
                       rounded-full
-                      ${accentColor}
-                      px-1.5
-                      py-0.5
-                      text-[10px]
+                      bg-[#eb5757]
+                      text-[11px]
                       font-bold
-                      text-[#243B53]
-                    `}
+                      leading-none
+                      text-white
+                      rtl:ml-0
+                      rtl:mr-auto
+                    "
                   >
-                    {unreadCount}
+                    2
                   </span>
                 )}
               </NavLink>
@@ -255,200 +303,124 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
           })}
         </nav>
 
-        {/* Bottom Area */}
-        <div className="sidebar-bottom">
-          {/* Need a hand card */}
-          <NavLink
-            to="/employee/ai-assistant"
-            onClick={onClose}
-            className="help-card"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <FiHelpCircle />
-            <div>
-              <strong>{t("portal.needAHand", "Need a hand?")}</strong>
-              <span>{t("portal.askAi", "Ask the AI Assistant")}</span>
-            </div>
-            <FiArrowRight className="card-arrow" />
-          </NavLink>
-        </div>
         {/* =========================
             Bottom Section
         ========================= */}
 
-        <div
-          className="
-            mt-4
-            flex
-            flex-col
-            gap-3
-          "
-        >
-          {/* =========================
-              Help Card
-          ========================= */}
-
-          <div
+        <div className="mt-auto flex flex-col pt-3 shrink-0">
+          {/* Need a hand? Card */}
+          <NavLink
+            to="/employee/ai-assistant"
+            onClick={onClose}
+            style={{
+              backgroundColor: "#223d57",
+              borderColor: "#38597b",
+              borderWidth: "1px",
+              borderStyle: "solid",
+            }}
             className="
+              group
               flex
-              cursor-pointer
               items-center
-              gap-3
-
+              gap-3.5
               rounded-xl
-
-              border
-              border-[#486581]
-
-              bg-[#334e68]/60
-
-              p-3
-
-              transition
-
-              hover:bg-[#334e68]
+              p-4
+              transition-all
+              duration-200
+              hover:border-[#4a729c]
+              hover:bg-[#284869]
             "
           >
-            <FiHelpCircle
+            {/* Sparkle Icon */}
+            <LuSparkles
               className="
-                h-4
-                w-4
+                h-6
+                w-6
                 shrink-0
-                text-[#79B88B]
+                text-[#52d1b2]
+                transition-transform
+                duration-200
+                group-hover:scale-110
               "
             />
 
-            <div
-              className="
-                flex
-                min-w-0
-                flex-1
-                flex-col
-              "
-            >
-              <strong
-                className="
-                  text-xs
-                  font-bold
-                  leading-tight
-                  text-white
-                "
-              >
+            {/* Texts */}
+            <div className="flex min-w-0 flex-1 flex-col">
+              <strong className="text-[13.5px] font-bold leading-tight text-white">
                 {t("portal.needAHand", "Need a hand?")}
               </strong>
-
-              <span
-                className="
-                  mt-0.5
-                  text-[10px]
-                  leading-tight
-                  text-[#9fb3c4]
-                "
-              >
+              <span className="mt-1 text-[11.5px] leading-tight text-[#8fa8c1]">
                 {t("portal.askAi", "Ask the AI Assistant")}
               </span>
             </div>
 
+            {/* Arrow */}
             <FiArrowRight
               className={`
-                h-3.5
-                w-3.5
+                h-4
+                w-4
                 shrink-0
-                text-[#9fb3c4]
-
-                ${isRtl ? "rotate-180" : ""}
+                text-[#8fa8c1]
+                transition-transform
+                duration-200
+                group-hover:translate-x-1
+                ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}
               `}
             />
-          </div>
+          </NavLink>
 
-          {/* =========================
-              User Mini Profile
-          ========================= */}
-
+          {/* Divider Line */}
           <div
-            className="
-              flex
-              cursor-pointer
-              items-center
-              gap-2.5
+            style={{
+              height: "1px",
+              backgroundColor: "#294863",
+              margin: "14px 0",
+              width: "100%",
+              border: "none",
+            }}
+          />
 
-              rounded-xl
-
-              px-2
-              py-2
-
-              transition
-
-              hover:bg-[#334e68]
-            "
-          >
+          {/* User Mini Profile */}
+          <div className="flex items-center gap-3 px-1 py-1">
             {/* Avatar */}
-
             <div
-              className={`
+              style={{
+                backgroundColor: "#d7eee9",
+                color: "#235850",
+              }}
+              className="
                 flex
-                h-8
-                w-8
+                h-[38px]
+                w-[38px]
                 shrink-0
                 items-center
                 justify-center
-
                 rounded-full
-
-                ${accentColor}
-
-                text-[11px]
+                text-[12px]
                 font-bold
-                text-[#243B53]
-              `}
+              "
             >
-              {avatarLetter}
+              OH
             </div>
 
             {/* User Info */}
-
-            <div
-              className="
-                flex
-                min-w-0
-                flex-1
-                flex-col
-              "
-            >
-              <strong
-                className="
-                  truncate
-                  text-[12px]
-                  font-bold
-                  leading-tight
-                  text-white
-                "
-              >
-                {displayName}
+            <div className="flex min-w-0 flex-1 flex-col">
+              <strong className="truncate text-[13.5px] font-bold leading-tight text-white">
+                Omar Haddad
               </strong>
-
-              <span
-                className="
-                  mt-0.5
-                  text-[10px]
-                  leading-tight
-                  text-[#9fb3c4]
-                "
-              >
-                {displayTitle}
+              <span className="mt-0.5 truncate text-[11.5px] leading-tight text-[#8fa8c1]">
+                Senior Product Analyst
               </span>
             </div>
 
             {/* More */}
-
-            <FiMoreHorizontal
-              className="
-                h-4
-                w-4
-                shrink-0
-                text-[#9fb3c4]
-              "
-            />
+            <button
+              type="button"
+              className="ml-auto rounded p-1 text-[#8fa8c1] transition-colors hover:text-white cursor-pointer rtl:ml-0 rtl:mr-auto"
+              title="More"
+            >
+              <FiMoreHorizontal className="h-4 w-4 shrink-0" />
+            </button>
           </div>
         </div>
       </aside>

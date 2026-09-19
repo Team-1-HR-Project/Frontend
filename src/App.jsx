@@ -15,23 +15,22 @@ import ResetPassword from "./features/auth/pages/ResetPassword";
 import PasswordResetSuccess from "./features/auth/pages/PasswordResetSuccess";
 
 // ==================== Admin Pages ====================
-import Branches from "./features/admin/pages/branches";
-import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
+import Branches from "./features/admin/pages/Branches";
+import AdminDashboard from "./features/admin/pages/AdminDashboard";
 import Notification from "./features/admin/pages/Notification";
-import ActivityLog from "./features/admin/pages/audit-logs";
+import ActivityLog from "./features/admin/pages/AuditLogs";
 import Users from "./features/admin/pages/Users";
 import AdminPerformance from "./features/admin/pages/PerformancePage";
 
 // ==================== Employee Pages ====================
-import EmployeePerformance from "./features/employee/pages/performance";
-import CompanyPolicies from "./features/employee/pages/policies";
+import EmployeePerformance from "./features/employee/pages/Performance";
+import CompanyPolicies from "./features/employee/pages/Policies";
 import Tasks from "./features/employee/pages/Tasks";
 import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
 import HomeDashboard from "./features/employee/pages/home/HomeDashboard";
 import Attendance from "./features/employee/pages/attendance/Attendance";
 import LeaveBalances from "./features/emplyee/pages/Leave & balances";
 import AIAssistant from "./features/emplyee/pages/AI Assistant";
-import Payslip from "./features/employee/pages/Payslip";
 
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -195,9 +194,6 @@ function App() {
             path="/employee/assistant"
             element={<Navigate to="/employee/ai-assistant" replace />}
           />
-
-          {/* ==================== Employee Payslip ==================== */}
-          <Route path="/employee/payslip" element={<Payslip />} />
 
           {/* ==================== Employee Notifications ==================== */}
           <Route path="/employee/notifications" element={<Notification />} />

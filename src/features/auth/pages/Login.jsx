@@ -15,7 +15,7 @@ import {
 } from "react-icons/fi";
 
 import "../../../Styles/auth/Login.css";
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 
 const containerVariants = {
   hidden: {

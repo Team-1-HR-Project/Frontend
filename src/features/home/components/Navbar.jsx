@@ -5,6 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImg from "../../../assets/logo.jpeg";
 import LanguageSwitcher from "../../../components/LanguageSwitcher";
+import { APP_NAME, BRAND_NAME } from "../../../utils/global";
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -200,7 +201,7 @@ export default function Navbar() {
           >
             <motion.img
               src={logoImg}
-              alt="WorkWise"
+              alt={APP_NAME}
               className="brand-logo-img"
               whileHover={{
                 rotate: 3,
@@ -211,7 +212,10 @@ export default function Navbar() {
               }}
             />
 
-            <span>WorkWise</span>
+            <span>
+              {BRAND_NAME.prefix}
+              <span style={{ color: BRAND_NAME.suffixColor }}>{BRAND_NAME.suffix}</span>
+            </span>
           </motion.a>
 
           {/* =========================

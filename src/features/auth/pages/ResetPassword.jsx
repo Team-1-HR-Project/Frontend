@@ -225,7 +225,7 @@ import { useTranslation } from "react-i18next";
 import { toast } from "react-hot-toast";
 import "../../../styles/auth/ResetPassword.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 import { useResetPassword } from "../hooks/useResetPassword";
 
 const ResetPassword = () => {

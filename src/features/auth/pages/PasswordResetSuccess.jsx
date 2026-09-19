@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 import "../../../styles/auth/PasswordResetSuccess.css";
 
 const PasswordResetSuccess = () => {

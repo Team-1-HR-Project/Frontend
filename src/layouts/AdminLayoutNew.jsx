@@ -105,7 +105,6 @@ const AdminLayout = ({ children }) => {
                 3
               </span>
             </a>
-            Menna:
             {/* Audit Logs */}
             <a
               href="#audit"

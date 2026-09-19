@@ -1,39 +1,37 @@
-import axios from "axios";
+import axiosInstance from "../../../utils/axiosInstance";
 
-const API_URL = "YOUR_API_URL";
-//login handler
+// Login handler
 export const loginUser = async (loginData) => {
-  const response = await axios.post(`${API_URL}/login`, loginData);
-
+  const response = await axiosInstance.post("/login", loginData);
   return response.data;
 };
-//register handler
+
+// Register handler
 export const registerUser = async (registerData) => {
-  const response = await axios.post(`${API_URL}/register`, registerData);
-
+  const response = await axiosInstance.post("/register", registerData);
   return response.data;
 };
-//forgot password handler
+
+// Forgot password handler
 export const forgotPassword = async (forgotPasswordData) => {
-  const response = await axios.post(
-    `${API_URL}/forgot-password`,
+  const response = await axiosInstance.post(
+    "/forgot-password",
     forgotPasswordData,
   );
-
   return response.data;
 };
-//verify OTP handler
+
+// Verify OTP handler
 export const verifyOTP = async (verifyOTPData) => {
-  const response = await axios.post(`${API_URL}/verify-otp`, verifyOTPData);
-
+  const response = await axiosInstance.post("/verify-otp", verifyOTPData);
   return response.data;
 };
-//reset password handler
+
+// Reset password handler
 export const resetPassword = async (resetPasswordData) => {
-  const response = await axios.post(
-    `${API_URL}/reset-password`,
+  const response = await axiosInstance.post(
+    "/reset-password",
     resetPasswordData,
   );
-
   return response.data;
 };

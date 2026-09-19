@@ -8,14 +8,18 @@ import {
   MdNotifications,
   MdAssessment,
   MdHistory,
-  MdAutoAwesome,
-  MdHome,
-  MdAccessTime,
-  MdCheckBox,
-  MdTrendingUp,
-  MdMenuBook,
-  MdPerson,
 } from "react-icons/md";
+import {
+  FiHome,
+  FiClock,
+  FiCheckSquare,
+  FiCalendar,
+  FiTrendingUp,
+  FiBookOpen,
+  FiUser,
+  FiBell,
+} from "react-icons/fi";
+import { LuSparkles } from "react-icons/lu";
 
 export const navConfig = {
   admin: [
@@ -122,61 +126,55 @@ export const navConfig = {
       titleKey: "portal.homeDashboard",
       title: "Home Dashboard",
       path: "/employee/dashboard",
-      icon: MdHome,
+      icon: FiHome,
     },
     {
       titleKey: "portal.myAttendance",
       title: "My Attendance",
       path: "/employee/attendance",
-      icon: MdAccessTime,
+      icon: FiClock,
     },
     {
       titleKey: "portal.myTasks",
       title: "My Tasks",
       path: "/employee/tasks",
-      icon: MdCheckBox,
+      icon: FiCheckSquare,
     },
     {
       titleKey: "portal.leaveBalances",
       title: "Leave & Balances",
       path: "/employee/leaves",
-      icon: MdEventNote,
+      icon: FiCalendar,
     },
     {
       titleKey: "portal.myPerformance",
       title: "My Performance",
       path: "/employee/performance",
-      icon: MdTrendingUp,
+      icon: FiTrendingUp,
     },
     {
       titleKey: "portal.aiAssistant",
       title: "AI Assistant",
       path: "/employee/ai-assistant",
-      icon: MdAutoAwesome,
-    },
-    {
-      titleKey: "portal.myPayslip",
-      title: "My Payslip",
-      path: "/employee/payslip",
-      icon: MdAttachMoney,
+      icon: LuSparkles,
     },
     {
       titleKey: "portal.companyPolicies",
       title: "Company Policies",
       path: "/employee/policies",
-      icon: MdMenuBook,
+      icon: FiBookOpen,
     },
     {
       titleKey: "portal.profileSettings",
       title: "Profile & Settings",
       path: "/employee/profile",
-      icon: MdPerson,
+      icon: FiUser,
     },
     {
       titleKey: "portal.notifications",
       title: "Notifications",
       path: "/employee/notifications",
-      icon: MdNotifications,
+      icon: FiBell,
     },
   ],
 };

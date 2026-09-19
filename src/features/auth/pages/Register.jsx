@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 import { useRegister } from "../hooks/useRegister";
 
 /* =========================

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FiUsers, FiMapPin, FiMessageSquare, FiActivity, FiSettings, FiX } from "react-icons/fi";
@@ -66,7 +67,8 @@ const ProfileSettings = ({ role = "employee" }) => {
   if (!data) return null;
 
   return (
-    <div className="w-full space-y-6">
+    <>
+      <div className="w-full space-y-6">
       {/* Page Header */}
       <div>
         <p className="text-xs font-bold tracking-wider text-[#3f7d5a] uppercase mb-1">
@@ -262,174 +264,189 @@ const ProfileSettings = ({ role = "employee" }) => {
           </button>
         </div>
       </div>
-            {isEditModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold text-[#1e293b]">
-                {t("profileSettingsPage.editProfileTitle", "Edit profile")}
-              </h3>
-              <button
-                type="button"
-                onClick={handleCloseEditModal}
-                className="text-[#94a3b8] hover:text-[#1e293b] transition"
-                aria-label="Close"
-              >
-                <FiX className="w-5 h-5" />
-              </button>
+    </div>
+
+      {/* Edit Profile Modal */}
+      {isEditModalOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 top-0 left-0 right-0 bottom-0 !m-0 z-[9999] flex items-center justify-center bg-slate-900/50 p-4"
+            style={{ margin: 0 }}
+          >
+            <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-lg font-bold text-[#1e293b]">
+                  {t("profileSettingsPage.editProfileTitle", "Edit profile")}
+                </h3>
+                <button
+                  type="button"
+                  onClick={handleCloseEditModal}
+                  className="text-[#94a3b8] hover:text-[#1e293b] transition"
+                  aria-label="Close"
+                >
+                  <FiX className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.fullNameLabel", "Full name")}
+                  </label>
+                  <input
+                    type="text"
+                    value={editForm.fullName}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, fullName: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.jobTitleLabel", "Job title")}
+                  </label>
+                  <input
+                    type="text"
+                    value={editForm.jobTitle}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, jobTitle: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.directManager", "Direct manager")}
+                  </label>
+                  <input
+                    type="text"
+                    value={editForm.directManager}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, directManager: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.workLocation", "Work location")}
+                  </label>
+                  <input
+                    type="text"
+                    value={editForm.workLocation}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, workLocation: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.workEmail", "Work email")}
+                  </label>
+                  <input
+                    type="email"
+                    value={editForm.workEmail}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, workEmail: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
+                    {t("profileSettingsPage.phone", "Phone")}
+                  </label>
+                  <input
+                    type="text"
+                    value={editForm.phone}
+                    onChange={(e) =>
+                      setEditForm((prev) => ({ ...prev, phone: e.target.value }))
+                    }
+                    className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 mt-6">
+                <button
+                  type="button"
+                  onClick={handleCloseEditModal}
+                  className="rounded-lg border border-[#e2e8f0] px-4 py-2.5 text-sm font-semibold text-[#475569] hover:bg-[#f8fafc] transition"
+                >
+                  {t("profileSettingsPage.cancelEdit", "Cancel")}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSaveProfile}
+                  className="rounded-lg bg-[#243B53] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1c2f42] transition"
+                >
+                  {t("profileSettingsPage.saveChanges", "Save changes")}
+                </button>
+              </div>
             </div>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.fullNameLabel", "Full name")}
-                </label>
-                <input
-                  type="text"
-                  value={editForm.fullName}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, fullName: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.jobTitleLabel", "Job title")}
-                </label>
-                <input
-                  type="text"
-                  value={editForm.jobTitle}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, jobTitle: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.directManager", "Direct manager")}
-                </label>
-                <input
-                  type="text"
-                  value={editForm.directManager}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, directManager: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.workLocation", "Work location")}
-                </label>
-                <input
-                  type="text"
-                  value={editForm.workLocation}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, workLocation: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.workEmail", "Work email")}
-                </label>
-                <input
-                  type="email"
-                  value={editForm.workEmail}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, workEmail: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-[#1e293b] mb-1.5">
-                  {t("profileSettingsPage.phone", "Phone")}
-                </label>
-                <input
-                  type="text"
-                  value={editForm.phone}
-                  onChange={(e) =>
-                    setEditForm((prev) => ({ ...prev, phone: e.target.value }))
-                  }
-                  className="w-full rounded-lg border border-[#e2e8f0] px-3.5 py-2.5 text-sm text-[#1e293b] focus:outline-none focus:ring-2 focus:ring-[#486581]/30"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end gap-3 mt-6">
-              <button
-                type="button"
-                onClick={handleCloseEditModal}
-                className="rounded-lg border border-[#e2e8f0] px-4 py-2.5 text-sm font-semibold text-[#475569] hover:bg-[#f8fafc] transition"
-              >
-                {t("profileSettingsPage.cancelEdit", "Cancel")}
-              </button>
-              <button
-                type="button"
-                onClick={handleSaveProfile}
-                className="rounded-lg bg-[#243B53] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1c2f42] transition"
-              >
-                {t("profileSettingsPage.saveChanges", "Save changes")}
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       {/* Logout Confirmation Modal */}
-      {isLogoutModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
-          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-[#1e293b]">
-                {t("profileSettingsPage.logoutConfirmTitle", "Confirm Logout")}
-              </h3>
-              <button
-                type="button"
-                onClick={() => setIsLogoutModalOpen(false)}
-                className="text-[#94a3b8] hover:text-[#1e293b] transition"
-                aria-label="Close"
-              >
-                <FiX className="w-5 h-5" />
-              </button>
-            </div>
+      {isLogoutModalOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            className="fixed inset-0 top-0 left-0 right-0 bottom-0 !m-0 z-[9999] flex items-center justify-center bg-slate-900/50 p-4"
+            style={{ margin: 0 }}
+          >
+            <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-bold text-[#1e293b]">
+                  {t("profileSettingsPage.logoutConfirmTitle", "Confirm Logout")}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setIsLogoutModalOpen(false)}
+                  className="text-[#94a3b8] hover:text-[#1e293b] transition"
+                  aria-label="Close"
+                >
+                  <FiX className="w-5 h-5" />
+                </button>
+              </div>
 
-            <p className="text-sm text-[#64748b] mb-6">
-              {t(
-                "profileSettingsPage.logoutConfirmMessage",
-                "Are you sure you want to log out of your account?"
-              )}
-            </p>
+              <p className="text-sm text-[#64748b] mb-6">
+                {t(
+                  "profileSettingsPage.logoutConfirmMessage",
+                  "Are you sure you want to log out of your account?"
+                )}
+              </p>
 
-            <div className="flex items-center justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setIsLogoutModalOpen(false)}
-                className="rounded-lg border border-[#e2e8f0] px-4 py-2.5 text-sm font-semibold text-[#475569] hover:bg-[#f8fafc] transition"
-              >
-                {t("profileSettingsPage.cancelLogout", "Cancel")}
-              </button>
-              <button
-                type="button"
-                onClick={handleConfirmLogout}
-                className="rounded-lg bg-[#dc2626] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#b91c1c] transition"
-              >
-                {t("profileSettingsPage.confirmLogout", "Log out")}
-              </button>
+              <div className="flex items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsLogoutModalOpen(false)}
+                  className="rounded-lg border border-[#e2e8f0] px-4 py-2.5 text-sm font-semibold text-[#475569] hover:bg-[#f8fafc] transition"
+                >
+                  {t("profileSettingsPage.cancelLogout", "Cancel")}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleConfirmLogout}
+                  className="rounded-lg bg-[#dc2626] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#b91c1c] transition"
+                >
+                  {t("profileSettingsPage.confirmLogout", "Log out")}
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
-    </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 };
 

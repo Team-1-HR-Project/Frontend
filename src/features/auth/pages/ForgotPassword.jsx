@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { FiMail } from "react-icons/fi";
 import "../../../styles/auth/ForgotPassword.css";
-import MainAuthForm from "../components/mainAuthForm";
+import MainAuthForm from "../components/MainAuthForm";
 import { useForgotPassword } from "../hooks/useForgotPassword";
 export default function ForgotPassword() {
   const { t } = useTranslation();

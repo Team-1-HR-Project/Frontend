@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import logoImg from "../../../assets/logo.jpeg";
+import { APP_NAME, BRAND_NAME, SITE_CONFIG } from "../../../utils/global";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -33,8 +34,11 @@ export default function Footer() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <img src={logoImg} alt="WorkWise" className="brand-logo-img" />
-              <span>WorkWise</span>
+              <img src={logoImg} alt={APP_NAME} className="brand-logo-img" />
+              <span>
+                {BRAND_NAME.prefix}
+                <span style={{ color: BRAND_NAME.suffixColor }}>{BRAND_NAME.suffix}</span>
+              </span>
             </motion.div>
 
             <motion.p
@@ -144,7 +148,7 @@ export default function Footer() {
             >
               <strong>{t("home.footer.contactTitle")}</strong>
 
-              <motion.a href="mailto:support@workwise.io" whileHover={{ x: 4 }}>
+              <motion.a href={`mailto:${SITE_CONFIG.supportEmail}`} whileHover={{ x: 4 }}>
                 {t("home.footer.contactInfo.email")}
               </motion.a>
 
