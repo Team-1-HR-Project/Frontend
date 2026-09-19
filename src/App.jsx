@@ -247,6 +247,19 @@ function App() {
           />
 
 
+          {/* ==================== Employee Redirect ==================== */}
+
+          <Route
+            path="/employee"
+            element={
+              <Navigate
+                to="/employee/dashboard"
+                replace
+              />
+            }
+          />
+
+
           {/* ==================== Employee Dashboard ==================== */}
 
           <Route
@@ -254,7 +267,9 @@ function App() {
             element={<HomeDashboard />}
           />
 
+
           {/* ==================== Employee Attendance ==================== */}
+
           <Route
             path="/employee/attendance"
             element={<Attendance />}
