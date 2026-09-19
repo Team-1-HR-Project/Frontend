@@ -207,7 +207,37 @@
     "medium": "Medium",
     "low": "Low",
     "inProgress": "In Progress",
-    "completed": "Completed"
+    "completed": "Completed",
+    "todo": "To Do",
+    "done": "Done",
+    "addTask": "Add Task",
+    "addNewTask": "Add New Task",
+    "taskTitle": "Task Title",
+    "description": "Description",
+    "category": "Category",
+    "status": "Status",
+    "cancel": "Cancel",
+    "total": "Total",
+    "overdue": "Overdue",
+    "progress": "Progress",
+    "overallCompletion": "Overall Completion",
+    "tasksDone": "tasks done",
+    "searchTasks": "Search tasks...",
+    "all": "All",
+    "noTasksHere": "No tasks here",
+    "noTasksFound": "No tasks found",
+    "moveTo": "Move to",
+    "delete": "Delete",
+    "taskMoved": "Task moved to",
+    "taskDeleted": "Task deleted",
+    "taskAdded": "Task added successfully!",
+    "enterTaskTitle": "Enter task title...",
+    "optionalDesc": "Optional description...",
+    "employeePortal": "Employee Portal",
+    "greeting": "Hey {{name}} — you have",
+    "inProgressCount": "{{count}} in progress",
+    "todoCount": "{{count}} to do",
+    "and": "and"
   },
   "submissions": {
     "title": "Submissions",
@@ -668,7 +698,6 @@
     "notifications": "Notifications",
     "overview": "Overview",
     "users": "Users",
-    "branches": "Branches",
     "performance": "Performance & Goals",
     "auditLogs": "Audit Logs",
     "administration": "Administration",
@@ -757,7 +786,15 @@
     "hrOps": "HR & Admin Operations",
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
-    "sarahAdmin": "Sarah Ahmed (Admin)"
+    "sarahAdmin": "Sarah Ahmed (Admin)",
+    "homeDashboard": "Home Dashboard",
+    "myAttendance": "My Attendance",
+    "myTasks": "My Tasks",
+    "leaveBalances": "Leave & Balances",
+    "myPerformance": "My Performance",
+    "aiAssistant": "AI Assistant",
+    "companyPolicies": "Company Policies",
+    "profileSettings": "Profile & Settings"
   },
   "adminDashboard": {
     "overview": "Overview",
@@ -1026,6 +1063,77 @@
     "chatRemoteWorkQ": "What is the remote work policy?",
     "chatRemoteWorkA": "Your policy answer is grounded in the Employee Handbook and your current employee record.",
     "chatSickLeaveQ": "What is my sick leave balance?",
-    "chatSickLeaveA": "Your policy answer is grounded in the Employee Handbook and your current employee record."
+    "chatSickLeaveA": "Your policy answer is grounded in the Employee Handbook and your current employee record.",
+    "dummyTasks": {
+      "t1": {
+        "title": "Complete Q3 Self-Evaluation Form",
+        "desc": "Fill out all sections of the quarterly self-review before the Sep 25 deadline."
+      },
+      "t2": {
+        "title": "Submit Attendance Report for August",
+        "desc": "Compile and submit the finalized attendance log for last month."
+      },
+      "t3": {
+        "title": "Review Company Policy Updates",
+        "desc": "Read and acknowledge the updated workplace conduct and remote-work policies."
+      },
+      "t4": {
+        "title": "Team Sync Meeting Prep Notes",
+        "desc": "Prepare agenda and talking points for the weekly team sync."
+      },
+      "t5": {
+        "title": "Update Emergency Contact Info",
+        "desc": "Log in to the HR portal and update personal emergency contact information."
+      },
+      "t6": {
+        "title": "Complete Cybersecurity Training Module",
+        "desc": "Finish the mandatory annual cybersecurity awareness course on the learning portal."
+      },
+      "categories": {
+        "HR": "HR",
+        "Admin": "Admin",
+        "Compliance": "Compliance",
+        "Meetings": "Meetings",
+        "Personal": "Personal",
+        "Training": "Training",
+        "General": "General"
+      },
+      "companyPolicies": {
+        "eyebrow": "Resources",
+        "title": "Company policies",
+        "subtitle": "Everything you need to work with confidence.",
+        "handbookTitle": "Employee Handbook",
+        "handbookDesc": "The essentials for your WiseWork journey.",
+        "leaveAttendanceTitle": "Leave & attendance",
+        "leaveAttendanceDesc": "Time off, working hours, and attendance guidance.",
+        "benefitsTitle": "Benefits & wellbeing",
+        "benefitsDesc": "Explore the benefits available to you.",
+        "securityTitle": "Security & privacy",
+        "securityDesc": "Keep our people and information safe."
+      },
+      "profileSettingsPage": {
+        "eyebrow": "Account",
+        "title": "Profile & settings",
+        "subtitle": "Manage your employee profile and preferences.",
+        "editProfile": "Edit profile",
+        "directManager": "Direct manager",
+        "workLocation": "Work location",
+        "workEmail": "Work email",
+        "phone": "Phone",
+        "accountSettings": "Account settings",
+        "accountSettingsSubtitle": "Personalize how WiseWork works for you.",
+        "biometricLogin": "Biometric login",
+        "biometricLoginDesc": "Use device biometrics for a faster sign in.",
+        "pushNotifications": "Push notifications",
+        "pushNotificationsDesc": "Receive updates about tasks and requests.",
+        "language": "Language",
+        "logout": "Log out",
+        "editProfileTitle": "Edit profile",
+        "fullNameLabel": "Full name",
+        "jobTitleLabel": "Job title",
+        "cancelEdit": "Cancel",
+        "saveChanges": "Save changes"
+      }
+    }
   }
 }

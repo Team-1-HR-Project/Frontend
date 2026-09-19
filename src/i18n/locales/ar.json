@@ -207,7 +207,37 @@
     "medium": "متوسطة",
     "low": "منخفضة",
     "inProgress": "قيد التنفيذ",
-    "completed": "مكتملة"
+    "completed": "مكتملة",
+    "todo": "قائمة المهام",
+    "done": "مكتملة",
+    "addTask": "إضافة مهمة",
+    "addNewTask": "إضافة مهمة جديدة",
+    "taskTitle": "عنوان المهمة",
+    "description": "الوصف",
+    "category": "الفئة",
+    "status": "الحالة",
+    "cancel": "إلغاء",
+    "total": "الإجمالي",
+    "overdue": "متأخرة",
+    "progress": "التقدم",
+    "overallCompletion": "نسبة الإنجاز الكلية",
+    "tasksDone": "مهام مكتملة",
+    "searchTasks": "بحث في المهام...",
+    "all": "الكل",
+    "noTasksHere": "لا توجد مهام هنا",
+    "noTasksFound": "لم يتم العثور على مهام",
+    "moveTo": "نقل إلى",
+    "delete": "حذف",
+    "taskMoved": "تم نقل المهمة إلى",
+    "taskDeleted": "تم حذف المهمة",
+    "taskAdded": "تم إضافة المهمة بنجاح!",
+    "enterTaskTitle": "أدخل عنوان المهمة...",
+    "optionalDesc": "وصف اختياري...",
+    "employeePortal": "بوابة الموظف",
+    "greeting": "أهلاً {{name}} — عندك",
+    "inProgressCount": "{{count}} قيد التنفيذ",
+    "todoCount": "{{count}} للتنفيذ",
+    "and": "و"
   },
   "submissions": {
     "title": "التسليمات",
@@ -693,7 +723,6 @@
     "notifications": "الإشعارات",
     "overview": "نظرة عامة",
     "users": "المستخدمون",
-    "branches": "الفروع",
     "performance": "الأداء والأهداف",
     "auditLogs": "سجلات التدقيق",
     "administration": "الإدارة",
@@ -784,6 +813,7 @@
     "automatedEngine": "محرك السياسات التلقائي",
     "sarahAdmin": "سارة أحمد (مسؤول النظام)",
     "homeDashboard": "الرئيسية",
+    "myAttendance": "حضوري",
     "myAttendance": "حضوري وانصرافي",
     "myTasks": "مهامي",
     "leaveBalances": "الإجازات والأرصدة",
@@ -1095,6 +1125,77 @@
       "jobTitleLabel": "المسمى الوظيفي",
       "cancelEdit": "إلغاء",
       "saveChanges": "حفظ التغييرات"
+    },
+    "dummyTasks": {
+      "t1": {
+        "title": "إكمال نموذج التقييم الذاتي للربع الثالث",
+        "desc": "قم بملء جميع أقسام المراجعة الذاتية الربع سنوية قبل الموعد النهائي في 25 سبتمبر."
+      },
+      "t2": {
+        "title": "تقديم تقرير الحضور لشهر أغسطس",
+        "desc": "تجميع وتقديم سجل الحضور النهائي للشهر الماضي."
+      },
+      "t3": {
+        "title": "مراجعة تحديثات سياسة الشركة",
+        "desc": "قراءة والإقرار بسياسات سلوك العمل والعمل عن بُعد المحدثة."
+      },
+      "t4": {
+        "title": "ملاحظات تحضير اجتماع الفريق",
+        "desc": "تجهيز جدول الأعمال ونقاط النقاش لاجتماع الفريق الأسبوعي."
+      },
+      "t5": {
+        "title": "تحديث معلومات اتصال الطوارئ",
+        "desc": "تسجيل الدخول إلى بوابة الموارد البشرية وتحديث معلومات الاتصال في حالات الطوارئ الشخصية."
+      },
+      "t6": {
+        "title": "إكمال وحدة التدريب على الأمن السيبراني",
+        "desc": "إنهاء الدورة الإلزامية السنوية للتوعية بالأمن السيبراني على بوابة التعلم."
+      },
+      "categories": {
+        "HR": "الموارد البشرية",
+        "Admin": "الإدارة",
+        "Compliance": "الامتثال",
+        "Meetings": "الاجتماعات",
+        "Personal": "شخصي",
+        "Training": "التدريب",
+        "General": "عام"
+      },
+      "companyPolicies": {
+        "eyebrow": "الموارد",
+        "title": "سياسات الشركة",
+        "subtitle": "كل ما تحتاجه للعمل بثقة.",
+        "handbookTitle": "دليل الموظف",
+        "handbookDesc": "أساسيات رحلتك في WiseWork.",
+        "leaveAttendanceTitle": "الإجازات والحضور",
+        "leaveAttendanceDesc": "الإجازات، ساعات العمل، وإرشادات الحضور.",
+        "benefitsTitle": "المزايا والرفاهية",
+        "benefitsDesc": "استكشف المزايا المتاحة لك.",
+        "securityTitle": "الأمان والخصوصية",
+        "securityDesc": "حافظ على أمان فريقنا ومعلوماتنا."
+      },
+      "profileSettingsPage": {
+        "eyebrow": "الحساب",
+        "title": "البروفايل والإعدادات",
+        "subtitle": "إدارة بيانات وتفضيلات حسابك الوظيفي.",
+        "editProfile": "تعديل البروفايل",
+        "directManager": "المدير المباشر",
+        "workLocation": "موقع العمل",
+        "workEmail": "البريد الإلكتروني للعمل",
+        "phone": "رقم الهاتف",
+        "accountSettings": "إعدادات الحساب",
+        "accountSettingsSubtitle": "خصّص طريقة عمل WiseWork بما يناسبك.",
+        "biometricLogin": "تسجيل الدخول بالبصمة",
+        "biometricLoginDesc": "استخدم بصمة جهازك لتسجيل دخول أسرع.",
+        "pushNotifications": "الإشعارات الفورية",
+        "pushNotificationsDesc": "استقبال تحديثات عن المهام والطلبات.",
+        "language": "اللغة",
+        "logout": "تسجيل الخروج",
+        "editProfileTitle": "تعديل البروفايل",
+        "fullNameLabel": "الاسم بالكامل",
+        "jobTitleLabel": "المسمى الوظيفي",
+        "cancelEdit": "إلغاء",
+        "saveChanges": "حفظ التغييرات"
+      }
     }
   }
 }

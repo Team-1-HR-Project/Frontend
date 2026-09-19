@@ -90,6 +90,12 @@ export const navConfig = {
       path: "/hr/leaves",
       icon: MdEventNote,
     },
+    {
+      titleKey: "portal.notifications",
+      title: "Notifications",
+      path: "/hr/notifications",
+      icon: MdNotifications,
+    },
   ],
   manager: [
     {

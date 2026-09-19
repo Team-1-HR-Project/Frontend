@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import {
   BrowserRouter,
@@ -28,7 +29,9 @@ import LeaveBalances from "./features/emplyee/pages/Leave & balances";
 import AIAssistant from "./features/emplyee/pages/AI Assistant";
 
 import DashboardLayout from "./layouts/DashboardLayout";
-
+import CompanyPolicies from "./features/employee/pages/policies";
+import Tasks from "./features/employee/pages/Tasks";
+import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
 
 // ==================== Dashboard Placeholder ====================
 
@@ -52,7 +55,6 @@ function DashboardPlaceholder({
   );
 }
 
-
 // ==================== Main App ====================
 
 function App() {
@@ -64,19 +66,13 @@ function App() {
     const isArabic = i18n.language?.startsWith("ar");
 
     // اتجاه الصفحة بالكامل
-    document.documentElement.dir = isArabic
-      ? "rtl"
-      : "ltr";
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
 
     // لغة الصفحة
-    document.documentElement.lang = isArabic
-      ? "ar"
-      : "en";
+    document.documentElement.lang = isArabic ? "ar" : "en";
 
     // اتجاه الـ Body
-    document.body.dir = isArabic
-      ? "rtl"
-      : "ltr";
+    document.body.dir = isArabic ? "rtl" : "ltr";
 
     // إضافة class للغة الحالية
     document.documentElement.classList.toggle(
@@ -90,10 +86,8 @@ function App() {
     );
   }, [i18n.language]);
 
-
   return (
     <BrowserRouter>
-
       {/* ==================== Toast Notifications ==================== */}
 
       <Toaster
@@ -103,18 +97,15 @@ function App() {
         }}
       />
 
-
       {/* ==================== Application Routes ==================== */}
 
       <Routes>
-
         {/* ==================== Home ==================== */}
 
         <Route
           path="/"
           element={<Home />}
         />
-
 
         {/* ==================== Authentication ==================== */}
 
@@ -127,7 +118,6 @@ function App() {
           path="/register"
           element={<Register />}
         />
-
 
         {/* ==================== Password Reset ==================== */}
 
@@ -151,12 +141,9 @@ function App() {
           element={<PasswordResetSuccess />}
         />
 
-
         {/* ==================== Dashboard Layout ==================== */}
 
-        <Route
-          element={<DashboardLayout />}
-        >
+        <Route element={<DashboardLayout />}>
 
           {/* ==================== Admin Redirect ==================== */}
 
@@ -170,14 +157,12 @@ function App() {
             }
           />
 
-
           {/* ==================== Admin Dashboard ==================== */}
 
           <Route
             path="/admin/dashboard"
             element={<AdminDashboard />}
           />
-
 
           {/* ==================== Users ==================== */}
 
@@ -186,14 +171,12 @@ function App() {
             element={<Users />}
           />
 
-
           {/* ==================== Branches ==================== */}
 
           <Route
             path="/admin/branches"
             element={<Branches />}
           />
-
 
           {/* ==================== Performance & Goals ==================== */}
 
@@ -202,14 +185,12 @@ function App() {
             element={<PerformancePage />}
           />
 
-
-          {/* ==================== Notifications ==================== */}
+          {/* ==================== Admin Notifications ==================== */}
 
           <Route
             path="/admin/notifications"
             element={<Notification />}
           />
-
 
           {/* ==================== Audit Logs ==================== */}
 
@@ -217,7 +198,6 @@ function App() {
             path="/admin/audit"
             element={<ActivityLog />}
           />
-
 
           {/* ==================== Settings ==================== */}
 
@@ -231,7 +211,6 @@ function App() {
             }
           />
 
-
           {/* ==================== HR Dashboard ==================== */}
 
           <Route
@@ -244,6 +223,13 @@ function App() {
             }
           />
 
+
+          {/* ==================== HR Notifications ==================== */}
+
+          <Route
+            path="/hr/notifications"
+            element={<Notification />}
+          />
 
           {/* ==================== Employee Dashboard ==================== */}
 
@@ -279,9 +265,41 @@ function App() {
           <Route
             path="/employee/assistant"
             element={<Navigate to="/employee/ai-assistant" replace />}
+          {/* ==================== Employee Tasks ==================== */}
+/>
+          <Route
+            path="/employee/tasks"
+            element={<Tasks />}
+          />
+
+          {/* ==================== Employee Notifications ==================== */}
+
+          <Route
+            path="/employee/notifications"
+            element={<Notification />}
+          />
+
+          {/* ==================== Employee Policies ==================== */}
+
+          <Route
+            path="/employee/policies"
+            element={<CompanyPolicies />}
+          />
+
+          {/* ==================== Direct Branches Route ==================== */}
+
+          <Route
+            path="/branches"
+            element={<Branches />}
+          />
+          <Route
+            path="/employee/profile"
+            element={<EmployeeProfileSettings />}
           />
 
         </Route>
+
+
 
 
         {/* ==================== Direct Branches Route ==================== */}
@@ -292,7 +310,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
