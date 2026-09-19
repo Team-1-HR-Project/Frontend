@@ -27,6 +27,10 @@ import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 
+// استيراد لوحة تحكم الموظف وصفحة الحضور
+import HomeDashboard from "./features/employee/pages/home/HomeDashboard";
+import Attendance from "./features/employee/pages/attendance/Attendance";
+
 
 // ==================== Dashboard Placeholder ====================
 
@@ -247,12 +251,13 @@ function App() {
 
           <Route
             path="/employee/dashboard"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.welcomeEmployee"
-                defaultMessage="مرحباً بك في صفحة الموظف"
-              />
-            }
+            element={<HomeDashboard />}
+          />
+
+          {/* ==================== Employee Attendance ==================== */}
+          <Route
+            path="/employee/attendance"
+            element={<Attendance />}
           />
 
         </Route>
