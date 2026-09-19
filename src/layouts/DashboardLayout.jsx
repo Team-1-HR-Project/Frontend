@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
@@ -21,7 +20,6 @@ const DashboardInner = () => {
   return (
     <NotificationProvider currentUserId={currentUser?.userId}>
       <div className="flex min-h-screen w-full bg-[#f5f7f8]">
-
         <Sidebar
           role={currentUserRole}
           isOpen={mobileMenuOpen}
@@ -41,11 +39,7 @@ const DashboardInner = () => {
             rtl:max-[760px]:mr-0
           "
         >
-          <Header
-            onToggleMenu={() =>
-              setMobileMenuOpen((prev) => !prev)
-            }
-          />
+          <Header onToggleMenu={() => setMobileMenuOpen((prev) => !prev)} />
 
           <main
             className="
