@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import {
   BrowserRouter,
@@ -50,7 +51,6 @@ function DashboardPlaceholder({
   );
 }
 
-
 // ==================== Main App ====================
 
 function App() {
@@ -62,19 +62,13 @@ function App() {
     const isArabic = i18n.language?.startsWith("ar");
 
     // اتجاه الصفحة بالكامل
-    document.documentElement.dir = isArabic
-      ? "rtl"
-      : "ltr";
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
 
     // لغة الصفحة
-    document.documentElement.lang = isArabic
-      ? "ar"
-      : "en";
+    document.documentElement.lang = isArabic ? "ar" : "en";
 
     // اتجاه الـ Body
-    document.body.dir = isArabic
-      ? "rtl"
-      : "ltr";
+    document.body.dir = isArabic ? "rtl" : "ltr";
 
     // إضافة class للغة الحالية
     document.documentElement.classList.toggle(
@@ -88,10 +82,8 @@ function App() {
     );
   }, [i18n.language]);
 
-
   return (
     <BrowserRouter>
-
       {/* ==================== Toast Notifications ==================== */}
 
       <Toaster
@@ -101,18 +93,15 @@ function App() {
         }}
       />
 
-
       {/* ==================== Application Routes ==================== */}
 
       <Routes>
-
         {/* ==================== Home ==================== */}
 
         <Route
           path="/"
           element={<Home />}
         />
-
 
         {/* ==================== Authentication ==================== */}
 
@@ -125,7 +114,6 @@ function App() {
           path="/register"
           element={<Register />}
         />
-
 
         {/* ==================== Password Reset ==================== */}
 
@@ -149,12 +137,9 @@ function App() {
           element={<PasswordResetSuccess />}
         />
 
-
         {/* ==================== Dashboard Layout ==================== */}
 
-        <Route
-          element={<DashboardLayout />}
-        >
+        <Route element={<DashboardLayout />}>
 
           {/* ==================== Admin Redirect ==================== */}
 
@@ -168,14 +153,12 @@ function App() {
             }
           />
 
-
           {/* ==================== Admin Dashboard ==================== */}
 
           <Route
             path="/admin/dashboard"
             element={<AdminDashboard />}
           />
-
 
           {/* ==================== Users ==================== */}
 
@@ -184,14 +167,12 @@ function App() {
             element={<Users />}
           />
 
-
           {/* ==================== Branches ==================== */}
 
           <Route
             path="/admin/branches"
             element={<Branches />}
           />
-
 
           {/* ==================== Performance & Goals ==================== */}
 
@@ -200,14 +181,12 @@ function App() {
             element={<PerformancePage />}
           />
 
-
-          {/* ==================== Notifications ==================== */}
+          {/* ==================== Admin Notifications ==================== */}
 
           <Route
             path="/admin/notifications"
             element={<Notification />}
           />
-
 
           {/* ==================== Audit Logs ==================== */}
 
@@ -215,7 +194,6 @@ function App() {
             path="/admin/audit"
             element={<ActivityLog />}
           />
-
 
           {/* ==================== Settings ==================== */}
 
@@ -229,7 +207,6 @@ function App() {
             }
           />
 
-
           {/* ==================== HR Dashboard ==================== */}
 
           <Route
@@ -242,7 +219,7 @@ function App() {
             }
           />
 
-
+          {/* ==================== Employee Dashboard ==================== */}
 
           <Route
             path="/employee/dashboard"
@@ -254,7 +231,6 @@ function App() {
             }
           />
 
-
           {/* ==================== Employee Notifications ==================== */}
 
           <Route
@@ -262,11 +238,12 @@ function App() {
             element={<Notification />}
           />
 
+          {/* ==================== Employee Policies ==================== */}
+
           <Route
             path="/employee/policies"
             element={<CompanyPolicies />}
           />
-
 
           {/* ==================== Direct Branches Route ==================== */}
 
@@ -275,8 +252,9 @@ function App() {
             element={<Branches />}
           />
 
-      </Routes>
+        </Route>
 
+      </Routes>
     </BrowserRouter>
   );
 }
