@@ -15,11 +15,9 @@ import Branches from "./features/admin/pages/branches";
 import AdminDashboard from "./features/admin/pages/Admin_Dashboard";
 import Notification from "./features/admin/pages/Notification";
 import ActivityLog from "./features/admin/pages/audit-logs";
+import PerformancePage from "./features/admin/pages/PerformancePage";
 
 import DashboardLayout from "./layouts/DashboardLayout";
-
-// (إضافة 1) استيراد صفحة الـ Performance اللي عملناها
-import PerformancePage from "./features/admin/pages/PerformancePage";
 
 function DashboardPlaceholder({ messageKey, defaultMessage }) {
   const { t } = useTranslation();
@@ -60,9 +58,9 @@ function App() {
           element={<PasswordResetSuccess />}
         />
 
-        {/* ==================== Dashboard ==================== */}
+        {/* ==================== Dashboard (AdminLayout Container) ==================== */}
         <Route element={<DashboardLayout />}>
-          {/* Admin */}
+          {/* Admin Redirect */}
           <Route
             path="/admin"
             element={<Navigate to="/admin/dashboard" replace />}
@@ -89,15 +87,21 @@ function App() {
             element={<Branches />}
           />
 
+          {/* Performance & Goals */}
+          <Route
+            path="/admin/performance"
+            element={<PerformancePage />}
+          />
+
           {/* Notifications */}
           <Route
             path="/admin/notifications"
             element={<Notification />}
           />
 
-          {/* Audit Logs */}
+          {/* Audit Logs (تم توحيد المسار هنا ليكون /admin/audit ليطابق الـ Sidebar) */}
           <Route
-            path="/admin/audit-logs"
+            path="/admin/audit"
             element={<ActivityLog />}
           />
 
@@ -110,12 +114,6 @@ function App() {
                 defaultMessage="الإعدادات"
               />
             }
-          />
-
-          {/* Performance */}
-          <Route
-            path="/admin/performance"
-            element={<PerformancePage />}
           />
 
           {/* HR */}
