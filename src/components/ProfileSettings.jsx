@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { FiUsers, FiMapPin, FiMessageSquare, FiActivity, FiSettings, FiX } from "react-icons/fi";
 import { profileSettingsConfig } from "../config/profileSettingsConfig";
+import { useAuth } from "../context/AuthContext";
 
 const getInitials = (name) =>
   name
@@ -11,15 +13,18 @@ const getInitials = (name) =>
     .slice(0, 2)
     .toUpperCase();
 
-const ProfileSettings = ({ role }) => {
+const ProfileSettings = ({ role = "employee" }) => {
   const { t, i18n } = useTranslation();
-  const initialData = profileSettingsConfig[role];
+  const navigate = useNavigate();
+  const { setCurrentUser } = useAuth();
+  const initialData = profileSettingsConfig[role] || profileSettingsConfig.employee;
 
   const [data, setData] = useState(initialData);
   const [biometricLogin, setBiometricLogin] = useState(initialData?.biometricLogin ?? false);
   const [pushNotifications, setPushNotifications] = useState(initialData?.pushNotifications ?? false);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const [editForm, setEditForm] = useState({
     fullName: "",
     jobTitle: "",
@@ -48,6 +53,14 @@ const ProfileSettings = ({ role }) => {
   const handleSaveProfile = () => {
     setData((prev) => ({ ...prev, ...editForm }));
     setIsEditModalOpen(false);
+  };
+
+  const handleConfirmLogout = () => {
+    setIsLogoutModalOpen(false);
+    if (setCurrentUser) {
+      setCurrentUser(null);
+    }
+    navigate("/login");
   };
 
   if (!data) return null;
@@ -190,7 +203,7 @@ const ProfileSettings = ({ role }) => {
               >
                 <span
                   className={`inline-block size-5 rounded-full bg-white shadow-sm transform transition-transform duration-200 ${
-                    biometricLogin ? "translate-x-2.5 rtl:-translate-x-5" : "translate-x-0"
+                    biometricLogin ? "translate-x-2.5 rtl:-translate-x-2.5" : "translate-x-0"
                   }`}
                 />
               </button>
@@ -219,7 +232,7 @@ const ProfileSettings = ({ role }) => {
               >
                 <span
                   className={`inline-block size-5 rounded-full bg-white shadow-sm transform transition-transform duration-200 ${
-                    pushNotifications ? "translate-x-2.5 rtl:-translate-x-5" : "translate-x-0"
+                    pushNotifications ? "translate-x-2.5 rtl:-translate-x-2.5" : "translate-x-0"
                   }`}
                 />
               </button>
@@ -242,6 +255,7 @@ const ProfileSettings = ({ role }) => {
 
           <button
             type="button"
+            onClick={() => setIsLogoutModalOpen(true)}
             className="mt-5 w-full rounded-lg bg-[#fee2e2] px-4 py-3 text-sm font-semibold text-[#dc2626] hover:bg-[#fecaca] transition"
           >
             {t("profileSettingsPage.logout", "Log out")}
@@ -365,6 +379,51 @@ const ProfileSettings = ({ role }) => {
                 className="rounded-lg bg-[#243B53] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1c2f42] transition"
               >
                 {t("profileSettingsPage.saveChanges", "Save changes")}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Logout Confirmation Modal */}
+      {isLogoutModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
+          <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-bold text-[#1e293b]">
+                {t("profileSettingsPage.logoutConfirmTitle", "Confirm Logout")}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setIsLogoutModalOpen(false)}
+                className="text-[#94a3b8] hover:text-[#1e293b] transition"
+                aria-label="Close"
+              >
+                <FiX className="w-5 h-5" />
+              </button>
+            </div>
+
+            <p className="text-sm text-[#64748b] mb-6">
+              {t(
+                "profileSettingsPage.logoutConfirmMessage",
+                "Are you sure you want to log out of your account?"
+              )}
+            </p>
+
+            <div className="flex items-center justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => setIsLogoutModalOpen(false)}
+                className="rounded-lg border border-[#e2e8f0] px-4 py-2.5 text-sm font-semibold text-[#475569] hover:bg-[#f8fafc] transition"
+              >
+                {t("profileSettingsPage.cancelLogout", "Cancel")}
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmLogout}
+                className="rounded-lg bg-[#dc2626] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#b91c1c] transition"
+              >
+                {t("profileSettingsPage.confirmLogout", "Log out")}
               </button>
             </div>
           </div>

@@ -1052,7 +1052,11 @@
     "fullNameLabel": "Full name",
     "jobTitleLabel": "Job title",
     "cancelEdit": "Cancel",
-    "saveChanges": "Save changes"
+    "saveChanges": "Save changes",
+    "logoutConfirmTitle": "Confirm Logout",
+    "logoutConfirmMessage": "Are you sure you want to log out of your account?",
+    "confirmLogout": "Log out",
+    "cancelLogout": "Cancel"
   },
   "employee": {
     "sidebar": {
