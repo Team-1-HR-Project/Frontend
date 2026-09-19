@@ -15,11 +15,11 @@ import {
 export const navConfig = {
   admin: [
     {
-  titleKey: "portal.dashboard",
-  title: "Dashboard",
-  path: "/admin/dashboard",
-  icon: MdDashboard,
-},
+      titleKey: "portal.dashboard",
+      title: "Dashboard",
+      path: "/admin/dashboard",
+      icon: MdDashboard,
+    },
     {
       titleKey: "portal.users",
       title: "Users",
@@ -27,24 +27,29 @@ export const navConfig = {
       icon: MdPeople,
     },
     {
+      titleKey: "portal.performance",
+      title: "Performance & Goals",
+      path: "/admin/performance",
+      icon: MdAssessment, // <--- أضفناها هنا تحت الـ Users مباشرة بالترتيب المطلوب
+    },
+    {
       titleKey: "portal.branches",
       title: "Branches",
       path: "/admin/branches",
       icon: MdLocationCity,
     },
-
     {
       titleKey: "portal.audit-logs",
       title: "Audit Logs",
-      path: "/admin/audit-logs",
+      path: "/admin/audit", // تم توحيد المسار هنا ليطابق App.jsx
       icon: MdHistory,
     },
     {
-  titleKey: "portal.notifications",
-  title: "Notifications",
-  path: "/admin/notifications",
-  icon: MdNotifications,
-},
+      titleKey: "portal.notifications",
+      title: "Notifications",
+      path: "/admin/notifications",
+      icon: MdNotifications,
+    },
     {
       titleKey: "portal.settings",
       title: "Settings",
