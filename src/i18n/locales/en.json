@@ -710,12 +710,9 @@
 
     "administration": "Administration",
     "wiseWork": "WiseWork",
-
+    "Workwise": "Workwise",
     "notificationsTitle": "Notifications",
     "notificationsSubtitle": "Configure and manage your WiseWork notifications.",
-
-    "Workwise": "Workwise",
-
     "exportConfig": "Export configuration",
 
     "systemAlertsTitle": "System Notifications & Alerts",
@@ -769,7 +766,6 @@
 
     "notif3Title": "AI Policy Gateway Sync Completed",
     "notif3Desc": "The latest workplace policy rules were synchronized successfully across the WiseWork platform.",
-
     "notif4Title": "Role permissions updated",
     "notif4Desc": "Sarah Ahmed updated administrative permissions for the People & Culture workspace.",
 
@@ -846,7 +842,6 @@
     "aiAssistant": "AI Assistant",
     "companyPolicies": "Company Policies",
     "profileSettings": "Profile & Settings"
-    
   },
 
   "employeePerformance": {
@@ -932,7 +927,6 @@
     "hrManager": "HR Manager",
     "administrator": "Administrator"
   },
-
   "branchesPage": {
     "breadcrumbApp": "Workwise",
     "breadcrumbPage": "Branches",
@@ -983,39 +977,45 @@
     "cancel": "Cancel",
     "createUser": "Create user"
   },
-  "dummyTasks": {
-    "t1": {
-      "title": "Complete Q3 Self-Evaluation Form",
-      "desc": "Fill out all sections of the quarterly self-review before the Sep 25 deadline."
+  "auditLogs": {
+    "title": "Audit Logs",
+    "subtitle": "A searchable record of administrative actions and system events.",
+
+    "breadcrumbAdmin": "Administration",
+    "breadcrumbApp": "Workwise",
+
+    "exportConfig": "Export configuration",
+    "exportSuccess": "Audit log configuration exported successfully.",
+
+    "cardTitle": "Audit logs",
+    "cardSubtitle": "Review administrative actions and system events.",
+
+    "searchPlaceholder": "Search logs...",
+
+    "filterAll": "All",
+    "filterSuccess": "Success",
+    "filterWarning": "Warning",
+    "filterInfo": "Info",
+
+    "colAction": "ACTION",
+    "colActor": "ACTOR",
+    "colTimestamp": "TIMESTAMP",
+    "colSeverity": "SEVERITY",
+
+    "noLogsFound": "No logs found.",
+
+    "actions": {
+      "rolePermissionsUpdated": "Role permissions updated",
+      "gpsEnforcementDisabled": "GPS enforcement disabled",
+      "q3ReviewCycleCreated": "Q3 review cycle created",
+      "newUserAccountInvited": "New user account invited"
     },
-    "t2": {
-      "title": "Submit Attendance Report for August",
-      "desc": "Compile and submit the finalized attendance log for last month."
-    },
-    "t3": {
-      "title": "Review Company Policy Updates",
-      "desc": "Read and acknowledge the updated workplace conduct and remote-work policies."
-    },
-    "t4": {
-      "title": "Team Sync Meeting Prep Notes",
-      "desc": "Prepare agenda and talking points for the weekly team sync."
-    },
-    "t5": {
-      "title": "Update Emergency Contact Info",
-      "desc": "Log in to the HR portal and update personal emergency contact information."
-    },
-    "t6": {
-      "title": "Complete Cybersecurity Training Module",
-      "desc": "Finish the mandatory annual cybersecurity awareness course on the learning portal."
-    },
-    "categories": {
-      "HR": "HR",
-      "Admin": "Admin",
-      "Compliance": "Compliance",
-      "Meetings": "Meetings",
-      "Personal": "Personal",
-      "Training": "Training",
-      "General": "General"
+
+    "timestamps": {
+      "today": "Today, 10:30 AM",
+      "yesterday": "Yesterday, 03:15 PM",
+      "sep12": "Sep 12, 11:45 AM",
+      "sep11": "Sep 11, 09:20 AM"
     }
   },
   "companyPolicies": {
@@ -1182,38 +1182,6 @@
       ]
     }
   },
-  "auditLogs": {
-    "title": "Audit Logs",
-    "subtitle": "A searchable record of administrative actions and system events.",
-    "breadcrumbAdmin": "Administration",
-    "breadcrumbApp": "Workwise",
-    "exportConfig": "Export configuration",
-    "exportSuccess": "Audit log configuration exported successfully.",
-    "cardTitle": "Audit logs",
-    "cardSubtitle": "Review administrative actions and system events.",
-    "searchPlaceholder": "Search logs...",
-    "filterAll": "All",
-    "filterSuccess": "Success",
-    "filterWarning": "Warning",
-    "filterInfo": "Info",
-    "colAction": "ACTION",
-    "colActor": "ACTOR",
-    "colTimestamp": "TIMESTAMP",
-    "colSeverity": "SEVERITY",
-    "noLogsFound": "No logs found.",
-    "actions": {
-      "rolePermissionsUpdated": "Role permissions updated",
-      "gpsEnforcementDisabled": "GPS enforcement disabled",
-      "q3ReviewCycleCreated": "Q3 review cycle created",
-      "newUserAccountInvited": "New user account invited"
-    },
-    "timestamps": {
-      "today": "Today, 10:30 AM",
-      "yesterday": "Yesterday, 03:15 PM",
-      "sep12": "Sep 12, 11:45 AM",
-      "sep11": "Sep 11, 09:20 AM"
-    }
-  },
   "leaveBalances": {
     "timeOffTag": "TIME OFF",
     "title": "Leave & balances",
@@ -1324,6 +1292,41 @@
     "chatRemoteWorkA": "Your policy answer is grounded in the Employee Handbook and your current employee record.",
     "chatSickLeaveQ": "What is my sick leave balance?",
     "chatSickLeaveA": "Your policy answer is grounded in the Employee Handbook and your current employee record."
+  },
+  "dummyTasks": {
+    "t1": {
+      "title": "Complete Q3 Self-Evaluation Form",
+      "desc": "Fill out all sections of the quarterly self-review before the Sep 25 deadline."
+    },
+    "t2": {
+      "title": "Submit Attendance Report for August",
+      "desc": "Compile and submit the finalized attendance log for last month."
+    },
+    "t3": {
+      "title": "Review Company Policy Updates",
+      "desc": "Read and acknowledge the updated workplace conduct and remote-work policies."
+    },
+    "t4": {
+      "title": "Team Sync Meeting Prep Notes",
+      "desc": "Prepare agenda and talking points for the weekly team sync."
+    },
+    "t5": {
+      "title": "Update Emergency Contact Info",
+      "desc": "Log in to the HR portal and update personal emergency contact information."
+    },
+    "t6": {
+      "title": "Complete Cybersecurity Training Module",
+      "desc": "Finish the mandatory annual cybersecurity awareness course on the learning portal."
+    },
+    "categories": {
+      "HR": "HR",
+      "Admin": "Admin",
+      "Compliance": "Compliance",
+      "Meetings": "Meetings",
+      "Personal": "Personal",
+      "Training": "Training",
+      "General": "General"
+    }
   },
   "employeePerformance": {
     "eyebrow": "GROWTH & DEVELOPMENT",

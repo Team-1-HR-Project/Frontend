@@ -29,6 +29,8 @@ import Tasks from "./features/employee/pages/Tasks";
 import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
 import HomeDashboard from "./features/employee/pages/home/HomeDashboard";
 import Attendance from "./features/employee/pages/attendance/Attendance";
+import LeaveBalances from "./features/emplyee/pages/Leave & balances";
+import AIAssistant from "./features/emplyee/pages/AI Assistant";
 
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -40,10 +42,10 @@ function DashboardPlaceholder({ messageKey, defaultMessage }) {
   return (
     <div
       style={{
-        padding: "20px",
-        fontSize: "18px",
-        fontWeight: "600",
-        color: "var(--navy)",
+        padding: "40px 24px",
+        textAlign: "center",
+        color: "#64748b",
+        fontSize: "16px",
       }}
     >
       {t(messageKey, defaultMessage)}
@@ -51,18 +53,14 @@ function DashboardPlaceholder({ messageKey, defaultMessage }) {
   );
 }
 
-// ==================== Main App ====================
 function App() {
   const { i18n } = useTranslation();
 
-  // ==================== Language Direction ====================
   useEffect(() => {
-    const isArabic = i18n.language?.startsWith("ar");
+    const isArabic = i18n.language === "ar";
 
-    // اتجاه الصفحة بالكامل
+    // اتجاه الـ HTML
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
-
-    // لغة الصفحة
     document.documentElement.lang = isArabic ? "ar" : "en";
 
     // اتجاه الـ Body
@@ -173,6 +171,20 @@ function App() {
           <Route
             path="/employee/performance"
             element={<EmployeePerformance />}
+          />
+
+          {/* ==================== Employee Leave & Balances ==================== */}
+          <Route path="/employee/leaves" element={<LeaveBalances />} />
+          <Route
+            path="/employee/leave-balances"
+            element={<Navigate to="/employee/leaves" replace />}
+          />
+
+          {/* ==================== Employee AI Assistant ==================== */}
+          <Route path="/employee/ai-assistant" element={<AIAssistant />} />
+          <Route
+            path="/employee/assistant"
+            element={<Navigate to="/employee/ai-assistant" replace />}
           />
 
           {/* ==================== Employee Notifications ==================== */}

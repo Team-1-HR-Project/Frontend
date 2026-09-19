@@ -1,10 +1,5 @@
-
 import { NavLink } from "react-router-dom";
-import {
-  FiArrowRight,
-  FiMoreHorizontal,
-  FiHelpCircle,
-} from "react-icons/fi";
+import { FiArrowRight, FiMoreHorizontal, FiHelpCircle } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 
 import { navConfig } from "../navigation/navConfig";
@@ -13,11 +8,7 @@ import { useAuth } from "../context/AuthContext";
 
 import logoImg from "../assets/Logos.svg";
 
-const Sidebar = ({
-  role = "admin",
-  isOpen = false,
-  onClose,
-}) => {
+const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const { t, i18n } = useTranslation();
   const { unreadCount } = useNotifications();
   const { currentUser } = useAuth();
@@ -26,26 +17,14 @@ const Sidebar = ({
 
   const links = navConfig[role] || [];
 
-  const avatarLetter = (
-    currentUser?.initials || role.charAt(0)
-  ).toUpperCase();
+  const avatarLetter = (currentUser?.initials || role.charAt(0)).toUpperCase();
 
-  const portalLabel = t(
-    `portal.${role}Portal`,
-    `${role.toUpperCase()} PORTAL`
-  );
+  const portalLabel = t(`portal.${role}Portal`, `${role.toUpperCase()} PORTAL`);
 
   const displayName =
-    currentUser?.name ||
-    t(
-      `portal.${role}Account`,
-      `${role} User`
-    );
+    currentUser?.name || t(`portal.${role}Account`, `${role} User`);
 
-  const displayTitle = t(
-    "portal.staffMember",
-    "Workwise Workspace"
-  );
+  const displayTitle = t("portal.staffMember", "Workwise Workspace");
 
   // =========================
   // Role Accent Color
@@ -71,13 +50,9 @@ const Sidebar = ({
   // Sidebar Position
   // =========================
 
-  const sidebarPosition = isRtl
-    ? "right-0"
-    : "left-0";
+  const sidebarPosition = isRtl ? "right-0" : "left-0";
 
-  const hiddenPosition = isRtl
-    ? "translate-x-full"
-    : "-translate-x-full";
+  const hiddenPosition = isRtl ? "translate-x-full" : "-translate-x-full";
 
   return (
     <>
@@ -126,11 +101,7 @@ const Sidebar = ({
 
           lg:translate-x-0
 
-          ${
-            isOpen
-              ? "translate-x-0"
-              : hiddenPosition
-          }
+          ${isOpen ? "translate-x-0" : hiddenPosition}
         `}
       >
         {/* =========================
@@ -166,9 +137,7 @@ const Sidebar = ({
             "
           >
             Wise
-            <span className="text-[#79B88B]">
-              Work
-            </span>
+            <span className="text-[#79B88B]">Work</span>
           </span>
         </div>
 
@@ -205,10 +174,7 @@ const Sidebar = ({
             const Icon = link.icon;
 
             const title = link.titleKey
-              ? t(
-                  link.titleKey,
-                  link.title
-                )
+              ? t(link.titleKey, link.title)
               : link.title;
 
             return (
@@ -289,6 +255,23 @@ const Sidebar = ({
           })}
         </nav>
 
+        {/* Bottom Area */}
+        <div className="sidebar-bottom">
+          {/* Need a hand card */}
+          <NavLink
+            to="/employee/ai-assistant"
+            onClick={onClose}
+            className="help-card"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <FiHelpCircle />
+            <div>
+              <strong>{t("portal.needAHand", "Need a hand?")}</strong>
+              <span>{t("portal.askAi", "Ask the AI Assistant")}</span>
+            </div>
+            <FiArrowRight className="card-arrow" />
+          </NavLink>
+        </div>
         {/* =========================
             Bottom Section
         ========================= */}
@@ -351,10 +334,7 @@ const Sidebar = ({
                   text-white
                 "
               >
-                {t(
-                  "portal.needAHand",
-                  "Need a hand?"
-                )}
+                {t("portal.needAHand", "Need a hand?")}
               </strong>
 
               <span
@@ -365,10 +345,7 @@ const Sidebar = ({
                   text-[#9fb3c4]
                 "
               >
-                {t(
-                  "portal.askAi",
-                  "Ask the AI Assistant"
-                )}
+                {t("portal.askAi", "Ask the AI Assistant")}
               </span>
             </div>
 
@@ -379,11 +356,7 @@ const Sidebar = ({
                 shrink-0
                 text-[#9fb3c4]
 
-                ${
-                  isRtl
-                    ? "rotate-180"
-                    : ""
-                }
+                ${isRtl ? "rotate-180" : ""}
               `}
             />
           </div>

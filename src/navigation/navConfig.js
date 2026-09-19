@@ -8,11 +8,11 @@ import {
   MdNotifications,
   MdAssessment,
   MdHistory,
+  MdAutoAwesome,
   MdHome,
   MdAccessTime,
   MdCheckBox,
   MdTrendingUp,
-  MdAutoAwesome,
   MdMenuBook,
   MdPerson,
 } from "react-icons/md";
@@ -153,6 +153,12 @@ export const navConfig = {
       title: "AI Assistant",
       path: "/employee/ai-assistant",
       icon: MdAutoAwesome,
+    },
+    {
+      titleKey: "portal.myPayslip",
+      title: "My Payslip",
+      path: "/employee/payslip",
+      icon: MdAttachMoney,
     },
     {
       titleKey: "portal.companyPolicies",
