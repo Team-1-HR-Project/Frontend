@@ -29,8 +29,8 @@ import Tasks from "./features/employee/pages/Tasks";
 import EmployeeProfileSettings from "./features/employee/pages/ProfileSettings";
 import HomeDashboard from "./features/employee/pages/home/HomeDashboard";
 import Attendance from "./features/employee/pages/attendance/Attendance";
-import LeaveBalances from "./features/emplyee/pages/Leave & balances";
-import AIAssistant from "./features/emplyee/pages/AI Assistant";
+import LeaveBalances from "./features/employee/pages/Leave & balances";
+import AIAssistant from "./features/employee/pages/AI Assistant";
 
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -151,14 +151,62 @@ function App() {
 
           {/* ==================== HR Notifications ==================== */}
           <Route path="/hr/notifications" element={<Notification />} />
-          <Route path="/hr/employees" element={<DashboardPlaceholder messageKey="portal.employees" defaultMessage="الموظفون" />} />
-          <Route path="/hr/payroll" element={<DashboardPlaceholder messageKey="portal.payroll" defaultMessage="الرواتب" />} />
-          <Route path="/hr/leaves" element={<DashboardPlaceholder messageKey="portal.leaves" defaultMessage="الإجازات" />} />
+          <Route
+            path="/hr/employees"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.employees"
+                defaultMessage="الموظفون"
+              />
+            }
+          />
+          <Route
+            path="/hr/payroll"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.payroll"
+                defaultMessage="الرواتب"
+              />
+            }
+          />
+          <Route
+            path="/hr/leaves"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.leaves"
+                defaultMessage="الإجازات"
+              />
+            }
+          />
 
           {/* ==================== Manager Routes ==================== */}
-          <Route path="/manager/dashboard" element={<DashboardPlaceholder messageKey="portal.dashboard" defaultMessage="لوحة التحكم" />} />
-          <Route path="/manager/team" element={<DashboardPlaceholder messageKey="portal.myTeam" defaultMessage="فريقي" />} />
-          <Route path="/manager/leaves" element={<DashboardPlaceholder messageKey="portal.teamLeaves" defaultMessage="إجازات الفريق" />} />
+          <Route
+            path="/manager/dashboard"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.dashboard"
+                defaultMessage="لوحة التحكم"
+              />
+            }
+          />
+          <Route
+            path="/manager/team"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.myTeam"
+                defaultMessage="فريقي"
+              />
+            }
+          />
+          <Route
+            path="/manager/leaves"
+            element={
+              <DashboardPlaceholder
+                messageKey="portal.teamLeaves"
+                defaultMessage="إجازات الفريق"
+              />
+            }
+          />
 
           {/* ==================== Employee Redirect ==================== */}
           <Route
