@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
     FiCalendar, FiMapPin, FiArrowRight, FiActivity, FiChevronLeft, FiChevronRight,
@@ -8,13 +8,53 @@ import './HomeDashboard.css';
 
 export default function HomeDashboard() {
     const { t } = useTranslation();
+    
     // حالة تسجيل الحضور (true يعني مسجل حضور Checked in، false يعني Checked out)
     const [isCheckedIn, setIsCheckedIn] = useState(true);
     // حالة التحكم في ظهور النافذة المنبثقة للتقويم
     const [showCalendarModal, setShowCalendarModal] = useState(false);
 
+    // الحالات الخاصة بالعداد (يبدأ من الصفر 0) والموقع الجغرافي المخصص
+    const [secondsWorked, setSecondsWorked] = useState(0); 
+    const [locationInfo, setLocationInfo] = useState("الموقع الحالي: خط عرض 31.0631, خط طول 31.4085");
+    const [checkInTimeStr, setCheckInTimeStr] = useState("08:45 AM");
+
+    // تشغيل العداد التلقائي طالما الموظف مسجل حضور (Checked in)
+    useEffect(() => {
+        let timer;
+        if (isCheckedIn) {
+            timer = setInterval(() => {
+                setSecondsWorked((prev) => prev + 1);
+            }, 1000);
+        }
+        return () => clearInterval(timer);
+    }, [isCheckedIn]);
+
+    // دالة تحويل الثواني إلى صيغة HH:MM:SS
+    const formatTime = (totalSeconds) => {
+        const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+        const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+        const seconds = String(totalSeconds % 60).padStart(2, '0');
+        return `${hours}:${minutes}:${seconds}`;
+    };
+
+    // دالة تبديل الحالة وتثبيت الإحداثيات المحددة فوراً
     const handleToggleCheck = () => {
-        setIsCheckedIn(!isCheckedIn);
+        if (!isCheckedIn) {
+            const now = new Date();
+            const timeFormatted = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            // تعيين الإحداثيات المطلوبة مباشرة بدقة
+            setLocationInfo("الموقع الحالي: خط عرض 31.0631, خط طول 31.4085");
+            setCheckInTimeStr(timeFormatted);
+            setIsCheckedIn(true);
+            setSecondsWorked(0); // تصفير العداد عند الدخول
+        } else {
+            // عمل Check-out وتصفير العداد
+            setIsCheckedIn(false);
+            setSecondsWorked(0);
+            setLocationInfo("تم تسجيل الانصراف");
+        }
     };
 
     return (
@@ -44,9 +84,9 @@ export default function HomeDashboard() {
                                         <span className="dot"></span> {t('employee.home.onShift')} &nbsp;•&nbsp; {t('employee.home.location')}
                                     </div>
                                     <h2 className="checkin-title">{t('employee.home.checkedIn')}</h2>
-                                    <p className="checkin-sub">{t('employee.home.checkedInAt')}</p>
+                                    <p className="checkin-sub">Checked in at {checkInTimeStr}</p>
                                     <div className="radius-info">
-                                        <FiMapPin /> {t('employee.home.insideRadius')}
+                                        <FiMapPin /> {locationInfo}
                                     </div>
                                 </>
                             ) : (
@@ -65,8 +105,8 @@ export default function HomeDashboard() {
 
                         <div className="checkin-right">
                             <span className="worked-label">{t('employee.home.workedToday')}</span>
-                            {/* أرقام ثابتة حسب حالة الـ Check-in */}
-                            <div className="timer">{isCheckedIn ? "03:20:51" : "00:00:00"}</div>
+                            {/* العداد يبدأ من الصفر ويزيد تصاعدياً */}
+                            <div className="timer">{isCheckedIn ? formatTime(secondsWorked) : "00:00:00"}</div>
                             <button className="checkout-btn" onClick={handleToggleCheck}>
                                 {isCheckedIn ? <>{t('employee.home.checkOut')} <FiArrowRight /></> : <>{t('employee.home.checkIn')} <FiArrowRight /></>}
                             </button>

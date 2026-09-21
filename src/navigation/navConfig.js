@@ -8,7 +8,11 @@ import {
   MdNotifications,
   MdAssessment,
   MdHistory,
+  MdCalendarMonth,
+  MdAccountBalanceWallet,
+  MdCardGiftcard,
 } from "react-icons/md";
+
 import {
   FiHome,
   FiClock,
@@ -19,6 +23,7 @@ import {
   FiUser,
   FiBell,
 } from "react-icons/fi";
+
 import {
   MdGridView,
   MdChecklist,
@@ -29,9 +34,14 @@ import {
   MdCalendarToday,
   MdEventAvailable,
 } from "react-icons/md";
+
 import { LuSparkles } from "react-icons/lu";
 
 export const navConfig = {
+  // ==================================================
+  // ==================== ADMIN ========================
+  // ==================================================
+
   admin: [
     {
       titleKey: "portal.dashboard",
@@ -77,38 +87,66 @@ export const navConfig = {
     },
   ],
 
+  // ==================================================
+  // ====================== HR =========================
+  // ==================================================
+
   hr: [
     {
       titleKey: "portal.dashboard",
-      title: "Dashboard",
       path: "/hr/dashboard",
       icon: MdDashboard,
     },
     {
       titleKey: "portal.employees",
-      title: "Employees",
       path: "/hr/employees",
       icon: MdPeople,
     },
     {
+      titleKey: "portal.departmentsTeams",
+      path: "/hr/departments",
+      icon: MdLocationCity,
+    },
+    {
+      titleKey: "portal.attendance",
+      path: "/hr/attendance",
+      icon: MdCalendarMonth,
+    },
+    {
+      titleKey: "portal.leaveRequests",
+      path: "/hr/leave-requests",
+      icon: MdEventNote,
+    },
+    {
+      titleKey: "portal.advancesDeductions",
+      path: "/hr/advances-deductions",
+      icon: MdAccountBalanceWallet,
+    },
+    {
       titleKey: "portal.payroll",
-      title: "Payroll",
       path: "/hr/payroll",
       icon: MdAttachMoney,
     },
     {
-      titleKey: "portal.leaves",
-      title: "Leaves",
-      path: "/hr/leaves",
-      icon: MdEventNote,
+      titleKey: "portal.rewardsBonuses",
+      path: "/hr/rewards",
+      icon: MdCardGiftcard,
     },
     {
       titleKey: "portal.notifications",
-      title: "Notifications",
       path: "/hr/notifications",
       icon: MdNotifications,
     },
+    {
+      titleKey: "portal.settings",
+      path: "/hr/settings",
+      icon: MdSettings,
+    },
   ],
+
+  // ==================================================
+  // ==================== MANAGER ======================
+  // ==================================================
 
   manager: [
     {
@@ -173,6 +211,10 @@ export const navConfig = {
     },
   
   ],
+
+  // ==================================================
+  // ==================== EMPLOYEE =====================
+  // ==================================================
 
   employee: [
     {
