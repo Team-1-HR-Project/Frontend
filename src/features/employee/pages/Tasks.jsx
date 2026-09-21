@@ -17,7 +17,7 @@ import { useAuth } from "../../../context/AuthContext";
 const INITIAL_TASKS = [
   {
     id: "task-1",
-    title: "Q2 Operations efficiency report",
+    translationKey: "dummyTasks.t1",
     priority: "high",
     dueDate: "2026-06-12",
     status: "in-progress",
@@ -26,7 +26,7 @@ const INITIAL_TASKS = [
   },
   {
     id: "task-2",
-    title: "Vendor onboarding checklist revamp",
+    translationKey: "dummyTasks.t2",
     priority: "medium",
     dueDate: "2026-06-15",
     status: "under-review",
@@ -35,7 +35,7 @@ const INITIAL_TASKS = [
   },
   {
     id: "task-3",
-    title: "Customer insights synthesis",
+    translationKey: "dummyTasks.t3",
     priority: "low",
     dueDate: "2026-06-18",
     status: "in-progress",
@@ -52,7 +52,7 @@ const STATUS_FILTERS = [
 ];
 
 const Tasks = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { currentUser } = useAuth();
 
   const [tasks, setTasks] = useState(INITIAL_TASKS);
@@ -128,7 +128,7 @@ const Tasks = () => {
     switch (priority) {
       case "high":
         return {
-          label: "High priority",
+          label: t("tasks.priority.high"),
           dot: "bg-[#d95f59]",
           text: "text-[#c6534d]",
           background: "bg-[#fff4f3]",
@@ -137,7 +137,7 @@ const Tasks = () => {
 
       case "medium":
         return {
-          label: "Medium priority",
+          label: t("tasks.priority.medium"),
           dot: "bg-[#d69b45]",
           text: "text-[#b77a27]",
           background: "bg-[#fff8eb]",
@@ -147,7 +147,7 @@ const Tasks = () => {
       case "low":
       default:
         return {
-          label: "Low priority",
+          label: t("tasks.priority.low"),
           dot: "bg-[#6ca77e]",
           text: "text-[#558d66]",
           background: "bg-[#f1f8f3]",
@@ -164,28 +164,28 @@ const Tasks = () => {
     switch (status) {
       case "in-progress":
         return {
-          label: "In Progress",
+          label: t("tasks.status.inProgress"),
           color: "#6b9fbc",
           background: "#edf5f9",
         };
 
       case "under-review":
         return {
-          label: "Under Review",
+          label: t("tasks.status.underReview"),
           color: "#b57c25",
           background: "#fff5e3",
         };
 
       case "completed":
         return {
-          label: "Completed",
+          label: t("tasks.status.completed"),
           color: "#57976e",
           background: "#edf7f0",
         };
 
       default:
         return {
-          label: "In Progress",
+          label: t("tasks.status.inProgress"),
           color: "#6b9fbc",
           background: "#edf5f9",
         };
@@ -351,7 +351,7 @@ const Tasks = () => {
             text-[#91a3b2]
           "
         >
-          <span>Work management</span>
+          <span>{t("tasks.workManagement")}</span>
 
           <FiChevronRight
             className={`
@@ -362,7 +362,7 @@ const Tasks = () => {
           />
 
           <span className="font-semibold text-[#1c364f]">
-            My tasks
+            {t("tasks.myTasks")}
           </span>
         </div>
 
@@ -388,11 +388,11 @@ const Tasks = () => {
                 max-[640px]:text-[25px]
               "
             >
-              My tasks
+              {t("tasks.myTasks")}
             </h1>
 
             <p className="mt-1.5 text-[14px] text-[#73889a]">
-              Stay on top of your priorities and deliverables.
+              {t("tasks.subtitle")}
             </p>
           </div>
 
@@ -419,7 +419,7 @@ const Tasks = () => {
             "
           >
             <FiPlus className="h-4 w-4" />
-            <span>New task</span>
+            <span>{t("tasks.newTask")}</span>
           </motion.button>
         </div>
       </motion.div>
@@ -457,12 +457,12 @@ const Tasks = () => {
 
           const label =
             filter === "all"
-              ? "All"
+              ? t("tasks.filters.all")
               : filter === "in-progress"
-                ? "In Progress"
+                ? t("tasks.filters.inProgress")
                 : filter === "under-review"
-                  ? "Under Review"
-                  : "Completed";
+                  ? t("tasks.filters.underReview")
+                  : t("tasks.filters.completed");
 
           const active = activeFilter === filter;
 
@@ -532,7 +532,6 @@ const Tasks = () => {
 
       {/* =====================================================
           TASK CARDS
-          التصميم هنا متظبط على الصورة
       ===================================================== */}
 
       <AnimatePresence mode="popLayout">
@@ -542,7 +541,6 @@ const Tasks = () => {
               const priority = getPriorityMeta(task.priority);
               const status = getStatusMeta(task.status);
 
-              // Reference design colors
               const priorityLine =
                 task.priority === "high"
                   ? "#e36b70"
@@ -602,9 +600,7 @@ const Tasks = () => {
                     max-[640px]:px-[25px]
                   "
                 >
-                  {/* =========================================
-                      COLORED LEFT LINE
-                  ========================================== */}
+                  {/* COLORED LEFT LINE */}
 
                   <div
                     className="
@@ -621,9 +617,7 @@ const Tasks = () => {
                     }}
                   />
 
-                  {/* =========================================
-                      THREE DOTS
-                  ========================================== */}
+                  {/* THREE DOTS */}
 
                   <button
                     type="button"
@@ -643,9 +637,7 @@ const Tasks = () => {
                     <FiMoreHorizontal className="h-[18px] w-[18px]" />
                   </button>
 
-                  {/* =========================================
-                      CONTENT
-                  ========================================== */}
+                  {/* CONTENT */}
 
                   <div
                     className="
@@ -695,8 +687,33 @@ const Tasks = () => {
                           text-[#1d4465]
                         "
                       >
-                        {task.title}
+                        {task.translationKey
+                          ? t(
+                              `${task.translationKey}.title`
+                            )
+                          : task.title}
                       </h2>
+
+                      {/* Description */}
+
+                      {(task.translationKey ||
+                        task.description) && (
+                        <p
+                          className="
+                            mt-1.5
+                            max-w-[650px]
+                            text-[11px]
+                            leading-[1.6]
+                            text-[#8296a5]
+                          "
+                        >
+                          {task.translationKey
+                            ? t(
+                                `${task.translationKey}.desc`
+                              )
+                            : task.description}
+                        </p>
+                      )}
 
                       {/* Due Date */}
 
@@ -714,7 +731,8 @@ const Tasks = () => {
                         <FiCalendar className="h-[14px] w-[14px]" />
 
                         <span>
-                          Due {formatDate(task.dueDate)}
+                          {t("tasks.due")}{" "}
+                          {formatDate(task.dueDate)}
                         </span>
                       </div>
 
@@ -836,7 +854,7 @@ const Tasks = () => {
                           <FiUploadCloud className="h-[15px] w-[15px]" />
 
                           <span>
-                            Submit deliverable
+                            {t("tasks.submitDeliverable")}
                           </span>
                         </motion.button>
                       )}
@@ -862,7 +880,7 @@ const Tasks = () => {
                           <FiClock className="h-[14px] w-[14px]" />
 
                           <span>
-                            Awaiting review
+                            {t("tasks.awaitingReview")}
                           </span>
                         </div>
                       )}
@@ -886,7 +904,7 @@ const Tasks = () => {
                           <FiCheckCircle className="h-[14px] w-[14px]" />
 
                           <span>
-                            Completed
+                            {t("tasks.completed")}
                           </span>
                         </div>
                       )}
@@ -919,11 +937,11 @@ const Tasks = () => {
             <FiCheckCircle className="mx-auto mb-3 h-6 w-6 text-[#8ca0af]" />
 
             <p className="text-[13px] font-semibold text-[#526b7e]">
-              No tasks here
+              {t("tasks.noTasks")}
             </p>
 
             <p className="mt-1 text-[11px] text-[#9aa8b3]">
-              You're all caught up.
+              {t("tasks.allCaughtUp")}
             </p>
           </motion.div>
         )}
@@ -1015,7 +1033,7 @@ const Tasks = () => {
                       text-[#8da0ad]
                     "
                   >
-                    Work management
+                    {t("tasks.workManagement")}
                   </p>
 
                   <h2
@@ -1025,7 +1043,7 @@ const Tasks = () => {
                       text-[#1c364f]
                     "
                   >
-                    Create new task
+                    {t("tasks.createNewTask")}
                   </h2>
                 </div>
 
@@ -1063,7 +1081,7 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Task title
+                    {t("tasks.form.title")}
                   </label>
 
                   <input
@@ -1074,7 +1092,9 @@ const Tasks = () => {
                         e.target.value
                       )
                     }
-                    placeholder="Enter task title..."
+                    placeholder={t(
+                      "tasks.form.titlePlaceholder"
+                    )}
                     className="
                       w-full
                       rounded-[10px]
@@ -1107,7 +1127,7 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Priority
+                    {t("tasks.form.priority")}
                   </label>
 
                   <select
@@ -1135,15 +1155,15 @@ const Tasks = () => {
                     "
                   >
                     <option value="high">
-                      High priority
+                      {t("tasks.priority.high")}
                     </option>
 
                     <option value="medium">
-                      Medium priority
+                      {t("tasks.priority.medium")}
                     </option>
 
                     <option value="low">
-                      Low priority
+                      {t("tasks.priority.low")}
                     </option>
                   </select>
                 </div>
@@ -1160,7 +1180,7 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Due date
+                    {t("tasks.form.dueDate")}
                   </label>
 
                   <div className="relative">
@@ -1217,7 +1237,7 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Description
+                    {t("tasks.form.description")}
                   </label>
 
                   <textarea
@@ -1228,7 +1248,9 @@ const Tasks = () => {
                         e.target.value
                       )
                     }
-                    placeholder="Add a short description..."
+                    placeholder={t(
+                      "tasks.form.descriptionPlaceholder"
+                    )}
                     className="
                       w-full
                       resize-none
@@ -1281,7 +1303,7 @@ const Tasks = () => {
                       hover:bg-[#f6f8f9]
                     "
                   >
-                    Cancel
+                    {t("tasks.form.cancel")}
                   </button>
 
                   <motion.button
@@ -1305,7 +1327,7 @@ const Tasks = () => {
                       hover:bg-[#284761]
                     "
                   >
-                    Create task
+                    {t("tasks.form.create")}
                   </motion.button>
                 </div>
               </form>
@@ -1400,7 +1422,7 @@ const Tasks = () => {
                       text-[#8da0ad]
                     "
                   >
-                    Task update
+                    {t("tasks.taskUpdate")}
                   </p>
 
                   <h2
@@ -1410,7 +1432,7 @@ const Tasks = () => {
                       text-[#1c364f]
                     "
                   >
-                    Submit deliverable
+                    {t("tasks.submitDeliverable")}
                   </h2>
                 </div>
 
@@ -1445,7 +1467,7 @@ const Tasks = () => {
                       text-[#94a3ae]
                     "
                   >
-                    Task
+                    {t("tasks.form.task")}
                   </p>
 
                   <h3
@@ -1457,7 +1479,11 @@ const Tasks = () => {
                       text-[#1c364f]
                     "
                   >
-                    {selectedTask.title}
+                    {selectedTask.translationKey
+                      ? t(
+                          `${selectedTask.translationKey}.title`
+                        )
+                      : selectedTask.title}
                   </h3>
                 </div>
 
@@ -1479,7 +1505,7 @@ const Tasks = () => {
                         text-[#61798c]
                       "
                     >
-                      Progress
+                      {t("tasks.form.progress")}
                     </span>
 
                     <span
@@ -1533,12 +1559,14 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Notes
+                    {t("tasks.form.notes")}
                   </label>
 
                   <textarea
                     rows={3}
-                    placeholder="Add notes about this deliverable..."
+                    placeholder={t(
+                      "tasks.form.notesPlaceholder"
+                    )}
                     className="
                       w-full
                       resize-none
@@ -1572,7 +1600,7 @@ const Tasks = () => {
                       text-[#61798c]
                     "
                   >
-                    Deliverable
+                    {t("tasks.form.deliverable")}
                   </label>
 
                   <label
@@ -1661,7 +1689,9 @@ const Tasks = () => {
                             text-[#526b7e]
                           "
                         >
-                          Tap to upload a file
+                          {t(
+                            "tasks.form.uploadFile"
+                          )}
                         </p>
 
                         <p
@@ -1671,7 +1701,9 @@ const Tasks = () => {
                             text-[#9aa8b3]
                           "
                         >
-                          PDF, DOCX, PNG up to 10MB
+                          {t(
+                            "tasks.form.uploadHint"
+                          )}
                         </p>
                       </>
                     )}
@@ -1710,7 +1742,7 @@ const Tasks = () => {
                     hover:bg-[#f6f8f9]
                   "
                 >
-                  Cancel
+                  {t("tasks.form.cancel")}
                 </button>
 
                 <motion.button
@@ -1738,7 +1770,9 @@ const Tasks = () => {
                     disabled:opacity-40
                   "
                 >
-                  Submit for review
+                  {t(
+                    "tasks.form.submitForReview"
+                  )}
                 </motion.button>
               </div>
             </motion.div>

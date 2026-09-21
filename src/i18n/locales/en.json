@@ -1243,6 +1243,59 @@
       "General": "General"
     }
   },
+  "tasks": {
+  "workManagement": "Work management",
+  "myTasks": "My tasks",
+  "subtitle": "Stay on top of your priorities and deliverables.",
+  "newTask": "New task",
+  "due": "Due",
+  "submitDeliverable": "Submit deliverable",
+  "awaitingReview": "Awaiting review",
+  "completed": "Completed",
+  "noTasks": "No tasks here",
+  "allCaughtUp": "You're all caught up.",
+
+  "filters": {
+    "all": "All",
+    "inProgress": "In Progress",
+    "underReview": "Under Review",
+    "completed": "Completed"
+  },
+
+  "priority": {
+    "high": "High priority",
+    "medium": "Medium priority",
+    "low": "Low priority"
+  },
+
+  "status": {
+    "inProgress": "In Progress",
+    "underReview": "Under Review",
+    "completed": "Completed"
+  },
+
+  "createNewTask": "Create new task",
+  "taskUpdate": "Task update",
+
+  "form": {
+    "title": "Task title",
+    "titlePlaceholder": "Enter task title...",
+    "priority": "Priority",
+    "dueDate": "Due date",
+    "description": "Description",
+    "descriptionPlaceholder": "Add a short description...",
+    "cancel": "Cancel",
+    "create": "Create task",
+    "task": "Task",
+    "progress": "Progress",
+    "notes": "Notes",
+    "notesPlaceholder": "Add notes about this deliverable...",
+    "deliverable": "Deliverable",
+    "uploadFile": "Tap to upload a file",
+    "uploadHint": "PDF, DOCX, PNG up to 10MB",
+    "submitForReview": "Submit for review"
+  }
+},
   "employeePerformance": {
     "eyebrow": "GROWTH & DEVELOPMENT",
     "title": "My Performance",

@@ -1311,6 +1311,59 @@
       "General": "عام"
     }
   },
+  "tasks": {
+  "workManagement": "إدارة العمل",
+  "myTasks": "مهامي",
+  "subtitle": "تابع أولوياتك ومهامك وإنجازاتك.",
+  "newTask": "مهمة جديدة",
+  "due": "موعد التسليم",
+  "submitDeliverable": "تقديم المهمة",
+  "awaitingReview": "في انتظار المراجعة",
+  "completed": "مكتملة",
+  "noTasks": "لا توجد مهام هنا",
+  "allCaughtUp": "لقد أنجزت جميع مهامك.",
+
+  "filters": {
+    "all": "الكل",
+    "inProgress": "قيد التنفيذ",
+    "underReview": "قيد المراجعة",
+    "completed": "مكتملة"
+  },
+
+  "priority": {
+    "high": "أولوية عالية",
+    "medium": "أولوية متوسطة",
+    "low": "أولوية منخفضة"
+  },
+
+  "status": {
+    "inProgress": "قيد التنفيذ",
+    "underReview": "قيد المراجعة",
+    "completed": "مكتملة"
+  },
+
+  "createNewTask": "إنشاء مهمة جديدة",
+  "taskUpdate": "تحديث المهمة",
+
+  "form": {
+    "title": "عنوان المهمة",
+    "titlePlaceholder": "أدخل عنوان المهمة...",
+    "priority": "الأولوية",
+    "dueDate": "موعد التسليم",
+    "description": "الوصف",
+    "descriptionPlaceholder": "أضف وصفًا مختصرًا...",
+    "cancel": "إلغاء",
+    "create": "إنشاء المهمة",
+    "task": "المهمة",
+    "progress": "نسبة الإنجاز",
+    "notes": "ملاحظات",
+    "notesPlaceholder": "أضف ملاحظات حول هذه المهمة...",
+    "deliverable": "الملف المطلوب",
+    "uploadFile": "اضغط لرفع ملف",
+    "uploadHint": "PDF أو DOCX أو PNG بحجم يصل إلى 10MB",
+    "submitForReview": "إرسال للمراجعة"
+  }
+},
   "managerAI": {
     "breadcrumb": "بوابة المدير / رؤى الفريق بالذكاء الاصطناعي",
     "title": "رؤى الفريق بالذكاء الاصطناعي",
