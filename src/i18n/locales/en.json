@@ -793,7 +793,6 @@
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
     "sarahAdmin": "Sarah Ahmed (Admin)",
-    
     "teamDashboard": "Team Dashboard",
     "taskManagement": "Task Management",
     "submissionReviews": "Submission Reviews",
@@ -1286,5 +1285,124 @@
       "lastReviewDate": "December 2025 • Rating: Meets Expectations (4.2/5.0)",
       "close": "Close"
     }
+  },
+  "managerAI": {
+    "breadcrumb": "MANAGER PORTAL / AI TEAM INSIGHTS",
+    "title": "AI Team Insights",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "skillGapCard": {
+      "eyebrow": "GROUNDED MANAGER INTELLIGENCE",
+      "title": "Team Skill-Gap Breakdown",
+      "description": "Verified delivery and evaluation signals identify coaching opportunities without replacing manager judgment."
+    },
+    "skillGaps": {
+      "systemDesign": "System design",
+      "systemDesignBadge": "2 members need coaching",
+      "systemDesignAction": "Suggested action: Pair on architecture reviews",
+      "mentorship": "Mentorship",
+      "mentorshipBadge": "Low coverage this cycle",
+      "mentorshipAction": "Suggested action: Assign rotating peer mentor",
+      "testStrategy": "Test strategy",
+      "testStrategyBadge": "Opportunity area",
+      "testStrategyAction": "Suggested action: Run a focused QA workshop"
+    },
+    "burnoutCard": {
+      "eyebrow": "WORKLOAD BALANCE",
+      "title": "Burnout Risk Signals",
+      "description": "Review these patterns with your team before taking action. Signals are guidance, not automated decisions."
+    },
+    "burnout": {
+      "high": "High",
+      "watch": "Watch",
+      "balanced": "Balanced",
+      "loadDescription": "{{load}}% sprint load · Suggested check-in"
+    }
+
+    
+  },
+  "managerLeave": {
+  "breadcrumb": "MANAGER PORTAL / TEAM LEAVE APPROVALS",
+  "title": "Team Leave Approvals",
+  "subtitle": "Keep your team aligned, supported, and moving forward.",
+
+  "searchPlaceholder": "Search team members...",
+
+  "filters": {
+    "all": "Status"
+  },
+
+  "roles": {
+    "softwareEngineer": "Software Engineer",
+    "backendDeveloper": "Backend Developer",
+    "qaEngineer": "QA Engineer",
+    "frontendDeveloper": "Frontend Developer"
+  },
+
+  "leaveTypes": {
+    "annual": "Annual",
+    "sick": "Sick",
+    "unpaid": "Unpaid"
+  },
+
+  "reasons": {
+    "familyTrip": "Family trip",
+    "medicalAppointment": "Medical appointment",
+    "personalTime": "Personal time",
+    "personalAppointment": "Personal appointment"
+  },
+
+  "actions": {
+    "approve": "Approve",
+    "reject": "Decline"
+  },
+
+  "empty": {
+    "title": "No leave requests found",
+    "description": "There are no leave requests matching your current search or filter."
   }
+},
+"managerAttendance": {
+  "breadcrumb": "MANAGER PORTAL / TEAM ATTENDANCE",
+  "title": "Team Attendance",
+  "subtitle": "Keep your team aligned, supported, and moving forward.",
+
+  "table": {
+    "member": "Member",
+    "shift": "Shift",
+    "checkInTime": "Check-in Time",
+    "delayMinutes": "Delay Minutes",
+    "verification": "Verification"
+  },
+
+  "minutes": "min",
+  "waived": "Waived",
+  "managerExcuseWaiver": "Employee Excuse Waiver",
+  "waiverApplied": "Waiver Applied",
+
+  "toast": {
+    "success": "Attendance excuse waiver applied for {{member}}."
+  }
+} ,
+"managerPerformanceAnalytics": {
+  "breadcrumb": "MANAGER PORTAL / PERFORMANCE ANALYTICS",
+  "title": "Performance Analytics",
+  "subtitle": "Keep your team aligned, supported, and moving forward.",
+  "departmentCompetencyDistribution": "Department competency distribution",
+  "teamPerformanceIndex": "Team Performance Index",
+
+  "competencies": {
+    "technicalExecution": "Technical execution",
+    "communication": "Communication",
+    "ownership": "Ownership",
+    "mentorship": "Mentorship"
+  },
+
+  "table": {
+    "member": "Member",
+    "velocity": "Velocity",
+    "rating": "Rating"
+  }
+}
+
+  
 }

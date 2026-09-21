@@ -1310,5 +1310,120 @@
       "Training": "التدريب",
       "General": "عام"
     }
+  },
+  "managerAI": {
+    "breadcrumb": "بوابة المدير / رؤى الفريق بالذكاء الاصطناعي",
+    "title": "رؤى الفريق بالذكاء الاصطناعي",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "skillGapCard": {
+      "eyebrow": "ذكاء إداري قائم على البيانات",
+      "title": "تحليل فجوات مهارات الفريق",
+      "description": "تحدد مؤشرات التسليم والتقييم الموثقة فرص التدريب والتطوير دون أن تحل محل قرار المدير."
+    },
+    "skillGaps": {
+      "systemDesign": "تصميم الأنظمة",
+      "systemDesignBadge": "عضوان يحتاجان إلى تدريب",
+      "systemDesignAction": "الإجراء المقترح: العمل بشكل ثنائي في مراجعات هندسة الأنظمة",
+      "mentorship": "الإرشاد والتوجيه",
+      "mentorshipBadge": "تغطية منخفضة خلال هذه الدورة",
+      "mentorshipAction": "الإجراء المقترح: تعيين زميل للتوجيه بالتناوب",
+      "testStrategy": "استراتيجية الاختبار",
+      "testStrategyBadge": "منطقة تحتاج إلى تطوير",
+      "testStrategyAction": "الإجراء المقترح: تنظيم ورشة عمل متخصصة في اختبار الجودة"
+    },
+    "burnoutCard": {
+      "eyebrow": "توازن أعباء العمل",
+      "title": "مؤشرات مخاطر الإرهاق",
+      "description": "راجع هذه المؤشرات مع فريقك قبل اتخاذ أي إجراء. هذه المؤشرات للإرشاد وليست قرارات آلية."
+    },
+    "burnout": {
+      "high": "مرتفع",
+      "watch": "مراقبة",
+      "balanced": "متوازن",
+      "loadDescription": "{{load}}% من حمل الـ Sprint · يُنصح بإجراء متابعة"
+    }
+  },
+  "managerLeave": {
+  "breadcrumb": "بوابة المدير / الموافقات على إجازات الفريق",
+  "title": "الموافقة على إجازات الفريق",
+  "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+
+  "searchPlaceholder": "ابحث عن أعضاء الفريق...",
+
+  "filters": {
+    "all": "الحالة"
+  },
+
+  "roles": {
+    "softwareEngineer": "مهندس برمجيات",
+    "backendDeveloper": "مطور Backend",
+    "qaEngineer": "مهندس اختبار",
+    "frontendDeveloper": "مطور Frontend"
+  },
+
+  "leaveTypes": {
+    "annual": "سنوية",
+    "sick": "مرضية",
+    "unpaid": "غير مدفوعة"
+  },
+
+  "reasons": {
+    "familyTrip": "رحلة عائلية",
+    "medicalAppointment": "موعد طبي",
+    "personalTime": "وقت شخصي",
+    "personalAppointment": "موعد شخصي"
+  },
+
+  "actions": {
+    "approve": "موافقة",
+    "reject": "رفض"
+  },
+
+  "empty": {
+    "title": "لا توجد طلبات إجازات",
+    "description": "لا توجد طلبات إجازات تطابق البحث أو الفلتر الحالي."
   }
+},
+"managerAttendance": {
+  "breadcrumb": "بوابة المدير / حضور الفريق",
+  "title": "حضور الفريق",
+  "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+
+  "table": {
+    "member": "العضو",
+    "shift": "الوردية",
+    "checkInTime": "وقت تسجيل الحضور",
+    "delayMinutes": "دقائق التأخير",
+    "verification": "التحقق"
+  },
+
+  "minutes": "دقيقة",
+  "waived": "تم الإعفاء",
+  "managerExcuseWaiver": "إعفاء الموظف من التأخير",
+  "waiverApplied": "تم تطبيق الإعفاء",
+
+  "toast": {
+    "success": "تم تطبيق إعفاء التأخير للموظف {{member}}."
+  }
+},
+"managerPerformanceAnalytics": {
+  "breadcrumb": "بوابة المدير / تحليلات الأداء",
+  "title": "تحليلات الأداء",
+  "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+  "departmentCompetencyDistribution": "توزيع كفاءات القسم",
+  "teamPerformanceIndex": "مؤشر أداء الفريق",
+
+  "competencies": {
+    "technicalExecution": "التنفيذ التقني",
+    "communication": "التواصل",
+    "ownership": "تحمل المسؤولية",
+    "mentorship": "التوجيه والإرشاد"
+  },
+
+  "table": {
+    "member": "العضو",
+    "velocity": "معدل الأداء",
+    "rating": "التقييم"
+  }
+}
 }
