@@ -367,40 +367,29 @@
     "title": "AI Insights",
     "subtitle": "Explainable HR insights derived from attendance, tasks, and evaluation history.",
     "refreshAnalysis": "Refresh analysis",
-
     "groundedAiPanel": "Grounded AI panel.",
     "groundedAiDescription": "Every signal is linked to verified system metrics, comparison periods, and an explicit recommended action.",
-
     "employeeAttentionSignals": "Employee attention signals",
     "workforceSkillGaps": "Workforce skill gaps",
-
     "highAttention": "High attention",
     "mediumAttention": "Medium attention",
     "lowAttention": "Low attention",
-
     "scheduleHrCheckIn": "Schedule HR Check-in",
-
     "youssefLotfy": "Youssef Lotfy",
     "youssefNote": "Lateness increased 32% vs August",
-
     "karimAshraf": "Karim Ashraf",
     "karimNote": "Task completion down 18% over 2 sprints",
-
     "nourAdel": "Nour Adel",
     "nourNote": "Engagement stable; promotion readiness rising",
-
     "frontendArchitecture": "Frontend Architecture",
     "frontendArchitectureCount": "12 employees",
     "frontendArchitectureSuggestion": "Advanced React systems workshop",
-
     "leadership": "Leadership",
     "leadershipCount": "9 employees",
     "leadershipSuggestion": "Manager coaching cohort",
-
     "dataLiteracy": "Data literacy",
     "dataLiteracyCount": "8 employees",
     "dataLiteracySuggestion": "People analytics fundamentals",
-
     "suggested": "Suggested"
   },
   "policies": {
@@ -775,7 +764,19 @@
         "location": "Enterprise Tower, Innovation District"
       },
       "copyright": "© 2026 WiseWork. All rights reserved."
-    }
+    },
+    "ticker": [
+      "Centralized Workforce Data",
+      "Automated Shift Scheduling",
+      "One-Click Leave Workflows",
+      "Real-Time Performance KPIs",
+      "100% Audit-Ready Compliance",
+      "GPS Geofencing Attendance",
+      "AI Career & Talent Insights",
+      "Live Payroll Reconciliation",
+      "Workforce Skill-Gap Analytics",
+      "Enterprise Role Governance"
+    ]
   },
   "portal": {
     "holidays": "Holidays & Seasons",
@@ -1711,34 +1712,24 @@
     "eyebrow": "HR GOVERNANCE",
     "title": "Official HR Governance & Policies",
     "subtitle": "Controlled policy documents with synchronized ownership and audit history.",
-
     "aiSynced": "AI Synced",
-
     "effectiveDate": "Effective date",
     "document": "Document",
-
     "editDocument": "Edit Document",
     "downloadPdf": "Download PDF",
-
     "addPolicyDocument": "Add Policy Document",
     "editPolicyDocument": "Edit Policy Document",
-
     "policyTitle": "Policy title",
     "policyTitlePlaceholder": "Policy title",
-
     "effectiveDateLabel": "Effective date",
     "effectiveDatePlaceholder": "Effective date",
-
     "owner": "Owner",
     "ownerPlaceholder": "Owner",
-
     "cancel": "Cancel",
     "saveChanges": "Save Changes",
-
     "version": "Version",
     "active": "Active",
     "draft": "Draft",
-
     "policies": {
       "punctuality": {
         "title": "Punctuality & Shift Regulations",
@@ -1759,7 +1750,6 @@
         "version": "Version 1.2 · Active"
       }
     },
-
     "ownedBy": "Owned by {{owner}}.",
     "emptyDate": "—",
     "newVersion": "Version 1.0 · Draft"
@@ -1768,25 +1758,20 @@
     "title": "Holidays & Seasons",
     "subtitle": "Plan coverage around official closures and operational demand.",
     "scheduleHoliday": "Schedule Company Holiday",
-
     "peakAlert": {
       "title": "Upcoming Operational Peak Alerts",
       "description": "Seasonal Peak: Ramadan & Q4 Surge starting in 25 days. Recommendation: Review shift schedules and prepare temp staffing."
     },
-
     "calendarTitle": "Official Company Holidays Calendar",
-
     "table": {
       "holidayName": "Holiday Name",
       "dateRange": "Date Range",
       "totalDays": "Total Days Off",
       "status": "Status"
     },
-
     "status": {
       "activeOfficialLeave": "Active Official Leave"
     },
-
     "items": {
       "eidAlFitr": {
         "name": "Eid Al-Fitr"
@@ -1798,10 +1783,8 @@
         "name": "New Year's Day"
       }
     },
-
     "threeDays": "3 days",
     "oneDay": "1 day",
-
     "modal": {
       "title": "Schedule Company Holiday",
       "close": "Close",
