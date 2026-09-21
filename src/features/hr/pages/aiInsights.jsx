@@ -1,257 +1,359 @@
-// import { Sparkles, ShieldCheck } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Sparkles, ShieldCheck } from "lucide-react";
 
-// // =====================================================
-// // DATA
-// // =====================================================
+// =====================================================
+// SMART HR BRAND TOKENS
+// -----------------------------------------------------
+// Primary   Deep Navy    #243B53
+// Secondary Steel Blue   #486581
+// Accent    Muted Green  #5B8C6A
+// Background Warm Gray   #F5F7F8
+// Surface   White        #FFFFFF
+// Text      Charcoal     #202B33
+// Muted     Gray         #6B7785
+// Border    Light Gray   #D9E2EC
+// Success   Green        #3F7D5A
+// Warning   Ochre        #C58B2A
+// Error     Brick Red    #B44A4A
+//
+// Headings: Manrope · Body/UI: Inter
+// =====================================================
 
-// const attentionSignals = [
-//   {
-//     name: "Youssef Lotfy",
-//     note: "Lateness increased 32% vs August",
-//     level: "high",
-//     levelLabel: "High attention",
-//   },
-//   {
-//     name: "Karim Ashraf",
-//     note: "Task completion down 18% over 2 sprints",
-//     level: "medium",
-//     levelLabel: "Medium attention",
-//   },
-//   {
-//     name: "Nour Adel",
-//     note: "Engagement stable; promotion readiness rising",
-//     level: "low",
-//     levelLabel: "Low attention",
-//   },
-// ];
+// =====================================================
+// STYLES
+// =====================================================
 
-// const skillGaps = [
-//   {
-//     title: "Frontend Architecture",
-//     count: "12 employees",
-//     suggestion: "Advanced React systems workshop",
-//   },
-//   {
-//     title: "Leadership",
-//     count: "9 employees",
-//     suggestion: "Manager coaching cohort",
-//   },
-//   {
-//     title: "Data literacy",
-//     count: "8 employees",
-//     suggestion: "People analytics fundamentals",
-//   },
-// ];
+const levelStyles = {
+  high: "bg-[#B44A4A]/10 text-[#B44A4A]",
+  medium: "bg-[#C58B2A]/10 text-[#C58B2A]",
+  low: "bg-[#3F7D5A]/10 text-[#3F7D5A]",
+};
 
-// // =====================================================
-// // STYLES
-// // =====================================================
+// =====================================================
+// ATTENTION CARD
+// =====================================================
 
-// const levelStyles = {
-//   high: "bg-rose-50 text-rose-600",
-//   medium: "bg-amber-50 text-amber-700",
-//   low: "bg-emerald-50 text-emerald-600",
-// };
+function AttentionCard({ item, isLast }) {
+  return (
+    <div className={`px-6 py-5 ${!isLast ? "border-b border-[#D9E2EC]" : ""}`}>
+      <div className="flex items-start justify-between gap-4">
+        <h3 className="text-[15px] font-semibold text-[#202B33]">
+          {item.name}
+        </h3>
 
-// // =====================================================
-// // ATTENTION CARD
-// // =====================================================
+        <span
+          className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${
+            levelStyles[item.level]
+          }`}
+        >
+          {item.levelLabel}
+        </span>
+      </div>
 
-// function AttentionCard({ item, isLast }) {
-//   return (
-//     <div className={`px-6 py-5 ${!isLast ? "border-b border-gray-100" : ""}`}>
-//       <div className="flex items-start justify-between gap-4">
-//         <h3 className="text-[15px] font-semibold text-gray-900">{item.name}</h3>
+      <p className="mt-1 text-sm text-[#486581]">{item.note}</p>
 
-//         <span
-//           className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${
-//             levelStyles[item.level]
-//           }`}
-//         >
-//           {item.levelLabel}
-//         </span>
-//       </div>
+      <button
+        type="button"
+        className="
+          mt-3
+          rounded-md
+          border
+          border-[#D9E2EC]
+          px-3
+          py-1.5
+          text-sm
+          font-medium
+          text-[#202B33]
+          transition-all
+          duration-300
+          hover:-translate-y-[1px]
+          hover:bg-[#F5F7F8]
+          hover:shadow-sm
+          active:translate-y-0
+        "
+      >
+        {item.checkInLabel}
+      </button>
+    </div>
+  );
+}
 
-//       <p className="mt-1 text-sm text-blue-600">{item.note}</p>
+// =====================================================
+// SKILL GAP ROW
+// =====================================================
 
-//       <button
-//         type="button"
-//         className="mt-3 rounded-md border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-//       >
-//         Schedule HR Check-in
-//       </button>
-//     </div>
-//   );
-// }
+function SkillGapRow({ item, isLast }) {
+  return (
+    <div className={`px-6 py-5 ${!isLast ? "border-b border-[#D9E2EC]" : ""}`}>
+      <h3 className="text-[15px] font-semibold text-[#202B33]">{item.title}</h3>
 
-// // =====================================================
-// // SKILL GAP ROW
-// // =====================================================
+      <p className="mt-1 text-sm text-[#6B7785]">
+        {item.count} · {item.suggested} {item.suggestion}
+      </p>
+    </div>
+  );
+}
 
-// function SkillGapRow({ item, isLast }) {
-//   return (
-//     <div className={`px-6 py-5 ${!isLast ? "border-b border-gray-100" : ""}`}>
-//       <h3 className="text-[15px] font-semibold text-gray-900">{item.title}</h3>
-
-//       <p className="mt-1 text-sm text-gray-500">
-//         {item.count} · Suggested: {item.suggestion}
-//       </p>
-//     </div>
-//   );
-// }
-
-// // =====================================================
-// // AI INSIGHTS PAGE
-// // =====================================================
-
-// export default function AIInsights() {
-//   return (
-//     <div className="min-h-screen bg-gray-50">
-//       {/* =================================================
-//           PAGE CONTENT
-//       ================================================= */}
-
-//       <main className="px-5 py-6 lg:px-8">
-//         <div className="mx-auto max-w-[1220px]">
-//           {/* =================================================
-//               HEADER
-//           ================================================= */}
-
-//           <div className="mb-6 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-//             <div>
-//               <h1 className="text-[30px] font-semibold leading-tight tracking-[-0.02em] text-gray-900">
-//                 AI Insights
-//               </h1>
-
-//               <p className="mt-2 max-w-[680px] text-[14px] leading-6 text-gray-500">
-//                 Explainable HR insights derived from attendance, tasks, and
-//                 evaluation history.
-//               </p>
-//             </div>
-
-//             {/* Refresh Analysis */}
-
-//             <button
-//               type="button"
-//               className="
-//                 group flex h-[46px] items-center justify-center gap-2
-//                 rounded-[7px]
-//                 bg-[#243b53]
-//                 px-5
-//                 text-[13px] font-semibold text-white
-//                 shadow-sm
-//                 transition-all duration-300 ease-out
-//                 hover:-translate-y-[2px]
-//                 hover:bg-[#1f4d48]
-//                 hover:shadow-[0_8px_20px_rgba(36,59,83,0.20)]
-//                 active:translate-y-0
-//                 active:scale-[0.98]
-//               "
-//             >
-//               <Sparkles
-//                 size={17}
-//                 strokeWidth={2}
-//                 className="
-//                   transition-transform
-//                   duration-300
-//                   group-hover:rotate-12
-//                   group-hover:scale-110
-//                 "
-//               />
-
-//               <span className="transition-transform duration-300 group-hover:translate-x-[1px]">
-//                 Refresh analysis
-//               </span>
-//             </button>
-//           </div>
-
-//           {/* =================================================
-//               GROUNDED AI BANNER
-//           ================================================= */}
-
-//           <div className="mb-6 flex items-start gap-3 rounded-[10px] border border-emerald-100 bg-emerald-50 px-5 py-4">
-//             <ShieldCheck
-//               size={20}
-//               strokeWidth={2}
-//               className="mt-0.5 shrink-0 text-emerald-600"
-//             />
-
-//             <p className="text-[13px] leading-6 text-gray-700">
-//               <span className="font-semibold text-gray-900">
-//                 Grounded AI panel.
-//               </span>{" "}
-//               Every signal is linked to verified system metrics, comparison
-//               periods, and an explicit recommended action.
-//             </p>
-//           </div>
-
-//           {/* =================================================
-//               TWO COLUMN PANELS
-//           ================================================= */}
-
-//           <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-//             {/* =================================================
-//                 EMPLOYEE ATTENTION SIGNALS
-//             ================================================= */}
-
-//             <section className="overflow-hidden rounded-[10px] border border-[#d9e2ec] bg-white shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
-//               {/* Card Header */}
-
-//               <div className="flex min-h-[59px] items-center justify-between border-b border-[#e6edf2] px-5">
-//                 <h2 className="text-[15px] font-semibold text-[#243b53]">
-//                   Employee attention signals
-//                 </h2>
-//               </div>
-
-//               {/* Signals */}
-
-//               <div>
-//                 {attentionSignals.map((item, index) => (
-//                   <AttentionCard
-//                     key={item.name}
-//                     item={item}
-//                     isLast={index === attentionSignals.length - 1}
-//                   />
-//                 ))}
-//               </div>
-//             </section>
-
-//             {/* =================================================
-//                 WORKFORCE SKILL GAPS
-//             ================================================= */}
-
-//             <section className="overflow-hidden rounded-[10px] border border-[#d9e2ec] bg-white shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
-//               {/* Card Header */}
-
-//               <div className="flex min-h-[59px] items-center justify-between border-b border-[#e6edf2] px-5">
-//                 <h2 className="text-[15px] font-semibold text-[#243b53]">
-//                   Workforce skill gaps
-//                 </h2>
-//               </div>
-
-//               {/* Skill Gaps */}
-
-//               <div>
-//                 {skillGaps.map((item, index) => (
-//                   <SkillGapRow
-//                     key={item.title}
-//                     item={item}
-//                     isLast={index === skillGaps.length - 1}
-//                   />
-//                 ))}
-//               </div>
-//             </section>
-//           </div>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// }
+// =====================================================
+// AI INSIGHTS PAGE
+// =====================================================
 
 export default function AIInsights() {
+  const { t } = useTranslation();
+
+  // ===================================================
+  // DATA — TRANSLATED
+  // ===================================================
+
+  const attentionSignals = [
+    {
+      name: t("aiInsights.youssefLotfy"),
+      note: t("aiInsights.youssefNote"),
+      level: "high",
+      levelLabel: t("aiInsights.highAttention"),
+      checkInLabel: t("aiInsights.scheduleHrCheckIn"),
+    },
+    {
+      name: t("aiInsights.karimAshraf"),
+      note: t("aiInsights.karimNote"),
+      level: "medium",
+      levelLabel: t("aiInsights.mediumAttention"),
+      checkInLabel: t("aiInsights.scheduleHrCheckIn"),
+    },
+    {
+      name: t("aiInsights.nourAdel"),
+      note: t("aiInsights.nourNote"),
+      level: "low",
+      levelLabel: t("aiInsights.lowAttention"),
+      checkInLabel: t("aiInsights.scheduleHrCheckIn"),
+    },
+  ];
+
+  const skillGaps = [
+    {
+      title: t("aiInsights.frontendArchitecture"),
+      count: t("aiInsights.frontendArchitectureCount"),
+      suggestion: t("aiInsights.frontendArchitectureSuggestion"),
+    },
+    {
+      title: t("aiInsights.leadership"),
+      count: t("aiInsights.leadershipCount"),
+      suggestion: t("aiInsights.leadershipSuggestion"),
+    },
+    {
+      title: t("aiInsights.dataLiteracy"),
+      count: t("aiInsights.dataLiteracyCount"),
+      suggestion: t("aiInsights.dataLiteracySuggestion"),
+    },
+  ];
+
+  // ===================================================
+  // PAGE
+  // ===================================================
+
   return (
-    <div>
-      <h1>AI Insights</h1>
+    <div className="min-h-screen bg-[#F5F7F8]">
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <div>
+          <h1
+            className="
+              font-['Manrope']
+              text-2xl
+              font-bold
+              text-[#202B33]
+            "
+          >
+            {t("aiInsights.title")}
+          </h1>
+
+          <p className="mt-1 text-sm text-[#6B7785]">
+            {t("aiInsights.subtitle")}
+          </p>
+        </div>
+
+        {/* REFRESH ANALYSIS BUTTON */}
+
+        <button
+          type="button"
+          className="
+            group
+            flex
+            items-center
+            gap-2
+            rounded-lg
+            bg-[#243B53]
+            px-4
+            py-2.5
+            text-sm
+            font-medium
+            text-white
+            shadow-sm
+            transition-all
+            duration-300
+            ease-out
+            hover:-translate-y-[2px]
+            hover:bg-[#1c2f43]
+            hover:shadow-[0_8px_20px_rgba(36,59,83,0.20)]
+            active:translate-y-0
+            active:scale-[0.98]
+          "
+        >
+          <Sparkles
+            className="
+              h-4
+              w-4
+              transition-all
+              duration-500
+              ease-out
+              group-hover:rotate-12
+              group-hover:scale-110
+            "
+          />
+
+          <span
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-[1px]
+            "
+          >
+            {t("aiInsights.refreshAnalysis")}
+          </span>
+        </button>
+      </div>
+
+      {/* =================================================
+          GROUNDED AI BANNER
+      ================================================= */}
+
+      <div
+        className="
+          mb-6
+          flex
+          items-center
+          gap-3
+          rounded-lg
+          border
+          border-[#5B8C6A]/25
+          bg-[#5B8C6A]/10
+          px-5
+          py-4
+        "
+      >
+        <ShieldCheck
+          className="
+            h-5
+            w-5
+            shrink-0
+            text-[#5B8C6A]
+          "
+        />
+
+        <p className="text-sm text-[#202B33]/90">
+          <span className="font-semibold text-[#202B33]">
+            {t("aiInsights.groundedAiPanel")}
+          </span>{" "}
+          {t("aiInsights.groundedAiDescription")}
+        </p>
+      </div>
+
+      {/* =================================================
+          TWO COLUMN PANELS
+      ================================================= */}
+
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* =================================================
+            EMPLOYEE ATTENTION SIGNALS
+        ================================================= */}
+
+        <div
+          className="
+            overflow-hidden
+            rounded-xl
+            border
+            border-[#D9E2EC]
+            bg-white
+          "
+        >
+          <div
+            className="
+              border-b
+              border-[#D9E2EC]
+              px-6
+              py-4
+            "
+          >
+            <h2
+              className="
+                font-['Manrope']
+                text-[15px]
+                font-semibold
+                text-[#202B33]
+              "
+            >
+              {t("aiInsights.employeeAttentionSignals")}
+            </h2>
+          </div>
+
+          <div>
+            {attentionSignals.map((item, index) => (
+              <AttentionCard
+                key={item.name}
+                item={item}
+                isLast={index === attentionSignals.length - 1}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* =================================================
+            WORKFORCE SKILL GAPS
+        ================================================= */}
+
+        <div
+          className="
+            overflow-hidden
+            rounded-xl
+            border
+            border-[#D9E2EC]
+            bg-white
+          "
+        >
+          <div
+            className="
+              border-b
+              border-[#D9E2EC]
+              px-6
+              py-4
+            "
+          >
+            <h2
+              className="
+                font-['Manrope']
+                text-[15px]
+                font-semibold
+                text-[#202B33]
+              "
+            >
+              {t("aiInsights.workforceSkillGaps")}
+            </h2>
+          </div>
+
+          <div>
+            {skillGaps.map((item, index) => (
+              <SkillGapRow
+                key={item.title}
+                item={item}
+                isLast={index === skillGaps.length - 1}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

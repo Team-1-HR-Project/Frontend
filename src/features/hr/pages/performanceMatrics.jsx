@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -12,10 +14,38 @@ import {
 
 import { LuSparkles } from "react-icons/lu";
 
+// =====================================================
+// PERFORMANCE METRICS
+// =====================================================
+
 const PerformanceMetrics = () => {
+  const navigate = useNavigate();
+
   const { t, i18n } = useTranslation();
 
   const isArabic = i18n.language === "ar";
+
+  // =====================================================
+  // STATE
+  // =====================================================
+
+  const [progressStarted, setProgressStarted] = useState(false);
+
+  // =====================================================
+  // PROGRESS ANIMATION
+  // =====================================================
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProgressStarted(true);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // =====================================================
+  // DATA
+  // =====================================================
 
   const attentionSignals = [
     {
@@ -58,6 +88,10 @@ const PerformanceMetrics = () => {
     },
   ];
 
+  // =====================================================
+  // HELPERS
+  // =====================================================
+
   const getLevelStyles = (level) => {
     switch (level) {
       case "high":
@@ -93,6 +127,10 @@ const PerformanceMetrics = () => {
     }
   };
 
+  // =====================================================
+  // PAGE
+  // =====================================================
+
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
@@ -126,23 +164,27 @@ const PerformanceMetrics = () => {
               </p>
             </div>
 
-            {/* Explain Today */}
+            {/* =================================================
+                EXPLAIN TODAY BUTTON
+            ================================================= */}
+
             <button
               type="button"
+              onClick={() => navigate("/hr/ai-insights")}
               className="
-    group flex h-[46px] items-center justify-center gap-2
-    rounded-[7px]
-    bg-[#243b53]
-    px-5
-    text-[13px] font-semibold text-white
-    shadow-sm
-    transition-all duration-300 ease-out
-    hover:-translate-y-[2px]
-    hover:bg-[#1f4d48]
-    hover:shadow-[0_8px_20px_rgba(36,59,83,0.20)]
-    active:translate-y-0
-    active:scale-[0.98]
-  "
+                group flex h-[46px] items-center justify-center gap-2
+                rounded-[7px]
+                bg-[#243b53]
+                px-5
+                text-[13px] font-semibold text-white
+                shadow-sm
+                transition-all duration-300 ease-out
+                hover:-translate-y-[2px]
+                hover:bg-[#1f4d48]
+                hover:shadow-[0_8px_20px_rgba(36,59,83,0.20)]
+                active:translate-y-0
+                active:scale-[0.98]
+              "
             >
               <LuSparkles
                 size={17}
@@ -161,7 +203,10 @@ const PerformanceMetrics = () => {
           ================================================= */}
 
           <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 xl:grid-cols-4">
-            {/* Total Employees */}
+            {/* =================================================
+                TOTAL EMPLOYEES
+            ================================================= */}
+
             <div className="min-h-[152px] rounded-[10px] border border-[#d9e2ec] bg-white p-5 shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6b7785]">
@@ -183,7 +228,10 @@ const PerformanceMetrics = () => {
               </div>
             </div>
 
-            {/* Present Today */}
+            {/* =================================================
+                PRESENT TODAY
+            ================================================= */}
+
             <div className="min-h-[152px] rounded-[10px] border border-[#d9e2ec] bg-white p-5 shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6b7785]">
@@ -204,7 +252,10 @@ const PerformanceMetrics = () => {
               </div>
             </div>
 
-            {/* Pending Reviews */}
+            {/* =================================================
+                PENDING REVIEWS
+            ================================================= */}
+
             <div className="min-h-[152px] rounded-[10px] border border-[#d9e2ec] bg-white p-5 shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6b7785]">
@@ -227,7 +278,10 @@ const PerformanceMetrics = () => {
               </div>
             </div>
 
-            {/* Projected Payroll */}
+            {/* =================================================
+                PROJECTED PAYROLL
+            ================================================= */}
+
             <div className="min-h-[152px] rounded-[10px] border border-[#d9e2ec] bg-white p-5 shadow-[0_1px_2px_rgba(36,59,83,0.03)]">
               <div className="mb-4 flex items-center justify-between">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-[#6b7785]">
@@ -345,8 +399,14 @@ const PerformanceMetrics = () => {
 
               {/* Progress Items */}
               <div className="space-y-5 px-5 py-5">
-                {readinessItems.map((item) => (
-                  <div key={item.label}>
+                {readinessItems.map((item, index) => (
+                  <div
+                    key={item.label}
+                    className="animate-[fadeInUp_0.5s_ease-out_both]"
+                    style={{
+                      animationDelay: `${index * 120}ms`,
+                    }}
+                  >
                     <div className="mb-2 flex items-center justify-between gap-3">
                       <span className="text-[11px] font-medium text-[#486581]">
                         {item.label}
@@ -359,11 +419,12 @@ const PerformanceMetrics = () => {
 
                     <div className="h-[7px] overflow-hidden rounded-full bg-[#e5ebf0]">
                       <div
-                        className={`h-full rounded-full transition-all duration-500 ${getProgressColor(
+                        className={`h-full rounded-full transition-all duration-[1200ms] ease-out ${getProgressColor(
                           item.type,
                         )}`}
                         style={{
-                          width: `${item.value}%`,
+                          width: progressStarted ? `${item.value}%` : "0%",
+                          transitionDelay: `${index * 120}ms`,
                         }}
                       />
                     </div>
@@ -374,6 +435,26 @@ const PerformanceMetrics = () => {
           </div>
         </div>
       </main>
+
+      {/* =====================================================
+          PAGE ANIMATION
+      ===================================================== */}
+
+      <style>
+        {`
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(8px);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
