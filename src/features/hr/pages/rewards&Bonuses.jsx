@@ -6,11 +6,14 @@ export default function RewardsAndBonuses() {
     const currentLang = i18n.language || 'en';
     const isArabic = currentLang === 'ar';
 
-    // حالات التحكم في المودال وشاشة النجاح
+    // حالات التحكم في المودال وشاشة النجاح وحقول الإدخال الأربعة
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
-    const [incentiveName, setIncentiveName] = useState('');
-    const [incentiveAmount, setIncentiveAmount] = useState('');
+    
+    const [employee, setEmployee] = useState('');
+    const [incentiveCategory, setIncentiveCategory] = useState('');
+    const [amount, setAmount] = useState('');
+    const [reason, setReason] = useState('');
 
     // النصوص لدعم اللغتين
     const content = {
@@ -40,12 +43,16 @@ export default function RewardsAndBonuses() {
             eidReward: "Seasonal Eid Reward",
             statusQueued: "Queued for Payroll",
             statusPaid: "Paid",
-            // Modal texts
+            // Modal texts مطابقة تماماً للصورة الأخيرة
             modalTitle: "Issue Employee Incentive",
-            nameLabel: "Employee Name",
-            namePlaceholder: "Enter employee name",
-            amountLabel: "Amount",
-            amountPlaceholder: "Enter amount",
+            labelEmployee: "Employee",
+            placeholderEmployee: "Employee",
+            labelCategory: "Incentive category",
+            placeholderCategory: "Incentive category",
+            labelAmount: "Amount",
+            placeholderAmount: "Amount",
+            labelReason: "Reason",
+            placeholderReason: "Reason",
             cancelBtn: "Cancel",
             saveBtn: "Save changes",
             successTitle: "Incentive issued successfully",
@@ -79,10 +86,14 @@ export default function RewardsAndBonuses() {
             statusPaid: "مدفوع",
             // Modal texts
             modalTitle: "إصدار حافز للموظف",
-            nameLabel: "اسم الموظف",
-            namePlaceholder: "أدخل اسم الموظف",
-            amountLabel: "المبلغ",
-            amountPlaceholder: "أدخل المبلغ",
+            labelEmployee: "الموظف",
+            placeholderEmployee: "الموظف",
+            labelCategory: "فئة الحافز",
+            placeholderCategory: "فئة الحافز",
+            labelAmount: "المبلغ",
+            placeholderAmount: "المبلغ",
+            labelReason: "السبب",
+            placeholderReason: "السبب",
             cancelBtn: "إلغاء",
             saveBtn: "حفظ التغييرات",
             successTitle: "تم إصدار الحافز بنجاح",
@@ -94,15 +105,17 @@ export default function RewardsAndBonuses() {
 
     const handleSave = (e) => {
         e.preventDefault();
-        console.log({ incentiveName, incentiveAmount });
+        console.log({ employee, incentiveCategory, amount, reason });
         setIsSuccess(true);
     };
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setIsSuccess(false);
-        setIncentiveName('');
-        setIncentiveAmount('');
+        setEmployee('');
+        setIncentiveCategory('');
+        setAmount('');
+        setReason('');
     };
 
     return (
@@ -271,7 +284,7 @@ export default function RewardsAndBonuses() {
                 </div>
             </div>
 
-            {/* Modal / Popup Form & Success View */}
+            {/* Modal / Popup Form & Success View (الأربع حقول المطلوبة مطابقة للصورة تماماً) */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4">
                     <div className="bg-white rounded-3xl shadow-xl border border-slate-100 w-full max-w-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
@@ -291,30 +304,61 @@ export default function RewardsAndBonuses() {
                                     </button>
                                 </div>
 
-                                {/* Modal Body Form */}
-                                <form onSubmit={handleSave} className="p-8 space-y-6">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {/* Modal Body Form - الأربع حقول بجانب بعضها بشكل متناسق */}
+                                <form onSubmit={handleSave} className="p-8 space-y-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        {/* الحقل الأول: Employee */}
                                         <div>
                                             <label className="block text-xs font-semibold text-[#1b2a47] uppercase tracking-wider mb-2">
-                                                {t.nameLabel}
+                                                {t.labelEmployee}
                                             </label>
                                             <input 
                                                 type="text" 
-                                                value={incentiveName}
-                                                onChange={(e) => setIncentiveName(e.target.value)}
-                                                placeholder={t.namePlaceholder}
+                                                value={employee}
+                                                onChange={(e) => setEmployee(e.target.value)}
+                                                placeholder={t.placeholderEmployee}
                                                 className="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:border-[#1b2a47] focus:ring-1 focus:ring-[#1b2a47] outline-none text-slate-700 text-sm transition-all placeholder:text-slate-400"
                                             />
                                         </div>
+
+                                        {/* الحقل الثاني: Incentive category */}
                                         <div>
                                             <label className="block text-xs font-semibold text-[#1b2a47] uppercase tracking-wider mb-2">
-                                                {t.amountLabel}
+                                                {t.labelCategory}
                                             </label>
                                             <input 
                                                 type="text" 
-                                                value={incentiveAmount}
-                                                onChange={(e) => setIncentiveAmount(e.target.value)}
-                                                placeholder={t.amountPlaceholder}
+                                                value={incentiveCategory}
+                                                onChange={(e) => setIncentiveCategory(e.target.value)}
+                                                placeholder={t.placeholderCategory}
+                                                className="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:border-[#1b2a47] focus:ring-1 focus:ring-[#1b2a47] outline-none text-slate-700 text-sm transition-all placeholder:text-slate-400"
+                                            />
+                                        </div>
+
+                                        {/* الحقل الثالث: Amount */}
+                                        <div>
+                                            <label className="block text-xs font-semibold text-[#1b2a47] uppercase tracking-wider mb-2">
+                                                {t.labelAmount}
+                                            </label>
+                                            <input 
+                                                type="text" 
+                                                value={amount}
+                                                onChange={(e) => setAmount(e.target.value)}
+                                                placeholder={t.placeholderAmount}
+                                                className="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:border-[#1b2a47] focus:ring-1 focus:ring-[#1b2a47] outline-none text-slate-700 text-sm transition-all placeholder:text-slate-400"
+                                            />
+                                        </div>
+
+                                        {/* الحقل الرابع: Reason */}
+                                        <div>
+                                            <label className="block text-xs font-semibold text-[#1b2a47] uppercase tracking-wider mb-2">
+                                                {t.labelReason}
+                                            </label>
+                                            <input 
+                                                type="text" 
+                                                value={reason}
+                                                onChange={(e) => setReason(e.target.value)}
+                                                placeholder={t.placeholderReason}
                                                 className="w-full px-4 py-3 rounded-2xl border border-slate-200 focus:border-[#1b2a47] focus:ring-1 focus:ring-[#1b2a47] outline-none text-slate-700 text-sm transition-all placeholder:text-slate-400"
                                             />
                                         </div>
