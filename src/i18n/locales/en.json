@@ -703,6 +703,12 @@
     }
   },
   "portal": {
+    "departmentsTeams": "Departments & Teams",
+    "attendance": "Attendance",
+    "leaveRequests": "Leave Requests",
+    "advancesDeductions": "Advances & Deductions",
+    "rewardsBonuses": "Rewards & Bonuses",
+
     "searchPlaceholder": "Search tasks, policies, calendar...",
     "employeePortal": "EMPLOYEE PORTAL",
     "hrPortal": "HR PORTAL",
@@ -829,6 +835,10 @@
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
     "sarahAdmin": "Sarah Ahmed (Admin)",
+<<<<<<< HEAD
+=======
+
+>>>>>>> 95e2e299f2d11184515c29017df94be10b448c0b
     "teamDashboard": "Team Dashboard",
     "taskManagement": "Task Management",
     "submissionReviews": "Submission Reviews",
