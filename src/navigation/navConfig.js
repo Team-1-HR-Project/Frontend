@@ -151,6 +151,18 @@ export const navConfig = {
       icon: LuSparkles,
     },
     {
+      titleKey: "portal.companyPolicies",
+      title: "Company Policies",
+      path: "/hr/company-policies",
+      icon: FiBookOpen,
+    },
+    {
+      titleKey: "portal.holidays",
+      title: "Holidays & Seasons",
+      path: "/hr/holidays",
+      icon: MdEventAvailable,
+    },
+    {
       titleKey: "portal.notifications",
       path: "/hr/notifications",
       icon: MdNotifications,

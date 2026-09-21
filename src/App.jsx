@@ -44,7 +44,6 @@ import TeamLeaveApprovals from "./features/manager/pages/TeamLeaveApprovals";
 import AITeamInsights from "./features/manager/pages/AITeamInsights";
 
 // ==================== HR Pages ====================
-
 import HrDashboard from "./features/hr/pages/hrDashboard";
 import HrAttendance from "./features/hr/pages/attendance";
 import HrAdvances from "./features/hr/pages/advances&Deductions";
@@ -56,6 +55,8 @@ import HrRewards from "./features/hr/pages/rewards&Bonuses";
 import HrEvaluationsGoals from "./features/hr/pages/evaluations&goals";
 import PerformanceMetrics from "./features/hr/pages/performanceMatrics";
 import AIInsights from "./features/hr/pages/aiInsights";
+import HrCompanyPolicies from "./features/hr/pages/companyPolicies";
+import Holidays from "./features/hr/pages/holidays";
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -120,6 +121,7 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/VerifyOTP" element={<VerifyOTP />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
+
         <Route
           path="/password-reset-success"
           element={<PasswordResetSuccess />}
@@ -128,7 +130,7 @@ function App() {
         {/* ==================== Dashboard Layout ==================== */}
         <Route element={<DashboardLayout />}>
           {/* ================================================== */}
-          {/* ==================== ADMIN ====================== */}
+          {/* ==================== ADMIN ======================= */}
           {/* ================================================== */}
 
           <Route
@@ -195,7 +197,7 @@ function App() {
             element={<HrEvaluationsGoals />}
           />
 
-          {/* HR Performance*/}
+          {/* HR Performance Metrics */}
           <Route
             path="/hr/performance-metrics"
             element={<PerformanceMetrics />}
@@ -203,6 +205,12 @@ function App() {
 
           {/* HR AI Insights */}
           <Route path="/hr/ai-insights" element={<AIInsights />} />
+
+          {/* HR Company Policies */}
+          <Route path="/hr/company-policies" element={<HrCompanyPolicies />} />
+
+          {/* HR Holidays & Seasons */}
+          <Route path="/hr/holidays" element={<Holidays />} />
 
           {/* HR Notifications */}
           <Route path="/hr/notifications" element={<Notification />} />
@@ -286,6 +294,7 @@ function App() {
 
           <Route path="/employee/notifications" element={<Notification />} />
 
+          {/* Employee Company Policies */}
           <Route path="/employee/policies" element={<CompanyPolicies />} />
 
           <Route
