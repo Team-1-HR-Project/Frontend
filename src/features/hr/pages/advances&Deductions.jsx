@@ -1,5 +1,5 @@
-const Advances = () => {
-  return <div>advances&Deductions</div>;
+const AdvancesDeductions = () => {
+  return null;
 };
 
-export default Advances;
+export default AdvancesDeductions;

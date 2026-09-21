@@ -44,8 +44,7 @@ import TeamLeaveApprovals from "./features/manager/pages/TeamLeaveApprovals";
 import AITeamInsights from "./features/manager/pages/AITeamInsights";
 
 // ==================== HR Pages ====================
-// IMPORTANT:
-// These imports assume each HR page uses: export default Component;
+
 import HrDashboard from "./features/hr/pages/hrDashboard";
 import HrAttendance from "./features/hr/pages/attendance";
 import HrAdvances from "./features/hr/pages/advances&Deductions";
@@ -54,7 +53,9 @@ import HrEmployees from "./features/hr/pages/employees";
 import HrLeaveRequests from "./features/hr/pages/leaveRequests";
 import HrPayroll from "./features/hr/pages/payroll";
 import HrRewards from "./features/hr/pages/rewards&Bonuses";
-
+import HrEvaluationsGoals from "./features/hr/pages/evaluations&goals";
+import PerformanceMetrics from "./features/hr/pages/performanceMatrics";
+import AIInsights from "./features/hr/pages/aiInsights";
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -187,6 +188,21 @@ function App() {
 
           {/* HR Rewards & Bonuses */}
           <Route path="/hr/rewards" element={<HrRewards />} />
+
+          {/* HR Evaluations & Goals */}
+          <Route
+            path="/hr/evaluations-goals"
+            element={<HrEvaluationsGoals />}
+          />
+
+          {/* HR Performance*/}
+          <Route
+            path="/hr/performance-metrics"
+            element={<PerformanceMetrics />}
+          />
+
+          {/* HR AI Insights */}
+          <Route path="/hr/ai-insights" element={<AIInsights />} />
 
           {/* HR Notifications */}
           <Route path="/hr/notifications" element={<Notification />} />

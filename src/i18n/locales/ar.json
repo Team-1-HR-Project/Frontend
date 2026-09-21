@@ -692,6 +692,8 @@
     }
   },
   "portal": {
+    "performanceMetrics": "مؤشرات الأداء",
+    "evaluationsGoals": "التقييمات والأهداف",
     "departmentsTeams": "الأقسام والفرق",
     "attendance": "الحضور والانصراف",
     "leaveRequests": "طلبات الإجازات",
@@ -1315,5 +1317,96 @@
       "Training": "التدريب",
       "General": "عام"
     }
+  },
+  "hrEvaluationsGoals": {
+    "eyebrow": "إدارة الأداء",
+    "title": "التقييمات والأهداف",
+    "subtitle": "إدارة دورات التقييم ومتابعة التزام المديرين بإكمال التقييمات.",
+    "launchReviewCycle": "بدء دورة تقييم",
+
+    "activeCycle": "الدورة الحالية",
+    "activeCycleTitle": "تقييم الأداء للربع الثالث 2026",
+    "activeCycleDate": "15 سبتمبر – 15 أكتوبر 2026",
+    "employees": "الموظفون",
+    "managers": "المديرون",
+    "completion": "نسبة الإكمال",
+    "completed": "مكتمل",
+    "pending": "قيد الانتظار",
+    "overdue": "متأخر",
+
+    "departmentManagerReviewCompletion": "إكمال تقييمات مديري الأقسام",
+    "departmentManagerReviewSubtitle": "تابع نسبة إكمال التقييمات في الأقسام وتابع مع المديرين.",
+    "department": "القسم",
+    "manager": "المدير",
+    "reviews": "التقييمات",
+    "progress": "التقدم",
+    "status": "الحالة",
+
+    "onTrack": "على المسار",
+    "needsAttention": "يحتاج إلى متابعة",
+    "completedStatus": "مكتمل",
+
+    "sendReminder": "إرسال تذكير للمدير",
+    "reminderSent": "تم إرسال التذكير إلى {{manager}}",
+    "reminderFailed": "فشل إرسال التذكير. حاول مرة أخرى.",
+
+    "createWorkflowRecord": "إنشاء سجل سير العمل",
+    "details": "التفاصيل",
+    "owner": "المسؤول",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+
+    "engineering": "الهندسة",
+    "peopleCulture": "الموارد البشرية والثقافة",
+    "sales": "المبيعات",
+    "logistics": "اللوجستيات",
+
+    "mariamHassan": "مريم حسن",
+    "sarahAhmed": "سارة أحمد",
+    "omarKhaled": "عمر خالد",
+    "karimAshraf": "كريم أشرف"
+  },
+  "hrCommandCenter": {
+    "title": "مركز قيادة الموارد البشرية",
+    "subtitle": "عرض تشغيلي مباشر لحالة الموظفين والموافقات والاستعداد للرواتب.",
+    "explainToday": "شرح اليوم",
+
+    "totalEmployees": "إجمالي الموظفين",
+    "monthOverMonth": "مقارنة بالشهر السابق",
+
+    "presentToday": "الحاضرون اليوم",
+    "workforcePresent": "من إجمالي الموظفين حاضرون",
+
+    "pendingReviews": "التقييمات المعلقة",
+    "leaves": "إجازات",
+    "advances": "سلف",
+
+    "projectedPayroll": "الرواتب المتوقعة",
+    "septemberExecution": "تنفيذ سبتمبر",
+
+    "employeeAttentionSignals": "مؤشرات تحتاج إلى متابعة",
+    "groundedMetrics": "مؤشرات مبنية على البيانات",
+
+    "youssefLotfy": "يوسف لطفي",
+    "youssefDescription": "ارتفاع في حالات التأخير خلال الأسابيع الثلاثة الماضية",
+
+    "karimAshraf": "كريم أشرف",
+    "karimDescription": "انخفض معدل إنجاز المهام بنسبة 18% خلال دورتين من العمل",
+
+    "alexandriaHub": "مركز الإسكندرية",
+    "alexandriaDescription": "تحسن الحضور بنسبة 9% بعد تعديل مواعيد الورديات",
+
+    "high": "اهتمام مرتفع",
+    "medium": "اهتمام متوسط",
+    "low": "اهتمام منخفض",
+
+    "review": "مراجعة",
+
+    "operationalReadiness": "الجاهزية التشغيلية",
+
+    "attendanceVerification": "التحقق من الحضور",
+    "leaveApprovals": "الموافقات على الإجازات",
+    "q3Evaluations": "تقييمات الربع الثالث",
+    "payrollReconciliation": "مطابقة الرواتب"
   }
 }
