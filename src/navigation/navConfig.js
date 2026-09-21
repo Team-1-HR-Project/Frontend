@@ -171,6 +171,7 @@ export const navConfig = {
       path: "/manager/notifications",
       icon: MdNotifications,
     },
+  
   ],
 
   employee: [

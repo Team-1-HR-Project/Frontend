@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   LuTrendingUp,
   LuBookOpen,
@@ -20,6 +21,8 @@ import {
 export default function AIAssistant() {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.language?.startsWith("ar");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // ==========================================
   // Active Tab State ("career" | "policy")
@@ -91,6 +94,40 @@ export default function AIAssistant() {
     setChatMessages((prev) => [...prev, newMsg]);
     setPolicyQuery("");
   };
+
+    // ==========================================
+  // Open Policy Assistant automatically when
+  // navigated here from a Company Policies card
+  // ==========================================
+  useEffect(() => {
+    if (location.state?.openPolicyAssistant) {
+      setActiveTab("policy");
+
+      const policyTitle = location.state.policyTitleKey
+        ? t(location.state.policyTitleKey, location.state.policyDefaultTitle)
+        : location.state.policyDefaultTitle;
+
+      if (policyTitle) {
+        const contextMsg = {
+          id: `msg-policy-${Date.now()}`,
+          customQ: t("aiAssistant.policyContextQuestion", {
+            policy: policyTitle,
+            defaultValue: `Tell me about the "${policyTitle}" policy.`,
+          }),
+          customA: t("aiAssistant.policyContextAnswer", {
+            policy: policyTitle,
+            defaultValue: `Here's what you need to know about "${policyTitle}", based on the Employee Handbook and current company policies.`,
+          }),
+          customS: t("aiAssistant.sourceFootnote"),
+        };
+        setChatMessages((prev) => [...prev, contextMsg]);
+      }
+
+      // نمسح الـ state عشان لو المستخدم عمل refresh، الرسالة متتكررش
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSendPill = (qKey, aKey) => {
     const newMsg = {

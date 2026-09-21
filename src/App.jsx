@@ -42,6 +42,7 @@ import PerformanceAnalytics from "./features/manager/pages/PerformanceAnalytics"
 import TeamAttendance from "./features/manager/pages/TeamAttendance";
 import TeamLeaveApprovals from "./features/manager/pages/TeamLeaveApprovals";
 import AITeamInsights from "./features/manager/pages/AITeamInsights";
+import ProfileSetting from "./features/manager/pages/ProfileSetting";
 
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -207,6 +208,7 @@ function App() {
           <Route path="/manager/leave-approvals" element={<TeamLeaveApprovals />} />
           <Route path="/manager/ai-insights" element={<AITeamInsights />} />
           <Route path="/manager/notifications" element={<Notification />} />
+          <Route path="/manager/profile" element={<ProfileSetting />} />
 
           {/* ==================== Employee Redirect ==================== */}
           <Route

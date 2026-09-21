@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { FiBookOpen, FiArrowRight } from "react-icons/fi";
 
 const POLICY_CARDS = [
@@ -34,6 +35,17 @@ const POLICY_CARDS = [
 
 const CompanyPolicies = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+
+    const handleAskAboutPolicy = (card) => {
+        navigate("/employee/ai-assistant", {
+            state: {
+                openPolicyAssistant: true,
+                policyTitleKey: card.titleKey,
+                policyDefaultTitle: card.titleDefault,
+            },
+        });
+    };
 
     return (
         <div className="w-full space-y-6">
@@ -73,7 +85,14 @@ const CompanyPolicies = () => {
                                 </p>
                             </div>
                         </div>
-                        <FiArrowRight className="w-4 h-4 text-[#94a3b8] shrink-0 rtl:rotate-180" />
+                                                <button
+                            type="button"
+                            onClick={() => handleAskAboutPolicy(card)}
+                            aria-label={t("companyPolicies.askAboutPolicy", "Ask about this policy")}
+                            className="shrink-0 text-[#94a3b8] hover:text-[#3f7d5a] transition-colors cursor-pointer"
+                        >
+                            <FiArrowRight className="w-4 h-4 rtl:rotate-180" />
+                        </button>
                     </div>
                 ))}
             </div>

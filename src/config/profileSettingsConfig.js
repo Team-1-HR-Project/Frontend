@@ -42,5 +42,6 @@ export const profileSettingsConfig = {
     phone: "+971 50 234 5678",
     biometricLogin: true,
     pushNotifications: true,
+    
   },
 };
