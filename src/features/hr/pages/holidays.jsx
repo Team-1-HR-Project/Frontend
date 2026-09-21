@@ -463,29 +463,34 @@ export default function HolidaysSeasons() {
           </h2>
         </div>
 
-        {/* Table */}
+        {/* Table
+            - No hard-coded dir: the table follows the page direction
+              (RTL in Arabic, LTR in English), so column order and
+              alignment flip automatically.
+            - text-start replaces text-left so alignment is logical,
+              not physical. */}
 
         <div className="overflow-x-auto">
-          <table dir="ltr" className="w-full table-fixed text-left">
+          <table className="w-full table-fixed text-start">
             {/* =================================================
                 TABLE HEAD
             ================================================= */}
 
             <thead>
               <tr className="border-b border-[#D9E2EC]">
-                <th className="w-[30%] px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
+                <th className="w-[30%] px-6 py-3 text-start text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
                   {t("holidays.table.holidayName")}
                 </th>
 
-                <th className="w-[25%] px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
+                <th className="w-[25%] px-6 py-3 text-start text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
                   {t("holidays.table.dateRange")}
                 </th>
 
-                <th className="w-[20%] px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
+                <th className="w-[20%] px-6 py-3 text-start text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
                   {t("holidays.table.totalDays")}
                 </th>
 
-                <th className="w-[25%] px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
+                <th className="w-[25%] px-6 py-3 text-start text-xs font-semibold uppercase tracking-wide text-[#6B7785]">
                   {t("holidays.table.status")}
                 </th>
               </tr>
@@ -516,36 +521,34 @@ export default function HolidaysSeasons() {
                 >
                   {/* Holiday Name */}
 
-                  <td
-                    dir="auto"
-                    className="px-6 py-4 text-left text-sm font-semibold text-[#202B33]"
-                  >
+                  <td className="px-6 py-4 text-start text-sm font-semibold text-[#202B33]">
                     {holiday.customName ||
                       t(`holidays.items.${holiday.nameKey}.name`)}
                   </td>
 
-                  {/* Date */}
+                  {/* Date
+                      The cell keeps the page direction so it lines up with
+                      its header. The inner span isolates the date text
+                      (dir="auto" -> LTR for "Apr 10 – Apr 12, 2026") so
+                      numbers and the dash don't get scrambled by the
+                      surrounding RTL context. */}
 
-                  <td
-                    dir="ltr"
-                    className="px-6 py-4 text-left text-sm text-[#486581]"
-                  >
-                    {holiday.customDateRange || holiday.dateRange}
+                  <td className="px-6 py-4 text-start text-sm text-[#486581]">
+                    <span dir="auto" className="inline-block">
+                      {holiday.customDateRange || holiday.dateRange}
+                    </span>
                   </td>
 
                   {/* Total Days */}
 
-                  <td
-                    dir="auto"
-                    className="px-6 py-4 text-left text-sm text-[#6B7785]"
-                  >
+                  <td className="px-6 py-4 text-start text-sm text-[#6B7785]">
                     {holiday.customTotalDays ||
                       t(`holidays.${holiday.totalDaysKey}`)}
                   </td>
 
                   {/* Status */}
 
-                  <td className="px-6 py-4 text-left">
+                  <td className="px-6 py-4 text-start">
                     <motion.span
                       whileHover={{
                         scale: 1.03,
