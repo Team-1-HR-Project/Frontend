@@ -197,29 +197,65 @@
     "rejected": "مرفوض"
   },
   "tasks": {
+    "workManagement": "إدارة العمل",
+    "myTasks": "مهامي",
+    "subtitle": "تابع أولوياتك ومهامك وإنجازاتك.",
+    "newTask": "مهمة جديدة",
+    "due": "موعد التسليم",
+    "submitDeliverable": "تقديم المهمة",
+    "awaitingReview": "في انتظار المراجعة",
+    "completed": "مكتملة",
+    "noTasks": "لا توجد مهام هنا",
+    "allCaughtUp": "لقد أنجزت جميع مهامك.",
+    "filters": {
+      "all": "الكل",
+      "inProgress": "قيد التنفيذ",
+      "underReview": "قيد المراجعة",
+      "completed": "مكتملة"
+    },
+    "priority": {
+      "high": "أولوية عالية",
+      "medium": "أولوية متوسطة",
+      "low": "أولوية منخفضة"
+    },
+    "status": {
+      "inProgress": "قيد التنفيذ",
+      "underReview": "قيد المراجعة",
+      "completed": "مكتملة"
+    },
+    "createNewTask": "إنشاء مهمة جديدة",
+    "taskUpdate": "تحديث المهمة",
+    "form": {
+      "title": "عنوان المهمة",
+      "titlePlaceholder": "أدخل عنوان المهمة...",
+      "priority": "الأولوية",
+      "dueDate": "موعد التسليم",
+      "description": "الوصف",
+      "descriptionPlaceholder": "أضف وصفًا مختصرًا...",
+      "cancel": "إلغاء",
+      "create": "إنشاء المهمة",
+      "task": "المهمة",
+      "progress": "نسبة الإنجاز",
+      "notes": "ملاحظات",
+      "notesPlaceholder": "أضف ملاحظات حول هذه المهمة...",
+      "deliverable": "الملف المطلوب",
+      "uploadFile": "اضغط لرفع ملف",
+      "uploadHint": "PDF أو DOCX أو PNG بحجم يصل إلى 10MB",
+      "submitForReview": "إرسال للمراجعة"
+    },
     "title": "المهام",
     "createTask": "إنشاء مهمة",
-    "myTasks": "مهامي",
     "assignedTo": "مكلف إلى",
     "dueDate": "تاريخ الاستحقاق",
-    "priority": "الأولوية",
-    "high": "عالية",
-    "medium": "متوسطة",
-    "low": "منخفضة",
-    "inProgress": "قيد التنفيذ",
-    "completed": "مكتملة",
     "todo": "قائمة المهام",
     "done": "مكتملة",
     "addTask": "إضافة مهمة",
     "addNewTask": "إضافة مهمة جديدة",
     "taskTitle": "عنوان المهمة",
-    "description": "الوصف",
     "category": "الفئة",
-    "status": "الحالة",
     "cancel": "إلغاء",
     "total": "الإجمالي",
     "overdue": "متأخرة",
-    "progress": "التقدم",
     "overallCompletion": "نسبة الإنجاز الكلية",
     "tasksDone": "مهام مكتملة",
     "searchTasks": "بحث في المهام...",
@@ -1372,7 +1408,7 @@
     "dueDateSep25": "25 سبتمبر",
     "noDueDate": "-"
   },
-    "managerSubmissions": {
+  "managerSubmissions": {
     "title": "مراجعة التسليمات",
     "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
     "reviewPending": "بانتظار المراجعة",
@@ -1394,36 +1430,139 @@
     "dateSep16": "16 سبتمبر 2026"
   },
   "managerEvaluations": {
-  "activeCycle": "دورة التقييم الحالية",
-  "cycleName": "دورة الربع الثالث 2026",
-  "closesIn": "تُغلق خلال {{days}} يومًا",
-  "colTeamMember": "عضو الفريق",
-  "colRole": "الدور الوظيفي",
-  "colReviewStatus": "حالة التقييم",
-  "colLastRating": "آخر تقييم",
-  "roleSoftwareEngineer": "مهندس برمجيات",
-  "statusSubmitted": "تم الإرسال",
-  "statusInProgress": "قيد التنفيذ",
-  "statusNotStarted": "لم يبدأ",
-  "evaluateEmployee": "تقييم الموظف",
-  "overallScore": "التقييم العام: {{score}}/5",
-  "generateDraft": "إنشاء مسودة التقييم بالذكاء الاصطناعي",
-  "feedbackPlaceholder": "ملاحظات نوعية",
-  "saveEvaluation": "حفظ التقييم",
-  "draftHigh": "أداء {{name}} يتجاوز التوقعات باستمرار، بجودة عالية ومسؤولية واضحة عن النتائج. نوصي بإسناد مسؤوليات أوسع وإتاحة فرص قيادية.",
-  "draftMid": "أداء {{name}} موثوق باستمرار، مع حسّ قوي بالمسؤولية تجاه المهام. نوصي بمواصلة فرص الإرشاد والتوجيه.",
-  "draftLow": "أداء {{name}} لم يصل إلى المستوى المتوقع خلال هذه الدورة. نوصي بوضع خطة تحسين واضحة مع متابعة دورية ودعم مركّز.",
-  "toastSaved": "تم حفظ التقييم"
-},
-"managerGoals": {
-  "statusOnTrack": "على المسار الصحيح",
-  "statusAtRisk": "في خطر",
-  "lead": "المسؤول: {{name}}",
-  "goalCrashFreeTitle": "تحقيق 98% من الجلسات الخالية من الأعطال",
-  "goalApiLatencyTitle": "خفض زمن استجابة الـ API عند p95 إلى 200 مللي ثانية",
-  "itemAndroidCrash": "معدل أعطال أندرويد أقل من 1.5%",
-  "itemIosCrash": "معدل أعطال iOS أقل من 1.5%",
-  "itemProfileEndpoints": "تحليل أداء أعلى 20 نقطة اتصال",
-  "itemShipCaching": "إطلاق طبقة التخزين المؤقت"
-}
+    "activeCycle": "دورة التقييم الحالية",
+    "cycleName": "دورة الربع الثالث 2026",
+    "closesIn": "تُغلق خلال {{days}} يومًا",
+    "colTeamMember": "عضو الفريق",
+    "colRole": "الدور الوظيفي",
+    "colReviewStatus": "حالة التقييم",
+    "colLastRating": "آخر تقييم",
+    "roleSoftwareEngineer": "مهندس برمجيات",
+    "statusSubmitted": "تم الإرسال",
+    "statusInProgress": "قيد التنفيذ",
+    "statusNotStarted": "لم يبدأ",
+    "evaluateEmployee": "تقييم الموظف",
+    "overallScore": "التقييم العام: {{score}}/5",
+    "generateDraft": "إنشاء مسودة التقييم بالذكاء الاصطناعي",
+    "feedbackPlaceholder": "ملاحظات نوعية",
+    "saveEvaluation": "حفظ التقييم",
+    "draftHigh": "أداء {{name}} يتجاوز التوقعات باستمرار، بجودة عالية ومسؤولية واضحة عن النتائج. نوصي بإسناد مسؤوليات أوسع وإتاحة فرص قيادية.",
+    "draftMid": "أداء {{name}} موثوق باستمرار، مع حسّ قوي بالمسؤولية تجاه المهام. نوصي بمواصلة فرص الإرشاد والتوجيه.",
+    "draftLow": "أداء {{name}} لم يصل إلى المستوى المتوقع خلال هذه الدورة. نوصي بوضع خطة تحسين واضحة مع متابعة دورية ودعم مركّز.",
+    "toastSaved": "تم حفظ التقييم"
+  },
+  "managerGoals": {
+    "statusOnTrack": "على المسار الصحيح",
+    "statusAtRisk": "في خطر",
+    "lead": "المسؤول: {{name}}",
+    "goalCrashFreeTitle": "تحقيق 98% من الجلسات الخالية من الأعطال",
+    "goalApiLatencyTitle": "خفض زمن استجابة الـ API عند p95 إلى 200 مللي ثانية",
+    "itemAndroidCrash": "معدل أعطال أندرويد أقل من 1.5%",
+    "itemIosCrash": "معدل أعطال iOS أقل من 1.5%",
+    "itemProfileEndpoints": "تحليل أداء أعلى 20 نقطة اتصال",
+    "itemShipCaching": "إطلاق طبقة التخزين المؤقت"
+  },
+  "managerAI": {
+    "breadcrumb": "بوابة المدير / رؤى الفريق بالذكاء الاصطناعي",
+    "title": "رؤى الفريق بالذكاء الاصطناعي",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "skillGapCard": {
+      "eyebrow": "ذكاء إداري قائم على البيانات",
+      "title": "تحليل فجوات مهارات الفريق",
+      "description": "تحدد مؤشرات التسليم والتقييم الموثقة فرص التدريب والتطوير دون أن تحل محل قرار المدير."
+    },
+    "skillGaps": {
+      "systemDesign": "تصميم الأنظمة",
+      "systemDesignBadge": "عضوان يحتاجان إلى تدريب",
+      "systemDesignAction": "الإجراء المقترح: العمل بشكل ثنائي في مراجعات هندسة الأنظمة",
+      "mentorship": "الإرشاد والتوجيه",
+      "mentorshipBadge": "تغطية منخفضة خلال هذه الدورة",
+      "mentorshipAction": "الإجراء المقترح: تعيين زميل للتوجيه بالتناوب",
+      "testStrategy": "استراتيجية الاختبار",
+      "testStrategyBadge": "منطقة تحتاج إلى تطوير",
+      "testStrategyAction": "الإجراء المقترح: تنظيم ورشة عمل متخصصة في اختبار الجودة"
+    },
+    "burnoutCard": {
+      "eyebrow": "توازن أعباء العمل",
+      "title": "مؤشرات مخاطر الإرهاق",
+      "description": "راجع هذه المؤشرات مع فريقك قبل اتخاذ أي إجراء. هذه المؤشرات للإرشاد وليست قرارات آلية."
+    },
+    "burnout": {
+      "high": "مرتفع",
+      "watch": "مراقبة",
+      "balanced": "متوازن",
+      "loadDescription": "{{load}}% من حمل الـ Sprint · يُنصح بإجراء متابعة"
+    }
+  },
+  "managerLeave": {
+    "breadcrumb": "بوابة المدير / الموافقات على إجازات الفريق",
+    "title": "الموافقة على إجازات الفريق",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "searchPlaceholder": "ابحث عن أعضاء الفريق...",
+    "filters": {
+      "all": "الحالة"
+    },
+    "roles": {
+      "softwareEngineer": "مهندس برمجيات",
+      "backendDeveloper": "مطور Backend",
+      "qaEngineer": "مهندس اختبار",
+      "frontendDeveloper": "مطور Frontend"
+    },
+    "leaveTypes": {
+      "annual": "سنوية",
+      "sick": "مرضية",
+      "unpaid": "غير مدفوعة"
+    },
+    "reasons": {
+      "familyTrip": "رحلة عائلية",
+      "medicalAppointment": "موعد طبي",
+      "personalTime": "وقت شخصي",
+      "personalAppointment": "موعد شخصي"
+    },
+    "actions": {
+      "approve": "موافقة",
+      "reject": "رفض"
+    },
+    "empty": {
+      "title": "لا توجد طلبات إجازات",
+      "description": "لا توجد طلبات إجازات تطابق البحث أو الفلتر الحالي."
+    }
+  },
+  "managerAttendance": {
+    "breadcrumb": "بوابة المدير / حضور الفريق",
+    "title": "حضور الفريق",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "table": {
+      "member": "العضو",
+      "shift": "الوردية",
+      "checkInTime": "وقت تسجيل الحضور",
+      "delayMinutes": "دقائق التأخير",
+      "verification": "التحقق"
+    },
+    "minutes": "دقيقة",
+    "waived": "تم الإعفاء",
+    "managerExcuseWaiver": "إعفاء الموظف من التأخير",
+    "waiverApplied": "تم تطبيق الإعفاء",
+    "toast": {
+      "success": "تم تطبيق إعفاء التأخير للموظف {{member}}."
+    }
+  },
+  "managerPerformanceAnalytics": {
+    "breadcrumb": "بوابة المدير / تحليلات الأداء",
+    "title": "تحليلات الأداء",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "departmentCompetencyDistribution": "توزيع كفاءات القسم",
+    "teamPerformanceIndex": "مؤشر أداء الفريق",
+    "competencies": {
+      "technicalExecution": "التنفيذ التقني",
+      "communication": "التواصل",
+      "ownership": "تحمل المسؤولية",
+      "mentorship": "التوجيه والإرشاد"
+    },
+    "table": {
+      "member": "العضو",
+      "velocity": "معدل الأداء",
+      "rating": "التقييم"
+    }
+  }
 }

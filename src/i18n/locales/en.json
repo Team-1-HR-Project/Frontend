@@ -197,29 +197,65 @@
     "rejected": "Rejected"
   },
   "tasks": {
+    "workManagement": "Work management",
+    "myTasks": "My tasks",
+    "subtitle": "Stay on top of your priorities and deliverables.",
+    "newTask": "New task",
+    "due": "Due",
+    "submitDeliverable": "Submit deliverable",
+    "awaitingReview": "Awaiting review",
+    "completed": "Completed",
+    "noTasks": "No tasks here",
+    "allCaughtUp": "You're all caught up.",
+    "filters": {
+      "all": "All",
+      "inProgress": "In Progress",
+      "underReview": "Under Review",
+      "completed": "Completed"
+    },
+    "priority": {
+      "high": "High priority",
+      "medium": "Medium priority",
+      "low": "Low priority"
+    },
+    "status": {
+      "inProgress": "In Progress",
+      "underReview": "Under Review",
+      "completed": "Completed"
+    },
+    "createNewTask": "Create new task",
+    "taskUpdate": "Task update",
+    "form": {
+      "title": "Task title",
+      "titlePlaceholder": "Enter task title...",
+      "priority": "Priority",
+      "dueDate": "Due date",
+      "description": "Description",
+      "descriptionPlaceholder": "Add a short description...",
+      "cancel": "Cancel",
+      "create": "Create task",
+      "task": "Task",
+      "progress": "Progress",
+      "notes": "Notes",
+      "notesPlaceholder": "Add notes about this deliverable...",
+      "deliverable": "Deliverable",
+      "uploadFile": "Tap to upload a file",
+      "uploadHint": "PDF, DOCX, PNG up to 10MB",
+      "submitForReview": "Submit for review"
+    },
     "title": "Tasks",
     "createTask": "Create Task",
-    "myTasks": "My Tasks",
     "assignedTo": "Assigned To",
     "dueDate": "Due Date",
-    "priority": "Priority",
-    "high": "High",
-    "medium": "Medium",
-    "low": "Low",
-    "inProgress": "In Progress",
-    "completed": "Completed",
     "todo": "To Do",
     "done": "Done",
     "addTask": "Add Task",
     "addNewTask": "Add New Task",
     "taskTitle": "Task Title",
-    "description": "Description",
     "category": "Category",
-    "status": "Status",
     "cancel": "Cancel",
     "total": "Total",
     "overdue": "Overdue",
-    "progress": "Progress",
     "overallCompletion": "Overall Completion",
     "tasksDone": "tasks done",
     "searchTasks": "Search tasks...",
@@ -1347,7 +1383,7 @@
     "dueDateSep25": "Sep 25",
     "noDueDate": "-"
   },
-    "managerSubmissions": {
+  "managerSubmissions": {
     "title": "Submission Reviews",
     "subtitle": "Keep your team aligned, supported, and moving forward.",
     "reviewPending": "Review Pending",
@@ -1369,36 +1405,139 @@
     "dateSep16": "Sep 16, 2026"
   },
   "managerEvaluations": {
-  "activeCycle": "Active Evaluation Cycle",
-  "cycleName": "Q3 2026 Cycle",
-  "closesIn": "Closes in {{days}} days",
-  "colTeamMember": "Team Member",
-  "colRole": "Role",
-  "colReviewStatus": "Review Status",
-  "colLastRating": "Last Rating",
-  "roleSoftwareEngineer": "Software Engineer",
-  "statusSubmitted": "Submitted",
-  "statusInProgress": "In Progress",
-  "statusNotStarted": "Not Started",
-  "evaluateEmployee": "Evaluate Employee",
-  "overallScore": "Overall score: {{score}}/5",
-  "generateDraft": "Generate Evaluation Draft with AI",
-  "feedbackPlaceholder": "Qualitative feedback",
-  "saveEvaluation": "Save Evaluation",
-  "draftHigh": "{{name}} consistently exceeds expectations, delivers high-quality work and takes clear ownership of outcomes. Recommend expanded responsibilities and leadership opportunities.",
-  "draftMid": "{{name}} consistently delivers reliable work and demonstrates strong ownership. Recommend continued mentorship opportunities.",
-  "draftLow": "{{name}} has not yet met expectations this cycle. Recommend a clear improvement plan with regular check-ins and focused support.",
-  "toastSaved": "Evaluation saved"
-},
-"managerGoals": {
-  "statusOnTrack": "On track",
-  "statusAtRisk": "At risk",
-  "lead": "Lead: {{name}}",
-  "goalCrashFreeTitle": "Achieve 98% Crash-free Sessions",
-  "goalApiLatencyTitle": "Reduce API p95 latency to 200ms",
-  "itemAndroidCrash": "Android crash rate below 1.5%",
-  "itemIosCrash": "iOS crash rate below 1.5%",
-  "itemProfileEndpoints": "Profile top 20 endpoints",
-  "itemShipCaching": "Ship caching layer"
-}
+    "activeCycle": "Active Evaluation Cycle",
+    "cycleName": "Q3 2026 Cycle",
+    "closesIn": "Closes in {{days}} days",
+    "colTeamMember": "Team Member",
+    "colRole": "Role",
+    "colReviewStatus": "Review Status",
+    "colLastRating": "Last Rating",
+    "roleSoftwareEngineer": "Software Engineer",
+    "statusSubmitted": "Submitted",
+    "statusInProgress": "In Progress",
+    "statusNotStarted": "Not Started",
+    "evaluateEmployee": "Evaluate Employee",
+    "overallScore": "Overall score: {{score}}/5",
+    "generateDraft": "Generate Evaluation Draft with AI",
+    "feedbackPlaceholder": "Qualitative feedback",
+    "saveEvaluation": "Save Evaluation",
+    "draftHigh": "{{name}} consistently exceeds expectations, delivers high-quality work and takes clear ownership of outcomes. Recommend expanded responsibilities and leadership opportunities.",
+    "draftMid": "{{name}} consistently delivers reliable work and demonstrates strong ownership. Recommend continued mentorship opportunities.",
+    "draftLow": "{{name}} has not yet met expectations this cycle. Recommend a clear improvement plan with regular check-ins and focused support.",
+    "toastSaved": "Evaluation saved"
+  },
+  "managerGoals": {
+    "statusOnTrack": "On track",
+    "statusAtRisk": "At risk",
+    "lead": "Lead: {{name}}",
+    "goalCrashFreeTitle": "Achieve 98% Crash-free Sessions",
+    "goalApiLatencyTitle": "Reduce API p95 latency to 200ms",
+    "itemAndroidCrash": "Android crash rate below 1.5%",
+    "itemIosCrash": "iOS crash rate below 1.5%",
+    "itemProfileEndpoints": "Profile top 20 endpoints",
+    "itemShipCaching": "Ship caching layer"
+  },
+  "managerAI": {
+    "breadcrumb": "MANAGER PORTAL / AI TEAM INSIGHTS",
+    "title": "AI Team Insights",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "skillGapCard": {
+      "eyebrow": "GROUNDED MANAGER INTELLIGENCE",
+      "title": "Team Skill-Gap Breakdown",
+      "description": "Verified delivery and evaluation signals identify coaching opportunities without replacing manager judgment."
+    },
+    "skillGaps": {
+      "systemDesign": "System design",
+      "systemDesignBadge": "2 members need coaching",
+      "systemDesignAction": "Suggested action: Pair on architecture reviews",
+      "mentorship": "Mentorship",
+      "mentorshipBadge": "Low coverage this cycle",
+      "mentorshipAction": "Suggested action: Assign rotating peer mentor",
+      "testStrategy": "Test strategy",
+      "testStrategyBadge": "Opportunity area",
+      "testStrategyAction": "Suggested action: Run a focused QA workshop"
+    },
+    "burnoutCard": {
+      "eyebrow": "WORKLOAD BALANCE",
+      "title": "Burnout Risk Signals",
+      "description": "Review these patterns with your team before taking action. Signals are guidance, not automated decisions."
+    },
+    "burnout": {
+      "high": "High",
+      "watch": "Watch",
+      "balanced": "Balanced",
+      "loadDescription": "{{load}}% sprint load · Suggested check-in"
+    }
+  },
+  "managerLeave": {
+    "breadcrumb": "MANAGER PORTAL / TEAM LEAVE APPROVALS",
+    "title": "Team Leave Approvals",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "searchPlaceholder": "Search team members...",
+    "filters": {
+      "all": "Status"
+    },
+    "roles": {
+      "softwareEngineer": "Software Engineer",
+      "backendDeveloper": "Backend Developer",
+      "qaEngineer": "QA Engineer",
+      "frontendDeveloper": "Frontend Developer"
+    },
+    "leaveTypes": {
+      "annual": "Annual",
+      "sick": "Sick",
+      "unpaid": "Unpaid"
+    },
+    "reasons": {
+      "familyTrip": "Family trip",
+      "medicalAppointment": "Medical appointment",
+      "personalTime": "Personal time",
+      "personalAppointment": "Personal appointment"
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Decline"
+    },
+    "empty": {
+      "title": "No leave requests found",
+      "description": "There are no leave requests matching your current search or filter."
+    }
+  },
+  "managerAttendance": {
+    "breadcrumb": "MANAGER PORTAL / TEAM ATTENDANCE",
+    "title": "Team Attendance",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "table": {
+      "member": "Member",
+      "shift": "Shift",
+      "checkInTime": "Check-in Time",
+      "delayMinutes": "Delay Minutes",
+      "verification": "Verification"
+    },
+    "minutes": "min",
+    "waived": "Waived",
+    "managerExcuseWaiver": "Employee Excuse Waiver",
+    "waiverApplied": "Waiver Applied",
+    "toast": {
+      "success": "Attendance excuse waiver applied for {{member}}."
+    }
+  },
+  "managerPerformanceAnalytics": {
+    "breadcrumb": "MANAGER PORTAL / PERFORMANCE ANALYTICS",
+    "title": "Performance Analytics",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "departmentCompetencyDistribution": "Department competency distribution",
+    "teamPerformanceIndex": "Team Performance Index",
+    "competencies": {
+      "technicalExecution": "Technical execution",
+      "communication": "Communication",
+      "ownership": "Ownership",
+      "mentorship": "Mentorship"
+    },
+    "table": {
+      "member": "Member",
+      "velocity": "Velocity",
+      "rating": "Rating"
+    }
+  }
 }
