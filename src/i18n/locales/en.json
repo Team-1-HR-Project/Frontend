@@ -703,6 +703,8 @@
     }
   },
   "portal": {
+    "performanceMetrics": "Performance Metrics",
+    "evaluationsGoals": "Evaluations & Goals",
     "departmentsTeams": "Departments & Teams",
     "attendance": "Attendance",
     "leaveRequests": "Leave Requests",
@@ -1545,6 +1547,96 @@
       "member": "Member",
       "velocity": "Velocity",
       "rating": "Rating"
-    }
+    },
+  "hrEvaluationsGoals": {
+    "eyebrow": "PERFORMANCE MANAGEMENT",
+    "title": "Evaluations & Goals",
+    "subtitle": "Run review cycles and keep manager completion accountable.",
+    "launchReviewCycle": "Launch Review Cycle",
+
+    "activeCycle": "ACTIVE CYCLE",
+    "activeCycleTitle": "Q3 2026 Performance Review",
+    "activeCycleDate": "Sep 15 – Oct 15, 2026",
+    "employees": "Employees",
+    "managers": "Managers",
+    "completion": "Completion",
+    "completed": "Completed",
+    "pending": "Pending",
+    "overdue": "Overdue",
+
+    "departmentManagerReviewCompletion": "Department Manager Review Completion",
+    "departmentManagerReviewSubtitle": "Track evaluation completion across departments and follow up with managers.",
+    "department": "Department",
+    "manager": "Manager",
+    "reviews": "Reviews",
+    "progress": "Progress",
+    "status": "Status",
+
+    "onTrack": "On Track",
+    "needsAttention": "Needs Attention",
+    "completedStatus": "Completed",
+
+    "sendReminder": "Send Manager Reminder",
+    "reminderSent": "Reminder sent to {{manager}}",
+    "reminderFailed": "Failed to send reminder. Please try again.",
+
+    "createWorkflowRecord": "Create workflow record",
+    "details": "Details",
+    "owner": "Owner",
+    "cancel": "Cancel",
+    "saveChanges": "Save changes",
+
+    "engineering": "Engineering",
+    "peopleCulture": "People & Culture",
+    "sales": "Sales",
+    "logistics": "Logistics",
+
+    "mariamHassan": "Mariam Hassan",
+    "sarahAhmed": "Sarah Ahmed",
+    "omarKhaled": "Omar Khaled",
+    "karimAshraf": "Karim Ashraf"
+  },
+  "hrCommandCenter": {
+    "title": "HR Command Center",
+    "subtitle": "A live operational view of workforce health, approvals, and payroll readiness.",
+    "explainToday": "Explain today",
+
+    "totalEmployees": "Total employees",
+    "monthOverMonth": "month over month",
+
+    "presentToday": "Present today",
+    "workforcePresent": "workforce present",
+
+    "pendingReviews": "Pending reviews",
+    "leaves": "leaves",
+    "advances": "advances",
+
+    "projectedPayroll": "Projected payroll",
+    "septemberExecution": "September execution",
+
+    "employeeAttentionSignals": "Employee attention signals",
+    "groundedMetrics": "Grounded metrics",
+
+    "youssefLotfy": "Youssef Lotfy",
+    "youssefDescription": "Lateness spike across the past 3 weeks",
+
+    "karimAshraf": "Karim Ashraf",
+    "karimDescription": "Task velocity declined 18% across two sprints",
+
+    "alexandriaHub": "Alexandria Hub",
+    "alexandriaDescription": "Attendance improved 9% after shift adjustment",
+
+    "high": "High attention",
+    "medium": "Medium attention",
+    "low": "Low attention",
+
+    "review": "Review",
+
+    "operationalReadiness": "Operational readiness",
+
+    "attendanceVerification": "Attendance verification",
+    "leaveApprovals": "Leave approvals",
+    "q3Evaluations": "Q3 evaluations",
+    "payrollReconciliation": "Payroll reconciliation"
   }
-}
+}}
