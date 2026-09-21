@@ -365,11 +365,43 @@
   },
   "aiInsights": {
     "title": "رؤى الذكاء الاصطناعي",
-    "suggestions": "المقترحات",
-    "anomalies": "الأنماط غير المعتادة",
-    "summary": "الملخص التنفيذي",
-    "workforceTrends": "اتجاهات القوى العاملة",
-    "productivityAnalysis": "تحليل الإنتاجية"
+    "subtitle": "رؤى موارد بشرية قابلة للتفسير مستخرجة من بيانات الحضور والمهام وسجل التقييمات.",
+    "refreshAnalysis": "تحديث التحليل",
+
+    "groundedAiPanel": "لوحة ذكاء اصطناعي مبنية على البيانات.",
+    "groundedAiDescription": "كل مؤشر مرتبط بمقاييس موثقة من النظام، وفترات مقارنة محددة، وإجراء موصى به بوضوح.",
+
+    "employeeAttentionSignals": "مؤشرات تحتاج إلى متابعة",
+    "workforceSkillGaps": "فجوات مهارات القوى العاملة",
+
+    "highAttention": "اهتمام مرتفع",
+    "mediumAttention": "اهتمام متوسط",
+    "lowAttention": "اهتمام منخفض",
+
+    "scheduleHrCheckIn": "جدولة اجتماع متابعة مع الموارد البشرية",
+
+    "youssefLotfy": "يوسف لطفي",
+    "youssefNote": "ارتفعت حالات التأخير بنسبة 32% مقارنة بشهر أغسطس",
+
+    "karimAshraf": "كريم أشرف",
+    "karimNote": "انخفض معدل إنجاز المهام بنسبة 18% خلال دورتين من العمل",
+
+    "nourAdel": "نور عادل",
+    "nourNote": "مستوى التفاعل مستقر، مع ارتفاع في جاهزية الترقية",
+
+    "frontendArchitecture": "هندسة الواجهات الأمامية",
+    "frontendArchitectureCount": "12 موظفًا",
+    "frontendArchitectureSuggestion": "ورشة عمل متقدمة في أنظمة React",
+
+    "leadership": "القيادة",
+    "leadershipCount": "9 موظفين",
+    "leadershipSuggestion": "برنامج تدريبي لتطوير مهارات المديرين",
+
+    "dataLiteracy": "الثقافة والمهارات البيانية",
+    "dataLiteracyCount": "8 موظفين",
+    "dataLiteracySuggestion": "أساسيات تحليلات الموارد البشرية",
+
+    "suggested": "مقترح"
   },
   "policies": {
     "title": "السياسات",
@@ -746,6 +778,8 @@
     }
   },
   "portal": {
+    "holidays": "العطلات والمواسم",
+    "aiInsights": "رؤى الذكاء الاصطناعي",
     "performanceMetrics": "مؤشرات الأداء",
     "evaluationsGoals": "التقييمات والأهداف",
     "departmentsTeams": "الأقسام والفرق",
@@ -1672,5 +1706,113 @@
     "leaveApprovals": "الموافقات على الإجازات",
     "q3Evaluations": "تقييمات الربع الثالث",
     "payrollReconciliation": "مطابقة الرواتب"
+  },
+  "hrCompanyPolicies": {
+    "eyebrow": "حوكمة الموارد البشرية",
+    "title": "سياسات وحوكمة الموارد البشرية الرسمية",
+    "subtitle": "مستندات سياسات موحدة مع إدارة الملكية وسجل تدقيق متزامن.",
+
+    "aiSynced": "متزامن مع الذكاء الاصطناعي",
+
+    "effectiveDate": "تاريخ السريان",
+    "document": "المستند",
+
+    "editDocument": "تعديل المستند",
+    "downloadPdf": "تحميل PDF",
+
+    "addPolicyDocument": "إضافة مستند سياسة",
+    "editPolicyDocument": "تعديل مستند السياسة",
+
+    "policyTitle": "عنوان السياسة",
+    "policyTitlePlaceholder": "عنوان السياسة",
+
+    "effectiveDateLabel": "تاريخ السريان",
+    "effectiveDatePlaceholder": "تاريخ السريان",
+
+    "owner": "المسؤول",
+    "ownerPlaceholder": "المسؤول",
+
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+
+    "version": "الإصدار",
+    "active": "نشط",
+    "draft": "مسودة",
+
+    "policies": {
+      "punctuality": {
+        "title": "لوائح الالتزام بالمواعيد والورديات",
+        "description": "فترة سماح مدتها 15 دقيقة، وقواعد خصم تلقائية، وصلاحيات للتجاوز اليدوي.",
+        "effectiveDate": "01 يناير 2026",
+        "version": "الإصدار 2.4 · نشط"
+      },
+      "leave": {
+        "title": "سياسة استحقاق الإجازات وترحيلها",
+        "description": "إجراءات توثيق الإجازات السنوية والعارضة والمرضية مع قواعد ترحيل الرصيد.",
+        "effectiveDate": "15 فبراير 2026",
+        "version": "الإصدار 3.1 · نشط"
+      },
+      "salaryAdvance": {
+        "title": "إرشادات السلف والقروض على الراتب",
+        "description": "شروط استحقاق القروض، والحدود القصوى، وجداول خصم أقساط السداد من الرواتب.",
+        "effectiveDate": "01 مارس 2026",
+        "version": "الإصدار 1.2 · نشط"
+      }
+    },
+
+    "ownedBy": "المسؤول: {{owner}}.",
+    "emptyDate": "—",
+    "newVersion": "الإصدار 1.0 · مسودة"
+  },
+  "holidays": {
+    "title": "العطلات والمواسم",
+    "subtitle": "خطط تغطية العمل وفقًا للعطلات الرسمية واحتياجات التشغيل.",
+    "scheduleHoliday": "جدولة عطلة للشركة",
+
+    "peakAlert": {
+      "title": "تنبيهات ذروة التشغيل القادمة",
+      "description": "ذروة موسمية: رمضان وارتفاع الطلب في الربع الرابع تبدأ خلال 25 يومًا. التوصية: راجع جداول الورديات واستعد لتوفير موظفين مؤقتين."
+    },
+
+    "calendarTitle": "تقويم العطلات الرسمية للشركة",
+
+    "table": {
+      "holidayName": "اسم العطلة",
+      "dateRange": "نطاق التاريخ",
+      "totalDays": "إجمالي أيام الإجازة",
+      "status": "الحالة"
+    },
+
+    "status": {
+      "activeOfficialLeave": "عطلة رسمية سارية"
+    },
+
+    "items": {
+      "eidAlFitr": {
+        "name": "عيد الفطر"
+      },
+      "revolutionDay": {
+        "name": "عيد الثورة"
+      },
+      "newYearsDay": {
+        "name": "رأس السنة الميلادية"
+      }
+    },
+
+    "threeDays": "3 أيام",
+    "oneDay": "يوم واحد",
+
+    "modal": {
+      "title": "جدولة عطلة للشركة",
+      "close": "إغلاق",
+      "holidayName": "اسم العطلة",
+      "holidayNamePlaceholder": "اسم العطلة",
+      "dateRange": "نطاق التاريخ",
+      "dateRangePlaceholder": "نطاق التاريخ",
+      "totalDays": "إجمالي أيام الإجازة",
+      "totalDaysPlaceholder": "إجمالي أيام الإجازة",
+      "cancel": "إلغاء",
+      "save": "حفظ التغييرات"
+    }
   }
 }
