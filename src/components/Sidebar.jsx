@@ -7,7 +7,6 @@ import { navConfig } from "../navigation/navConfig";
 import { useNotifications } from "../context/NotificationContext";
 import { useAuth } from "../context/AuthContext";
 
-
 import logoImg from "../assets/Logos.svg";
 import { APP_NAME, BRAND_NAME } from "../utils/global";
 
@@ -37,7 +36,9 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         localStorage.getItem("user") ||
         localStorage.getItem("admin") ||
         localStorage.getItem("auth_user");
+
       if (!raw) return null;
+
       const parsed = JSON.parse(raw);
       return parsed?.user || parsed?.data || parsed;
     } catch {
@@ -47,96 +48,116 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
 
   const activeUser = storedUser || currentUser;
 
-  let avatarText = "OH";
-  let displayName = "Omar Haddad";
-  let displayTitle = "Senior Product Analyst";
-  let avatarBg = "#d7eee9";
-  let avatarColor = "#235850";
+  // =========================
+  // User Display Information
+  // =========================
+
+  let userInfo;
 
   if (isAdminPage) {
     const adminName =
       (activeUser?.role === "admin" || !activeUser?.role) && activeUser?.name
-        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
+        ? isRtl && activeUser?.nameAr
+          ? activeUser.nameAr
+          : activeUser.name
         : activeUser?.fullName ||
           activeUser?.username ||
           (isRtl ? "أحمد ناصر" : "Ahmed Nasser");
 
-    displayName = adminName;
-    displayTitle =
-      activeUser?.jobTitle ||
-      activeUser?.roleTitle ||
-      (isRtl ? "مسؤول النظام" : "Administrator");
+    const adminAvatarText = activeUser?.initials
+      ? activeUser.initials.toUpperCase()
+      : adminName
+        ? (() => {
+            const parts = adminName.trim().split(/\s+/);
 
-    if (activeUser?.initials) {
-      avatarText = activeUser.initials.toUpperCase();
-    } else if (displayName) {
-      const parts = displayName.trim().split(/\s+/);
-      avatarText =
-        parts.length > 1
-          ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
-          : parts[0].slice(0, 2).toUpperCase();
-    } else {
-      avatarText = "AN";
-    }
+            return parts.length > 1
+              ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+              : parts[0].slice(0, 2).toUpperCase();
+          })()
+        : "AN";
 
-    avatarBg = "#daf0e3";
-    avatarColor = "#1e4b3c";
+    userInfo = {
+      displayName: adminName,
+      displayTitle:
+        activeUser?.jobTitle ||
+        activeUser?.roleTitle ||
+        (isRtl ? "مسؤول النظام" : "Administrator"),
+      avatarText: adminAvatarText,
+      avatarBg: "#daf0e3",
+      avatarColor: "#1e4b3c",
+    };
   } else if (effectiveRole === "hr") {
-    displayName =
-      activeUser?.role === "hr" && activeUser?.name
-        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
-        : isRtl
-        ? "مصطفى خليل"
-        : "Mostafa Khalil";
-    displayTitle = isRtl ? "مسؤول موارد بشرية" : "HR Specialist";
-    avatarText = activeUser?.role === "hr" && activeUser?.initials ? activeUser.initials : "MK";
-    avatarBg = "#ede9fe";
-    avatarColor = "#5b21b6";
+    userInfo = {
+      displayName:
+        activeUser?.role === "hr" && activeUser?.name
+          ? isRtl && activeUser?.nameAr
+            ? activeUser.nameAr
+            : activeUser.name
+          : isRtl
+            ? "مصطفى خليل"
+            : "Mostafa Khalil",
+
+      displayTitle: isRtl ? "مسؤول موارد بشرية" : "HR Specialist",
+
+      avatarText:
+        activeUser?.role === "hr" && activeUser?.initials
+          ? activeUser.initials
+          : "MK",
+
+      avatarBg: "#ede9fe",
+      avatarColor: "#5b21b6",
+    };
   } else if (effectiveRole === "manager") {
-    displayName =
-      activeUser?.role === "manager" && activeUser?.name
-        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
-        : isRtl
-        ? "ليلى حسن"
-        : "Layla Hassan";
-    displayTitle = isRtl ? "مدير الفريق" : "Manager";
-    avatarText = activeUser?.role === "manager" && activeUser?.initials ? activeUser.initials : "LH";
-    avatarBg = "#fef3c7";
-    avatarColor = "#92400e";
+    userInfo = {
+      displayName:
+        activeUser?.role === "manager" && activeUser?.name
+          ? isRtl && activeUser?.nameAr
+            ? activeUser.nameAr
+            : activeUser.name
+          : isRtl
+            ? "ليلى حسن"
+            : "Layla Hassan",
+
+      displayTitle: isRtl ? "مدير الفريق" : "Manager",
+
+      avatarText:
+        activeUser?.role === "manager" && activeUser?.initials
+          ? activeUser.initials
+          : "LH",
+
+      avatarBg: "#fef3c7",
+      avatarColor: "#92400e",
+    };
   } else {
-    displayName =
-      activeUser?.role === "employee" && activeUser?.name
-        ? (isRtl && activeUser?.nameAr ? activeUser.nameAr : activeUser.name)
-        : isRtl
-        ? "عمر حداد"
-        : "Omar Haddad";
-    displayTitle = isRtl ? "محلل منتجات أول" : "Senior Product Analyst";
-    avatarText = activeUser?.role === "employee" && activeUser?.initials ? activeUser.initials : "OH";
-    avatarBg = "#d7eee9";
-    avatarColor = "#235850";
+    userInfo = {
+      displayName:
+        activeUser?.role === "employee" && activeUser?.name
+          ? isRtl && activeUser?.nameAr
+            ? activeUser.nameAr
+            : activeUser.name
+          : isRtl
+            ? "عمر حداد"
+            : "Omar Haddad",
+
+      displayTitle: isRtl ? "محلل منتجات أول" : "Senior Product Analyst",
+
+      avatarText:
+        activeUser?.role === "employee" && activeUser?.initials
+          ? activeUser.initials
+          : "OH",
+
+      avatarBg: "#d7eee9",
+      avatarColor: "#235850",
+    };
   }
 
-  const portalLabel = t(`portal.${effectiveRole}Portal`, `${effectiveRole.toUpperCase()} PORTAL`);
+  const { displayName, displayTitle, avatarText, avatarBg, avatarColor } =
+    userInfo;
 
-  // =========================
-  // Role Accent Color
-  // =========================
-
-  const accentColor =
-    {
-      admin: "bg-[#79B88B]",
-      hr: "bg-[#6366f1]",
-      manager: "bg-[#f59e0b]",
-      employee: "bg-[#0ea5e9]",
-    }[effectiveRole] || "bg-[#79B88B]";
-
-  const accentHex =
-    {
-      admin: "#79B88B",
-      hr: "#6366f1",
-      manager: "#f59e0b",
-      employee: "#0ea5e9",
-    }[effectiveRole] || "#79B88B";
+  const portalLabel = t(
+    `portal.${effectiveRole}Portal`,
+    `${effectiveRole.toUpperCase()} PORTAL`,
+  );
 
   // =========================
   // Sidebar Position
@@ -207,7 +228,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         `}
       >
         {/* =========================
-            Brand (Original Logo restored)
+            Brand
         ========================= */}
 
         <div
@@ -240,7 +261,9 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             "
           >
             {BRAND_NAME.prefix}
-            <span style={{ color: BRAND_NAME.suffixColor }}>{BRAND_NAME.suffix}</span>
+            <span style={{ color: BRAND_NAME.suffixColor }}>
+              {BRAND_NAME.suffix}
+            </span>
           </span>
         </div>
 
@@ -301,17 +324,17 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 style={({ isActive }) =>
                   isActive
                     ? {
-                      backgroundColor: "#2b4b68",
-                      borderLeft: isRtl ? "none" : "3.5px solid #52d1b2",
-                      borderRight: isRtl ? "3.5px solid #52d1b2" : "none",
-                      borderTop: "none",
-                      borderBottom: "none",
-                      borderRadius: "8px",
-                    }
+                        backgroundColor: "#2b4b68",
+                        borderLeft: isRtl ? "none" : "3.5px solid #52d1b2",
+                        borderRight: isRtl ? "3.5px solid #52d1b2" : "none",
+                        borderTop: "none",
+                        borderBottom: "none",
+                        borderRadius: "8px",
+                      }
                     : {
-                      border: "none",
-                      backgroundColor: "transparent",
-                    }
+                        border: "none",
+                        backgroundColor: "transparent",
+                      }
                 }
                 className={({ isActive }) => `
                   group
@@ -336,9 +359,10 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                   transition-all
                   duration-150
 
-                  ${isActive
-                    ? "text-white font-semibold shadow-sm"
-                    : "text-[#8fa8c1] hover:bg-[#2b4b68]/50 hover:text-white"
+                  ${
+                    isActive
+                      ? "text-white font-semibold shadow-sm"
+                      : "text-[#8fa8c1] hover:bg-[#2b4b68]/50 hover:text-white"
                   }
                 `}
               >
@@ -354,12 +378,10 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 )}
 
                 {/* Title */}
-                <span className="flex-1 truncate">
-                  {title}
-                </span>
+                <span className="flex-1 truncate">{title}</span>
 
                 {/* Notification Badge */}
-                {link.path.includes("notifications") && (
+                {link.path.includes("notifications") && unreadCount > 0 && (
                   <span
                     className="
                       ml-auto
@@ -378,7 +400,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                       rtl:mr-auto
                     "
                   >
-                    2
+                    {unreadCount}
                   </span>
                 )}
               </NavLink>
@@ -391,7 +413,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
         ========================= */}
 
         <div className="mt-auto flex flex-col pt-3 shrink-0">
-          {/* Need a hand? Card - Only for non-admin portals (specifically employee) */}
+          {/* Need a hand? Card - Only for non-admin portals */}
           {!isAdminPage && effectiveRole === "employee" && (
             <NavLink
               to="/employee/ai-assistant"
@@ -433,6 +455,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
                 <strong className="text-[13.5px] font-bold leading-tight text-white">
                   {t("portal.needAHand", "Need a hand?")}
                 </strong>
+
                 <span className="mt-1 text-[11.5px] leading-tight text-[#8fa8c1]">
                   {t("portal.askAi", "Ask the AI Assistant")}
                 </span>
@@ -493,6 +516,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               <strong className="truncate text-[13.5px] font-bold leading-tight text-white">
                 {displayName}
               </strong>
+
               <span className="mt-0.5 truncate text-[11.5px] leading-tight text-[#8fa8c1]">
                 {displayTitle}
               </span>
@@ -501,7 +525,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             {/* More */}
             <button
               type="button"
-              className="ml-auto rounded p-1 text-[#8fa8c1] transition-colors hover:text-white cursor-pointer rtl:ml-0 rtl:mr-auto"
+              className="ml-auto cursor-pointer rounded p-1 text-[#8fa8c1] transition-colors hover:text-white rtl:ml-0 rtl:mr-auto"
               title="More"
             >
               <FiMoreHorizontal className="h-4 w-4 shrink-0" />
