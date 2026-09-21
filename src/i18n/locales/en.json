@@ -409,46 +409,59 @@
   },
   "reports": {
     "title": "Reports",
-    "subtitle": "Export governed workforce reports for leadership and audit workflows.",
+    "subtitle": "Export organized workforce reports for leadership, audit trails, and review.",
+
     "generateReport": "Generate Report",
-    "exportPdf": "Export PDF",
-    "exportExcel": "Export Excel",
+    "exportPdf": "Export as PDF",
+    "exportExcel": "Export as Excel",
+
     "monthlyAttendance": "Monthly Attendance Report",
     "payrollSummary": "Payroll Summary",
-    "exportCockpit": "Export cockpit",
-    "exportDescription": "Select the reporting scope and filters, then choose the report you want to export.",
+
+    "exportCockpit": "Export Center",
+    "exportDescription": "Select the range and filters, then choose the report to export.",
+    "dateRange": "Date range",
+
     "from": "From",
     "to": "To",
     "department": "Department",
     "branch": "Branch",
-    "september2026": "September 01 – 30, 2026",
-    "august2026": "August 01 – 31, 2026",
-    "july2026": "July 01 – 31, 2026",
-    "june2026": "June 01 – 30, 2026",
-    "allDepartments": "All departments",
+
+    "september2026": "01 September – 30 September 2026",
+    "august2026": "01 August – 31 August 2026",
+    "july2026": "01 July – 31 July 2026",
+    "june2026": "01 June – 31 June 2026",
+
+    "allDepartments": "All Departments",
     "engineering": "Engineering",
     "sales": "Sales",
-    "allBranches": "All branches",
-    "cairoHq": "Cairo HQ",
+
+    "allBranches": "Cairo Headquarters",
+    "cairoHq": "Cairo Headquarters",
     "alexandriaHub": "Alexandria Hub",
-    "availableReports": "Available reports",
-    "reportCount": "reports",
-    "exportReport": "Export report",
+
+    "availableReports": "Available Reports",
+    "reportCount": "Reports",
+    "exportReport": "Export Report",
+
     "attendance": {
-      "title": "Monthly Attendance & Delay Summary",
-      "description": "Attendance exceptions, punctuality trends, and branch comparison."
+      "title": "Monthly Attendance & Late Arrival Summary",
+      "description": "Attendance exceptions, punctuality trends, and branch performance comparison."
     },
+
     "payroll": {
-      "title": "Payroll Run & Payslip Register",
-      "description": "Compensation totals, deductions, and payslip delivery status."
+      "title": "Payroll Register & Payslip Records",
+      "description": "Total compensation, deductions, and payslip submission status."
     },
+
     "leave": {
-      "title": "Leave Balances & Usage Audit",
-      "description": "Entitlements, usage, carry-over, and supporting documentation."
+      "title": "Leave Balance & Usage Audit",
+      "description": "Entitlements, usage, carryover, and supporting documentation."
     },
+
     "skills": {
-      "title": "AI Skill-Gap & Workforce Review",
-      "description": "Explainable skills coverage and recommended workforce actions."
+      "title": "AI Skills Gap & Workforce Review",
+      "description": "Explainable skills coverage and workforce action recommendations."
     }
   },
   "home": {

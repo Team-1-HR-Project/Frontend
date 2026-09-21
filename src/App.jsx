@@ -58,6 +58,8 @@ import PerformanceMetrics from "./features/hr/pages/performanceMatrics";
 import AIInsights from "./features/hr/pages/aiInsights";
 import HrCompanyPolicies from "./features/hr/pages/companyPolicies";
 import Holidays from "./features/hr/pages/holidays";
+import Reports from "./features/hr/pages/reports";
+
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -166,7 +168,10 @@ function App() {
           {/* ================================================== */}
 
           {/* HR Redirect */}
-          <Route path="/hr" element={<Navigate to="/hr/dashboard" replace />} />
+          <Route
+            path="/hr"
+            element={<Navigate to="/hr/dashboard" replace />}
+          />
 
           {/* HR Dashboard */}
           <Route path="/hr/dashboard" element={<HrDashboard />} />
@@ -181,10 +186,16 @@ function App() {
           <Route path="/hr/attendance" element={<HrAttendance />} />
 
           {/* HR Leave Requests */}
-          <Route path="/hr/leave-requests" element={<HrLeaveRequests />} />
+          <Route
+            path="/hr/leave-requests"
+            element={<HrLeaveRequests />}
+          />
 
           {/* HR Advances & Deductions */}
-          <Route path="/hr/advances-deductions" element={<HrAdvances />} />
+          <Route
+            path="/hr/advances-deductions"
+            element={<HrAdvances />}
+          />
 
           {/* HR Payroll */}
           <Route path="/hr/payroll" element={<HrPayroll />} />
@@ -208,10 +219,16 @@ function App() {
           <Route path="/hr/ai-insights" element={<AIInsights />} />
 
           {/* HR Company Policies */}
-          <Route path="/hr/company-policies" element={<HrCompanyPolicies />} />
+          <Route
+            path="/hr/company-policies"
+            element={<HrCompanyPolicies />}
+          />
 
           {/* HR Holidays & Seasons */}
           <Route path="/hr/holidays" element={<Holidays />} />
+
+          {/* HR Reports */}
+          <Route path="/hr/reports" element={<Reports />} />
 
           {/* HR Notifications */}
           <Route path="/hr/notifications" element={<Notification />} />
@@ -240,24 +257,43 @@ function App() {
 
           <Route path="/manager/tasks" element={<TaskManagement />} />
 
-          <Route path="/manager/submissions" element={<SubmissionReviews />} />
+          <Route
+            path="/manager/submissions"
+            element={<SubmissionReviews />}
+          />
 
-          <Route path="/manager/evaluations" element={<TeamEvaluations />} />
+          <Route
+            path="/manager/evaluations"
+            element={<TeamEvaluations />}
+          />
 
           <Route path="/manager/goals" element={<TeamGoals />} />
 
-          <Route path="/manager/analytics" element={<PerformanceAnalytics />} />
+          <Route
+            path="/manager/analytics"
+            element={<PerformanceAnalytics />}
+          />
 
-          <Route path="/manager/attendance" element={<TeamAttendance />} />
+          <Route
+            path="/manager/attendance"
+            element={<TeamAttendance />}
+          />
 
           <Route
             path="/manager/leave-approvals"
             element={<TeamLeaveApprovals />}
           />
 
-          <Route path="/manager/ai-insights" element={<AITeamInsights />} />
+          <Route
+            path="/manager/ai-insights"
+            element={<AITeamInsights />}
+          />
 
-          <Route path="/manager/notifications" element={<Notification />} />
+          <Route
+            path="/manager/notifications"
+            element={<Notification />}
+          />
+
           <Route path="/manager/profile" element={<ProfileSetting />} />
 
           {/* ================================================== */}
@@ -269,9 +305,15 @@ function App() {
             element={<Navigate to="/employee/dashboard" replace />}
           />
 
-          <Route path="/employee/dashboard" element={<HomeDashboard />} />
+          <Route
+            path="/employee/dashboard"
+            element={<HomeDashboard />}
+          />
 
-          <Route path="/employee/attendance" element={<Attendance />} />
+          <Route
+            path="/employee/attendance"
+            element={<Attendance />}
+          />
 
           <Route path="/employee/tasks" element={<Tasks />} />
 
@@ -287,17 +329,28 @@ function App() {
             element={<Navigate to="/employee/leaves" replace />}
           />
 
-          <Route path="/employee/ai-assistant" element={<AIAssistant />} />
+          <Route
+            path="/employee/ai-assistant"
+            element={<AIAssistant />}
+          />
 
           <Route
             path="/employee/assistant"
-            element={<Navigate to="/employee/ai-assistant" replace />}
+            element={
+              <Navigate to="/employee/ai-assistant" replace />
+            }
           />
 
-          <Route path="/employee/notifications" element={<Notification />} />
+          <Route
+            path="/employee/notifications"
+            element={<Notification />}
+          />
 
           {/* Employee Company Policies */}
-          <Route path="/employee/policies" element={<CompanyPolicies />} />
+          <Route
+            path="/employee/policies"
+            element={<CompanyPolicies />}
+          />
 
           <Route
             path="/employee/profile"

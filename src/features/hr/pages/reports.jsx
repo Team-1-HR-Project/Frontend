@@ -1,26 +1,29 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FiCalendar,
   FiChevronDown,
   FiDownload,
   FiFileText,
-  FiSearch,
-  FiBarChart2,
-  FiDollarSign,
-  FiClipboard,
-  FiCpu,
+  FiCheckCircle,
+  FiX,
 } from "react-icons/fi";
+import * as XLSX from "xlsx";
+import jsPDF from "jspdf";
 
 const Reports = () => {
   const { t, i18n } = useTranslation();
 
   const isArabic = i18n.language?.startsWith("ar");
 
-  const [fromMonth, setFromMonth] = useState("2026-09");
-  const [toMonth, setToMonth] = useState("2026-09");
+  const [selectedMonth, setSelectedMonth] = useState("2026-09");
   const [department, setDepartment] = useState("all");
   const [branch, setBranch] = useState("all");
+
+  const [toast, setToast] = useState(null);
+
+  // ==================== Date Range ====================
 
   const months = useMemo(
     () => [
@@ -44,6 +47,8 @@ const Reports = () => {
     [t]
   );
 
+  // ==================== Departments ====================
+
   const departments = [
     {
       value: "all",
@@ -58,6 +63,8 @@ const Reports = () => {
       label: t("reports.sales"),
     },
   ];
+
+  // ==================== Branches ====================
 
   const branches = [
     {
@@ -74,300 +81,748 @@ const Reports = () => {
     },
   ];
 
+  // ==================== Reports ====================
+
   const reports = [
     {
       id: "attendance",
       formats: ["PDF", "CSV"],
       title: t("reports.attendance.title"),
       description: t("reports.attendance.description"),
-      icon: FiBarChart2,
-      iconWrapper: "bg-[#eef4ff] text-[#315b9b]",
     },
     {
       id: "payroll",
       formats: ["Excel", "PDF"],
       title: t("reports.payroll.title"),
       description: t("reports.payroll.description"),
-      icon: FiDollarSign,
-      iconWrapper: "bg-[#edf8f2] text-[#26845c]",
     },
     {
       id: "leave",
       formats: ["CSV"],
       title: t("reports.leave.title"),
       description: t("reports.leave.description"),
-      icon: FiClipboard,
-      iconWrapper: "bg-[#fff5e8] text-[#b66a13]",
     },
     {
       id: "skills",
       formats: ["PDF"],
       title: t("reports.skills.title"),
       description: t("reports.skills.description"),
-      icon: FiCpu,
-      iconWrapper: "bg-[#f3efff] text-[#7655b7]",
     },
   ];
 
-  const handleExport = (report) => {
-    // Placeholder for the real export API.
-    // Later this can call the Laravel endpoint using:
-    // fromMonth, toMonth, department, branch and report.id.
-    console.log("Export report:", {
-      report: report.id,
-      fromMonth,
-      toMonth,
-      department,
-      branch,
-    });
+  // =====================================================
+  // Get Selected Filters
+  // =====================================================
+
+  const getSelectedMonthLabel = () => {
+    const selected = months.find(
+      (month) => month.value === selectedMonth
+    );
+
+    return selected?.label || selectedMonth;
   };
 
+  const getSelectedDepartmentLabel = () => {
+    const selected = departments.find(
+      (item) => item.value === department
+    );
+
+    return selected?.label || department;
+  };
+
+  const getSelectedBranchLabel = () => {
+    const selected = branches.find(
+      (item) => item.value === branch
+    );
+
+    return selected?.label || branch;
+  };
+
+  // =====================================================
+  // Toast
+  // =====================================================
+
+  const showSuccessToast = (report) => {
+    setToast({
+      type: "success",
+      message: isArabic
+        ? `تم تصدير "${report.title}" بنجاح`
+        : `"${report.title}" exported successfully`,
+    });
+
+    setTimeout(() => {
+      setToast(null);
+    }, 3500);
+  };
+
+  // =====================================================
+  // CSV Export
+  // =====================================================
+
+  const exportCSV = (report) => {
+    const rows = [
+      ["Report", report.title],
+      ["Description", report.description],
+      ["Date Range", getSelectedMonthLabel()],
+      ["Department", getSelectedDepartmentLabel()],
+      ["Branch", getSelectedBranchLabel()],
+      ["Status", "Exported successfully"],
+    ];
+
+    const csvContent = rows
+      .map((row) =>
+        row
+          .map((value) => {
+            const safeValue = String(value ?? "").replace(
+              /"/g,
+              '""'
+            );
+
+            return `"${safeValue}"`;
+          })
+          .join(",")
+      )
+      .join("\n");
+
+    const blob = new Blob(
+      ["\uFEFF" + csvContent],
+      {
+        type: "text/csv;charset=utf-8;",
+      }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `${report.id}-report.csv`;
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+  };
+
+  // =====================================================
+  // Excel Export
+  // =====================================================
+
+  const exportExcel = (report) => {
+    const data = [
+      {
+        Report: report.title,
+        Description: report.description,
+        "Date Range": getSelectedMonthLabel(),
+        Department: getSelectedDepartmentLabel(),
+        Branch: getSelectedBranchLabel(),
+        Status: "Exported successfully",
+      },
+    ];
+
+    const worksheet = XLSX.utils.json_to_sheet(data);
+
+    worksheet["!cols"] = [
+      { wch: 35 },
+      { wch: 65 },
+      { wch: 30 },
+      { wch: 25 },
+      { wch: 25 },
+      { wch: 25 },
+    ];
+
+    const workbook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      "Report"
+    );
+
+    XLSX.writeFile(
+      workbook,
+      `${report.id}-report.xlsx`
+    );
+  };
+
+  // =====================================================
+  // PDF Export
+  // =====================================================
+
+  const exportPDF = (report) => {
+    const doc = new jsPDF();
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+
+    // Title
+    doc.setFontSize(18);
+    doc.setTextColor(28, 54, 79);
+
+    doc.text(
+      report.title,
+      20,
+      25
+    );
+
+    // Description
+    doc.setFontSize(11);
+    doc.setTextColor(90, 110, 130);
+
+    const descriptionLines = doc.splitTextToSize(
+      report.description,
+      pageWidth - 40
+    );
+
+    doc.text(
+      descriptionLines,
+      20,
+      38
+    );
+
+    // Divider
+    doc.setDrawColor(220, 229, 236);
+
+    doc.line(
+      20,
+      55,
+      pageWidth - 20,
+      55
+    );
+
+    // Report information
+    doc.setFontSize(11);
+    doc.setTextColor(28, 54, 79);
+
+    doc.text(
+      "Report Information",
+      20,
+      72
+    );
+
+    doc.setFontSize(10);
+    doc.setTextColor(80, 95, 110);
+
+    doc.text(
+      `Date Range: ${getSelectedMonthLabel()}`,
+      20,
+      87
+    );
+
+    doc.text(
+      `Department: ${getSelectedDepartmentLabel()}`,
+      20,
+      101
+    );
+
+    doc.text(
+      `Branch: ${getSelectedBranchLabel()}`,
+      20,
+      115
+    );
+
+    doc.text(
+      `Generated: ${new Date().toLocaleString()}`,
+      20,
+      129
+    );
+
+    // Status
+    doc.setFontSize(11);
+    doc.setTextColor(38, 132, 92);
+
+    doc.text(
+      "Status: Exported successfully",
+      20,
+      150
+    );
+
+    // Footer
+    doc.setFontSize(9);
+    doc.setTextColor(130, 145, 160);
+
+    doc.text(
+      "Workforce Reports",
+      20,
+      280
+    );
+
+    doc.text(
+      "Generated by Smart HR",
+      pageWidth - 20,
+      280,
+      {
+        align: "right",
+      }
+    );
+
+    doc.save(
+      `${report.id}-report.pdf`
+    );
+  };
+
+  // =====================================================
+  // Export Report
+  // =====================================================
+
+  const handleExport = (report) => {
+    try {
+      // Export every format listed on the card.
+      report.formats.forEach((format) => {
+        if (format === "CSV") {
+          exportCSV(report);
+        }
+
+        if (format === "Excel") {
+          exportExcel(report);
+        }
+
+        if (format === "PDF") {
+          exportPDF(report);
+        }
+      });
+
+      showSuccessToast(report);
+    } catch (error) {
+      console.error(
+        "Report export failed:",
+        error
+      );
+
+      setToast({
+        type: "error",
+        message: isArabic
+          ? "حدث خطأ أثناء تصدير التقرير"
+          : "Something went wrong while exporting the report",
+      });
+
+      setTimeout(() => {
+        setToast(null);
+      }, 3500);
+    }
+  };
+
+  // =====================================================
+  // Render
+  // =====================================================
+
   return (
-    <section
-      className={`w-full ${isArabic ? "text-right" : "text-left"}`}
-      dir={isArabic ? "rtl" : "ltr"}
-    >
-      {/* Page Header */}
-      <div className="mb-[28px]">
-        <div className="flex items-start justify-between gap-5 max-[760px]:flex-col">
-          <div>
-            <h1 className="text-[28px] font-bold tracking-[-0.5px] text-[#1c364f] max-[760px]:text-[24px]">
-              {t("reports.title")}
-            </h1>
+    <>
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.35 }}
+        className={`w-full ${
+          isArabic
+            ? "text-right"
+            : "text-left"
+        }`}
+        dir={isArabic ? "rtl" : "ltr"}
+      >
+        {/* ===================================================== */}
+        {/* PAGE HEADER */}
+        {/* ===================================================== */}
 
-            <p className="mt-[7px] text-[14px] leading-[22px] text-[#718096]">
-              {t("reports.subtitle")}
-            </p>
-          </div>
-        </div>
-      </div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 8,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.35,
+          }}
+          className="mb-[28px]"
+        >
+          <h1 className="text-[28px] font-bold leading-[34px] tracking-[-0.5px] text-[#1c364f] max-[760px]:text-[24px]">
+            {t("reports.title")}
+          </h1>
 
-      {/* Export Cockpit */}
-      <div className="mb-[28px] rounded-[14px] border border-[#e4e9ee] bg-white p-[24px] shadow-[0_2px_8px_rgba(28,54,79,0.03)]">
-        <div className="mb-[22px] flex items-center gap-[10px]">
-          <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-[#edf3f8] text-[#1c587e]">
-            <FiFileText size={18} />
-          </div>
+          <p className="mt-[6px] text-[14px] leading-[22px] text-[#6f8ca8]">
+            {t("reports.subtitle")}
+          </p>
+        </motion.div>
 
-          <div>
-            <h2 className="text-[17px] font-bold text-[#1c364f]">
+        {/* ===================================================== */}
+        {/* EXPORT COCKPIT */}
+        {/* ===================================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.4,
+            delay: 0.05,
+          }}
+          className="mb-[28px] rounded-[14px] border border-[#dbe5ed] bg-white px-[22px] py-[20px] shadow-[0_1px_3px_rgba(28,54,79,0.02)]"
+        >
+          {/* Cockpit Header */}
+
+          <div className="mb-[20px] flex items-center gap-[10px]">
+            <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[10px] bg-[#edf3f8] text-[#315d79]">
+              <FiFileText
+                size={18}
+                strokeWidth={2}
+              />
+            </div>
+
+            <h2 className="text-[17px] font-bold leading-[21px] text-[#1c364f]">
               {t("reports.exportCockpit")}
             </h2>
-
-            <p className="mt-[2px] text-[12px] text-[#8793a0]">
-              {t("reports.exportDescription")}
-            </p>
           </div>
-        </div>
 
-        {/* Filters */}
-        <div className="grid grid-cols-4 gap-[14px] max-[1050px]:grid-cols-2 max-[600px]:grid-cols-1">
-          {/* From */}
-          <div>
-            <label className="mb-[7px] block text-[12px] font-semibold text-[#536273]">
-              {t("reports.from")}
-            </label>
+          {/* ================================================= */}
+          {/* FILTERS */}
+          {/* ================================================= */}
 
-            <div className="relative">
-              <FiCalendar
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "right-[13px]" : "left-[13px]"
-                }`}
-                size={16}
-              />
+          <div className="grid grid-cols-3 gap-[13px] max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+            {/* ================= DATE RANGE ================= */}
 
-              <select
-                value={fromMonth}
-                onChange={(e) => setFromMonth(e.target.value)}
-                className={`h-[44px] w-full appearance-none rounded-[9px] border border-[#dce3e9] bg-white text-[13px] font-medium text-[#334155] outline-none transition focus:border-[#39749c] ${
-                  isArabic
-                    ? "pr-[38px] pl-[34px]"
-                    : "pl-[38px] pr-[34px]"
-                }`}
-              >
-                {months.map((month) => (
-                  <option key={month.value} value={month.value}>
-                    {month.label}
-                  </option>
-                ))}
-              </select>
+            <div>
+              <label className="mb-[7px] block text-[12px] font-semibold leading-[16px] text-[#536273]">
+                {t("reports.dateRange")}
+              </label>
 
-              <FiChevronDown
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "left-[12px]" : "right-[12px]"
-                }`}
-                size={15}
-              />
+              <div className="relative h-[42px]">
+                {/* Calendar Icon */}
+
+                <div
+                  className={`pointer-events-none absolute top-0 z-[10] flex h-[42px] w-[42px] items-center justify-center text-[#7290aa] ${
+                    isArabic
+                      ? "right-0"
+                      : "left-0"
+                  }`}
+                >
+                  <FiCalendar
+                    size={15}
+                    strokeWidth={2}
+                  />
+                </div>
+
+                {/* Select */}
+
+                <select
+                  value={selectedMonth}
+                  onChange={(e) =>
+                    setSelectedMonth(
+                      e.target.value
+                    )
+                  }
+                  className={`h-[42px] w-full appearance-none rounded-[9px] border border-[#d8e2ea] bg-white text-[13px] font-medium text-[#6283a2] outline-none transition focus:border-[#39749c] ${
+                    isArabic
+                      ? "pr-[42px] pl-[35px]"
+                      : "pl-[42px] pr-[35px]"
+                  }`}
+                >
+                  {months.map((month) => (
+                    <option
+                      key={month.value}
+                      value={month.value}
+                    >
+                      {month.label}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Chevron */}
+
+                <div
+                  className={`pointer-events-none absolute top-0 z-[10] flex h-[42px] w-[36px] items-center justify-center text-[#64809a] ${
+                    isArabic
+                      ? "left-0"
+                      : "right-0"
+                  }`}
+                >
+                  <FiChevronDown
+                    size={15}
+                    strokeWidth={2}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* ================= DEPARTMENT ================= */}
+
+            <div>
+              <label className="mb-[7px] block text-[12px] font-semibold leading-[16px] text-[#536273]">
+                {t("reports.department")}
+              </label>
+
+              <div className="relative h-[42px]">
+                <select
+                  value={department}
+                  onChange={(e) =>
+                    setDepartment(
+                      e.target.value
+                    )
+                  }
+                  className={`h-[42px] w-full appearance-none rounded-[9px] border border-[#d8e2ea] bg-white text-[13px] font-medium text-[#6283a2] outline-none transition focus:border-[#39749c] ${
+                    isArabic
+                      ? "pr-[13px] pl-[35px]"
+                      : "pl-[13px] pr-[35px]"
+                  }`}
+                >
+                  {departments.map(
+                    (item) => (
+                      <option
+                        key={item.value}
+                        value={item.value}
+                      >
+                        {item.label}
+                      </option>
+                    )
+                  )}
+                </select>
+
+                <div
+                  className={`pointer-events-none absolute top-0 z-[10] flex h-[42px] w-[36px] items-center justify-center text-[#64809a] ${
+                    isArabic
+                      ? "left-0"
+                      : "right-0"
+                  }`}
+                >
+                  <FiChevronDown
+                    size={15}
+                    strokeWidth={2}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* ================= BRANCH ================= */}
+
+            <div>
+              <label className="mb-[7px] block text-[12px] font-semibold leading-[16px] text-[#536273]">
+                {t("reports.branch")}
+              </label>
+
+              <div className="relative h-[42px]">
+                <select
+                  value={branch}
+                  onChange={(e) =>
+                    setBranch(
+                      e.target.value
+                    )
+                  }
+                  className={`h-[42px] w-full appearance-none rounded-[9px] border border-[#d8e2ea] bg-white text-[13px] font-medium text-[#6283a2] outline-none transition focus:border-[#39749c] ${
+                    isArabic
+                      ? "pr-[13px] pl-[35px]"
+                      : "pl-[13px] pr-[35px]"
+                  }`}
+                >
+                  {branches.map(
+                    (item) => (
+                      <option
+                        key={item.value}
+                        value={item.value}
+                      >
+                        {item.label}
+                      </option>
+                    )
+                  )}
+                </select>
+
+                <div
+                  className={`pointer-events-none absolute top-0 z-[10] flex h-[42px] w-[36px] items-center justify-center text-[#64809a] ${
+                    isArabic
+                      ? "left-0"
+                      : "right-0"
+                  }`}
+                >
+                  <FiChevronDown
+                    size={15}
+                    strokeWidth={2}
+                  />
+                </div>
+              </div>
             </div>
           </div>
+        </motion.div>
 
-          {/* To */}
-          <div>
-            <label className="mb-[7px] block text-[12px] font-semibold text-[#536273]">
-              {t("reports.to")}
-            </label>
-
-            <div className="relative">
-              <FiCalendar
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "right-[13px]" : "left-[13px]"
-                }`}
-                size={16}
-              />
-
-              <select
-                value={toMonth}
-                onChange={(e) => setToMonth(e.target.value)}
-                className={`h-[44px] w-full appearance-none rounded-[9px] border border-[#dce3e9] bg-white text-[13px] font-medium text-[#334155] outline-none transition focus:border-[#39749c] ${
-                  isArabic
-                    ? "pr-[38px] pl-[34px]"
-                    : "pl-[38px] pr-[34px]"
-                }`}
-              >
-                {months.map((month) => (
-                  <option key={month.value} value={month.value}>
-                    {month.label}
-                  </option>
-                ))}
-              </select>
-
-              <FiChevronDown
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "left-[12px]" : "right-[12px]"
-                }`}
-                size={15}
-              />
-            </div>
-          </div>
-
-          {/* Department */}
-          <div>
-            <label className="mb-[7px] block text-[12px] font-semibold text-[#536273]">
-              {t("reports.department")}
-            </label>
-
-            <div className="relative">
-              <select
-                value={department}
-                onChange={(e) => setDepartment(e.target.value)}
-                className={`h-[44px] w-full appearance-none rounded-[9px] border border-[#dce3e9] bg-white text-[13px] font-medium text-[#334155] outline-none transition focus:border-[#39749c] ${
-                  isArabic ? "pr-[13px] pl-[34px]" : "pl-[13px] pr-[34px]"
-                }`}
-              >
-                {departments.map((item) => (
-                  <option key={item.value} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-
-              <FiChevronDown
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "left-[12px]" : "right-[12px]"
-                }`}
-                size={15}
-              />
-            </div>
-          </div>
-
-          {/* Branch */}
-          <div>
-            <label className="mb-[7px] block text-[12px] font-semibold text-[#536273]">
-              {t("reports.branch")}
-            </label>
-
-            <div className="relative">
-              <select
-                value={branch}
-                onChange={(e) => setBranch(e.target.value)}
-                className={`h-[44px] w-full appearance-none rounded-[9px] border border-[#dce3e9] bg-white text-[13px] font-medium text-[#334155] outline-none transition focus:border-[#39749c] ${
-                  isArabic ? "pr-[13px] pl-[34px]" : "pl-[13px] pr-[34px]"
-                }`}
-              >
-                {branches.map((item) => (
-                  <option key={item.value} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-
-              <FiChevronDown
-                className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#8b98a7] ${
-                  isArabic ? "left-[12px]" : "right-[12px]"
-                }`}
-                size={15}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Reports List */}
-      <div>
-        <div className="mb-[14px] flex items-center justify-between">
-          <h2 className="text-[17px] font-bold text-[#1c364f]">
-            {t("reports.availableReports")}
-          </h2>
-
-          <span className="text-[12px] text-[#8995a3]">
-            {reports.length} {t("reports.reportCount")}
-          </span>
-        </div>
+        {/* ===================================================== */}
+        {/* REPORT CARDS */}
+        {/* ===================================================== */}
 
         <div className="grid grid-cols-2 gap-[16px] max-[900px]:grid-cols-1">
-          {reports.map((report) => {
-            const Icon = report.icon;
-
-            return (
-              <article
+          {reports.map(
+            (report, index) => (
+              <motion.article
                 key={report.id}
-                className="group flex min-h-[190px] flex-col rounded-[14px] border border-[#e3e8ed] bg-white p-[21px] shadow-[0_2px_8px_rgba(28,54,79,0.025)] transition hover:-translate-y-[1px] hover:border-[#ced9e2] hover:shadow-[0_6px_18px_rgba(28,54,79,0.06)]"
+                initial={{
+                  opacity: 0,
+                  y: 14,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.35,
+                  delay:
+                    0.12 +
+                    index * 0.07,
+                }}
+                whileHover={{
+                  y: -1,
+                }}
+                className="flex min-h-[194px] flex-col rounded-[14px] border border-[#dce5ec] bg-white px-[21px] py-[21px] shadow-[0_1px_4px_rgba(28,54,79,0.018)]"
               >
-                <div className="flex items-start justify-between gap-[15px]">
-                  <div
-                    className={`flex h-[43px] w-[43px] shrink-0 items-center justify-center rounded-[11px] ${report.iconWrapper}`}
-                  >
-                    <Icon size={20} />
+                {/* CARD TOP */}
+
+                <div className="flex items-start justify-between gap-[12px]">
+                  <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-[#edf4f8] text-[#47718f]">
+                    <FiFileText
+                      size={18}
+                      strokeWidth={2}
+                    />
                   </div>
 
-                  <div className="flex flex-wrap justify-end gap-[6px]">
-                    {report.formats.map((format) => (
-                      <span
-                        key={format}
-                        className="rounded-[6px] bg-[#f3f6f8] px-[8px] py-[4px] text-[10px] font-bold uppercase tracking-[0.3px] text-[#647383]"
-                      >
-                        {format}
-                      </span>
-                    ))}
+                  <div className="flex items-center gap-[5px]">
+                    {report.formats.map(
+                      (format) => (
+                        <span
+                          key={format}
+                          className="rounded-full bg-[#eaf2f7] px-[10px] py-[5px] text-[10px] font-bold leading-[12px] text-[#315d79]"
+                        >
+                          {format}
+                        </span>
+                      )
+                    )}
                   </div>
                 </div>
 
-                <div className="mt-[18px] flex-1">
-                  <h3 className="text-[15px] font-bold leading-[21px] text-[#253b50]">
+                {/* CARD CONTENT */}
+
+                <div className="mt-[19px] flex-1">
+                  <h3 className="text-[16px] font-bold leading-[21px] text-[#1d3b58]">
                     {report.title}
                   </h3>
 
-                  <p className="mt-[7px] max-w-[540px] text-[12px] leading-[20px] text-[#7a8795]">
+                  <p className="mt-[7px] max-w-[570px] text-[12px] leading-[20px] text-[#6685a2]">
                     {report.description}
                   </p>
                 </div>
 
-                <div className="mt-[17px] border-t border-[#eef1f4] pt-[14px]">
-                  <button
+                {/* CARD BUTTON */}
+
+                <div className="mt-[14px]">
+                  <motion.button
                     type="button"
-                    onClick={() => handleExport(report)}
-                    className="inline-flex h-[36px] items-center gap-[8px] rounded-[8px] border border-[#d6e0e7] bg-white px-[13px] text-[12px] font-semibold text-[#315d79] transition hover:border-[#b8cbd8] hover:bg-[#f7fafb] active:scale-[0.98]"
+                    onClick={() =>
+                      handleExport(
+                        report
+                      )
+                    }
+                    whileTap={{
+                      scale: 0.98,
+                    }}
+                    className="inline-flex h-[36px] items-center gap-[7px] rounded-[8px] border border-[#d6e1e8] bg-white px-[12px] text-[12px] font-semibold text-[#315d79] transition-all duration-200 hover:border-[#bfd0dc] hover:bg-[#f8fafb]"
                   >
-                    <FiDownload size={14} />
-                    {t("reports.exportReport")}
-                  </button>
+                    <FiDownload
+                      size={14}
+                    />
+
+                    {t(
+                      "reports.exportReport"
+                    )}
+                  </motion.button>
                 </div>
-              </article>
-            );
-          })}
+              </motion.article>
+            )
+          )}
         </div>
-      </div>
-    </section>
+      </motion.section>
+
+      {/* ===================================================== */}
+      {/* SUCCESS / ERROR TOAST */}
+      {/* ===================================================== */}
+
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+              scale: 0.96,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+            }}
+            exit={{
+              opacity: 0,
+              y: 20,
+              scale: 0.96,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            className={`fixed bottom-[28px] z-[9999] flex min-h-[52px] max-w-[380px] items-center gap-[10px] rounded-[10px] border bg-white px-[15px] py-[11px] shadow-[0_8px_30px_rgba(28,54,79,0.12)] ${
+              isArabic
+                ? "left-[28px]"
+                : "right-[28px]"
+            } ${
+              toast.type === "success"
+                ? "border-[#cfe8dc]"
+                : "border-[#f0d2d2]"
+            }`}
+            dir={isArabic ? "rtl" : "ltr"}
+          >
+            <div
+              className={`flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full ${
+                toast.type === "success"
+                  ? "bg-[#e9f7ef] text-[#26845c]"
+                  : "bg-[#fff0f0] text-[#c94b4b]"
+              }`}
+            >
+              {toast.type ===
+              "success" ? (
+                <FiCheckCircle
+                  size={17}
+                  strokeWidth={2}
+                />
+              ) : (
+                <FiX
+                  size={17}
+                  strokeWidth={2}
+                />
+              )}
+            </div>
+
+            <span
+              className={`flex-1 text-[12px] font-semibold leading-[18px] ${
+                toast.type ===
+                "success"
+                  ? "text-[#276d50]"
+                  : "text-[#a33d3d]"
+              }`}
+            >
+              {toast.message}
+            </span>
+
+            <button
+              type="button"
+              onClick={() =>
+                setToast(null)
+              }
+              className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-[6px] text-[#8ba0b1] transition hover:bg-[#f5f7f9] hover:text-[#536273]"
+            >
+              <FiX size={14} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
