@@ -381,13 +381,58 @@
     "recentNotifications": "Recent Notifications"
   },
   "reports": {
-    "title": "Reports",
-    "generateReport": "Generate Report",
-    "exportPdf": "Export PDF",
-    "exportExcel": "Export Excel",
-    "monthlyAttendance": "Monthly Attendance Report",
-    "payrollSummary": "Payroll Summary"
+  "title": "Reports",
+  "subtitle": "Export governed workforce reports for leadership and audit workflows.",
+  "generateReport": "Generate Report",
+  "exportPdf": "Export PDF",
+  "exportExcel": "Export Excel",
+  "monthlyAttendance": "Monthly Attendance Report",
+  "payrollSummary": "Payroll Summary",
+
+  "exportCockpit": "Export cockpit",
+  "exportDescription": "Select the reporting scope and filters, then choose the report you want to export.",
+  "from": "From",
+  "to": "To",
+  "department": "Department",
+  "branch": "Branch",
+
+  "september2026": "September 01 – 30, 2026",
+  "august2026": "August 01 – 31, 2026",
+  "july2026": "July 01 – 31, 2026",
+  "june2026": "June 01 – 30, 2026",
+
+  "allDepartments": "All departments",
+  "engineering": "Engineering",
+  "sales": "Sales",
+
+  "allBranches": "All branches",
+  "cairoHq": "Cairo HQ",
+  "alexandriaHub": "Alexandria Hub",
+
+  "availableReports": "Available reports",
+  "reportCount": "reports",
+  "exportReport": "Export report",
+
+  "attendance": {
+    "title": "Monthly Attendance & Delay Summary",
+    "description": "Attendance exceptions, punctuality trends, and branch comparison."
   },
+
+  "payroll": {
+    "title": "Payroll Run & Payslip Register",
+    "description": "Compensation totals, deductions, and payslip delivery status."
+  },
+
+  "leave": {
+    "title": "Leave Balances & Usage Audit",
+    "description": "Entitlements, usage, carry-over, and supporting documentation."
+  },
+
+  "skills": {
+    "title": "AI Skill-Gap & Workforce Review",
+    "description": "Explainable skills coverage and recommended workforce actions."
+  }
+,
   "home": {
     "nav": {
       "home": "Home",
@@ -1543,12 +1588,13 @@
       "ownership": "Ownership",
       "mentorship": "Mentorship"
     },
-    "table": {
-      "member": "Member",
-      "velocity": "Velocity",
-      "rating": "Rating"
-    },
-  "hrEvaluationsGoals": {
+     "table": {
+    "member": "Member",
+    "velocity": "Velocity",
+    "rating": "Rating"
+  }
+},
+"hrEvaluationsGoals": {
     "eyebrow": "PERFORMANCE MANAGEMENT",
     "title": "Evaluations & Goals",
     "subtitle": "Run review cycles and keep manager completion accountable.",
