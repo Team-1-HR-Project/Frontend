@@ -1292,5 +1292,320 @@
       "lastReviewDate": "December 2025 • Rating: Meets Expectations (4.2/5.0)",
       "close": "Close"
     }
+  },
+  "hrDashboard": {
+    "title": "HR Command Center",
+    "subtitle": "A live operational view of workforce health, approvals, and payroll readiness.",
+    "explainToday": "Explain today",
+    "totalEmployees": "TOTAL EMPLOYEES",
+    "totalEmployeesSub": "+6% month over month",
+    "presentToday": "PRESENT TODAY",
+    "presentTodaySub": "90.1% workforce present",
+    "pendingReviews": "PENDING REVIEWS",
+    "pendingReviewsSub": "4 leaves · 3 advances",
+    "projectedPayroll": "PROJECTED PAYROLL",
+    "projectedPayrollSub": "September execution",
+    "attentionSignalsTitle": "Employee attention signals",
+    "groundedMetrics": "Grounded metrics",
+    "signal1Name": "Youssef Lotfy",
+    "signal1Badge": "High attention",
+    "signal1Desc": "Lateness spike across the past 3 weeks",
+    "signal2Name": "Karim Ashraf",
+    "signal2Badge": "Medium attention",
+    "signal2Desc": "Task velocity declined 18% across two sprints",
+    "signal3Name": "Alexandria Hub",
+    "signal3Badge": "Low attention",
+    "signal3Desc": "Attendance improved 9% after shift adjustment",
+    "review": "Review",
+    "operationalReadiness": "Operational readiness",
+    "readiness1": "Attendance verification",
+    "readiness2": "Leave approvals",
+    "readiness3": "Q3 evaluations",
+    "readiness4": "Payroll reconciliation"
+  },
+  "hrAttendance": {
+    "title": "Attendance",
+    "subtitle": "Real-time shift, punctuality, and exception management.",
+    "breadcrumbHome": "HR Dashboard",
+    "live": "Live",
+    "export": "Export",
+    "viewLive": "Live Monitor",
+    "presentToday": "PRESENT TODAY",
+    "acrossAllBranches": "Across all branches",
+    "lateArrivals": "LATE ARRIVALS",
+    "gracePeriod": "15-minute grace period",
+    "unexcusedAbsences": "UNEXCUSED ABSENCES",
+    "requiresFollowUp": "Requires follow-up",
+    "approvedLeave": "APPROVED LEAVE",
+    "today": "Today",
+    "policyLabel": "Attendance Policy",
+    "policyText": "15-minute grace period is active. Late check-ins are automatically flagged for payroll review.",
+    "viewPolicy": "View policy",
+    "searchPlaceholder": "Search employee or ID...",
+    "allBranches": "All branches",
+    "allShifts": "All shifts",
+    "branchCairo": "Cairo HQ",
+    "branchAlex": "Alexandria",
+    "branchGiza": "Giza",
+    "shiftMorning": "Morning 9–5",
+    "shiftEvening": "Evening 2–10",
+    "tableTitle": "Shift & punctuality log",
+    "tableSubtitle": "Real-time employee attendance records for today.",
+    "more": "More",
+    "colEmployee": "EMPLOYEE",
+    "colBranch": "BRANCH",
+    "colShift": "SHIFT",
+    "colCheckIn": "CHECK-IN",
+    "colCheckOut": "CHECK-OUT",
+    "colDuration": "DURATION",
+    "colDelay": "DELAY",
+    "colMode": "MODE",
+    "colStatus": "STATUS",
+    "colAction": "ACTION",
+    "modeGPS": "GPS",
+    "modeGeofenced": "Geofenced",
+    "modeBiometric": "Biometric",
+    "modeDevice": "Device",
+    "statusPresent": "Present",
+    "statusLate": "Late",
+    "statusAbsent": "Absent",
+    "manualAdjustment": "Manual Adjustment",
+    "emp1Name": "Youssef Lotfy",
+    "emp2Name": "Mariam Hassan",
+    "emp3Name": "Ahmed Samir",
+    "emp4Name": "Nour Adel",
+    "noResults": "No attendance records found",
+    "noResultsDescription": "Try changing your search or filter criteria.",
+    "showingResults": "Showing {{count}} records",
+    "updatedJustNow": "Updated just now"
+  },
+  "leaveRequests": {
+    "title": "Leave Requests",
+    "subtitle": "Review, approve, and document employee leave decisions.",
+    "export": "Export queue",
+
+    "stats": {
+      "pending": "4 Pending Reviews",
+      "approved": "12 Approved this Month",
+      "rejected": "2 Rejected"
+    },
+
+    "queue": "Approval queue",
+
+    "table": {
+      "employee": "Employee",
+      "roleDepartment": "Role / Department",
+      "category": "Category",
+      "duration": "Duration",
+      "balance": "Balance",
+      "reason": "Reason & Attachment",
+      "actions": "Actions"
+    },
+
+    "categories": {
+      "annual": "Annual",
+      "emergency": "Emergency",
+      "medical": "Medical"
+    },
+
+    "viewReason": "View reason.pdf",
+    "approve": "Approve",
+    "reject": "Reject with Note",
+
+    "requestsEmployees": {
+      "mariam": {
+        "name": "Mariam Hassan",
+        "role": "Engineering Manager",
+        "department": "Engineering",
+        "dates": "Sep 18 – Sep 20 · 3 Days",
+        "balance": "14 Days left"
+      },
+      "omar": {
+        "name": "Omar Khaled",
+        "role": "Sales Executive",
+        "department": "Sales",
+        "dates": "Sep 22 · 1 Day",
+        "balance": "8 Days left"
+      },
+      "nour": {
+        "name": "Nour Adel",
+        "role": "People Ops Specialist",
+        "department": "People & Culture",
+        "dates": "Sep 25 – Sep 26 · 2 Days",
+        "balance": "11 Days left"
+      }
+    }
+  },
+
+  "employees": {
+    "title": "Employees",
+    "subtitle": "Manage workforce records, roles, and reporting lines.",
+    "addEmployee": "Add Employee",
+    "records": "{{count}} employee records",
+    "search": "Search name, ID, role, or department",
+    "viewProfile": "View profile",
+    "noResults": "No employees found.",
+
+    "table": {
+      "employee": "Employee",
+      "role": "Role",
+      "department": "Department",
+      "branch": "Branch",
+      "status": "Status",
+      "action": "Action"
+    },
+
+    "status": {
+      "present": "Present",
+      "late": "Late",
+      "onLeave": "On leave",
+      "absent": "Absent"
+    },
+
+    "data": {
+      "youssef": {
+        "name": "Youssef Lotfy",
+        "role": "Senior Product Designer",
+        "department": "Design",
+        "branch": "Cairo HQ"
+      },
+      "mariam": {
+        "name": "Mariam Hassan",
+        "role": "Engineering Manager",
+        "department": "Engineering",
+        "branch": "Cairo HQ"
+      },
+      "omar": {
+        "name": "Omar Khaled",
+        "role": "Sales Executive",
+        "department": "Sales",
+        "branch": "Alexandria Hub"
+      },
+      "nour": {
+        "name": "Nour Adel",
+        "role": "People Operations Specialist",
+        "department": "People & Culture",
+        "branch": "Cairo HQ"
+      },
+      "karim": {
+        "name": "Karim Ashraf",
+        "role": "Operations Lead",
+        "department": "Operations",
+        "branch": "Alexandria Hub"
+      }
+    },
+
+    "form": {
+      "subtitle": "Enter the employee information below.",
+      "name": "Employee name",
+      "namePlaceholder": "Full name",
+      "id": "Employee ID",
+      "role": "Role",
+      "rolePlaceholder": "Job title",
+      "department": "Department",
+      "departmentPlaceholder": "Department",
+      "branch": "Branch",
+      "branchPlaceholder": "Branch",
+      "status": "Status"
+    }
+  },
+
+  "departments": {
+    "title": "Departments & Teams",
+    "subtitle": "Manage organizational structure, leaders, and workstreams.",
+    "badge": "Organization",
+    "search": "Search departments",
+    "createDepartment": "Create Department",
+
+    "attendance": "attendance",
+    "head": "Head",
+    "headcount": "Headcount",
+    "activeProjects": "Active projects",
+
+    "manageMembers": "Manage Members",
+    "transferEmployee": "Transfer Employee",
+
+    "transferTitle": "Transfer Employee",
+    "transferSubtitle": "Select an employee and their new department.",
+    "transferFrom": "Transfer from",
+    "employee": "Employee",
+    "selectEmployee": "Select Employee",
+    "selectEmployeePlaceholder": "Select an employee",
+    "targetDepartment": "Target Department",
+    "newDepartment": "New Department",
+    "selectDepartment": "Select department",
+    "confirmTransfer": "Transfer Employee",
+
+    "remove": "Remove department",
+    "close": "Close",
+
+    "noResults": "No departments found.",
+    "noResultsSubtitle": "Try adjusting your search and try again.",
+
+    "messages": {
+      "created": "Department created successfully.",
+      "removed": "Department removed successfully."
+    },
+
+    "employees": {
+      "youssef": "Youssef Lotfy",
+      "mariam": "Mariam Hassan",
+      "omar": "Omar Khaled",
+      "nour": "Nour Adel",
+      "karim": "Karim Ashraf"
+    },
+
+    "form": {
+      "subtitle": "Enter the department information below.",
+      "name": "Department name",
+      "namePlaceholder": "Department name",
+      "head": "Department head",
+      "headPlaceholder": "Head name",
+      "description": "Description",
+      "descriptionPlaceholder": "Department description",
+      "color": "Color"
+    },
+
+    "colors": {
+      "blue": "Blue",
+      "purple": "Purple",
+      "cyan": "Cyan",
+      "pink": "Pink",
+      "orange": "Orange",
+      "green": "Green"
+    },
+
+    "data": {
+      "engineering": {
+        "name": "Engineering",
+        "description": "Builds and maintains the company’s products and technical systems.",
+        "head": "Mariam Hassan"
+      },
+      "design": {
+        "name": "Design",
+        "description": "Creates product experiences, visual systems, and user interfaces.",
+        "head": "Youssef Lotfy"
+      },
+      "sales": {
+        "name": "Sales",
+        "description": "Drives customer growth, partnerships, and revenue opportunities.",
+        "head": "Omar Khaled"
+      },
+      "peopleCulture": {
+        "name": "People & Culture",
+        "description": "Supports employees, workplace culture, and people operations.",
+        "head": "Sarah Ahmed"
+      },
+      "operations": {
+        "name": "Operations",
+        "description": "Coordinates business operations, processes, and internal delivery.",
+        "head": "Karim Ashraf"
+      },
+      "logistics": {
+        "name": "Logistics",
+        "description": "Manages movement, distribution, and operational logistics.",
+        "head": "Karim Ashraf"
+      }
+    }
   }
 }
