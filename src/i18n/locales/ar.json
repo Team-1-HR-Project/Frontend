@@ -692,6 +692,11 @@
     }
   },
   "portal": {
+    "departmentsTeams": "الأقسام والفرق",
+    "attendance": "الحضور والانصراف",
+    "leaveRequests": "طلبات الإجازات",
+    "advancesDeductions": "السلف والخصومات",
+    "rewardsBonuses": "المكافآت والحوافز",
     "dashboard": "لوحة التحكم",
     "homeDashboard": "الرئيسية",
     "myAttendance": "حضوري وانصرافي",
