@@ -82,7 +82,7 @@ function App() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const isArabic = i18n.language === "ar";
+    const isArabic = i18n.language?.startsWith("ar");
 
     // HTML direction
     document.documentElement.dir = isArabic ? "rtl" : "ltr";

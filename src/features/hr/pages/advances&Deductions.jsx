@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 export default function AdvancesAndDeductions() {
     const { i18n } = useTranslation();
     const currentLang = i18n.language || 'en';
-    const isArabic = currentLang === 'ar';
+    const isArabic = currentLang?.startsWith('ar');
 
     // حالات التحكم في المودال وشاشة النجاح
     const [isModalOpen, setIsModalOpen] = useState(false);

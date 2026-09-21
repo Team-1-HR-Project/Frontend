@@ -15,7 +15,7 @@ import { LuSparkles } from "react-icons/lu";
 const PerformanceMetrics = () => {
   const { t, i18n } = useTranslation();
 
-  const isArabic = i18n.language === "ar";
+  const isArabic = i18n.language?.startsWith("ar");
 
   const attentionSignals = [
     {

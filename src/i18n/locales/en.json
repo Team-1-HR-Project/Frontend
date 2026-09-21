@@ -54,7 +54,8 @@
       "signingInAlert": "Signing in with Email: {{email}}",
       "quickSignInAlert": "Biometric Sign-In clicked!",
       "showPassword": "Show password",
-      "hidePassword": "Hide password"
+      "hidePassword": "Hide password",
+      "googleSignIn": "Sign in with Google"
     },
     "forgotPassword": {
       "title": "Forgot Password?",
@@ -78,7 +79,8 @@
       "backToSignIn": "← Back to Sign In",
       "codeLengthError": "Please enter the 6-digit verification code.",
       "verifiedSuccess": "OTP verified successfully!",
-      "resendSuccess": "A new verification code has been sent!"
+      "resendSuccess": "A new verification code has been sent!",
+      "verify": "Verify Code"
     },
     "resetPassword": {
       "title": "Create a new password",
@@ -150,6 +152,9 @@
       "subtitle": "A verification link has been sent to your email address. Please click it to activate your account.",
       "resendEmail": "Resend Verification Email",
       "checkInbox": "Please check your inbox."
+    },
+    "verifyOTP": {
+      "verify": "Verify Code"
     }
   },
   "dashboard": {
@@ -355,7 +360,8 @@
     "productivity": "Productivity",
     "score": "Score",
     "improvementPlan": "Improvement Plan",
-    "metrics": "Metrics"
+    "metrics": "Metrics",
+    "operations": "Operations"
   },
   "aiInsights": {
     "title": "AI Insights",
@@ -381,58 +387,49 @@
     "recentNotifications": "Recent Notifications"
   },
   "reports": {
-  "title": "Reports",
-  "subtitle": "Export governed workforce reports for leadership and audit workflows.",
-  "generateReport": "Generate Report",
-  "exportPdf": "Export PDF",
-  "exportExcel": "Export Excel",
-  "monthlyAttendance": "Monthly Attendance Report",
-  "payrollSummary": "Payroll Summary",
-
-  "exportCockpit": "Export cockpit",
-  "exportDescription": "Select the reporting scope and filters, then choose the report you want to export.",
-  "from": "From",
-  "to": "To",
-  "department": "Department",
-  "branch": "Branch",
-
-  "september2026": "September 01 – 30, 2026",
-  "august2026": "August 01 – 31, 2026",
-  "july2026": "July 01 – 31, 2026",
-  "june2026": "June 01 – 30, 2026",
-
-  "allDepartments": "All departments",
-  "engineering": "Engineering",
-  "sales": "Sales",
-
-  "allBranches": "All branches",
-  "cairoHq": "Cairo HQ",
-  "alexandriaHub": "Alexandria Hub",
-
-  "availableReports": "Available reports",
-  "reportCount": "reports",
-  "exportReport": "Export report",
-
-  "attendance": {
-    "title": "Monthly Attendance & Delay Summary",
-    "description": "Attendance exceptions, punctuality trends, and branch comparison."
+    "title": "Reports",
+    "subtitle": "Export governed workforce reports for leadership and audit workflows.",
+    "generateReport": "Generate Report",
+    "exportPdf": "Export PDF",
+    "exportExcel": "Export Excel",
+    "monthlyAttendance": "Monthly Attendance Report",
+    "payrollSummary": "Payroll Summary",
+    "exportCockpit": "Export cockpit",
+    "exportDescription": "Select the reporting scope and filters, then choose the report you want to export.",
+    "from": "From",
+    "to": "To",
+    "department": "Department",
+    "branch": "Branch",
+    "september2026": "September 01 – 30, 2026",
+    "august2026": "August 01 – 31, 2026",
+    "july2026": "July 01 – 31, 2026",
+    "june2026": "June 01 – 30, 2026",
+    "allDepartments": "All departments",
+    "engineering": "Engineering",
+    "sales": "Sales",
+    "allBranches": "All branches",
+    "cairoHq": "Cairo HQ",
+    "alexandriaHub": "Alexandria Hub",
+    "availableReports": "Available reports",
+    "reportCount": "reports",
+    "exportReport": "Export report",
+    "attendance": {
+      "title": "Monthly Attendance & Delay Summary",
+      "description": "Attendance exceptions, punctuality trends, and branch comparison."
+    },
+    "payroll": {
+      "title": "Payroll Run & Payslip Register",
+      "description": "Compensation totals, deductions, and payslip delivery status."
+    },
+    "leave": {
+      "title": "Leave Balances & Usage Audit",
+      "description": "Entitlements, usage, carry-over, and supporting documentation."
+    },
+    "skills": {
+      "title": "AI Skill-Gap & Workforce Review",
+      "description": "Explainable skills coverage and recommended workforce actions."
+    }
   },
-
-  "payroll": {
-    "title": "Payroll Run & Payslip Register",
-    "description": "Compensation totals, deductions, and payslip delivery status."
-  },
-
-  "leave": {
-    "title": "Leave Balances & Usage Audit",
-    "description": "Entitlements, usage, carry-over, and supporting documentation."
-  },
-
-  "skills": {
-    "title": "AI Skill-Gap & Workforce Review",
-    "description": "Explainable skills coverage and recommended workforce actions."
-  }
-,
   "home": {
     "nav": {
       "home": "Home",
@@ -532,6 +529,7 @@
         "desc": "Smart HR helps you see what is happening across your organization and understand what to do next.",
         "cta": "Discover AI Insights",
         "cardTitle": "AI Insights",
+        "updated": "Updated today",
         "cardUpdated": "Updated today",
         "scoreLabel": "Team health score",
         "scoreMax": "/100",
@@ -755,7 +753,6 @@
     "leaveRequests": "Leave Requests",
     "advancesDeductions": "Advances & Deductions",
     "rewardsBonuses": "Rewards & Bonuses",
-
     "searchPlaceholder": "Search tasks, policies, calendar...",
     "employeePortal": "EMPLOYEE PORTAL",
     "hrPortal": "HR PORTAL",
@@ -882,7 +879,6 @@
     "securityOps": "Mostafa Khalil (Security Ops)",
     "automatedEngine": "Automated Policy Engine",
     "sarahAdmin": "Sarah Ahmed (Admin)",
-
     "teamDashboard": "Team Dashboard",
     "taskManagement": "Task Management",
     "submissionReviews": "Submission Reviews",
@@ -891,7 +887,12 @@
     "performanceAnalytics": "Performance Analytics",
     "teamAttendance": "Team Attendance",
     "teamLeaveApprovals": "Team Leave Approvals",
-    "aiTeamInsights": "AI Team Insights"
+    "aiTeamInsights": "AI Team Insights",
+    "markAll": "Mark all as read",
+    "noNotifications": "No notifications yet",
+    "seeAll": "See all notifications",
+    "details": "Details",
+    "status": "Status"
   },
   "adminDashboard": {
     "dashboard": "Dashboard",
@@ -1034,7 +1035,8 @@
     "benefitsTitle": "Benefits & wellbeing",
     "benefitsDesc": "Explore the benefits available to you.",
     "securityTitle": "Security & privacy",
-    "securityDesc": "Keep our people and information safe."
+    "securityDesc": "Keep our people and information safe.",
+    "askAboutPolicy": "Ask about this policy"
   },
   "profileSettingsPage": {
     "eyebrow": "Account",
@@ -1435,7 +1437,12 @@
     "dueDateSep20": "Sep 20",
     "dueDateSep22": "Sep 22",
     "dueDateSep25": "Sep 25",
-    "noDueDate": "-"
+    "noDueDate": "-",
+    "toastReassigned": "Task reassigned to {{name}}",
+    "clearFilter": "Clear filter",
+    "filteredBy": "Filtered by",
+    "reassignTask": "Reassign Task",
+    "reassignTo": "Reassign to"
   },
   "managerSubmissions": {
     "title": "Submission Reviews",
@@ -1588,18 +1595,17 @@
       "ownership": "Ownership",
       "mentorship": "Mentorship"
     },
-     "table": {
-    "member": "Member",
-    "velocity": "Velocity",
-    "rating": "Rating"
-  }
-},
-"hrEvaluationsGoals": {
+    "table": {
+      "member": "Member",
+      "velocity": "Velocity",
+      "rating": "Rating"
+    }
+  },
+  "hrEvaluationsGoals": {
     "eyebrow": "PERFORMANCE MANAGEMENT",
     "title": "Evaluations & Goals",
     "subtitle": "Run review cycles and keep manager completion accountable.",
     "launchReviewCycle": "Launch Review Cycle",
-
     "activeCycle": "ACTIVE CYCLE",
     "activeCycleTitle": "Q3 2026 Performance Review",
     "activeCycleDate": "Sep 15 – Oct 15, 2026",
@@ -1609,7 +1615,6 @@
     "completed": "Completed",
     "pending": "Pending",
     "overdue": "Overdue",
-
     "departmentManagerReviewCompletion": "Department Manager Review Completion",
     "departmentManagerReviewSubtitle": "Track evaluation completion across departments and follow up with managers.",
     "department": "Department",
@@ -1617,26 +1622,21 @@
     "reviews": "Reviews",
     "progress": "Progress",
     "status": "Status",
-
     "onTrack": "On Track",
     "needsAttention": "Needs Attention",
     "completedStatus": "Completed",
-
     "sendReminder": "Send Manager Reminder",
     "reminderSent": "Reminder sent to {{manager}}",
     "reminderFailed": "Failed to send reminder. Please try again.",
-
     "createWorkflowRecord": "Create workflow record",
     "details": "Details",
     "owner": "Owner",
     "cancel": "Cancel",
     "saveChanges": "Save changes",
-
     "engineering": "Engineering",
     "peopleCulture": "People & Culture",
     "sales": "Sales",
     "logistics": "Logistics",
-
     "mariamHassan": "Mariam Hassan",
     "sarahAhmed": "Sarah Ahmed",
     "omarKhaled": "Omar Khaled",
@@ -1646,43 +1646,31 @@
     "title": "HR Command Center",
     "subtitle": "A live operational view of workforce health, approvals, and payroll readiness.",
     "explainToday": "Explain today",
-
     "totalEmployees": "Total employees",
     "monthOverMonth": "month over month",
-
     "presentToday": "Present today",
     "workforcePresent": "workforce present",
-
     "pendingReviews": "Pending reviews",
     "leaves": "leaves",
     "advances": "advances",
-
     "projectedPayroll": "Projected payroll",
     "septemberExecution": "September execution",
-
     "employeeAttentionSignals": "Employee attention signals",
     "groundedMetrics": "Grounded metrics",
-
     "youssefLotfy": "Youssef Lotfy",
     "youssefDescription": "Lateness spike across the past 3 weeks",
-
     "karimAshraf": "Karim Ashraf",
     "karimDescription": "Task velocity declined 18% across two sprints",
-
     "alexandriaHub": "Alexandria Hub",
     "alexandriaDescription": "Attendance improved 9% after shift adjustment",
-
     "high": "High attention",
     "medium": "Medium attention",
     "low": "Low attention",
-
     "review": "Review",
-
     "operationalReadiness": "Operational readiness",
-
     "attendanceVerification": "Attendance verification",
     "leaveApprovals": "Leave approvals",
     "q3Evaluations": "Q3 evaluations",
     "payrollReconciliation": "Payroll reconciliation"
   }
-}}
+}

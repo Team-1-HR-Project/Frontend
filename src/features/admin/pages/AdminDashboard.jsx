@@ -13,7 +13,7 @@ import {
 
 const AdminDashboard = () => {
   const { t, i18n } = useTranslation();
-  const isRtl = i18n.language === "ar";
+  const isRtl = i18n.language?.startsWith("ar");
 
   const [selectedRangeKey, setSelectedRangeKey] = useState("last6Months");
   const [rangeDropdownOpen, setRangeDropdownOpen] = useState(false);
