@@ -817,7 +817,16 @@
     "hrOps": "إدارة الموارد البشرية والعمليات",
     "securityOps": "مصطفى خليل (عمليات الأمان)",
     "automatedEngine": "محرك السياسات التلقائي",
-    "sarahAdmin": "سارة أحمد (مسؤول النظام)"
+    "sarahAdmin": "سارة أحمد (مسؤول النظام)",
+    "teamDashboard": "لوحة تحكم الفريق",
+    "taskManagement": "إدارة المهام",
+    "submissionReviews": "مراجعة التسليمات",
+    "teamEvaluations": "تقييمات الفريق",
+    "teamGoalsOkrs": "أهداف الفريق ومؤشرات الأداء",
+    "performanceAnalytics": "تحليلات الأداء",
+    "teamAttendance": "حضور الفريق",
+    "teamLeaveApprovals": "اعتماد إجازات الفريق",
+    "aiTeamInsights": "رؤى الذكاء الاصطناعي للفريق"
   },
   "adminDashboard": {
     "dashboard": "لوحة التحكم",
@@ -920,37 +929,28 @@
   "auditLogs": {
     "title": "سجلات التدقيق",
     "subtitle": "سجل قابل للبحث للإجراءات الإدارية وأحداث النظام.",
-
     "breadcrumbAdmin": "الإدارة",
     "breadcrumbApp": "WiseWork",
-
     "exportConfig": "تصدير التكوين",
     "exportSuccess": "تم تصدير إعدادات السجل بنجاح.",
-
     "cardTitle": "سجلات التدقيق",
     "cardSubtitle": "مراجعة الإجراءات الإدارية وأحداث النظام.",
-
     "searchPlaceholder": "البحث في السجلات...",
-
     "filterAll": "الكل",
     "filterSuccess": "نجاح",
     "filterWarning": "تحذير",
     "filterInfo": "معلومات",
-
     "colAction": "الإجراء",
     "colActor": "المنفذ",
     "colTimestamp": "الوقت والتاريخ",
     "colSeverity": "مستوى الأهمية",
-
     "noLogsFound": "لم يتم العثور على سجلات.",
-
     "actions": {
       "rolePermissionsUpdated": "تم تحديث صلاحيات الأدوار",
       "gpsEnforcementDisabled": "تم تعطيل فرض نظام تحديد المواقع",
       "q3ReviewCycleCreated": "تم إنشاء دورة مراجعة الربع الثالث",
       "newUserAccountInvited": "تمت دعوة حساب مستخدم جديد"
     },
-
     "timestamps": {
       "today": "اليوم، 10:30 ص",
       "yesterday": "أمس، 03:15 م",

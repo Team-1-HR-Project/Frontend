@@ -32,6 +32,17 @@ import Attendance from "./features/employee/pages/attendance/Attendance";
 import LeaveBalances from "./features/employee/pages/Leave & balances";
 import AIAssistant from "./features/employee/pages/AI Assistant";
 
+// ==================== Manager Pages ====================
+import TeamDashboard from "./features/manager/pages/TeamDashboard";
+import TaskManagement from "./features/manager/pages/TaskManagement";
+import SubmissionReviews from "./features/manager/pages/SubmissionReviews";
+import TeamEvaluations from "./features/manager/pages/TeamEvaluations";
+import TeamGoals from "./features/manager/pages/TeamGoals";
+import PerformanceAnalytics from "./features/manager/pages/PerformanceAnalytics";
+import TeamAttendance from "./features/manager/pages/TeamAttendance";
+import TeamLeaveApprovals from "./features/manager/pages/TeamLeaveApprovals";
+import AITeamInsights from "./features/manager/pages/AITeamInsights";
+
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
 
@@ -179,34 +190,23 @@ function App() {
             }
           />
 
+          {/* ==================== Manager Redirect ==================== */}
+          <Route
+            path="/manager"
+            element={<Navigate to="/manager/dashboard" replace />}
+          />
+
           {/* ==================== Manager Routes ==================== */}
-          <Route
-            path="/manager/dashboard"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.dashboard"
-                defaultMessage="لوحة التحكم"
-              />
-            }
-          />
-          <Route
-            path="/manager/team"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.myTeam"
-                defaultMessage="فريقي"
-              />
-            }
-          />
-          <Route
-            path="/manager/leaves"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.teamLeaves"
-                defaultMessage="إجازات الفريق"
-              />
-            }
-          />
+          <Route path="/manager/dashboard" element={<TeamDashboard />} />
+          <Route path="/manager/tasks" element={<TaskManagement />} />
+          <Route path="/manager/submissions" element={<SubmissionReviews />} />
+          <Route path="/manager/evaluations" element={<TeamEvaluations />} />
+          <Route path="/manager/goals" element={<TeamGoals />} />
+          <Route path="/manager/analytics" element={<PerformanceAnalytics />} />
+          <Route path="/manager/attendance" element={<TeamAttendance />} />
+          <Route path="/manager/leave-approvals" element={<TeamLeaveApprovals />} />
+          <Route path="/manager/ai-insights" element={<AITeamInsights />} />
+          <Route path="/manager/notifications" element={<Notification />} />
 
           {/* ==================== Employee Redirect ==================== */}
           <Route

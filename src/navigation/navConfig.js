@@ -19,6 +19,16 @@ import {
   FiUser,
   FiBell,
 } from "react-icons/fi";
+import {
+  MdGridView,
+  MdChecklist,
+  MdDescription,
+  MdAssignmentTurnedIn,
+  MdTrackChanges,
+  MdInsights,
+  MdCalendarToday,
+  MdEventAvailable,
+} from "react-icons/md";
 import { LuSparkles } from "react-icons/lu";
 
 export const navConfig = {
@@ -102,22 +112,64 @@ export const navConfig = {
 
   manager: [
     {
-      titleKey: "portal.dashboard",
-      title: "Dashboard",
+      titleKey: "portal.teamDashboard",
+      title: "Team Dashboard",
       path: "/manager/dashboard",
-      icon: MdDashboard,
+      icon: MdGridView,
     },
     {
-      titleKey: "portal.myTeam",
-      title: "My Team",
-      path: "/manager/team",
-      icon: MdPeople,
+      titleKey: "portal.taskManagement",
+      title: "Task Management",
+      path: "/manager/tasks",
+      icon: MdChecklist,
     },
     {
-      titleKey: "portal.teamLeaves",
-      title: "Team Leaves",
-      path: "/manager/leaves",
-      icon: MdEventNote,
+      titleKey: "portal.submissionReviews",
+      title: "Submission Reviews",
+      path: "/manager/submissions",
+      icon: MdDescription,
+    },
+    {
+      titleKey: "portal.teamEvaluations",
+      title: "Team Evaluations",
+      path: "/manager/evaluations",
+      icon: MdAssignmentTurnedIn,
+    },
+    {
+      titleKey: "portal.teamGoalsOkrs",
+      title: "Team Goals & OKRs",
+      path: "/manager/goals",
+      icon: MdTrackChanges,
+    },
+    {
+      titleKey: "portal.performanceAnalytics",
+      title: "Performance Analytics",
+      path: "/manager/analytics",
+      icon: MdInsights,
+    },
+    {
+      titleKey: "portal.teamAttendance",
+      title: "Team Attendance",
+      path: "/manager/attendance",
+      icon: MdCalendarToday,
+    },
+    {
+      titleKey: "portal.teamLeaveApprovals",
+      title: "Team Leave Approvals",
+      path: "/manager/leave-approvals",
+      icon: MdEventAvailable,
+    },
+    {
+      titleKey: "portal.aiTeamInsights",
+      title: "AI Team Insights",
+      path: "/manager/ai-insights",
+      icon: LuSparkles,
+    },
+    {
+      titleKey: "portal.notifications",
+      title: "Notifications",
+      path: "/manager/notifications",
+      icon: MdNotifications,
     },
   ],
 
