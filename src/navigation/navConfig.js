@@ -1,5 +1,6 @@
 import {
   MdDashboard,
+  MdTrackChanges,
   MdPeople,
   MdAttachMoney,
   MdLocationCity,
@@ -29,7 +30,6 @@ import {
   MdChecklist,
   MdDescription,
   MdAssignmentTurnedIn,
-  MdTrackChanges,
   MdInsights,
   MdCalendarToday,
   MdEventAvailable,
@@ -133,14 +133,39 @@ export const navConfig = {
       icon: MdCardGiftcard,
     },
     {
+      titleKey: "portal.evaluationsGoals",
+      title: "Evaluations & Goals",
+      path: "/hr/evaluations-goals",
+      icon: MdTrackChanges,
+    },
+    {
+      titleKey: "portal.performanceMetrics",
+      title: "Performance Metrics",
+      path: "/hr/performance-metrics",
+      icon: MdAssessment,
+    },
+    {
+      titleKey: "portal.aiInsights",
+      title: "AI Insights",
+      path: "/hr/ai-insights",
+      icon: LuSparkles,
+    },
+    {
+      titleKey: "portal.companyPolicies",
+      title: "Company Policies",
+      path: "/hr/company-policies",
+      icon: FiBookOpen,
+    },
+    {
+      titleKey: "portal.holidays",
+      title: "Holidays & Seasons",
+      path: "/hr/holidays",
+      icon: MdEventAvailable,
+    },
+    {
       titleKey: "portal.notifications",
       path: "/hr/notifications",
       icon: MdNotifications,
-    },
-    {
-      titleKey: "portal.settings",
-      path: "/hr/settings",
-      icon: MdSettings,
     },
   ],
 
@@ -209,6 +234,7 @@ export const navConfig = {
       path: "/manager/notifications",
       icon: MdNotifications,
     },
+  
   ],
 
   // ==================================================

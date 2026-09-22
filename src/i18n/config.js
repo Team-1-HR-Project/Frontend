@@ -33,6 +33,7 @@ i18n.use(initReactI18next).init({
   },
   lng: initialLanguage,
   fallbackLng: "en",
+  returnObjects: true,
   interpolation: {
     escapeValue: false,
   },

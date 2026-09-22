@@ -6,7 +6,7 @@ import { APP_NAME } from "../../../utils/global";
 
 export default function HeroSection() {
   const { t, i18n } = useTranslation();
-  const isRtl = i18n.language === "ar";
+  const isRtl = i18n.language?.startsWith("ar");
 
   const scrollToFeatures = () => {
     const el = document.getElementById("features");

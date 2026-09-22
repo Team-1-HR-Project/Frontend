@@ -5,7 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function CtaSection() {
   const { t, i18n } = useTranslation();
-  const isRtl = i18n.language === "ar";
+  const isRtl = i18n.language?.startsWith("ar");
 
   return (
     <section id="contact" className="cta-section">
