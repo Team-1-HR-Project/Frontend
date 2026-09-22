@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 export default function Payroll() {
     const { i18n } = useTranslation();
     const currentLang = i18n.language || 'en';
-    const isArabic = currentLang === 'ar';
+    const isArabic = currentLang?.startsWith('ar');
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);

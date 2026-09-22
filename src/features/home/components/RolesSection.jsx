@@ -20,34 +20,47 @@ export default function RolesSection() {
     { height: "95%", type: "bar-navy" },
   ];
 
+  const getPoints = (key, fallback = []) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : fallback;
+  };
+
   const roleCards = [
     {
       num: "01",
-      label: t("home.roles.cards.hr.label"),
+      label: t("home.roles.cards.hr.label", "HR Leaders"),
       className: "role-1",
       title: t("home.roles.cards.hr.title"),
       desc: t("home.roles.cards.hr.desc"),
-      points: t("home.roles.cards.hr.points", { returnObjects: true }),
+      points: getPoints("home.roles.cards.hr.points", [
+        "Automated onboarding & offboarding",
+        "Comprehensive policy enforcement",
+        "Instant bulk actions & CSV exports",
+      ]),
     },
     {
       num: "02",
-      label: t("home.roles.cards.employee.label"),
+      label: t("home.roles.cards.employee.label", "Employees"),
       className: "role-2",
       title: t("home.roles.cards.employee.title"),
       desc: t("home.roles.cards.employee.desc"),
-      points: t("home.roles.cards.employee.points", {
-        returnObjects: true,
-      }),
+      points: getPoints("home.roles.cards.employee.points", [
+        "One-click leave requests",
+        "Transparent balance & history tracking",
+        "Goal progress visibility",
+      ]),
     },
     {
       num: "03",
-      label: t("home.roles.cards.manager.label"),
+      label: t("home.roles.cards.manager.label", "Managers & C-Level"),
       className: "role-3",
       title: t("home.roles.cards.manager.title"),
       desc: t("home.roles.cards.manager.desc"),
-      points: t("home.roles.cards.manager.points", {
-        returnObjects: true,
-      }),
+      points: getPoints("home.roles.cards.manager.points", [
+        "Single-inbox approval center",
+        "Team attendance overview",
+        "Structured performance feedback",
+      ]),
     },
   ];
   /* =========================
@@ -230,39 +243,40 @@ export default function RolesSection() {
               ========================= */}
 
               <ul>
-                {card.points.map((pt, pIdx) => (
-                  <motion.li
-                    key={pIdx}
-                    initial={{
-                      opacity: 0,
-                      x: -15,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                    transition={{
-                      delay: 0.3 + pIdx * 0.08,
-                      duration: 0.3,
-                    }}
-                    viewport={{
-                      once: true,
-                    }}
-                  >
-                    <motion.span
-                      whileHover={{
-                        scale: 1.2,
+                {Array.isArray(card.points) &&
+                  card.points.map((pt, pIdx) => (
+                    <motion.li
+                      key={pIdx}
+                      initial={{
+                        opacity: 0,
+                        x: -15,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        x: 0,
                       }}
                       transition={{
-                        duration: 0.15,
+                        delay: 0.3 + pIdx * 0.08,
+                        duration: 0.3,
+                      }}
+                      viewport={{
+                        once: true,
                       }}
                     >
-                      <FiCheck />
-                    </motion.span>
+                      <motion.span
+                        whileHover={{
+                          scale: 1.2,
+                        }}
+                        transition={{
+                          duration: 0.15,
+                        }}
+                      >
+                        <FiCheck />
+                      </motion.span>
 
-                    <span>{pt}</span>
-                  </motion.li>
-                ))}
+                      <span>{pt}</span>
+                    </motion.li>
+                  ))}
               </ul>
             </motion.div>
           ))}

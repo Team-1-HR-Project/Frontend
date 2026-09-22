@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 const ActivityLog = () => {
   const { t, i18n } = useTranslation();
-  const isRtl = i18n.language === "ar";
+  const isRtl = i18n.language?.startsWith("ar");
 
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");

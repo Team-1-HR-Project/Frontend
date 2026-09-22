@@ -14,6 +14,7 @@ const Header = ({ onToggleMenu, role = "admin" }) => {
 
   const effectiveRole = role || currentUser?.role || "admin";
 
+  const isAr = i18n.language?.startsWith("ar");
   let avatarText = currentUser?.initials;
   let displayName = currentUser?.name;
   let displayRole = t("portal.staffMember", "Staff Member");
@@ -22,26 +23,26 @@ const Header = ({ onToggleMenu, role = "admin" }) => {
 
   if (effectiveRole === "employee") {
     avatarText = "OH";
-    displayName = i18n.language === "ar" ? "عمر حداد" : "Omar Haddad";
-    displayRole = i18n.language === "ar" ? "محلل منتجات أول" : "Senior Product Analyst";
+    displayName = isAr ? "عمر حداد" : "Omar Haddad";
+    displayRole = isAr ? "محلل منتجات أول" : "Senior Product Analyst";
     avatarBg = "bg-[#d7eee9]";
     avatarColor = "text-[#235850]";
   } else if (effectiveRole === "hr") {
     avatarText = "MK";
-    displayName = i18n.language === "ar" ? "مصطفى خليل" : "Mostafa Khalil";
-    displayRole = i18n.language === "ar" ? "مسؤول موارد بشرية" : "HR Specialist";
+    displayName = isAr ? "مصطفى خليل" : "Mostafa Khalil";
+    displayRole = isAr ? "مسؤول موارد بشرية" : "HR Specialist";
     avatarBg = "bg-[#ede9fe]";
     avatarColor = "text-[#5b21b6]";
   } else if (effectiveRole === "manager") {
     avatarText = "LH";
-    displayName = i18n.language === "ar" ? "ليلى حسن" : "Layla Hassan";
-    displayRole = i18n.language === "ar" ? "مدير الفريق" : "Manager";
+    displayName = isAr ? "ليلى حسن" : "Layla Hassan";
+    displayRole = isAr ? "مدير الفريق" : "Manager";
     avatarBg = "bg-[#fef3c7]";
     avatarColor = "text-[#92400e]";
   } else {
     avatarText = currentUser?.initials || "AN";
-    displayName = currentUser?.name || (i18n.language === "ar" ? "أحمد ناصر" : "Ahmed Nasser");
-    displayRole = i18n.language === "ar" ? "مسؤول النظام" : "Administrator";
+    displayName = currentUser?.name || (isAr ? "أحمد ناصر" : "Ahmed Nasser");
+    displayRole = isAr ? "مسؤول النظام" : "Administrator";
     avatarBg = "bg-[#e7eef5]";
     avatarColor = "text-[#486581]";
   }
@@ -90,7 +91,7 @@ const Header = ({ onToggleMenu, role = "admin" }) => {
             )}
           </button>
 
-          <NotificationDropdown isOpen={notifOpen} onClose={handleClose} />
+          <NotificationDropdown isOpen={notifOpen} onClose={handleClose} role={effectiveRole} />
         </div>
 
         {/* User Profile */}

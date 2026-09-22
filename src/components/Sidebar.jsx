@@ -166,6 +166,16 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
   const sidebarPosition = isRtl ? "right-0" : "left-0";
   const hiddenPosition = isRtl ? "translate-x-full" : "-translate-x-full";
 
+  // =========================
+  // Sidebar Sections
+  // =========================
+
+  const sections = [
+    "GENERAL",
+    "OPERATIONS",
+    "FINANCIAL & REWARDS",
+    "GROWTH & GOVERNANCE",
+  ];
   return (
     <>
       {/* =========================
@@ -261,7 +271,11 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             "
           >
             {BRAND_NAME.prefix}
-            <span style={{ color: BRAND_NAME.suffixColor }}>
+            <span
+              style={{
+                color: BRAND_NAME.suffixColor,
+              }}
+            >
               {BRAND_NAME.suffix}
             </span>
           </span>
@@ -309,101 +323,145 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             [scrollbar-color:#2b4b68_transparent]
           "
         >
-          {links.map((link) => {
-            const Icon = link.icon;
+          {sections.map((section) => {
+            const sectionItems = links.filter(
+              (link) => (link.section || "GENERAL") === section,
+            );
 
-            const title = link.titleKey
-              ? t(link.titleKey, link.title)
-              : link.title;
+            // Don't show empty sections
+            if (sectionItems.length === 0) return null;
 
             return (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={onClose}
-                style={({ isActive }) =>
-                  isActive
-                    ? {
-                        backgroundColor: "#2b4b68",
-                        borderLeft: isRtl ? "none" : "3.5px solid #52d1b2",
-                        borderRight: isRtl ? "3.5px solid #52d1b2" : "none",
-                        borderTop: "none",
-                        borderBottom: "none",
-                        borderRadius: "8px",
+              <div key={section} className="mb-4 flex flex-col gap-1.5">
+                {/* =========================
+                    Section Title
+                ========================= */}
+
+                <h3
+                  className="
+                    mb-1
+                    mt-2
+                    px-3
+                    text-[12px]
+                    font-bold
+                    uppercase
+                    tracking-[0.12em]
+                    text-[#a9c5df]
+                  "
+                >
+                  {section}
+                </h3>
+
+                {/* =========================
+                    Section Items
+                ========================= */}
+
+                {sectionItems.map((link) => {
+                  const Icon = link.icon;
+
+                  const title = link.titleKey
+                    ? t(link.titleKey, link.title)
+                    : link.title;
+
+                  return (
+                    <NavLink
+                      key={link.path}
+                      to={link.path}
+                      onClick={onClose}
+                      style={({ isActive }) =>
+                        isActive
+                          ? {
+                              backgroundColor: "#2b4b68",
+                              borderLeft: isRtl
+                                ? "none"
+                                : "3.5px solid #52d1b2",
+                              borderRight: isRtl
+                                ? "3.5px solid #52d1b2"
+                                : "none",
+                              borderTop: "none",
+                              borderBottom: "none",
+                              borderRadius: "8px",
+                            }
+                          : {
+                              border: "none",
+                              backgroundColor: "transparent",
+                            }
                       }
-                    : {
-                        border: "none",
-                        backgroundColor: "transparent",
-                      }
-                }
-                className={({ isActive }) => `
-                  group
-                  relative
-                  flex
-                  h-[43px]
-                  shrink-0
-                  items-center
-                  gap-3.5
+                      className={({ isActive }) => `
+                        group
+                        relative
+                        flex
+                        h-[43px]
+                        shrink-0
+                        items-center
+                        gap-3.5
 
-                  rounded-[8px]
-                  border-0
-                  outline-none
-                  focus:outline-none
+                        rounded-[8px]
+                        border-0
+                        outline-none
+                        focus:outline-none
 
-                  px-3.5
-                  py-1.5
+                        px-3.5
+                        py-1.5
 
-                  text-[13.5px]
-                  font-medium
+                        text-[13.5px]
+                        font-medium
 
-                  transition-all
-                  duration-150
+                        transition-all
+                        duration-150
 
-                  ${
-                    isActive
-                      ? "text-white font-semibold shadow-sm"
-                      : "text-[#8fa8c1] hover:bg-[#2b4b68]/50 hover:text-white"
-                  }
-                `}
-              >
-                {/* Icon */}
-                {Icon && (
-                  <Icon
-                    className="
-                      h-4.5
-                      w-4.5
-                      shrink-0
-                    "
-                  />
-                )}
+                        ${
+                          isActive
+                            ? "text-white font-semibold shadow-sm"
+                            : "text-[#8fa8c1] hover:bg-[#2b4b68]/50 hover:text-white"
+                        }
+                      `}
+                    >
+                      {/* Icon */}
 
-                {/* Title */}
-                <span className="flex-1 truncate">{title}</span>
+                      {Icon && (
+                        <Icon
+                          className="
+                            h-4.5
+                            w-4.5
+                            shrink-0
+                          "
+                        />
+                      )}
 
-                {/* Notification Badge */}
-                {link.path.includes("notifications") && unreadCount > 0 && (
-                  <span
-                    className="
-                      ml-auto
-                      flex
-                      h-5
-                      w-5
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#eb5757]
-                      text-[11px]
-                      font-bold
-                      leading-none
-                      text-white
-                      rtl:ml-0
-                      rtl:mr-auto
-                    "
-                  >
-                    {unreadCount}
-                  </span>
-                )}
-              </NavLink>
+                      {/* Title */}
+
+                      <span className="flex-1 truncate">{title}</span>
+
+                      {/* Notification Badge */}
+
+                      {link.path.includes("notifications") &&
+                        unreadCount > 0 && (
+                          <span
+                            className="
+                              ml-auto
+                              flex
+                              h-5
+                              w-5
+                              items-center
+                              justify-center
+                              rounded-full
+                              bg-[#eb5757]
+                              text-[11px]
+                              font-bold
+                              leading-none
+                              text-white
+                              rtl:ml-0
+                              rtl:mr-auto
+                            "
+                          >
+                            {unreadCount}
+                          </span>
+                        )}
+                    </NavLink>
+                  );
+                })}
+              </div>
             );
           })}
         </nav>
@@ -414,6 +472,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
 
         <div className="mt-auto flex flex-col pt-3 shrink-0">
           {/* Need a hand? Card - Only for non-admin portals */}
+
           {!isAdminPage && effectiveRole === "employee" && (
             <NavLink
               to="/employee/ai-assistant"
@@ -438,6 +497,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               "
             >
               {/* Sparkle Icon */}
+
               <LuSparkles
                 className="
                   h-6
@@ -451,6 +511,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               />
 
               {/* Texts */}
+
               <div className="flex min-w-0 flex-1 flex-col">
                 <strong className="text-[13.5px] font-bold leading-tight text-white">
                   {t("portal.needAHand", "Need a hand?")}
@@ -462,6 +523,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
               </div>
 
               {/* Arrow */}
+
               <FiArrowRight
                 className={`
                   h-4
@@ -478,6 +540,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
           )}
 
           {/* Divider Line */}
+
           <div
             style={{
               height: "1px",
@@ -489,8 +552,10 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
           />
 
           {/* User Mini Profile */}
+
           <div className="flex items-center gap-3 px-1 py-1">
             {/* Avatar */}
+
             <div
               style={{
                 backgroundColor: avatarBg,
@@ -512,6 +577,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             </div>
 
             {/* User Info */}
+
             <div className="flex min-w-0 flex-1 flex-col">
               <strong className="truncate text-[13.5px] font-bold leading-tight text-white">
                 {displayName}
@@ -523,6 +589,7 @@ const Sidebar = ({ role = "admin", isOpen = false, onClose }) => {
             </div>
 
             {/* More */}
+
             <button
               type="button"
               className="ml-auto cursor-pointer rounded p-1 text-[#8fa8c1] transition-colors hover:text-white rtl:ml-0 rtl:mr-auto"

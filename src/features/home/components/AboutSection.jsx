@@ -1,24 +1,45 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FiCheckCircle, FiZap, FiLayers } from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/free-mode";
 
-// const trustFeatures = [
-//   "Centralized Data",
-//   "Automated Shifts",
-//   "Leave Workflows",
-//   "Performance KPIs",
-//   "Audit Ready",
-//   "GPS Geofencing",
-//   "AI Career Coach",
-//   "Real-Time Payroll",
-//   "Skill-Gap Insights",
-//   "Role Governance",
-// ];
+const trustFeatures = [
+  "Centralized Data",
+  "Automated Shifts",
+  "Leave Workflows",
+  "Performance KPIs",
+  "Audit Ready",
+  "GPS Geofencing",
+  "AI Career Coach",
+  "Real-Time Payroll",
+  "Skill-Gap Insights",
+  "Role Governance",
+];
+
 export default function AboutSection() {
   const { t } = useTranslation();
+  const swiperRef = useRef(null);
+
+  const rawTicker = t("home.ticker", { returnObjects: true });
+  const baseItems =
+    Array.isArray(rawTicker) && rawTicker.length > 0
+      ? rawTicker
+      : trustFeatures;
+
+  // Duplicate items so Swiper has plenty of slides for an uninterrupted continuous loop
+  const repeatedItems = [...baseItems, ...baseItems, ...baseItems];
+
+  const handleMouseEnter = () => {
+    swiperRef.current?.autoplay?.stop();
+  };
+
+  const handleMouseLeave = () => {
+    swiperRef.current?.autoplay?.start();
+  };
 
   return (
     <>
@@ -31,34 +52,38 @@ export default function AboutSection() {
       >
         <div className="container">
           <div className="trust-inner">
-            {/* <p>Unified Enterprise HR Engine</p> */}
-
-            <div className="trust-items-wrapper">
+            <div
+              className="trust-items-wrapper"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <Swiper
-                modules={[Autoplay]}
-                loop={true}
-                autoplay={{ delay: 0, disableOnInteraction: false }}
-                speed={4000}
-                allowTouchMove={false}
-                spaceBetween={40}
-                slidesPerView="auto"
-                breakpoints={{
-                  320: { slidesPerView: 2, spaceBetween: 20 },
-                  640: { slidesPerView: 3, spaceBetween: 28 },
-                  1024: { slidesPerView: 5, spaceBetween: 40 },
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
                 }}
+                modules={[Autoplay, FreeMode]}
+                loop={true}
+                freeMode={{ enabled: true, momentum: false }}
+                autoplay={{
+                  delay: 0,
+                  disableOnInteraction: false,
+                }}
+                speed={5000}
+                slidesPerView="auto"
+                spaceBetween={36}
+                allowTouchMove={false}
+                simulateTouch={false}
+                touchStartPreventDefault={false}
                 className="trust-items-swiper"
               >
-                <SwiperSlide>Centralized Data</SwiperSlide>
-                <SwiperSlide>Automated Shifts</SwiperSlide>
-                <SwiperSlide>Leave Workflows</SwiperSlide>
-                <SwiperSlide>Performance KPIs</SwiperSlide>
-                <SwiperSlide>Audit Ready</SwiperSlide>
-                <SwiperSlide>GPS Geofencing</SwiperSlide>
-                <SwiperSlide>AI Career Coach</SwiperSlide>
-                <SwiperSlide>Real-Time Payroll</SwiperSlide>
-                <SwiperSlide>Skill-Gap Insights</SwiperSlide>
-                <SwiperSlide>Role Governance</SwiperSlide>
+                {repeatedItems.map((item, idx) => (
+                  <SwiperSlide key={idx} className="trust-slide select-none">
+                    <span className="trust-slide-text">{item}</span>
+                    <span className="trust-slide-dot" aria-hidden="true">
+                      •
+                    </span>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-
+import HrLayout from "./layouts/HrLayout";
 // ==================== Home ====================
 import Home from "./features/home";
 
@@ -45,8 +45,6 @@ import AITeamInsights from "./features/manager/pages/AITeamInsights";
 import ProfileSetting from "./features/manager/pages/ProfileSetting";
 
 // ==================== HR Pages ====================
-// IMPORTANT:
-// These imports assume each HR page uses: export default Component;
 import HrDashboard from "./features/hr/pages/hrDashboard";
 import HrAttendance from "./features/hr/pages/attendance";
 import HrAdvances from "./features/hr/pages/advances&Deductions";
@@ -55,6 +53,12 @@ import HrEmployees from "./features/hr/pages/employees";
 import HrLeaveRequests from "./features/hr/pages/leaveRequests";
 import HrPayroll from "./features/hr/pages/payroll";
 import HrRewards from "./features/hr/pages/rewards&Bonuses";
+import HrEvaluationsGoals from "./features/hr/pages/evaluations&goals";
+import PerformanceMetrics from "./features/hr/pages/performanceMatrics";
+import AIInsights from "./features/hr/pages/aiInsights";
+import HrCompanyPolicies from "./features/hr/pages/companyPolicies";
+import Holidays from "./features/hr/pages/holidays";
+import Reports from "./features/hr/pages/reports";
 
 // ==================== Layout ====================
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -81,7 +85,7 @@ function App() {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    const isArabic = i18n.language === "ar";
+    const isArabic = i18n.language?.startsWith("ar");
 
     // HTML direction
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
@@ -120,6 +124,7 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/VerifyOTP" element={<VerifyOTP />} />
         <Route path="/ResetPassword" element={<ResetPassword />} />
+
         <Route
           path="/password-reset-success"
           element={<PasswordResetSuccess />}
@@ -128,7 +133,7 @@ function App() {
         {/* ==================== Dashboard Layout ==================== */}
         <Route element={<DashboardLayout />}>
           {/* ================================================== */}
-          {/* ==================== ADMIN ====================== */}
+          {/* ==================== ADMIN ======================= */}
           {/* ================================================== */}
 
           <Route
@@ -163,45 +168,72 @@ function App() {
           {/* ================================================== */}
 
           {/* HR Redirect */}
-          <Route path="/hr" element={<Navigate to="/hr/dashboard" replace />} />
 
-          {/* HR Dashboard */}
-          <Route path="/hr/dashboard" element={<HrDashboard />} />
+          {/* ==================== HR ROUTES ==================== */}
 
-          {/* HR Employees */}
-          <Route path="/hr/employees" element={<HrEmployees />} />
+          <Route path="/hr" element={<HrLayout />}>
+            {/* HR Root */}
+            <Route index element={<Navigate to="/hr/dashboard" replace />} />
 
-          {/* HR Departments & Teams */}
-          <Route path="/hr/departments" element={<HrDepartments />} />
+            {/* HR Dashboard */}
+            <Route path="dashboard" element={<HrDashboard />} />
 
-          {/* HR Attendance */}
-          <Route path="/hr/attendance" element={<HrAttendance />} />
+            {/* HR Employees */}
+            <Route path="employees" element={<HrEmployees />} />
 
-          {/* HR Leave Requests */}
-          <Route path="/hr/leave-requests" element={<HrLeaveRequests />} />
+            {/* HR Departments & Teams */}
+            <Route path="departments" element={<HrDepartments />} />
 
-          {/* HR Advances & Deductions */}
-          <Route path="/hr/advances-deductions" element={<HrAdvances />} />
+            {/* HR Attendance */}
+            <Route path="attendance" element={<HrAttendance />} />
 
-          {/* HR Payroll */}
-          <Route path="/hr/payroll" element={<HrPayroll />} />
+            {/* HR Leave Requests */}
+            <Route path="leave-requests" element={<HrLeaveRequests />} />
 
-          {/* HR Rewards & Bonuses */}
-          <Route path="/hr/rewards" element={<HrRewards />} />
+            {/* HR Advances & Deductions */}
+            <Route path="advances-deductions" element={<HrAdvances />} />
 
-          {/* HR Notifications */}
-          <Route path="/hr/notifications" element={<Notification />} />
+            {/* HR Payroll */}
+            <Route path="payroll" element={<HrPayroll />} />
 
-          {/* HR Settings */}
-          <Route
-            path="/hr/settings"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.settings"
-                defaultMessage="الإعدادات"
-              />
-            }
-          />
+            {/* HR Rewards & Bonuses */}
+            <Route path="rewards" element={<HrRewards />} />
+
+            {/* HR Evaluations & Goals */}
+            <Route path="evaluations-goals" element={<HrEvaluationsGoals />} />
+
+            {/* HR Performance Metrics */}
+            <Route
+              path="performance-metrics"
+              element={<PerformanceMetrics />}
+            />
+
+            {/* HR AI Insights */}
+            <Route path="ai-insights" element={<AIInsights />} />
+
+            {/* HR Company Policies */}
+            <Route path="company-policies" element={<HrCompanyPolicies />} />
+
+            {/* HR Holidays & Seasons */}
+            <Route path="holidays" element={<Holidays />} />
+
+            {/* HR Reports */}
+            <Route path="reports" element={<Reports />} />
+
+            {/* HR Notifications */}
+            <Route path="notifications" element={<Notification />} />
+
+            {/* HR Settings */}
+            <Route
+              path="settings"
+              element={
+                <DashboardPlaceholder
+                  messageKey="portal.settings"
+                  defaultMessage="الإعدادات"
+                />
+              }
+            />
+          </Route>
 
           {/* ================================================== */}
           {/* ==================== MANAGER ===================== */}
@@ -234,6 +266,7 @@ function App() {
           <Route path="/manager/ai-insights" element={<AITeamInsights />} />
 
           <Route path="/manager/notifications" element={<Notification />} />
+
           <Route path="/manager/profile" element={<ProfileSetting />} />
 
           {/* ================================================== */}
@@ -272,6 +305,7 @@ function App() {
 
           <Route path="/employee/notifications" element={<Notification />} />
 
+          {/* Employee Company Policies */}
           <Route path="/employee/policies" element={<CompanyPolicies />} />
 
           <Route

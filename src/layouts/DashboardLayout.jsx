@@ -23,7 +23,7 @@ const DashboardInner = () => {
   }
 
   return (
-    <NotificationProvider currentUserId={currentUser?.userId}>
+    <NotificationProvider currentRole={currentUserRole} currentUserId={currentUser?.userId}>
       <div className="flex min-h-screen w-full bg-[#f5f7f8]">
         <Sidebar
           role={currentUserRole}
