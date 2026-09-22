@@ -92,80 +92,106 @@ export const navConfig = {
   // ==================================================
 
   hr: [
+    // ================= OPERATIONS =================
     {
       titleKey: "portal.dashboard",
       path: "/hr/dashboard",
       icon: MdDashboard,
+      section: "OPERATIONS",
     },
     {
       titleKey: "portal.employees",
       path: "/hr/employees",
       icon: MdPeople,
+      section: "OPERATIONS",
     },
     {
       titleKey: "portal.departmentsTeams",
       path: "/hr/departments",
       icon: MdLocationCity,
+      section: "OPERATIONS",
     },
     {
       titleKey: "portal.attendance",
       path: "/hr/attendance",
       icon: MdCalendarMonth,
+      section: "OPERATIONS",
     },
     {
       titleKey: "portal.leaveRequests",
       path: "/hr/leave-requests",
       icon: MdEventNote,
+      section: "OPERATIONS",
     },
+
+    // ================= FINANCIAL & REWARDS =================
     {
       titleKey: "portal.advancesDeductions",
       path: "/hr/advances-deductions",
       icon: MdAccountBalanceWallet,
+      section: "FINANCIAL & REWARDS",
     },
     {
       titleKey: "portal.payroll",
       path: "/hr/payroll",
       icon: MdAttachMoney,
+      section: "FINANCIAL & REWARDS",
     },
     {
       titleKey: "portal.rewardsBonuses",
       path: "/hr/rewards",
       icon: MdCardGiftcard,
+      section: "FINANCIAL & REWARDS",
     },
+
+    // ================= GROWTH & GOVERNANCE =================
     {
       titleKey: "portal.evaluationsGoals",
       title: "Evaluations & Goals",
       path: "/hr/evaluations-goals",
       icon: MdTrackChanges,
+      section: "GROWTH & GOVERNANCE",
     },
     {
       titleKey: "portal.performanceMetrics",
       title: "Performance Metrics",
       path: "/hr/performance-metrics",
       icon: MdAssessment,
+      section: "GROWTH & GOVERNANCE",
     },
     {
       titleKey: "portal.aiInsights",
       title: "AI Insights",
       path: "/hr/ai-insights",
       icon: LuSparkles,
+      section: "GROWTH & GOVERNANCE",
     },
     {
       titleKey: "portal.companyPolicies",
       title: "Company Policies",
       path: "/hr/company-policies",
       icon: FiBookOpen,
+      section: "GROWTH & GOVERNANCE",
     },
     {
       titleKey: "portal.holidays",
       title: "Holidays & Seasons",
       path: "/hr/holidays",
       icon: MdEventAvailable,
+      section: "GROWTH & GOVERNANCE",
+    },
+    {
+      titleKey: "portal.reports",
+      title: "Reports",
+      path: "/hr/reports",
+      icon: MdDescription,
+      section: "GROWTH & GOVERNANCE",
     },
     {
       titleKey: "portal.notifications",
       path: "/hr/notifications",
       icon: MdNotifications,
+      section: "GROWTH & GOVERNANCE",
     },
   ],
 
@@ -234,7 +260,6 @@ export const navConfig = {
       path: "/manager/notifications",
       icon: MdNotifications,
     },
-  
   ],
 
   // ==================================================

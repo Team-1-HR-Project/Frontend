@@ -134,14 +134,10 @@ const PerformanceMetrics = () => {
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
-      className="min-h-screen bg-[#f5f7f8] text-[#243b53]"
+      className="w-full min-w-0 text-[#243b53]"
     >
-      {/* =====================================================
-          PAGE CONTENT
-      ===================================================== */}
-
-      <main className="px-5 py-6 lg:px-8">
-        <div className="mx-auto max-w-[1220px]">
+      <main className="w-full min-w-0">
+        <div className="w-full min-w-0">
           {/* =================================================
               HEADER
           ================================================= */}

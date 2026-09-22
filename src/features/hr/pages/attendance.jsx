@@ -265,10 +265,7 @@ const Attendance = () => {
   };
 
   return (
-    <div
-      dir={isArabic ? "rtl" : "ltr"}
-      className="w-full min-h-screen space-y-6 bg-[#f5f7fa] pb-10"
-    >
+    <div dir={isArabic ? "rtl" : "ltr"} className="w-full space-y-6">
       {/* =========================
           Success Message
       ========================== */}
@@ -327,7 +324,7 @@ const Attendance = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-[30px]">
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 md:text-[28px]">
               {t("hrAttendance.title")}
             </h1>
 
@@ -462,7 +459,7 @@ const Attendance = () => {
       {/* =========================
           Stats
       ========================== */}
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, index) => {
           const Icon = stat.icon;
 

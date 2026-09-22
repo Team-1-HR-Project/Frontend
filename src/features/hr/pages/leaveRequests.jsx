@@ -240,7 +240,7 @@ const LeaveRequests = () => {
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
-      className="w-full min-w-0 overflow-x-hidden bg-[#f5f7f9] px-4 py-7 text-[#12395c] sm:px-6 lg:px-8 xl:px-10"
+      className="w-full min-w-0 overflow-x-hidden text-[#12395c]"
     >
       {/* Toast */}
       {message && (

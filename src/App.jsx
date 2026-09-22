@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-
+import HrLayout from "./layouts/HrLayout";
 // ==================== Home ====================
 import Home from "./features/home";
 
@@ -168,81 +168,72 @@ function App() {
           {/* ================================================== */}
 
           {/* HR Redirect */}
-          <Route
-            path="/hr"
-            element={<Navigate to="/hr/dashboard" replace />}
-          />
 
-          {/* HR Dashboard */}
-          <Route path="/hr/dashboard" element={<HrDashboard />} />
+          {/* ==================== HR ROUTES ==================== */}
 
-          {/* HR Employees */}
-          <Route path="/hr/employees" element={<HrEmployees />} />
+          <Route path="/hr" element={<HrLayout />}>
+            {/* HR Root */}
+            <Route index element={<Navigate to="/hr/dashboard" replace />} />
 
-          {/* HR Departments & Teams */}
-          <Route path="/hr/departments" element={<HrDepartments />} />
+            {/* HR Dashboard */}
+            <Route path="dashboard" element={<HrDashboard />} />
 
-          {/* HR Attendance */}
-          <Route path="/hr/attendance" element={<HrAttendance />} />
+            {/* HR Employees */}
+            <Route path="employees" element={<HrEmployees />} />
 
-          {/* HR Leave Requests */}
-          <Route
-            path="/hr/leave-requests"
-            element={<HrLeaveRequests />}
-          />
+            {/* HR Departments & Teams */}
+            <Route path="departments" element={<HrDepartments />} />
 
-          {/* HR Advances & Deductions */}
-          <Route
-            path="/hr/advances-deductions"
-            element={<HrAdvances />}
-          />
+            {/* HR Attendance */}
+            <Route path="attendance" element={<HrAttendance />} />
 
-          {/* HR Payroll */}
-          <Route path="/hr/payroll" element={<HrPayroll />} />
+            {/* HR Leave Requests */}
+            <Route path="leave-requests" element={<HrLeaveRequests />} />
 
-          {/* HR Rewards & Bonuses */}
-          <Route path="/hr/rewards" element={<HrRewards />} />
+            {/* HR Advances & Deductions */}
+            <Route path="advances-deductions" element={<HrAdvances />} />
 
-          {/* HR Evaluations & Goals */}
-          <Route
-            path="/hr/evaluations-goals"
-            element={<HrEvaluationsGoals />}
-          />
+            {/* HR Payroll */}
+            <Route path="payroll" element={<HrPayroll />} />
 
-          {/* HR Performance Metrics */}
-          <Route
-            path="/hr/performance-metrics"
-            element={<PerformanceMetrics />}
-          />
+            {/* HR Rewards & Bonuses */}
+            <Route path="rewards" element={<HrRewards />} />
 
-          {/* HR AI Insights */}
-          <Route path="/hr/ai-insights" element={<AIInsights />} />
+            {/* HR Evaluations & Goals */}
+            <Route path="evaluations-goals" element={<HrEvaluationsGoals />} />
 
-          {/* HR Company Policies */}
-          <Route
-            path="/hr/company-policies"
-            element={<HrCompanyPolicies />}
-          />
+            {/* HR Performance Metrics */}
+            <Route
+              path="performance-metrics"
+              element={<PerformanceMetrics />}
+            />
 
-          {/* HR Holidays & Seasons */}
-          <Route path="/hr/holidays" element={<Holidays />} />
+            {/* HR AI Insights */}
+            <Route path="ai-insights" element={<AIInsights />} />
 
-          {/* HR Reports */}
-          <Route path="/hr/reports" element={<Reports />} />
+            {/* HR Company Policies */}
+            <Route path="company-policies" element={<HrCompanyPolicies />} />
 
-          {/* HR Notifications */}
-          <Route path="/hr/notifications" element={<Notification />} />
+            {/* HR Holidays & Seasons */}
+            <Route path="holidays" element={<Holidays />} />
 
-          {/* HR Settings */}
-          <Route
-            path="/hr/settings"
-            element={
-              <DashboardPlaceholder
-                messageKey="portal.settings"
-                defaultMessage="الإعدادات"
-              />
-            }
-          />
+            {/* HR Reports */}
+            <Route path="reports" element={<Reports />} />
+
+            {/* HR Notifications */}
+            <Route path="notifications" element={<Notification />} />
+
+            {/* HR Settings */}
+            <Route
+              path="settings"
+              element={
+                <DashboardPlaceholder
+                  messageKey="portal.settings"
+                  defaultMessage="الإعدادات"
+                />
+              }
+            />
+          </Route>
 
           {/* ================================================== */}
           {/* ==================== MANAGER ===================== */}
@@ -257,42 +248,24 @@ function App() {
 
           <Route path="/manager/tasks" element={<TaskManagement />} />
 
-          <Route
-            path="/manager/submissions"
-            element={<SubmissionReviews />}
-          />
+          <Route path="/manager/submissions" element={<SubmissionReviews />} />
 
-          <Route
-            path="/manager/evaluations"
-            element={<TeamEvaluations />}
-          />
+          <Route path="/manager/evaluations" element={<TeamEvaluations />} />
 
           <Route path="/manager/goals" element={<TeamGoals />} />
 
-          <Route
-            path="/manager/analytics"
-            element={<PerformanceAnalytics />}
-          />
+          <Route path="/manager/analytics" element={<PerformanceAnalytics />} />
 
-          <Route
-            path="/manager/attendance"
-            element={<TeamAttendance />}
-          />
+          <Route path="/manager/attendance" element={<TeamAttendance />} />
 
           <Route
             path="/manager/leave-approvals"
             element={<TeamLeaveApprovals />}
           />
 
-          <Route
-            path="/manager/ai-insights"
-            element={<AITeamInsights />}
-          />
+          <Route path="/manager/ai-insights" element={<AITeamInsights />} />
 
-          <Route
-            path="/manager/notifications"
-            element={<Notification />}
-          />
+          <Route path="/manager/notifications" element={<Notification />} />
 
           <Route path="/manager/profile" element={<ProfileSetting />} />
 
@@ -305,15 +278,9 @@ function App() {
             element={<Navigate to="/employee/dashboard" replace />}
           />
 
-          <Route
-            path="/employee/dashboard"
-            element={<HomeDashboard />}
-          />
+          <Route path="/employee/dashboard" element={<HomeDashboard />} />
 
-          <Route
-            path="/employee/attendance"
-            element={<Attendance />}
-          />
+          <Route path="/employee/attendance" element={<Attendance />} />
 
           <Route path="/employee/tasks" element={<Tasks />} />
 
@@ -329,28 +296,17 @@ function App() {
             element={<Navigate to="/employee/leaves" replace />}
           />
 
-          <Route
-            path="/employee/ai-assistant"
-            element={<AIAssistant />}
-          />
+          <Route path="/employee/ai-assistant" element={<AIAssistant />} />
 
           <Route
             path="/employee/assistant"
-            element={
-              <Navigate to="/employee/ai-assistant" replace />
-            }
+            element={<Navigate to="/employee/ai-assistant" replace />}
           />
 
-          <Route
-            path="/employee/notifications"
-            element={<Notification />}
-          />
+          <Route path="/employee/notifications" element={<Notification />} />
 
           {/* Employee Company Policies */}
-          <Route
-            path="/employee/policies"
-            element={<CompanyPolicies />}
-          />
+          <Route path="/employee/policies" element={<CompanyPolicies />} />
 
           <Route
             path="/employee/profile"

@@ -167,18 +167,6 @@
     "quickActions": "إجراءات سريعة",
     "welcomeMessage": "مرحبًا بعودتك إلى مساحة عملك"
   },
-  "employees": {
-    "title": "الموظفون",
-    "addEmployee": "إضافة موظف",
-    "employeeList": "دليل الموظفين",
-    "department": "القسم",
-    "position": "المسمى الوظيفي",
-    "contact": "بيانات الاتصال",
-    "hireDate": "تاريخ التعيين",
-    "active": "نشط",
-    "inactive": "غير نشط",
-    "profile": "الملف الشخصي للموظف"
-  },
   "attendance": {
     "title": "الحضور والانصراف",
     "checkIn": "تسجيل حضور",
@@ -1755,390 +1743,391 @@
         "name": "اللوجستيات",
         "description": "إدارة الحركة والتوزيع والعمليات اللوجستية.",
         "head": "كريم أشرف"
-      },
-      "managerDashboard": {
-        "title": "لوحة تحكم الفريق",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "directReports": "التقارير المباشرة",
-        "directReportsNote": "+1 منذ الشهر الماضي",
-        "activeTasks": "المهام النشطة",
-        "activeTasksNote": "موزعة على 8 أعضاء بالفريق",
-        "pendingSubmissions": "التسليمات المعلقة",
-        "pendingSubmissionsNote": "تحتاج إلى مراجعتك",
-        "attendanceToday": "الحضور اليوم",
-        "attendanceTodayNote": "تسجيل حضور متأخر واحد",
-        "aiWorkloadAlert": "تنبيه عبء العمل الذكي",
-        "sprintOverloadTitle": "تم رصد زيادة في عبء السبرنت",
-        "sprintOverloadDesc": "يوسف وكريم يتحملان 68% من عبء عمل السبرنت. إعادة توزيع مهمتين ستقلل من مخاطر التسليم.",
-        "rebalanceTasks": "إعادة توزيع المهام",
-        "pendingActionQueue": "قائمة الإجراءات المعلقة",
-        "review": "مراجعة",
-        "oauth2FlowName": "مسار OAuth2",
-        "releaseNotesName": "ملاحظات الإصدار",
-        "paymentTestsName": "اختبارات الدفع",
-        "youssefLotfy": "يوسف لطفي",
-        "salmaNabil": "سلمى نبيل",
-        "karimAshraf": "كريم أشرف"
-      },
-      "managerTasks": {
-        "title": "إدارة المهام",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "searchPlaceholder": "البحث عن مهام...",
-        "assignNewTask": "تعيين مهمة جديدة",
-        "filterAll": "الكل",
-        "filterInProgress": "قيد التنفيذ",
-        "filterReviewPending": "بانتظار المراجعة",
-        "filterCompleted": "مكتملة",
-        "colTaskName": "اسم المهمة",
-        "colAssignee": "المكلف بها",
-        "colDueDate": "تاريخ الاستحقاق",
-        "colPriority": "الأولوية",
-        "colProgress": "التقدم",
-        "priorityUrgent": "عاجلة",
-        "priorityHigh": "عالية",
-        "priorityNormal": "عادية",
-        "taskNamePlaceholder": "اسم المهمة",
-        "assignToOption": "تعيين إلى {{name}}",
-        "taskDetailsPlaceholder": "تفاصيل المهمة",
-        "createTask": "إنشاء المهمة",
-        "youssefLotfy": "يوسف لطفي",
-        "karimAshraf": "كريم أشرف",
-        "salmaNabil": "سلمى نبيل",
-        "omarFathy": "عمر فتحي",
-        "taskOauth2FlowName": "تطوير مسار OAuth2",
-        "taskBillingHooksName": "إعادة هيكلة نظام الفوترة",
-        "taskQaMobileReleaseName": "اختبار جودة إصدار الموبايل",
-        "taskUpdateApiDocsName": "تحديث توثيق الـ API",
-        "dueDateSep18": "18 سبتمبر",
-        "dueDateSep20": "20 سبتمبر",
-        "dueDateSep22": "22 سبتمبر",
-        "dueDateSep25": "25 سبتمبر",
-        "noDueDate": "-",
-        "toastReassigned": "تمت إعادة تعيين المهمة إلى {{name}}",
-        "clearFilter": "إلغاء التصفية",
-        "filteredBy": "مصفى حسب",
-        "reassignTask": "إعادة تعيين المهمة",
-        "reassignTo": "إعادة التعيين إلى"
-      },
-      "managerSubmissions": {
-        "title": "مراجعة التسليمات",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "reviewPending": "بانتظار المراجعة",
-        "submittedBy": "قدّمها",
-        "submitterNotes": "ملاحظات مقدّم التسليم:",
-        "attachmentsCount": "{{count}} مرفقات",
-        "approveComplete": "اعتماد وإنهاء",
-        "requestChanges": "طلب تعديلات",
-        "reject": "رفض",
-        "changePlaceholder": "اشرح التعديلات المطلوبة...",
-        "sendChangeRequest": "إرسال طلب التعديل",
-        "toastApproved": "تم اعتماد التسليم وإنهاء المهمة",
-        "toastRejected": "تم رفض التسليم",
-        "youssefLotfy": "يوسف لطفي",
-        "salmaNabil": "سلمى نبيل",
-        "submissionOauth2Title": "تطوير مسار OAuth2",
-        "submissionOauth2Notes": "تمت إضافة تدوير رمز التحديث وتغطية الحالات الطرفية الخاصة بالـ callback في اختبارات التكامل.",
-        "submissionQ3ReleaseNotesTitle": "ملاحظات إصدار الربع الثالث",
-        "dateSep16": "16 سبتمبر 2026"
-      },
-      "managerEvaluations": {
-        "activeCycle": "دورة التقييم الحالية",
-        "cycleName": "دورة الربع الثالث 2026",
-        "closesIn": "تُغلق خلال {{days}} يومًا",
-        "colTeamMember": "عضو الفريق",
-        "colRole": "الدور الوظيفي",
-        "colReviewStatus": "حالة التقييم",
-        "colLastRating": "آخر تقييم",
-        "roleSoftwareEngineer": "مهندس برمجيات",
-        "statusSubmitted": "تم الإرسال",
-        "statusInProgress": "قيد التنفيذ",
-        "statusNotStarted": "لم يبدأ",
-        "evaluateEmployee": "تقييم الموظف",
-        "overallScore": "التقييم العام: {{score}}/5",
-        "generateDraft": "إنشاء مسودة التقييم بالذكاء الاصطناعي",
-        "feedbackPlaceholder": "ملاحظات نوعية",
-        "saveEvaluation": "حفظ التقييم",
-        "draftHigh": "أداء {{name}} يتجاوز التوقعات باستمرار، بجودة عالية ومسؤولية واضحة عن النتائج. نوصي بإسناد مسؤوليات أوسع وإتاحة فرص قيادية.",
-        "draftMid": "أداء {{name}} موثوق باستمرار، مع حسّ قوي بالمسؤولية تجاه المهام. نوصي بمواصلة فرص الإرشاد والتوجيه.",
-        "draftLow": "أداء {{name}} لم يصل إلى المستوى المتوقع خلال هذه الدورة. نوصي بوضع خطة تحسين واضحة مع متابعة دورية ودعم مركّز.",
-        "toastSaved": "تم حفظ التقييم"
-      },
-      "managerGoals": {
-        "statusOnTrack": "على المسار الصحيح",
-        "statusAtRisk": "في خطر",
-        "lead": "المسؤول: {{name}}",
-        "goalCrashFreeTitle": "تحقيق 98% من الجلسات الخالية من الأعطال",
-        "goalApiLatencyTitle": "خفض زمن استجابة الـ API عند p95 إلى 200 مللي ثانية",
-        "itemAndroidCrash": "معدل أعطال أندرويد أقل من 1.5%",
-        "itemIosCrash": "معدل أعطال iOS أقل من 1.5%",
-        "itemProfileEndpoints": "تحليل أداء أعلى 20 نقطة اتصال",
-        "itemShipCaching": "إطلاق طبقة التخزين المؤقت"
-      },
-      "managerAI": {
-        "breadcrumb": "بوابة المدير / رؤى الفريق بالذكاء الاصطناعي",
-        "title": "رؤى الفريق بالذكاء الاصطناعي",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "skillGapCard": {
-          "eyebrow": "ذكاء إداري قائم على البيانات",
-          "title": "تحليل فجوات مهارات الفريق",
-          "description": "تحدد مؤشرات التسليم والتقييم الموثقة فرص التدريب والتطوير دون أن تحل محل قرار المدير."
-        },
-        "skillGaps": {
-          "systemDesign": "تصميم الأنظمة",
-          "systemDesignBadge": "عضوان يحتاجان إلى تدريب",
-          "systemDesignAction": "الإجراء المقترح: العمل بشكل ثنائي في مراجعات هندسة الأنظمة",
-          "mentorship": "الإرشاد والتوجيه",
-          "mentorshipBadge": "تغطية منخفضة خلال هذه الدورة",
-          "mentorshipAction": "الإجراء المقترح: تعيين زميل للتوجيه بالتناوب",
-          "testStrategy": "استراتيجية الاختبار",
-          "testStrategyBadge": "منطقة تحتاج إلى تطوير",
-          "testStrategyAction": "الإجراء المقترح: تنظيم ورشة عمل متخصصة في اختبار الجودة"
-        },
-        "burnoutCard": {
-          "eyebrow": "توازن أعباء العمل",
-          "title": "مؤشرات مخاطر الإرهاق",
-          "description": "راجع هذه المؤشرات مع فريقك قبل اتخاذ أي إجراء. هذه المؤشرات للإرشاد وليست قرارات آلية."
-        },
-        "burnout": {
-          "high": "مرتفع",
-          "watch": "مراقبة",
-          "balanced": "متوازن",
-          "loadDescription": "{{load}}% من حمل الـ Sprint · يُنصح بإجراء متابعة"
-        }
-      },
-      "managerLeave": {
-        "breadcrumb": "بوابة المدير / الموافقات على إجازات الفريق",
-        "title": "الموافقة على إجازات الفريق",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "searchPlaceholder": "ابحث عن أعضاء الفريق...",
-        "filters": {
-          "all": "الحالة"
-        },
-        "roles": {
-          "softwareEngineer": "مهندس برمجيات",
-          "backendDeveloper": "مطور Backend",
-          "qaEngineer": "مهندس اختبار",
-          "frontendDeveloper": "مطور Frontend"
-        },
-        "leaveTypes": {
-          "annual": "سنوية",
-          "sick": "مرضية",
-          "unpaid": "غير مدفوعة"
-        },
-        "reasons": {
-          "familyTrip": "رحلة عائلية",
-          "medicalAppointment": "موعد طبي",
-          "personalTime": "وقت شخصي",
-          "personalAppointment": "موعد شخصي"
-        },
-        "actions": {
-          "approve": "موافقة",
-          "reject": "رفض"
-        },
-        "empty": {
-          "title": "لا توجد طلبات إجازات",
-          "description": "لا توجد طلبات إجازات تطابق البحث أو الفلتر الحالي."
-        }
-      },
-      "managerAttendance": {
-        "breadcrumb": "بوابة المدير / حضور الفريق",
-        "title": "حضور الفريق",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "table": {
-          "member": "العضو",
-          "shift": "الوردية",
-          "checkInTime": "وقت تسجيل الحضور",
-          "delayMinutes": "دقائق التأخير",
-          "verification": "التحقق"
-        },
-        "minutes": "دقيقة",
-        "waived": "تم الإعفاء",
-        "managerExcuseWaiver": "إعفاء الموظف من التأخير",
-        "waiverApplied": "تم تطبيق الإعفاء",
-        "toast": {
-          "success": "تم تطبيق إعفاء التأخير للموظف {{member}}."
-        }
-      },
-      "managerPerformanceAnalytics": {
-        "breadcrumb": "بوابة المدير / تحليلات الأداء",
-        "title": "تحليلات الأداء",
-        "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
-        "departmentCompetencyDistribution": "توزيع كفاءات القسم",
-        "teamPerformanceIndex": "مؤشر أداء الفريق",
-        "competencies": {
-          "technicalExecution": "التنفيذ التقني",
-          "communication": "التواصل",
-          "ownership": "تحمل المسؤولية",
-          "mentorship": "التوجيه والإرشاد"
-        },
-        "table": {
-          "member": "العضو",
-          "velocity": "معدل الأداء",
-          "rating": "التقييم"
-        }
-      },
-      "hrEvaluationsGoals": {
-        "eyebrow": "إدارة الأداء",
-        "title": "التقييمات والأهداف",
-        "subtitle": "إدارة دورات التقييم ومتابعة التزام المديرين بإكمال التقييمات.",
-        "launchReviewCycle": "بدء دورة تقييم",
-        "activeCycle": "الدورة الحالية",
-        "activeCycleTitle": "تقييم الأداء للربع الثالث 2026",
-        "activeCycleDate": "15 سبتمبر – 15 أكتوبر 2026",
-        "employees": "الموظفون",
-        "managers": "المديرون",
-        "completion": "نسبة الإكمال",
-        "completed": "مكتمل",
-        "pending": "قيد الانتظار",
-        "overdue": "متأخر",
-        "departmentManagerReviewCompletion": "إكمال تقييمات مديري الأقسام",
-        "departmentManagerReviewSubtitle": "تابع نسبة إكمال التقييمات في الأقسام وتابع مع المديرين.",
-        "department": "القسم",
-        "manager": "المدير",
-        "reviews": "التقييمات",
-        "progress": "التقدم",
-        "status": "الحالة",
-        "onTrack": "على المسار",
-        "needsAttention": "يحتاج إلى متابعة",
-        "completedStatus": "مكتمل",
-        "sendReminder": "إرسال تذكير للمدير",
-        "reminderSent": "تم إرسال التذكير إلى {{manager}}",
-        "reminderFailed": "فشل إرسال التذكير. حاول مرة أخرى.",
-        "createWorkflowRecord": "إنشاء سجل سير العمل",
-        "details": "التفاصيل",
-        "owner": "المسؤول",
-        "cancel": "إلغاء",
-        "saveChanges": "حفظ التغييرات",
-        "engineering": "الهندسة",
-        "peopleCulture": "الموارد البشرية والثقافة",
-        "sales": "المبيعات",
-        "logistics": "اللوجستيات",
-        "mariamHassan": "مريم حسن",
-        "sarahAhmed": "سارة أحمد",
-        "omarKhaled": "عمر خالد",
-        "karimAshraf": "كريم أشرف"
-      },
-      "hrCommandCenter": {
-        "title": "مركز قيادة الموارد البشرية",
-        "subtitle": "عرض تشغيلي مباشر لحالة الموظفين والموافقات والاستعداد للرواتب.",
-        "explainToday": "شرح اليوم",
-        "totalEmployees": "إجمالي الموظفين",
-        "monthOverMonth": "مقارنة بالشهر السابق",
-        "presentToday": "الحاضرون اليوم",
-        "workforcePresent": "من إجمالي الموظفين حاضرون",
-        "pendingReviews": "التقييمات المعلقة",
-        "leaves": "إجازات",
-        "advances": "سلف",
-        "projectedPayroll": "الرواتب المتوقعة",
-        "septemberExecution": "تنفيذ سبتمبر",
-        "employeeAttentionSignals": "مؤشرات تحتاج إلى متابعة",
-        "groundedMetrics": "مؤشرات مبنية على البيانات",
-        "youssefLotfy": "يوسف لطفي",
-        "youssefDescription": "ارتفاع في حالات التأخير خلال الأسابيع الثلاثة الماضية",
-        "karimAshraf": "كريم أشرف",
-        "karimDescription": "انخفض معدل إنجاز المهام بنسبة 18% خلال دورتين من العمل",
-        "alexandriaHub": "مركز الإسكندرية",
-        "alexandriaDescription": "تحسن الحضور بنسبة 9% بعد تعديل مواعيد الورديات",
-        "high": "اهتمام مرتفع",
-        "medium": "اهتمام متوسط",
-        "low": "اهتمام منخفض",
-        "review": "مراجعة",
-        "operationalReadiness": "الجاهزية التشغيلية",
-        "attendanceVerification": "التحقق من الحضور",
-        "leaveApprovals": "الموافقات على الإجازات",
-        "q3Evaluations": "تقييمات الربع الثالث",
-        "payrollReconciliation": "مطابقة الرواتب"
-      },
-      "hrCompanyPolicies": {
-        "eyebrow": "حوكمة الموارد البشرية",
-        "title": "سياسات وحوكمة الموارد البشرية الرسمية",
-        "subtitle": "مستندات سياسات موحدة مع إدارة الملكية وسجل تدقيق متزامن.",
-        "aiSynced": "متزامن مع الذكاء الاصطناعي",
-        "effectiveDate": "تاريخ السريان",
-        "document": "المستند",
-        "editDocument": "تعديل المستند",
-        "downloadPdf": "تحميل PDF",
-        "addPolicyDocument": "إضافة مستند سياسة",
-        "editPolicyDocument": "تعديل مستند السياسة",
-        "policyTitle": "عنوان السياسة",
-        "policyTitlePlaceholder": "عنوان السياسة",
-        "effectiveDateLabel": "تاريخ السريان",
-        "effectiveDatePlaceholder": "تاريخ السريان",
-        "owner": "المسؤول",
-        "ownerPlaceholder": "المسؤول",
-        "cancel": "إلغاء",
-        "saveChanges": "حفظ التغييرات",
-        "version": "الإصدار",
-        "active": "نشط",
-        "draft": "مسودة",
-        "policies": {
-          "punctuality": {
-            "title": "لوائح الالتزام بالمواعيد والورديات",
-            "description": "فترة سماح مدتها 15 دقيقة، وقواعد خصم تلقائية، وصلاحيات للتجاوز اليدوي.",
-            "effectiveDate": "01 يناير 2026",
-            "version": "الإصدار 2.4 · نشط"
-          },
-          "leave": {
-            "title": "سياسة استحقاق الإجازات وترحيلها",
-            "description": "إجراءات توثيق الإجازات السنوية والعارضة والمرضية مع قواعد ترحيل الرصيد.",
-            "effectiveDate": "15 فبراير 2026",
-            "version": "الإصدار 3.1 · نشط"
-          },
-          "salaryAdvance": {
-            "title": "إرشادات السلف والقروض على الراتب",
-            "description": "شروط استحقاق القروض، والحدود القصوى، وجداول خصم أقساط السداد من الرواتب.",
-            "effectiveDate": "01 مارس 2026",
-            "version": "الإصدار 1.2 · نشط"
-          }
-        },
-        "ownedBy": "المسؤول: {{owner}}.",
-        "emptyDate": "—",
-        "newVersion": "الإصدار 1.0 · مسودة"
-      },
-      "holidays": {
-        "title": "العطلات والمواسم",
-        "subtitle": "خطط تغطية العمل وفقًا للعطلات الرسمية واحتياجات التشغيل.",
-        "scheduleHoliday": "جدولة عطلة للشركة",
-        "peakAlert": {
-          "title": "تنبيهات ذروة التشغيل القادمة",
-          "description": "ذروة موسمية: رمضان وارتفاع الطلب في الربع الرابع تبدأ خلال 25 يومًا. التوصية: راجع جداول الورديات واستعد لتوفير موظفين مؤقتين."
-        },
-        "calendarTitle": "تقويم العطلات الرسمية للشركة",
-        "table": {
-          "holidayName": "اسم العطلة",
-          "dateRange": "نطاق زمني",
-          "totalDays": "إجمالي أيام الإجازة",
-          "status": "الحالة"
-        },
-        "status": {
-          "activeOfficialLeave": "عطلة رسمية سارية"
-        },
-        "items": {
-          "eidAlFitr": {
-            "name": "عيد الفطر"
-          },
-          "revolutionDay": {
-            "name": "عيد الثورة"
-          },
-          "newYearsDay": {
-            "name": "رأس السنة الميلادية"
-          }
-        },
-        "threeDays": "3 أيام",
-        "oneDay": "يوم واحد",
-        "modal": {
-          "title": "جدولة عطلة للشركة",
-          "close": "إغلاق",
-          "holidayName": "اسم العطلة",
-          "holidayNamePlaceholder": "اسم العطلة",
-          "dateRange": "نطاق زمني",
-          "dateRangePlaceholder": "نطاق التاريخ",
-          "totalDays": "إجمالي أيام الإجازة",
-          "totalDaysPlaceholder": "إجمالي أيام الإجازة",
-          "cancel": "إلغاء",
-          "save": "حفظ التغييرات"
-        }
       }
+    }
+  },
+
+  "managerDashboard": {
+    "title": "لوحة تحكم الفريق",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "directReports": "التقارير المباشرة",
+    "directReportsNote": "+1 منذ الشهر الماضي",
+    "activeTasks": "المهام النشطة",
+    "activeTasksNote": "موزعة على 8 أعضاء بالفريق",
+    "pendingSubmissions": "التسليمات المعلقة",
+    "pendingSubmissionsNote": "تحتاج إلى مراجعتك",
+    "attendanceToday": "الحضور اليوم",
+    "attendanceTodayNote": "تسجيل حضور متأخر واحد",
+    "aiWorkloadAlert": "تنبيه عبء العمل الذكي",
+    "sprintOverloadTitle": "تم رصد زيادة في عبء السبرنت",
+    "sprintOverloadDesc": "يوسف وكريم يتحملان 68% من عبء عمل السبرنت. إعادة توزيع مهمتين ستقلل من مخاطر التسليم.",
+    "rebalanceTasks": "إعادة توزيع المهام",
+    "pendingActionQueue": "قائمة الإجراءات المعلقة",
+    "review": "مراجعة",
+    "oauth2FlowName": "مسار OAuth2",
+    "releaseNotesName": "ملاحظات الإصدار",
+    "paymentTestsName": "اختبارات الدفع",
+    "youssefLotfy": "يوسف لطفي",
+    "salmaNabil": "سلمى نبيل",
+    "karimAshraf": "كريم أشرف"
+  },
+  "managerTasks": {
+    "title": "إدارة المهام",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "searchPlaceholder": "البحث عن مهام...",
+    "assignNewTask": "تعيين مهمة جديدة",
+    "filterAll": "الكل",
+    "filterInProgress": "قيد التنفيذ",
+    "filterReviewPending": "بانتظار المراجعة",
+    "filterCompleted": "مكتملة",
+    "colTaskName": "اسم المهمة",
+    "colAssignee": "المكلف بها",
+    "colDueDate": "تاريخ الاستحقاق",
+    "colPriority": "الأولوية",
+    "colProgress": "التقدم",
+    "priorityUrgent": "عاجلة",
+    "priorityHigh": "عالية",
+    "priorityNormal": "عادية",
+    "taskNamePlaceholder": "اسم المهمة",
+    "assignToOption": "تعيين إلى {{name}}",
+    "taskDetailsPlaceholder": "تفاصيل المهمة",
+    "createTask": "إنشاء المهمة",
+    "youssefLotfy": "يوسف لطفي",
+    "karimAshraf": "كريم أشرف",
+    "salmaNabil": "سلمى نبيل",
+    "omarFathy": "عمر فتحي",
+    "taskOauth2FlowName": "تطوير مسار OAuth2",
+    "taskBillingHooksName": "إعادة هيكلة نظام الفوترة",
+    "taskQaMobileReleaseName": "اختبار جودة إصدار الموبايل",
+    "taskUpdateApiDocsName": "تحديث توثيق الـ API",
+    "dueDateSep18": "18 سبتمبر",
+    "dueDateSep20": "20 سبتمبر",
+    "dueDateSep22": "22 سبتمبر",
+    "dueDateSep25": "25 سبتمبر",
+    "noDueDate": "-",
+    "toastReassigned": "تمت إعادة تعيين المهمة إلى {{name}}",
+    "clearFilter": "إلغاء التصفية",
+    "filteredBy": "مصفى حسب",
+    "reassignTask": "إعادة تعيين المهمة",
+    "reassignTo": "إعادة التعيين إلى"
+  },
+  "managerSubmissions": {
+    "title": "مراجعة التسليمات",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "reviewPending": "بانتظار المراجعة",
+    "submittedBy": "قدّمها",
+    "submitterNotes": "ملاحظات مقدّم التسليم:",
+    "attachmentsCount": "{{count}} مرفقات",
+    "approveComplete": "اعتماد وإنهاء",
+    "requestChanges": "طلب تعديلات",
+    "reject": "رفض",
+    "changePlaceholder": "اشرح التعديلات المطلوبة...",
+    "sendChangeRequest": "إرسال طلب التعديل",
+    "toastApproved": "تم اعتماد التسليم وإنهاء المهمة",
+    "toastRejected": "تم رفض التسليم",
+    "youssefLotfy": "يوسف لطفي",
+    "salmaNabil": "سلمى نبيل",
+    "submissionOauth2Title": "تطوير مسار OAuth2",
+    "submissionOauth2Notes": "تمت إضافة تدوير رمز التحديث وتغطية الحالات الطرفية الخاصة بالـ callback في اختبارات التكامل.",
+    "submissionQ3ReleaseNotesTitle": "ملاحظات إصدار الربع الثالث",
+    "dateSep16": "16 سبتمبر 2026"
+  },
+  "managerEvaluations": {
+    "activeCycle": "دورة التقييم الحالية",
+    "cycleName": "دورة الربع الثالث 2026",
+    "closesIn": "تُغلق خلال {{days}} يومًا",
+    "colTeamMember": "عضو الفريق",
+    "colRole": "الدور الوظيفي",
+    "colReviewStatus": "حالة التقييم",
+    "colLastRating": "آخر تقييم",
+    "roleSoftwareEngineer": "مهندس برمجيات",
+    "statusSubmitted": "تم الإرسال",
+    "statusInProgress": "قيد التنفيذ",
+    "statusNotStarted": "لم يبدأ",
+    "evaluateEmployee": "تقييم الموظف",
+    "overallScore": "التقييم العام: {{score}}/5",
+    "generateDraft": "إنشاء مسودة التقييم بالذكاء الاصطناعي",
+    "feedbackPlaceholder": "ملاحظات نوعية",
+    "saveEvaluation": "حفظ التقييم",
+    "draftHigh": "أداء {{name}} يتجاوز التوقعات باستمرار، بجودة عالية ومسؤولية واضحة عن النتائج. نوصي بإسناد مسؤوليات أوسع وإتاحة فرص قيادية.",
+    "draftMid": "أداء {{name}} موثوق باستمرار، مع حسّ قوي بالمسؤولية تجاه المهام. نوصي بمواصلة فرص الإرشاد والتوجيه.",
+    "draftLow": "أداء {{name}} لم يصل إلى المستوى المتوقع خلال هذه الدورة. نوصي بوضع خطة تحسين واضحة مع متابعة دورية ودعم مركّز.",
+    "toastSaved": "تم حفظ التقييم"
+  },
+  "managerGoals": {
+    "statusOnTrack": "على المسار الصحيح",
+    "statusAtRisk": "في خطر",
+    "lead": "المسؤول: {{name}}",
+    "goalCrashFreeTitle": "تحقيق 98% من الجلسات الخالية من الأعطال",
+    "goalApiLatencyTitle": "خفض زمن استجابة الـ API عند p95 إلى 200 مللي ثانية",
+    "itemAndroidCrash": "معدل أعطال أندرويد أقل من 1.5%",
+    "itemIosCrash": "معدل أعطال iOS أقل من 1.5%",
+    "itemProfileEndpoints": "تحليل أداء أعلى 20 نقطة اتصال",
+    "itemShipCaching": "إطلاق طبقة التخزين المؤقت"
+  },
+  "managerAI": {
+    "breadcrumb": "بوابة المدير / رؤى الفريق بالذكاء الاصطناعي",
+    "title": "رؤى الفريق بالذكاء الاصطناعي",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "skillGapCard": {
+      "eyebrow": "ذكاء إداري قائم على البيانات",
+      "title": "تحليل فجوات مهارات الفريق",
+      "description": "تحدد مؤشرات التسليم والتقييم الموثقة فرص التدريب والتطوير دون أن تحل محل قرار المدير."
+    },
+    "skillGaps": {
+      "systemDesign": "تصميم الأنظمة",
+      "systemDesignBadge": "عضوان يحتاجان إلى تدريب",
+      "systemDesignAction": "الإجراء المقترح: العمل بشكل ثنائي في مراجعات هندسة الأنظمة",
+      "mentorship": "الإرشاد والتوجيه",
+      "mentorshipBadge": "تغطية منخفضة خلال هذه الدورة",
+      "mentorshipAction": "الإجراء المقترح: تعيين زميل للتوجيه بالتناوب",
+      "testStrategy": "استراتيجية الاختبار",
+      "testStrategyBadge": "منطقة تحتاج إلى تطوير",
+      "testStrategyAction": "الإجراء المقترح: تنظيم ورشة عمل متخصصة في اختبار الجودة"
+    },
+    "burnoutCard": {
+      "eyebrow": "توازن أعباء العمل",
+      "title": "مؤشرات مخاطر الإرهاق",
+      "description": "راجع هذه المؤشرات مع فريقك قبل اتخاذ أي إجراء. هذه المؤشرات للإرشاد وليست قرارات آلية."
+    },
+    "burnout": {
+      "high": "مرتفع",
+      "watch": "مراقبة",
+      "balanced": "متوازن",
+      "loadDescription": "{{load}}% من حمل الـ Sprint · يُنصح بإجراء متابعة"
+    }
+  },
+  "managerLeave": {
+    "breadcrumb": "بوابة المدير / الموافقات على إجازات الفريق",
+    "title": "الموافقة على إجازات الفريق",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "searchPlaceholder": "ابحث عن أعضاء الفريق...",
+    "filters": {
+      "all": "الحالة"
+    },
+    "roles": {
+      "softwareEngineer": "مهندس برمجيات",
+      "backendDeveloper": "مطور Backend",
+      "qaEngineer": "مهندس اختبار",
+      "frontendDeveloper": "مطور Frontend"
+    },
+    "leaveTypes": {
+      "annual": "سنوية",
+      "sick": "مرضية",
+      "unpaid": "غير مدفوعة"
+    },
+    "reasons": {
+      "familyTrip": "رحلة عائلية",
+      "medicalAppointment": "موعد طبي",
+      "personalTime": "وقت شخصي",
+      "personalAppointment": "موعد شخصي"
+    },
+    "actions": {
+      "approve": "موافقة",
+      "reject": "رفض"
+    },
+    "empty": {
+      "title": "لا توجد طلبات إجازات",
+      "description": "لا توجد طلبات إجازات تطابق البحث أو الفلتر الحالي."
+    }
+  },
+  "managerAttendance": {
+    "breadcrumb": "بوابة المدير / حضور الفريق",
+    "title": "حضور الفريق",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "table": {
+      "member": "العضو",
+      "shift": "الوردية",
+      "checkInTime": "وقت تسجيل الحضور",
+      "delayMinutes": "دقائق التأخير",
+      "verification": "التحقق"
+    },
+    "minutes": "دقيقة",
+    "waived": "تم الإعفاء",
+    "managerExcuseWaiver": "إعفاء الموظف من التأخير",
+    "waiverApplied": "تم تطبيق الإعفاء",
+    "toast": {
+      "success": "تم تطبيق إعفاء التأخير للموظف {{member}}."
+    }
+  },
+  "managerPerformanceAnalytics": {
+    "breadcrumb": "بوابة المدير / تحليلات الأداء",
+    "title": "تحليلات الأداء",
+    "subtitle": "حافظ على توافق فريقك ودعمه واستمراره في التقدم.",
+    "departmentCompetencyDistribution": "توزيع كفاءات القسم",
+    "teamPerformanceIndex": "مؤشر أداء الفريق",
+    "competencies": {
+      "technicalExecution": "التنفيذ التقني",
+      "communication": "التواصل",
+      "ownership": "تحمل المسؤولية",
+      "mentorship": "التوجيه والإرشاد"
+    },
+    "table": {
+      "member": "العضو",
+      "velocity": "معدل الأداء",
+      "rating": "التقييم"
+    }
+  },
+  "hrEvaluationsGoals": {
+    "eyebrow": "إدارة الأداء",
+    "title": "التقييمات والأهداف",
+    "subtitle": "إدارة دورات التقييم ومتابعة التزام المديرين بإكمال التقييمات.",
+    "launchReviewCycle": "بدء دورة تقييم",
+    "activeCycle": "الدورة الحالية",
+    "activeCycleTitle": "تقييم الأداء للربع الثالث 2026",
+    "activeCycleDate": "15 سبتمبر – 15 أكتوبر 2026",
+    "employees": "الموظفون",
+    "managers": "المديرون",
+    "completion": "نسبة الإكمال",
+    "completed": "مكتمل",
+    "pending": "قيد الانتظار",
+    "overdue": "متأخر",
+    "departmentManagerReviewCompletion": "إكمال تقييمات مديري الأقسام",
+    "departmentManagerReviewSubtitle": "تابع نسبة إكمال التقييمات في الأقسام وتابع مع المديرين.",
+    "department": "القسم",
+    "manager": "المدير",
+    "reviews": "التقييمات",
+    "progress": "التقدم",
+    "status": "الحالة",
+    "onTrack": "على المسار",
+    "needsAttention": "يحتاج إلى متابعة",
+    "completedStatus": "مكتمل",
+    "sendReminder": "إرسال تذكير للمدير",
+    "reminderSent": "تم إرسال التذكير إلى {{manager}}",
+    "reminderFailed": "فشل إرسال التذكير. حاول مرة أخرى.",
+    "createWorkflowRecord": "إنشاء سجل سير العمل",
+    "details": "التفاصيل",
+    "owner": "المسؤول",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+    "engineering": "الهندسة",
+    "peopleCulture": "الموارد البشرية والثقافة",
+    "sales": "المبيعات",
+    "logistics": "اللوجستيات",
+    "mariamHassan": "مريم حسن",
+    "sarahAhmed": "سارة أحمد",
+    "omarKhaled": "عمر خالد",
+    "karimAshraf": "كريم أشرف"
+  },
+  "hrCommandCenter": {
+    "title": "مركز قيادة الموارد البشرية",
+    "subtitle": "عرض تشغيلي مباشر لحالة الموظفين والموافقات والاستعداد للرواتب.",
+    "explainToday": "شرح اليوم",
+    "totalEmployees": "إجمالي الموظفين",
+    "monthOverMonth": "مقارنة بالشهر السابق",
+    "presentToday": "الحاضرون اليوم",
+    "workforcePresent": "من إجمالي الموظفين حاضرون",
+    "pendingReviews": "التقييمات المعلقة",
+    "leaves": "إجازات",
+    "advances": "سلف",
+    "projectedPayroll": "الرواتب المتوقعة",
+    "septemberExecution": "تنفيذ سبتمبر",
+    "employeeAttentionSignals": "مؤشرات تحتاج إلى متابعة",
+    "groundedMetrics": "مؤشرات مبنية على البيانات",
+    "youssefLotfy": "يوسف لطفي",
+    "youssefDescription": "ارتفاع في حالات التأخير خلال الأسابيع الثلاثة الماضية",
+    "karimAshraf": "كريم أشرف",
+    "karimDescription": "انخفض معدل إنجاز المهام بنسبة 18% خلال دورتين من العمل",
+    "alexandriaHub": "مركز الإسكندرية",
+    "alexandriaDescription": "تحسن الحضور بنسبة 9% بعد تعديل مواعيد الورديات",
+    "high": "اهتمام مرتفع",
+    "medium": "اهتمام متوسط",
+    "low": "اهتمام منخفض",
+    "review": "مراجعة",
+    "operationalReadiness": "الجاهزية التشغيلية",
+    "attendanceVerification": "التحقق من الحضور",
+    "leaveApprovals": "الموافقات على الإجازات",
+    "q3Evaluations": "تقييمات الربع الثالث",
+    "payrollReconciliation": "مطابقة الرواتب"
+  },
+  "hrCompanyPolicies": {
+    "eyebrow": "حوكمة الموارد البشرية",
+    "title": "سياسات وحوكمة الموارد البشرية الرسمية",
+    "subtitle": "مستندات سياسات موحدة مع إدارة الملكية وسجل تدقيق متزامن.",
+    "aiSynced": "متزامن مع الذكاء الاصطناعي",
+    "effectiveDate": "تاريخ السريان",
+    "document": "المستند",
+    "editDocument": "تعديل المستند",
+    "downloadPdf": "تحميل PDF",
+    "addPolicyDocument": "إضافة مستند سياسة",
+    "editPolicyDocument": "تعديل مستند السياسة",
+    "policyTitle": "عنوان السياسة",
+    "policyTitlePlaceholder": "عنوان السياسة",
+    "effectiveDateLabel": "تاريخ السريان",
+    "effectiveDatePlaceholder": "تاريخ السريان",
+    "owner": "المسؤول",
+    "ownerPlaceholder": "المسؤول",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات",
+    "version": "الإصدار",
+    "active": "نشط",
+    "draft": "مسودة",
+    "policies": {
+      "punctuality": {
+        "title": "لوائح الالتزام بالمواعيد والورديات",
+        "description": "فترة سماح مدتها 15 دقيقة، وقواعد خصم تلقائية، وصلاحيات للتجاوز اليدوي.",
+        "effectiveDate": "01 يناير 2026",
+        "version": "الإصدار 2.4 · نشط"
+      },
+      "leave": {
+        "title": "سياسة استحقاق الإجازات وترحيلها",
+        "description": "إجراءات توثيق الإجازات السنوية والعارضة والمرضية مع قواعد ترحيل الرصيد.",
+        "effectiveDate": "15 فبراير 2026",
+        "version": "الإصدار 3.1 · نشط"
+      },
+      "salaryAdvance": {
+        "title": "إرشادات السلف والقروض على الراتب",
+        "description": "شروط استحقاق القروض، والحدود القصوى، وجداول خصم أقساط السداد من الرواتب.",
+        "effectiveDate": "01 مارس 2026",
+        "version": "الإصدار 1.2 · نشط"
+      }
+    },
+    "ownedBy": "المسؤول: {{owner}}.",
+    "emptyDate": "—",
+    "newVersion": "الإصدار 1.0 · مسودة"
+  },
+  "holidays": {
+    "title": "العطلات والمواسم",
+    "subtitle": "خطط تغطية العمل وفقًا للعطلات الرسمية واحتياجات التشغيل.",
+    "scheduleHoliday": "جدولة عطلة للشركة",
+    "peakAlert": {
+      "title": "تنبيهات ذروة التشغيل القادمة",
+      "description": "ذروة موسمية: رمضان وارتفاع الطلب في الربع الرابع تبدأ خلال 25 يومًا. التوصية: راجع جداول الورديات واستعد لتوفير موظفين مؤقتين."
+    },
+    "calendarTitle": "تقويم العطلات الرسمية للشركة",
+    "table": {
+      "holidayName": "اسم العطلة",
+      "dateRange": "نطاق زمني",
+      "totalDays": "إجمالي أيام الإجازة",
+      "status": "الحالة"
+    },
+    "status": {
+      "activeOfficialLeave": "عطلة رسمية سارية"
+    },
+    "items": {
+      "eidAlFitr": {
+        "name": "عيد الفطر"
+      },
+      "revolutionDay": {
+        "name": "عيد الثورة"
+      },
+      "newYearsDay": {
+        "name": "رأس السنة الميلادية"
+      }
+    },
+    "threeDays": "3 أيام",
+    "oneDay": "يوم واحد",
+    "modal": {
+      "title": "جدولة عطلة للشركة",
+      "close": "إغلاق",
+      "holidayName": "اسم العطلة",
+      "holidayNamePlaceholder": "اسم العطلة",
+      "dateRange": "نطاق زمني",
+      "dateRangePlaceholder": "نطاق التاريخ",
+      "totalDays": "إجمالي أيام الإجازة",
+      "totalDaysPlaceholder": "إجمالي أيام الإجازة",
+      "cancel": "إلغاء",
+      "save": "حفظ التغييرات"
     }
   }
 }

@@ -338,15 +338,12 @@ export default function DepartmentsAndTeams() {
   };
 
   return (
-    <div
-      dir={isArabic ? "rtl" : "ltr"}
-      className="min-h-screen bg-slate-50 px-4 py-6 sm:px-6 lg:px-8"
-    >
+    <div dir={isArabic ? "rtl" : "ltr"} className="w-full min-w-0">
       <motion.div
         variants={pageVariants}
         initial="hidden"
         animate="visible"
-        className="mx-auto max-w-7xl"
+        className="w-full"
       >
         {/* Header */}
         <div className="mb-8">

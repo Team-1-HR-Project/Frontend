@@ -167,18 +167,6 @@
     "quickActions": "Quick Actions",
     "welcomeMessage": "Welcome back to your workspace"
   },
-  "employees": {
-    "title": "Employees",
-    "addEmployee": "Add Employee",
-    "employeeList": "Employee Directory",
-    "department": "Department",
-    "position": "Position",
-    "contact": "Contact",
-    "hireDate": "Hire Date",
-    "active": "Active",
-    "inactive": "Inactive",
-    "profile": "Employee Profile"
-  },
   "attendance": {
     "title": "Attendance",
     "checkIn": "Check In",
@@ -1131,8 +1119,8 @@
       "onShift": "On Shift",
       "offShift": "Off Shift",
       "location": "Downtown Campus · Tower B",
-      "checkedIn": "You’re checked in",
-      "checkedOut": "You’re checked out",
+      "checkedIn": "You're checked in",
+      "checkedOut": "You're checked out",
       "checkedInAt": "Checked in at 08:45 AM",
       "shiftEnded": "Your shift has ended",
       "insideRadius": "Inside workplace radius · 42m from office",
@@ -1154,7 +1142,7 @@
       "requestLeave": "Request leave",
       "submitTask": "Submit task",
       "aiAssistant": "AI HR Assistant",
-      "todaysSchedule": "Today’s schedule",
+      "todaysSchedule": "Today's schedule",
       "upcomingEvents": "Your upcoming calendar events.",
       "viewAll": "View all →",
       "productSync": "Product sync",
@@ -1191,7 +1179,7 @@
       "insideRadius": "Inside workplace radius",
       "location": "Downtown Campus · 42m from office",
       "simulate": "Simulate out-of-range location",
-      "todaySummary": "Today’s summary",
+      "todaySummary": "Today's summary",
       "date": "Monday, June 9, 2026",
       "shift": "Shift",
       "checkIn": "Check-in",
@@ -1299,15 +1287,15 @@
     "strengthsTitle": "Your strengths",
     "strengthsSubtitle": "Patterns your recent work makes visible.",
     "dataStorytelling": "Data storytelling",
-    "dataStorytellingQuote": "“You turn complex operational data into decisions the team can act on.”",
+    "dataStorytellingQuote": "You turn complex operational data into decisions the team can act on.",
     "crossTeamReliability": "Cross-team reliability",
-    "crossTeamReliabilityQuote": "“Partners consistently mention your thoughtful follow-through.”",
+    "crossTeamReliabilityQuote": "Partners consistently mention your thoughtful follow-through.",
     "developmentFocusTitle": "Development focus",
     "developmentFocusSubtitle": "Small, actionable steps for this quarter.",
     "delegation": "Delegation",
-    "delegationQuote": "“Create more room for strategic work by sharing ownership earlier.”",
+    "delegationQuote": "Create more room for strategic work by sharing ownership earlier.",
     "executiveBrevity": "Executive brevity",
-    "executiveBrevityQuote": "“Lead with the decision, then bring the detail when it helps.”",
+    "executiveBrevityQuote": "Lead with the decision, then bring the detail when it helps.",
     "planModalTitle": "Quarterly Development Plan",
     "planModalSubtitle": "Active milestones and coaching recommendations for this quarter.",
     "planProgress": "Plan Progress",
@@ -1518,15 +1506,12 @@
     "title": "Leave Requests",
     "subtitle": "Review, approve, and document employee leave decisions.",
     "export": "Export queue",
-
     "stats": {
       "pending": "4 Pending Reviews",
       "approved": "12 Approved this Month",
       "rejected": "2 Rejected"
     },
-
     "queue": "Approval queue",
-
     "table": {
       "employee": "Employee",
       "roleDepartment": "Role / Department",
@@ -1536,17 +1521,14 @@
       "reason": "Reason & Attachment",
       "actions": "Actions"
     },
-
     "categories": {
       "annual": "Annual",
       "emergency": "Emergency",
       "medical": "Medical"
     },
-
     "viewReason": "View reason.pdf",
     "approve": "Approve",
     "reject": "Reject with Note",
-
     "requestsEmployees": {
       "mariam": {
         "name": "Mariam Hassan",
@@ -1571,7 +1553,6 @@
       }
     }
   },
-
   "employees": {
     "title": "Employees",
     "subtitle": "Manage workforce records, roles, and reporting lines.",
@@ -1580,7 +1561,6 @@
     "search": "Search name, ID, role, or department",
     "viewProfile": "View profile",
     "noResults": "No employees found.",
-
     "table": {
       "employee": "Employee",
       "role": "Role",
@@ -1589,14 +1569,12 @@
       "status": "Status",
       "action": "Action"
     },
-
     "status": {
       "present": "Present",
       "late": "Late",
       "onLeave": "On leave",
       "absent": "Absent"
     },
-
     "data": {
       "youssef": {
         "name": "Youssef Lotfy",
@@ -1629,7 +1607,6 @@
         "branch": "Alexandria Hub"
       }
     },
-
     "form": {
       "subtitle": "Enter the employee information below.",
       "name": "Employee name",
@@ -1644,22 +1621,18 @@
       "status": "Status"
     }
   },
-
   "departments": {
     "title": "Departments & Teams",
     "subtitle": "Manage organizational structure, leaders, and workstreams.",
     "badge": "Organization",
     "search": "Search departments",
     "createDepartment": "Create Department",
-
     "attendance": "attendance",
     "head": "Head",
     "headcount": "Headcount",
     "activeProjects": "Active projects",
-
     "manageMembers": "Manage Members",
     "transferEmployee": "Transfer Employee",
-
     "transferTitle": "Transfer Employee",
     "transferSubtitle": "Select an employee and their new department.",
     "transferFrom": "Transfer from",
@@ -1670,18 +1643,14 @@
     "newDepartment": "New Department",
     "selectDepartment": "Select department",
     "confirmTransfer": "Transfer Employee",
-
     "remove": "Remove department",
     "close": "Close",
-
     "noResults": "No departments found.",
     "noResultsSubtitle": "Try adjusting your search and try again.",
-
     "messages": {
       "created": "Department created successfully.",
       "removed": "Department removed successfully."
     },
-
     "employees": {
       "youssef": "Youssef Lotfy",
       "mariam": "Mariam Hassan",
@@ -1689,7 +1658,6 @@
       "nour": "Nour Adel",
       "karim": "Karim Ashraf"
     },
-
     "form": {
       "subtitle": "Enter the department information below.",
       "name": "Department name",
@@ -1700,7 +1668,6 @@
       "descriptionPlaceholder": "Department description",
       "color": "Color"
     },
-
     "colors": {
       "blue": "Blue",
       "purple": "Purple",
@@ -1709,11 +1676,10 @@
       "orange": "Orange",
       "green": "Green"
     },
-
     "data": {
       "engineering": {
         "name": "Engineering",
-        "description": "Builds and maintains the company’s products and technical systems.",
+        "description": "Builds and maintains the company's products and technical systems.",
         "head": "Mariam Hassan"
       },
       "design": {
@@ -1740,390 +1706,390 @@
         "name": "Logistics",
         "description": "Manages movement, distribution, and operational logistics.",
         "head": "Karim Ashraf"
-      },
-      "managerDashboard": {
-        "title": "Team Dashboard",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "directReports": "Direct Reports",
-        "directReportsNote": "+1 since last month",
-        "activeTasks": "Active Tasks",
-        "activeTasksNote": "Across 8 team members",
-        "pendingSubmissions": "Pending Submissions",
-        "pendingSubmissionsNote": "Require your review",
-        "attendanceToday": "Attendance Today",
-        "attendanceTodayNote": "One late check-in",
-        "aiWorkloadAlert": "AI Workload Alert",
-        "sprintOverloadTitle": "Sprint overload detected",
-        "sprintOverloadDesc": "Youssef and Karim are carrying 68% of the sprint workload. Rebalancing two tasks will reduce delivery risk.",
-        "rebalanceTasks": "Rebalance Tasks",
-        "pendingActionQueue": "Pending action queue",
-        "review": "Review",
-        "oauth2FlowName": "OAuth2 Flow",
-        "releaseNotesName": "Release notes",
-        "paymentTestsName": "Payment tests",
-        "youssefLotfy": "Youssef Lotfy",
-        "salmaNabil": "Salma Nabil",
-        "karimAshraf": "Karim Ashraf"
-      },
-      "managerTasks": {
-        "title": "Task Management",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "searchPlaceholder": "Search tasks...",
-        "assignNewTask": "Assign New Task",
-        "filterAll": "All",
-        "filterInProgress": "In Progress",
-        "filterReviewPending": "Review Pending",
-        "filterCompleted": "Completed",
-        "colTaskName": "TASK NAME",
-        "colAssignee": "ASSIGNEE",
-        "colDueDate": "DUE DATE",
-        "colPriority": "PRIORITY",
-        "colProgress": "PROGRESS",
-        "priorityUrgent": "Urgent",
-        "priorityHigh": "High",
-        "priorityNormal": "Normal",
-        "taskNamePlaceholder": "Task name",
-        "assignToOption": "Assign to {{name}}",
-        "taskDetailsPlaceholder": "Task details",
-        "createTask": "Create Task",
-        "youssefLotfy": "Youssef Lotfy",
-        "karimAshraf": "Karim Ashraf",
-        "salmaNabil": "Salma Nabil",
-        "omarFathy": "Omar Fathy",
-        "taskOauth2FlowName": "Implement OAuth2 Flow",
-        "taskBillingHooksName": "Refactor billing hooks",
-        "taskQaMobileReleaseName": "QA mobile release",
-        "taskUpdateApiDocsName": "Update API documentation",
-        "dueDateSep18": "Sep 18",
-        "dueDateSep20": "Sep 20",
-        "dueDateSep22": "Sep 22",
-        "dueDateSep25": "Sep 25",
-        "noDueDate": "-",
-        "toastReassigned": "Task reassigned to {{name}}",
-        "clearFilter": "Clear filter",
-        "filteredBy": "Filtered by",
-        "reassignTask": "Reassign Task",
-        "reassignTo": "Reassign to"
-      },
-      "managerSubmissions": {
-        "title": "Submission Reviews",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "reviewPending": "Review Pending",
-        "submittedBy": "Submitted by",
-        "submitterNotes": "Submitter notes:",
-        "attachmentsCount": "{{count}} attachments",
-        "approveComplete": "Approve & Complete",
-        "requestChanges": "Request Changes",
-        "reject": "Reject",
-        "changePlaceholder": "Explain what needs to change...",
-        "sendChangeRequest": "Send Change Request",
-        "toastApproved": "Submission approved and task completed",
-        "toastRejected": "Submission rejected",
-        "youssefLotfy": "Youssef Lotfy",
-        "salmaNabil": "Salma Nabil",
-        "submissionOauth2Title": "Implement OAuth2 Flow",
-        "submissionOauth2Notes": "Added refresh token rotation and covered the callback edge cases in integration tests.",
-        "submissionQ3ReleaseNotesTitle": "Q3 release notes",
-        "dateSep16": "Sep 16, 2026"
-      },
-      "managerEvaluations": {
-        "activeCycle": "Active Evaluation Cycle",
-        "cycleName": "Q3 2026 Cycle",
-        "closesIn": "Closes in {{days}} days",
-        "colTeamMember": "Team Member",
-        "colRole": "Role",
-        "colReviewStatus": "Review Status",
-        "colLastRating": "Last Rating",
-        "roleSoftwareEngineer": "Software Engineer",
-        "statusSubmitted": "Submitted",
-        "statusInProgress": "In Progress",
-        "statusNotStarted": "Not Started",
-        "evaluateEmployee": "Evaluate Employee",
-        "overallScore": "Overall score: {{score}}/5",
-        "generateDraft": "Generate Evaluation Draft with AI",
-        "feedbackPlaceholder": "Qualitative feedback",
-        "saveEvaluation": "Save Evaluation",
-        "draftHigh": "{{name}} consistently exceeds expectations, delivers high-quality work and takes clear ownership of outcomes. Recommend expanded responsibilities and leadership opportunities.",
-        "draftMid": "{{name}} consistently delivers reliable work and demonstrates strong ownership. Recommend continued mentorship opportunities.",
-        "draftLow": "{{name}} has not yet met expectations this cycle. Recommend a clear improvement plan with regular check-ins and focused support.",
-        "toastSaved": "Evaluation saved"
-      },
-      "managerGoals": {
-        "statusOnTrack": "On track",
-        "statusAtRisk": "At risk",
-        "lead": "Lead: {{name}}",
-        "goalCrashFreeTitle": "Achieve 98% Crash-free Sessions",
-        "goalApiLatencyTitle": "Reduce API p95 latency to 200ms",
-        "itemAndroidCrash": "Android crash rate below 1.5%",
-        "itemIosCrash": "iOS crash rate below 1.5%",
-        "itemProfileEndpoints": "Profile top 20 endpoints",
-        "itemShipCaching": "Ship caching layer"
-      },
-      "managerAI": {
-        "breadcrumb": "MANAGER PORTAL / AI TEAM INSIGHTS",
-        "title": "AI Team Insights",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "skillGapCard": {
-          "eyebrow": "GROUNDED MANAGER INTELLIGENCE",
-          "title": "Team Skill-Gap Breakdown",
-          "description": "Verified delivery and evaluation signals identify coaching opportunities without replacing manager judgment."
-        },
-        "skillGaps": {
-          "systemDesign": "System design",
-          "systemDesignBadge": "2 members need coaching",
-          "systemDesignAction": "Suggested action: Pair on architecture reviews",
-          "mentorship": "Mentorship",
-          "mentorshipBadge": "Low coverage this cycle",
-          "mentorshipAction": "Suggested action: Assign rotating peer mentor",
-          "testStrategy": "Test strategy",
-          "testStrategyBadge": "Opportunity area",
-          "testStrategyAction": "Suggested action: Run a focused QA workshop"
-        },
-        "burnoutCard": {
-          "eyebrow": "WORKLOAD BALANCE",
-          "title": "Burnout Risk Signals",
-          "description": "Review these patterns with your team before taking action. Signals are guidance, not automated decisions."
-        },
-        "burnout": {
-          "high": "High",
-          "watch": "Watch",
-          "balanced": "Balanced",
-          "loadDescription": "{{load}}% sprint load · Suggested check-in"
-        }
-      },
-      "managerLeave": {
-        "breadcrumb": "MANAGER PORTAL / TEAM LEAVE APPROVALS",
-        "title": "Team Leave Approvals",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "searchPlaceholder": "Search team members...",
-        "filters": {
-          "all": "Status"
-        },
-        "roles": {
-          "softwareEngineer": "Software Engineer",
-          "backendDeveloper": "Backend Developer",
-          "qaEngineer": "QA Engineer",
-          "frontendDeveloper": "Frontend Developer"
-        },
-        "leaveTypes": {
-          "annual": "Annual",
-          "sick": "Sick",
-          "unpaid": "Unpaid"
-        },
-        "reasons": {
-          "familyTrip": "Family trip",
-          "medicalAppointment": "Medical appointment",
-          "personalTime": "Personal time",
-          "personalAppointment": "Personal appointment"
-        },
-        "actions": {
-          "approve": "Approve",
-          "reject": "Decline"
-        },
-        "empty": {
-          "title": "No leave requests found",
-          "description": "There are no leave requests matching your current search or filter."
-        }
-      },
-      "managerAttendance": {
-        "breadcrumb": "MANAGER PORTAL / TEAM ATTENDANCE",
-        "title": "Team Attendance",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "table": {
-          "member": "Member",
-          "shift": "Shift",
-          "checkInTime": "Check-in Time",
-          "delayMinutes": "Delay Minutes",
-          "verification": "Verification"
-        },
-        "minutes": "min",
-        "waived": "Waived",
-        "managerExcuseWaiver": "Employee Excuse Waiver",
-        "waiverApplied": "Waiver Applied",
-        "toast": {
-          "success": "Attendance excuse waiver applied for {{member}}."
-        }
-      },
-      "managerPerformanceAnalytics": {
-        "breadcrumb": "MANAGER PORTAL / PERFORMANCE ANALYTICS",
-        "title": "Performance Analytics",
-        "subtitle": "Keep your team aligned, supported, and moving forward.",
-        "departmentCompetencyDistribution": "Department competency distribution",
-        "teamPerformanceIndex": "Team Performance Index",
-        "competencies": {
-          "technicalExecution": "Technical execution",
-          "communication": "Communication",
-          "ownership": "Ownership",
-          "mentorship": "Mentorship"
-        },
-        "table": {
-          "member": "Member",
-          "velocity": "Velocity",
-          "rating": "Rating"
-        }
-      },
-      "hrEvaluationsGoals": {
-        "eyebrow": "PERFORMANCE MANAGEMENT",
-        "title": "Evaluations & Goals",
-        "subtitle": "Run review cycles and keep manager completion accountable.",
-        "launchReviewCycle": "Launch Review Cycle",
-        "activeCycle": "ACTIVE CYCLE",
-        "activeCycleTitle": "Q3 2026 Performance Review",
-        "activeCycleDate": "Sep 15 – Oct 15, 2026",
-        "employees": "Employees",
-        "managers": "Managers",
-        "completion": "Completion",
-        "completed": "Completed",
-        "pending": "Pending",
-        "overdue": "Overdue",
-        "departmentManagerReviewCompletion": "Department Manager Review Completion",
-        "departmentManagerReviewSubtitle": "Track evaluation completion across departments and follow up with managers.",
-        "department": "Department",
-        "manager": "Manager",
-        "reviews": "Reviews",
-        "progress": "Progress",
-        "status": "Status",
-        "onTrack": "On Track",
-        "needsAttention": "Needs Attention",
-        "completedStatus": "Completed",
-        "sendReminder": "Send Manager Reminder",
-        "reminderSent": "Reminder sent to {{manager}}",
-        "reminderFailed": "Failed to send reminder. Please try again.",
-        "createWorkflowRecord": "Create workflow record",
-        "details": "Details",
-        "owner": "Owner",
-        "cancel": "Cancel",
-        "saveChanges": "Save changes",
-        "engineering": "Engineering",
-        "peopleCulture": "People & Culture",
-        "sales": "Sales",
-        "logistics": "Logistics",
-        "mariamHassan": "Mariam Hassan",
-        "sarahAhmed": "Sarah Ahmed",
-        "omarKhaled": "Omar Khaled",
-        "karimAshraf": "Karim Ashraf"
-      },
-      "hrCommandCenter": {
-        "title": "HR Command Center",
-        "subtitle": "A live operational view of workforce health, approvals, and payroll readiness.",
-        "explainToday": "Explain today",
-        "totalEmployees": "Total employees",
-        "monthOverMonth": "month over month",
-        "presentToday": "Present today",
-        "workforcePresent": "workforce present",
-        "pendingReviews": "Pending reviews",
-        "leaves": "leaves",
-        "advances": "advances",
-        "projectedPayroll": "Projected payroll",
-        "septemberExecution": "September execution",
-        "employeeAttentionSignals": "Employee attention signals",
-        "groundedMetrics": "Grounded metrics",
-        "youssefLotfy": "Youssef Lotfy",
-        "youssefDescription": "Lateness spike across the past 3 weeks",
-        "karimAshraf": "Karim Ashraf",
-        "karimDescription": "Task velocity declined 18% across two sprints",
-        "alexandriaHub": "Alexandria Hub",
-        "alexandriaDescription": "Attendance improved 9% after shift adjustment",
-        "high": "High attention",
-        "medium": "Medium attention",
-        "low": "Low attention",
-        "review": "Review",
-        "operationalReadiness": "Operational readiness",
-        "attendanceVerification": "Attendance verification",
-        "leaveApprovals": "Leave approvals",
-        "q3Evaluations": "Q3 evaluations",
-        "payrollReconciliation": "Payroll reconciliation"
-      },
-      "hrCompanyPolicies": {
-        "eyebrow": "HR GOVERNANCE",
-        "title": "Official HR Governance & Policies",
-        "subtitle": "Controlled policy documents with synchronized ownership and audit history.",
-        "aiSynced": "AI Synced",
-        "effectiveDate": "Effective date",
-        "document": "Document",
-        "editDocument": "Edit Document",
-        "downloadPdf": "Download PDF",
-        "addPolicyDocument": "Add Policy Document",
-        "editPolicyDocument": "Edit Policy Document",
-        "policyTitle": "Policy title",
-        "policyTitlePlaceholder": "Policy title",
-        "effectiveDateLabel": "Effective date",
-        "effectiveDatePlaceholder": "Effective date",
-        "owner": "Owner",
-        "ownerPlaceholder": "Owner",
-        "cancel": "Cancel",
-        "saveChanges": "Save Changes",
-        "version": "Version",
-        "active": "Active",
-        "draft": "Draft",
-        "policies": {
-          "punctuality": {
-            "title": "Punctuality & Shift Regulations",
-            "description": "15-minute grace period, automatic deduction ladders, and manual override permissions.",
-            "effectiveDate": "Jan 01, 2026",
-            "version": "Version 2.4 · Active"
-          },
-          "leave": {
-            "title": "Leave Entitlement & Carry-over Policy",
-            "description": "Annual, casual, and medical leave documentation workflows with carry-over rules.",
-            "effectiveDate": "Feb 15, 2026",
-            "version": "Version 3.1 · Active"
-          },
-          "salaryAdvance": {
-            "title": "Salary Advance & Loan Guidelines",
-            "description": "Loan eligibility, maximum caps, and payroll repayment deduction schedules.",
-            "effectiveDate": "Mar 01, 2026",
-            "version": "Version 1.2 · Active"
-          }
-        },
-        "ownedBy": "Owned by {{owner}}.",
-        "emptyDate": "—",
-        "newVersion": "Version 1.0 · Draft"
-      },
-      "holidays": {
-        "title": "Holidays & Seasons",
-        "subtitle": "Plan coverage around official closures and operational demand.",
-        "scheduleHoliday": "Schedule Company Holiday",
-        "peakAlert": {
-          "title": "Upcoming Operational Peak Alerts",
-          "description": "Seasonal Peak: Ramadan & Q4 Surge starting in 25 days. Recommendation: Review shift schedules and prepare temp staffing."
-        },
-        "calendarTitle": "Official Company Holidays Calendar",
-        "table": {
-          "holidayName": "Holiday Name",
-          "dateRange": "Date Range",
-          "totalDays": "Total Days Off",
-          "status": "Status"
-        },
-        "status": {
-          "activeOfficialLeave": "Active Official Leave"
-        },
-        "items": {
-          "eidAlFitr": {
-            "name": "Eid Al-Fitr"
-          },
-          "revolutionDay": {
-            "name": "Revolution Day"
-          },
-          "newYearsDay": {
-            "name": "New Year's Day"
-          }
-        },
-        "threeDays": "3 days",
-        "oneDay": "1 day",
-        "modal": {
-          "title": "Schedule Company Holiday",
-          "close": "Close",
-          "holidayName": "Holiday name",
-          "holidayNamePlaceholder": "Holiday name",
-          "dateRange": "Date range",
-          "dateRangePlaceholder": "Date range",
-          "totalDays": "Total days off",
-          "totalDaysPlaceholder": "Total days off",
-          "cancel": "Cancel",
-          "save": "Save changes"
-        }
       }
+    }
+  },
+  "managerDashboard": {
+    "title": "Team Dashboard",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "directReports": "Direct Reports",
+    "directReportsNote": "+1 since last month",
+    "activeTasks": "Active Tasks",
+    "activeTasksNote": "Across 8 team members",
+    "pendingSubmissions": "Pending Submissions",
+    "pendingSubmissionsNote": "Require your review",
+    "attendanceToday": "Attendance Today",
+    "attendanceTodayNote": "One late check-in",
+    "aiWorkloadAlert": "AI Workload Alert",
+    "sprintOverloadTitle": "Sprint overload detected",
+    "sprintOverloadDesc": "Youssef and Karim are carrying 68% of the sprint workload. Rebalancing two tasks will reduce delivery risk.",
+    "rebalanceTasks": "Rebalance Tasks",
+    "pendingActionQueue": "Pending action queue",
+    "review": "Review",
+    "oauth2FlowName": "OAuth2 Flow",
+    "releaseNotesName": "Release notes",
+    "paymentTestsName": "Payment tests",
+    "youssefLotfy": "Youssef Lotfy",
+    "salmaNabil": "Salma Nabil",
+    "karimAshraf": "Karim Ashraf"
+  },
+  "managerTasks": {
+    "title": "Task Management",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "searchPlaceholder": "Search tasks...",
+    "assignNewTask": "Assign New Task",
+    "filterAll": "All",
+    "filterInProgress": "In Progress",
+    "filterReviewPending": "Review Pending",
+    "filterCompleted": "Completed",
+    "colTaskName": "TASK NAME",
+    "colAssignee": "ASSIGNEE",
+    "colDueDate": "DUE DATE",
+    "colPriority": "PRIORITY",
+    "colProgress": "PROGRESS",
+    "priorityUrgent": "Urgent",
+    "priorityHigh": "High",
+    "priorityNormal": "Normal",
+    "taskNamePlaceholder": "Task name",
+    "assignToOption": "Assign to {{name}}",
+    "taskDetailsPlaceholder": "Task details",
+    "createTask": "Create Task",
+    "youssefLotfy": "Youssef Lotfy",
+    "karimAshraf": "Karim Ashraf",
+    "salmaNabil": "Salma Nabil",
+    "omarFathy": "Omar Fathy",
+    "taskOauth2FlowName": "Implement OAuth2 Flow",
+    "taskBillingHooksName": "Refactor billing hooks",
+    "taskQaMobileReleaseName": "QA mobile release",
+    "taskUpdateApiDocsName": "Update API documentation",
+    "dueDateSep18": "Sep 18",
+    "dueDateSep20": "Sep 20",
+    "dueDateSep22": "Sep 22",
+    "dueDateSep25": "Sep 25",
+    "noDueDate": "-",
+    "toastReassigned": "Task reassigned to {{name}}",
+    "clearFilter": "Clear filter",
+    "filteredBy": "Filtered by",
+    "reassignTask": "Reassign Task",
+    "reassignTo": "Reassign to"
+  },
+  "managerSubmissions": {
+    "title": "Submission Reviews",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "reviewPending": "Review Pending",
+    "submittedBy": "Submitted by",
+    "submitterNotes": "Submitter notes:",
+    "attachmentsCount": "{{count}} attachments",
+    "approveComplete": "Approve & Complete",
+    "requestChanges": "Request Changes",
+    "reject": "Reject",
+    "changePlaceholder": "Explain what needs to change...",
+    "sendChangeRequest": "Send Change Request",
+    "toastApproved": "Submission approved and task completed",
+    "toastRejected": "Submission rejected",
+    "youssefLotfy": "Youssef Lotfy",
+    "salmaNabil": "Salma Nabil",
+    "submissionOauth2Title": "Implement OAuth2 Flow",
+    "submissionOauth2Notes": "Added refresh token rotation and covered the callback edge cases in integration tests.",
+    "submissionQ3ReleaseNotesTitle": "Q3 release notes",
+    "dateSep16": "Sep 16, 2026"
+  },
+  "managerEvaluations": {
+    "activeCycle": "Active Evaluation Cycle",
+    "cycleName": "Q3 2026 Cycle",
+    "closesIn": "Closes in {{days}} days",
+    "colTeamMember": "Team Member",
+    "colRole": "Role",
+    "colReviewStatus": "Review Status",
+    "colLastRating": "Last Rating",
+    "roleSoftwareEngineer": "Software Engineer",
+    "statusSubmitted": "Submitted",
+    "statusInProgress": "In Progress",
+    "statusNotStarted": "Not Started",
+    "evaluateEmployee": "Evaluate Employee",
+    "overallScore": "Overall score: {{score}}/5",
+    "generateDraft": "Generate Evaluation Draft with AI",
+    "feedbackPlaceholder": "Qualitative feedback",
+    "saveEvaluation": "Save Evaluation",
+    "draftHigh": "{{name}} consistently exceeds expectations, delivers high-quality work and takes clear ownership of outcomes. Recommend expanded responsibilities and leadership opportunities.",
+    "draftMid": "{{name}} consistently delivers reliable work and demonstrates strong ownership. Recommend continued mentorship opportunities.",
+    "draftLow": "{{name}} has not yet met expectations this cycle. Recommend a clear improvement plan with regular check-ins and focused support.",
+    "toastSaved": "Evaluation saved"
+  },
+  "managerGoals": {
+    "statusOnTrack": "On track",
+    "statusAtRisk": "At risk",
+    "lead": "Lead: {{name}}",
+    "goalCrashFreeTitle": "Achieve 98% Crash-free Sessions",
+    "goalApiLatencyTitle": "Reduce API p95 latency to 200ms",
+    "itemAndroidCrash": "Android crash rate below 1.5%",
+    "itemIosCrash": "iOS crash rate below 1.5%",
+    "itemProfileEndpoints": "Profile top 20 endpoints",
+    "itemShipCaching": "Ship caching layer"
+  },
+  "managerAI": {
+    "breadcrumb": "MANAGER PORTAL / AI TEAM INSIGHTS",
+    "title": "AI Team Insights",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "skillGapCard": {
+      "eyebrow": "GROUNDED MANAGER INTELLIGENCE",
+      "title": "Team Skill-Gap Breakdown",
+      "description": "Verified delivery and evaluation signals identify coaching opportunities without replacing manager judgment."
+    },
+    "skillGaps": {
+      "systemDesign": "System design",
+      "systemDesignBadge": "2 members need coaching",
+      "systemDesignAction": "Suggested action: Pair on architecture reviews",
+      "mentorship": "Mentorship",
+      "mentorshipBadge": "Low coverage this cycle",
+      "mentorshipAction": "Suggested action: Assign rotating peer mentor",
+      "testStrategy": "Test strategy",
+      "testStrategyBadge": "Opportunity area",
+      "testStrategyAction": "Suggested action: Run a focused QA workshop"
+    },
+    "burnoutCard": {
+      "eyebrow": "WORKLOAD BALANCE",
+      "title": "Burnout Risk Signals",
+      "description": "Review these patterns with your team before taking action. Signals are guidance, not automated decisions."
+    },
+    "burnout": {
+      "high": "High",
+      "watch": "Watch",
+      "balanced": "Balanced",
+      "loadDescription": "{{load}}% sprint load · Suggested check-in"
+    }
+  },
+  "managerLeave": {
+    "breadcrumb": "MANAGER PORTAL / TEAM LEAVE APPROVALS",
+    "title": "Team Leave Approvals",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "searchPlaceholder": "Search team members...",
+    "filters": {
+      "all": "Status"
+    },
+    "roles": {
+      "softwareEngineer": "Software Engineer",
+      "backendDeveloper": "Backend Developer",
+      "qaEngineer": "QA Engineer",
+      "frontendDeveloper": "Frontend Developer"
+    },
+    "leaveTypes": {
+      "annual": "Annual",
+      "sick": "Sick",
+      "unpaid": "Unpaid"
+    },
+    "reasons": {
+      "familyTrip": "Family trip",
+      "medicalAppointment": "Medical appointment",
+      "personalTime": "Personal time",
+      "personalAppointment": "Personal appointment"
+    },
+    "actions": {
+      "approve": "Approve",
+      "reject": "Decline"
+    },
+    "empty": {
+      "title": "No leave requests found",
+      "description": "There are no leave requests matching your current search or filter."
+    }
+  },
+  "managerAttendance": {
+    "breadcrumb": "MANAGER PORTAL / TEAM ATTENDANCE",
+    "title": "Team Attendance",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "table": {
+      "member": "Member",
+      "shift": "Shift",
+      "checkInTime": "Check-in Time",
+      "delayMinutes": "Delay Minutes",
+      "verification": "Verification"
+    },
+    "minutes": "min",
+    "waived": "Waived",
+    "managerExcuseWaiver": "Employee Excuse Waiver",
+    "waiverApplied": "Waiver Applied",
+    "toast": {
+      "success": "Attendance excuse waiver applied for {{member}}."
+    }
+  },
+  "managerPerformanceAnalytics": {
+    "breadcrumb": "MANAGER PORTAL / PERFORMANCE ANALYTICS",
+    "title": "Performance Analytics",
+    "subtitle": "Keep your team aligned, supported, and moving forward.",
+    "departmentCompetencyDistribution": "Department competency distribution",
+    "teamPerformanceIndex": "Team Performance Index",
+    "competencies": {
+      "technicalExecution": "Technical execution",
+      "communication": "Communication",
+      "ownership": "Ownership",
+      "mentorship": "Mentorship"
+    },
+    "table": {
+      "member": "Member",
+      "velocity": "Velocity",
+      "rating": "Rating"
+    }
+  },
+  "hrEvaluationsGoals": {
+    "eyebrow": "PERFORMANCE MANAGEMENT",
+    "title": "Evaluations & Goals",
+    "subtitle": "Run review cycles and keep manager completion accountable.",
+    "launchReviewCycle": "Launch Review Cycle",
+    "activeCycle": "ACTIVE CYCLE",
+    "activeCycleTitle": "Q3 2026 Performance Review",
+    "activeCycleDate": "Sep 15 – Oct 15, 2026",
+    "employees": "Employees",
+    "managers": "Managers",
+    "completion": "Completion",
+    "completed": "Completed",
+    "pending": "Pending",
+    "overdue": "Overdue",
+    "departmentManagerReviewCompletion": "Department Manager Review Completion",
+    "departmentManagerReviewSubtitle": "Track evaluation completion across departments and follow up with managers.",
+    "department": "Department",
+    "manager": "Manager",
+    "reviews": "Reviews",
+    "progress": "Progress",
+    "status": "Status",
+    "onTrack": "On Track",
+    "needsAttention": "Needs Attention",
+    "completedStatus": "Completed",
+    "sendReminder": "Send Manager Reminder",
+    "reminderSent": "Reminder sent to {{manager}}",
+    "reminderFailed": "Failed to send reminder. Please try again.",
+    "createWorkflowRecord": "Create workflow record",
+    "details": "Details",
+    "owner": "Owner",
+    "cancel": "Cancel",
+    "saveChanges": "Save changes",
+    "engineering": "Engineering",
+    "peopleCulture": "People & Culture",
+    "sales": "Sales",
+    "logistics": "Logistics",
+    "mariamHassan": "Mariam Hassan",
+    "sarahAhmed": "Sarah Ahmed",
+    "omarKhaled": "Omar Khaled",
+    "karimAshraf": "Karim Ashraf"
+  },
+  "hrCommandCenter": {
+    "title": "HR Command Center",
+    "subtitle": "A live operational view of workforce health, approvals, and payroll readiness.",
+    "explainToday": "Explain today",
+    "totalEmployees": "Total employees",
+    "monthOverMonth": "month over month",
+    "presentToday": "Present today",
+    "workforcePresent": "workforce present",
+    "pendingReviews": "Pending reviews",
+    "leaves": "leaves",
+    "advances": "advances",
+    "projectedPayroll": "Projected payroll",
+    "septemberExecution": "September execution",
+    "employeeAttentionSignals": "Employee attention signals",
+    "groundedMetrics": "Grounded metrics",
+    "youssefLotfy": "Youssef Lotfy",
+    "youssefDescription": "Lateness spike across the past 3 weeks",
+    "karimAshraf": "Karim Ashraf",
+    "karimDescription": "Task velocity declined 18% across two sprints",
+    "alexandriaHub": "Alexandria Hub",
+    "alexandriaDescription": "Attendance improved 9% after shift adjustment",
+    "high": "High attention",
+    "medium": "Medium attention",
+    "low": "Low attention",
+    "review": "Review",
+    "operationalReadiness": "Operational readiness",
+    "attendanceVerification": "Attendance verification",
+    "leaveApprovals": "Leave approvals",
+    "q3Evaluations": "Q3 evaluations",
+    "payrollReconciliation": "Payroll reconciliation"
+  },
+  "hrCompanyPolicies": {
+    "eyebrow": "HR GOVERNANCE",
+    "title": "Official HR Governance & Policies",
+    "subtitle": "Controlled policy documents with synchronized ownership and audit history.",
+    "aiSynced": "AI Synced",
+    "effectiveDate": "Effective date",
+    "document": "Document",
+    "editDocument": "Edit Document",
+    "downloadPdf": "Download PDF",
+    "addPolicyDocument": "Add Policy Document",
+    "editPolicyDocument": "Edit Policy Document",
+    "policyTitle": "Policy title",
+    "policyTitlePlaceholder": "Policy title",
+    "effectiveDateLabel": "Effective date",
+    "effectiveDatePlaceholder": "Effective date",
+    "owner": "Owner",
+    "ownerPlaceholder": "Owner",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "version": "Version",
+    "active": "Active",
+    "draft": "Draft",
+    "policies": {
+      "punctuality": {
+        "title": "Punctuality & Shift Regulations",
+        "description": "15-minute grace period, automatic deduction ladders, and manual override permissions.",
+        "effectiveDate": "Jan 01, 2026",
+        "version": "Version 2.4 · Active"
+      },
+      "leave": {
+        "title": "Leave Entitlement & Carry-over Policy",
+        "description": "Annual, casual, and medical leave documentation workflows with carry-over rules.",
+        "effectiveDate": "Feb 15, 2026",
+        "version": "Version 3.1 · Active"
+      },
+      "salaryAdvance": {
+        "title": "Salary Advance & Loan Guidelines",
+        "description": "Loan eligibility, maximum caps, and payroll repayment deduction schedules.",
+        "effectiveDate": "Mar 01, 2026",
+        "version": "Version 1.2 · Active"
+      }
+    },
+    "ownedBy": "Owned by {{owner}}.",
+    "emptyDate": "—",
+    "newVersion": "Version 1.0 · Draft"
+  },
+  "holidays": {
+    "title": "Holidays & Seasons",
+    "subtitle": "Plan coverage around official closures and operational demand.",
+    "scheduleHoliday": "Schedule Company Holiday",
+    "peakAlert": {
+      "title": "Upcoming Operational Peak Alerts",
+      "description": "Seasonal Peak: Ramadan & Q4 Surge starting in 25 days. Recommendation: Review shift schedules and prepare temp staffing."
+    },
+    "calendarTitle": "Official Company Holidays Calendar",
+    "table": {
+      "holidayName": "Holiday Name",
+      "dateRange": "Date Range",
+      "totalDays": "Total Days Off",
+      "status": "Status"
+    },
+    "status": {
+      "activeOfficialLeave": "Active Official Leave"
+    },
+    "items": {
+      "eidAlFitr": {
+        "name": "Eid Al-Fitr"
+      },
+      "revolutionDay": {
+        "name": "Revolution Day"
+      },
+      "newYearsDay": {
+        "name": "New Year's Day"
+      }
+    },
+    "threeDays": "3 days",
+    "oneDay": "1 day",
+    "modal": {
+      "title": "Schedule Company Holiday",
+      "close": "Close",
+      "holidayName": "Holiday name",
+      "holidayNamePlaceholder": "Holiday name",
+      "dateRange": "Date range",
+      "dateRangePlaceholder": "Date range",
+      "totalDays": "Total days off",
+      "totalDaysPlaceholder": "Total days off",
+      "cancel": "Cancel",
+      "save": "Save changes"
     }
   }
 }

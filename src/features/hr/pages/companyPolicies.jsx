@@ -619,8 +619,8 @@ export default function CompanyPolicies() {
   return (
     <div
       className="
-        min-h-screen
-        bg-[#F5F7F8]
+        w-full
+        min-w-0
         animate-[pageFadeIn_0.45s_ease-out]
       "
     >

@@ -294,12 +294,10 @@ function EmployeesPage() {
       variants={pageVariants}
       initial="hidden"
       animate="visible"
-      className={`min-h-full w-full bg-[#f7f9fb] p-4 sm:p-6 lg:p-8 ${
-        isArabic ? "text-right" : "text-left"
-      }`}
+      className={`w-full min-w-0 ${isArabic ? "text-right" : "text-left"}`}
       dir={isArabic ? "rtl" : "ltr"}
     >
-      <div className="mx-auto w-full max-w-[1500px]">
+      <div className="w-full">
         {/* Header */}
         <motion.div
           variants={containerVariants}
@@ -341,7 +339,6 @@ function EmployeesPage() {
             {t.addBtn}
           </motion.button>
         </motion.div>
-
         {/* Main Card */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}

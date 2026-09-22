@@ -58,9 +58,9 @@ const EvaluationsGoals = () => {
   return (
     <div
       dir={isArabic ? "rtl" : "ltr"}
-      className="min-h-screen bg-[#f5f7f8] text-[#243b53]"
+      className="w-full min-w-0 text-[#243b53]"
     >
-      <div className="mx-auto max-w-[1400px] px-[28px] py-[28px]">
+      <div className="w-full min-w-0">
         {/* Header */}
         <div className="mb-[26px] flex items-start justify-between">
           <div className="animate-[fadeIn_0.4s_ease-out]">

@@ -152,7 +152,7 @@ export default function AIInsights() {
   // ===================================================
 
   return (
-    <div className="min-h-screen bg-[#F5F7F8]">
+    <div className="w-full min-w-0">
       {/* =================================================
           HEADER
       ================================================= */}
