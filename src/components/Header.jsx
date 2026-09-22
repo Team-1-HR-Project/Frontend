@@ -91,7 +91,7 @@ const Header = ({ onToggleMenu, role = "admin" }) => {
             )}
           </button>
 
-          <NotificationDropdown isOpen={notifOpen} onClose={handleClose} />
+          <NotificationDropdown isOpen={notifOpen} onClose={handleClose} role={effectiveRole} />
         </div>
 
         {/* User Profile */}

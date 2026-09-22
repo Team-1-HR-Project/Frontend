@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -22,15 +22,33 @@ const CATEGORY_META = {
 const getCategoryMeta = (cat) =>
   CATEGORY_META[cat] || { icon: FiBell, iconClass: "text-slate-400", bgClass: "bg-slate-100" };
 
-const NotificationDropdown = ({ isOpen, onClose }) => {
+const ROUTE_MAP = {
+  admin: "/admin/notifications",
+  hr: "/hr/notifications",
+  manager: "/manager/notifications",
+  employee: "/employee/notifications",
+};
+
+const NotificationDropdown = ({ isOpen, onClose, role }) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const { currentUser } = useAuth();
   const { notifications, unreadCount, markAllAsRead, clearNotification, toggleNotificationRead } =
     useNotifications();
 
   const isRtl = i18n.language?.startsWith("ar");
   const panelRef = useRef(null);
+
+  // تحديد الدور الفعلي بناءً على البروب أو مسار الصفحة الحالية
+  const currentRole = (() => {
+    if (role) return role;
+    if (location.pathname.startsWith("/employee")) return "employee";
+    if (location.pathname.startsWith("/hr")) return "hr";
+    if (location.pathname.startsWith("/manager")) return "manager";
+    if (location.pathname.startsWith("/admin")) return "admin";
+    return currentUser?.role || "admin";
+  })();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -49,14 +67,17 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
 
   const handleSeeAll = () => {
     onClose();
-    const role = currentUser?.role || "admin";
-    const routeMap = {
-      admin:    "/admin/notifications",
-      hr:       "/hr/notifications",
-      manager:  "/manager/notifications",
-      employee: "/employee/notifications",
-    };
-    navigate(routeMap[role] || "/admin/notifications");
+    const targetRoute = ROUTE_MAP[currentRole] || "/admin/notifications";
+    navigate(targetRoute);
+  };
+
+  const handleNotificationClick = (notif) => {
+    if (!notif.isRead) {
+      toggleNotificationRead(notif.id);
+    }
+    onClose();
+    const targetRoute = ROUTE_MAP[currentRole] || "/admin/notifications";
+    navigate(targetRoute, { state: { selectedNotificationId: notif.id } });
   };
 
   const preview = notifications.slice(0, 5);
@@ -125,9 +146,10 @@ const NotificationDropdown = ({ isOpen, onClose }) => {
                     initial={{ opacity: 0, x: isRtl ? 8 : -8 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.04 }}
-                    onClick={() => toggleNotificationRead(notif.id)}
-                    className={`relative flex gap-3 px-4 py-3 cursor-pointer transition-colors ${notif.isRead ? "bg-white hover:bg-slate-50" : "bg-blue-50/40 hover:bg-slate-50"
-                      }`}
+                    onClick={() => handleNotificationClick(notif)}
+                    className={`relative flex gap-3 px-4 py-3 cursor-pointer transition-colors ${
+                      notif.isRead ? "bg-white hover:bg-slate-50" : "bg-blue-50/40 hover:bg-slate-50"
+                    }`}
                   >
                     {/* Unread dot */}
                     {!notif.isRead && (

@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { useNotifications } from "../../../context/NotificationContext";
@@ -23,12 +24,41 @@ export default function Notification() {
     notifications,
     setNotifications,
     unreadCount,
+    clearAllNotifications,
+    clearNotification,
   } = useNotifications();
+
+  const location = useLocation();
 
   const [filter, setFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedNotification, setSelectedNotification] =
     useState(null);
+
+  // Auto-open notification when navigated with a specific notification ID in state
+  useEffect(() => {
+    const notifId = location.state?.selectedNotificationId;
+    if (notifId && notifications.length > 0) {
+      const targetNotif = notifications.find((item) => item.id === notifId);
+      if (targetNotif) {
+        setSelectedNotification(targetNotif);
+      }
+    }
+  }, [location.state, notifications]);
+
+  // Dynamic breadcrumb based on current portal path
+  const portalBreadcrumb = useMemo(() => {
+    if (location.pathname.startsWith("/employee")) {
+      return t("portal.employeePortal", "Employee Portal");
+    }
+    if (location.pathname.startsWith("/manager")) {
+      return t("portal.managerPortal", "Manager Portal");
+    }
+    if (location.pathname.startsWith("/hr")) {
+      return t("portal.hrPortal", "HR Portal");
+    }
+    return t("portal.administration", "Administration");
+  }, [location.pathname, t]);
 
   // ============================================================
   // FILTER NOTIFICATIONS
@@ -99,7 +129,7 @@ export default function Notification() {
   const handleClearAll = () => {
     if (notifications.length === 0) return;
 
-    setNotifications([]);
+    clearAllNotifications();
     setSelectedNotification(null);
 
     toast.success(
@@ -185,9 +215,7 @@ export default function Notification() {
       e.stopPropagation();
     }
 
-    setNotifications((prev) =>
-      prev.filter((item) => item.id !== id)
-    );
+    clearNotification(id);
 
     if (
       selectedNotification &&
@@ -295,12 +323,7 @@ export default function Notification() {
           {/* Breadcrumbs */}
           <div className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#829ab1]">
 
-            <span>
-              {t(
-                "portal.administration",
-                "Administration"
-              )}
-            </span>
+            <span>{portalBreadcrumb}</span>
 
             <FiChevronRight className="h-3.5 w-3.5 shrink-0" />
 

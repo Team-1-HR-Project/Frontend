@@ -4,7 +4,7 @@ const NotificationContext = createContext(null);
 
 // ============================================================
 // ALL NOTIFICATIONS
-// كل notification فيها userId بتاع صاحبها
+// كل notification فيها userId و role بتاع صاحبها
 // ============================================================
 
 const ALL_NOTIFICATIONS = [
@@ -12,6 +12,7 @@ const ALL_NOTIFICATIONS = [
   // ── Ahmed Nasser (admin) ──────────────────────────────────
   {
     id: "notif-ahmed-1",
+    role: "admin",
     userId: "user-ahmed",
     titleKey: "portal.notif1Title",
     defaultTitle: "Q3 2026 Evaluation Cycle Activated",
@@ -35,6 +36,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-ahmed-2",
+    role: "admin",
     userId: "user-ahmed",
     titleKey: "portal.notif2Title",
     defaultTitle: "New Branch Geofence Configured",
@@ -58,6 +60,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-ahmed-3",
+    role: "admin",
     userId: "user-ahmed",
     titleKey: "portal.notif3Title",
     defaultTitle: "AI Policy Gateway Sync Completed",
@@ -81,6 +84,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-ahmed-4",
+    role: "admin",
     userId: "user-ahmed",
     titleKey: "portal.notif4Title",
     defaultTitle: "Role permissions updated",
@@ -106,6 +110,7 @@ const ALL_NOTIFICATIONS = [
   // ── Sara Ahmed (admin) ────────────────────────────────────
   {
     id: "notif-sara-1",
+    role: "admin",
     userId: "user-sara",
     titleKey: "portal.notifSara1Title",
     defaultTitle: "New Admin Access Request",
@@ -129,6 +134,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-sara-2",
+    role: "admin",
     userId: "user-sara",
     titleKey: "portal.notifSara2Title",
     defaultTitle: "Monthly HR Report Ready",
@@ -152,6 +158,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-sara-3",
+    role: "admin",
     userId: "user-sara",
     titleKey: "portal.notifSara3Title",
     defaultTitle: "System Maintenance Scheduled",
@@ -177,6 +184,7 @@ const ALL_NOTIFICATIONS = [
   // ── Mostafa Khalil (hr) ───────────────────────────────────
   {
     id: "notif-mostafa-1",
+    role: "hr",
     userId: "user-mostafa",
     titleKey: "portal.notifMostafa1Title",
     defaultTitle: "5 Leave Requests Pending Approval",
@@ -200,6 +208,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-mostafa-2",
+    role: "hr",
     userId: "user-mostafa",
     titleKey: "portal.notifMostafa2Title",
     defaultTitle: "New Employee Onboarding",
@@ -223,6 +232,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-mostafa-3",
+    role: "hr",
     userId: "user-mostafa",
     titleKey: "portal.notifMostafa3Title",
     defaultTitle: "Payroll Deadline Reminder",
@@ -244,10 +254,133 @@ const ALL_NOTIFICATIONS = [
     priorityKey: "portal.priorityHigh",
     defaultPriority: "High",
   },
+  {
+    id: "notif-mostafa-4",
+    role: "hr",
+    userId: "user-mostafa",
+    titleKey: "portal.notifMostafa4Title",
+    defaultTitle: "Department Attendance Report Ready",
+    category: "system",
+    badgeKey: "portal.system",
+    defaultBadge: "Attendance",
+    timestamp: "Sep 16, 2026",
+    timestampKey: "portal.sep16",
+    descKey: "portal.notifMostafa4Desc",
+    defaultDesc: "Monthly attendance anomalies report for Cairo HQ is compiled and ready for HR review.",
+    isRead: false,
+    actionType: "log",
+    actionKey: "portal.viewReport",
+    defaultAction: "View Report",
+    initiatorKey: "portal.automatedEngine",
+    defaultInitiator: "Attendance Engine",
+    scopeKey: "portal.cairoBranch",
+    defaultScope: "Cairo HQ",
+    priorityKey: "portal.priorityMedium",
+    defaultPriority: "Medium",
+  },
 
-  // ── Layla Hassan (employee) ───────────────────────────────
+  // ── Manager (Layla Hassan / Manager) ──────────────────────
+  {
+    id: "notif-manager-1",
+    role: "manager",
+    userId: "user-manager",
+    titleKey: "portal.notifMgr1Title",
+    defaultTitle: "New Leave Request Pending Approval",
+    category: "evaluations",
+    badgeKey: "portal.evaluations",
+    defaultBadge: "Leaves",
+    timestamp: "25 minutes ago",
+    timestampKey: "portal.twentyFiveMinAgo",
+    descKey: "portal.notifMgr1Desc",
+    defaultDesc: "Salma Nabil submitted an annual leave request for Oct 2–5. Requires your review.",
+    isRead: false,
+    actionType: "cycle",
+    actionKey: "portal.reviewRequest",
+    defaultAction: "Review Request",
+    initiatorKey: "portal.salmaNabil",
+    defaultInitiator: "Salma Nabil (Frontend Engineer)",
+    scopeKey: "portal.engineeringTeam",
+    defaultScope: "Engineering Team",
+    priorityKey: "portal.priorityHigh",
+    defaultPriority: "High",
+  },
+  {
+    id: "notif-manager-2",
+    role: "manager",
+    userId: "user-manager",
+    titleKey: "portal.notifMgr2Title",
+    defaultTitle: "Task Submission Awaiting Review",
+    category: "system",
+    badgeKey: "portal.system",
+    defaultBadge: "Tasks",
+    timestamp: "2 hours ago",
+    timestampKey: "portal.twoHoursAgo",
+    descKey: "portal.notifMgr2Desc",
+    defaultDesc: "Youssef Lotfy submitted 'OAuth2 Flow Implementation' for your review.",
+    isRead: false,
+    actionType: "cycle",
+    actionKey: "portal.reviewSubmission",
+    defaultAction: "Review Submission",
+    initiatorKey: "portal.youssefLotfy",
+    defaultInitiator: "Youssef Lotfy (Backend Engineer)",
+    scopeKey: "portal.engineeringTeam",
+    defaultScope: "Engineering Team",
+    priorityKey: "portal.priorityMedium",
+    defaultPriority: "Medium",
+  },
+  {
+    id: "notif-manager-3",
+    role: "manager",
+    userId: "user-manager",
+    titleKey: "portal.notifMgr3Title",
+    defaultTitle: "Q3 Team Evaluations Reminder",
+    category: "evaluations",
+    badgeKey: "portal.evaluations",
+    defaultBadge: "Evaluations",
+    timestamp: "Yesterday at 4:15 PM",
+    timestampKey: "portal.yesterdayTime",
+    descKey: "portal.notifMgr3Desc",
+    defaultDesc: "3 team members have completed self-evaluations. Please complete manager reviews before Oct 15.",
+    isRead: false,
+    actionType: "cycle",
+    actionKey: "portal.startReviews",
+    defaultAction: "Start Reviews",
+    initiatorKey: "portal.hrOps",
+    defaultInitiator: "HR Operations",
+    scopeKey: "portal.engineeringTeam",
+    defaultScope: "Engineering Team",
+    priorityKey: "portal.priorityHigh",
+    defaultPriority: "High",
+  },
+  {
+    id: "notif-manager-4",
+    role: "manager",
+    userId: "user-manager",
+    titleKey: "portal.notifMgr4Title",
+    defaultTitle: "Workload Imbalance Alert",
+    category: "security",
+    badgeKey: "portal.security",
+    defaultBadge: "AI Insights",
+    timestamp: "Sep 19, 2026",
+    timestampKey: "portal.sep19",
+    descKey: "portal.notifMgr4Desc",
+    defaultDesc: "AI Team Insights detected high sprint workload on 2 engineers. Consider rebalancing tasks.",
+    isRead: true,
+    actionType: "log",
+    actionKey: "portal.inspectLog",
+    defaultAction: "Inspect Alert",
+    initiatorKey: "portal.automatedEngine",
+    defaultInitiator: "WiseWork AI Copilot",
+    scopeKey: "portal.engineeringTeam",
+    defaultScope: "Engineering Team",
+    priorityKey: "portal.priorityMedium",
+    defaultPriority: "Medium",
+  },
+
+  // ── Employee (Omar Haddad / Layla Hassan) ─────────────────
   {
     id: "notif-layla-1",
+    role: "employee",
     userId: "user-layla",
     titleKey: "portal.notifLayla1Title",
     defaultTitle: "Your Leave Request Was Approved",
@@ -271,6 +404,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-layla-2",
+    role: "employee",
     userId: "user-layla",
     titleKey: "portal.notifLayla2Title",
     defaultTitle: "September Payslip Available",
@@ -294,6 +428,7 @@ const ALL_NOTIFICATIONS = [
   },
   {
     id: "notif-layla-3",
+    role: "employee",
     userId: "user-layla",
     titleKey: "portal.notifLayla3Title",
     defaultTitle: "Q3 Self-Evaluation Reminder",
@@ -315,24 +450,53 @@ const ALL_NOTIFICATIONS = [
     priorityKey: "portal.priorityMedium",
     defaultPriority: "Medium",
   },
+  {
+    id: "notif-employee-4",
+    role: "employee",
+    userId: "user-layla",
+    titleKey: "portal.notifEmp4Title",
+    defaultTitle: "New Task Assigned",
+    category: "system",
+    badgeKey: "portal.system",
+    defaultBadge: "Tasks",
+    timestamp: "3 hours ago",
+    timestampKey: "portal.threeHoursAgo",
+    descKey: "portal.notifEmp4Desc",
+    defaultDesc: "You have been assigned to 'Design System Updates' with high priority due this Thursday.",
+    isRead: false,
+    actionType: "cycle",
+    actionKey: "portal.viewTask",
+    defaultAction: "View Task",
+    initiatorKey: "portal.managerApproval",
+    defaultInitiator: "Layla Hassan (Manager)",
+    scopeKey: "portal.myProfile",
+    defaultScope: "My Tasks",
+    priorityKey: "portal.priorityHigh",
+    defaultPriority: "High",
+  },
 ];
 
 // ============================================================
 // PROVIDER
 // ============================================================
 
-export const NotificationProvider = ({ children, currentUserId }) => {
+export const NotificationProvider = ({ children, currentRole, currentUserId }) => {
   const [notifications, setNotifications] = useState(ALL_NOTIFICATIONS);
 
-  // الإشعارات الخاصة بالـ user الحالي فقط
-  const userNotifications = useMemo(() => {
-    if (!currentUserId) return [];
-    return notifications.filter((n) => n.userId === currentUserId);
-  }, [notifications, currentUserId]);
+  // الإشعارات الخاصة بالـ role الحالي أو الـ user الحالي
+  const roleNotifications = useMemo(() => {
+    if (currentRole) {
+      return notifications.filter((n) => n.role === currentRole);
+    }
+    if (currentUserId) {
+      return notifications.filter((n) => n.userId === currentUserId);
+    }
+    return notifications;
+  }, [notifications, currentRole, currentUserId]);
 
   const unreadCount = useMemo(() => {
-    return userNotifications.filter((n) => !n.isRead).length;
-  }, [userNotifications]);
+    return roleNotifications.filter((n) => !n.isRead).length;
+  }, [roleNotifications]);
 
   const toggleNotificationRead = (id) => {
     setNotifications((prev) =>
@@ -344,9 +508,15 @@ export const NotificationProvider = ({ children, currentUserId }) => {
 
   const markAllAsRead = () => {
     setNotifications((prev) =>
-      prev.map((n) =>
-        n.userId === currentUserId ? { ...n, isRead: true } : n
-      )
+      prev.map((n) => {
+        if (currentRole && n.role === currentRole) {
+          return { ...n, isRead: true };
+        }
+        if (!currentRole && currentUserId && n.userId === currentUserId) {
+          return { ...n, isRead: true };
+        }
+        return n;
+      })
     );
   };
 
@@ -355,19 +525,27 @@ export const NotificationProvider = ({ children, currentUserId }) => {
   };
 
   const clearAllNotifications = () => {
-    setNotifications((prev) => prev.filter((n) => n.userId !== currentUserId));
+    setNotifications((prev) =>
+      prev.filter((n) => {
+        if (currentRole) return n.role !== currentRole;
+        if (currentUserId) return n.userId !== currentUserId;
+        return false;
+      })
+    );
   };
 
   return (
     <NotificationContext.Provider
       value={{
-        notifications: userNotifications,
+        notifications: roleNotifications,
+        allNotifications: notifications,
         setNotifications,
         unreadCount,
         toggleNotificationRead,
         markAllAsRead,
         clearNotification,
         clearAllNotifications,
+        currentRole,
       }}
     >
       {children}
@@ -376,5 +554,19 @@ export const NotificationProvider = ({ children, currentUserId }) => {
 };
 
 export const useNotifications = () => {
-  return useContext(NotificationContext);
+  const ctx = useContext(NotificationContext);
+  if (!ctx) {
+    return {
+      notifications: [],
+      allNotifications: [],
+      unreadCount: 0,
+      toggleNotificationRead: () => {},
+      markAllAsRead: () => {},
+      clearNotification: () => {},
+      clearAllNotifications: () => {},
+      setNotifications: () => {},
+      currentRole: "admin",
+    };
+  }
+  return ctx;
 };
