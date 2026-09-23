@@ -206,6 +206,16 @@
       "underReview": "Under Review",
       "completed": "Completed"
     },
+    "employeeTasks": {
+      "t1Title": "Q2 Operations efficiency report",
+      "t1Date": "Due Jun 12, 2026",
+      "t2Title": "Vendor onboarding checklist revamp",
+      "t2Date": "Due Jun 15, 2026",
+      "t3Title": "Customer insights synthesis",
+      "t3Date": "Due Jun 18, 2026",
+      "newTaskUpdate": "New task update",
+      "submitReview": "Submit for review"
+    },
     "priority": {
       "high": "High priority",
       "medium": "Medium priority",

@@ -14,54 +14,55 @@ import {
 const INITIAL_TASKS = [
   {
     id: "task-1",
-    title: "Q2 Operations efficiency report",
+    titleKey: "tasks.employeeTasks.t1Title",
+    defaultTitle: "Q2 Operations efficiency report",
     priority: "high",
-    dueDate: "Due Jun 12, 2026",
+    dueDateKey: "tasks.employeeTasks.t1Date",
+    defaultDueDate: "Due Jun 12, 2026",
     status: "in-progress",
-    statusLabel: "In Progress",
     progress: 70,
     progressColor: "bg-[#2f855a]",
-    stripeColor: "bg-[#e05252]", // لون وردي/أحمر ناعم مطابق لليو اي
+    stripeColor: "bg-[#e05252]",
     priorityBadge: "bg-[#fff5f5] text-[#e05252]",
-    priorityLabel: "High priority",
   },
   {
     id: "task-2",
-    title: "Vendor onboarding checklist revamp",
+    titleKey: "tasks.employeeTasks.t2Title",
+    defaultTitle: "Vendor onboarding checklist revamp",
     priority: "medium",
-    dueDate: "Due Jun 15, 2026",
+    dueDateKey: "tasks.employeeTasks.t2Date",
+    defaultDueDate: "Due Jun 15, 2026",
     status: "under-review",
-    statusLabel: "Under Review",
     progress: 100,
     progressColor: "bg-[#3182ce]",
-    stripeColor: "bg-[#d97706]", // كهرماني مطابق لليو اي
+    stripeColor: "bg-[#d97706]",
     priorityBadge: "bg-[#fffaf0] text-[#d97706]",
-    priorityLabel: "Medium priority",
   },
   {
     id: "task-3",
-    title: "Customer insights synthesis",
+    titleKey: "tasks.employeeTasks.t3Title",
+    defaultTitle: "Customer insights synthesis",
     priority: "low",
-    dueDate: "Due Jun 18, 2026",
+    dueDateKey: "tasks.employeeTasks.t3Date",
+    defaultDueDate: "Due Jun 18, 2026",
     status: "in-progress",
-    statusLabel: "In Progress",
     progress: 35,
     progressColor: "bg-[#2f855a]",
-    stripeColor: "bg-[#38b2ac]", // تيل مائي مطابق لليو اي
+    stripeColor: "bg-[#38b2ac]",
     priorityBadge: "bg-[#f0fdfa] text-[#0d9488]",
-    priorityLabel: "Low priority",
   },
 ];
 
 const FILTERS = [
-  { id: "all", label: "All" },
-  { id: "in-progress", label: "In Progress" },
-  { id: "under-review", label: "Under Review" },
-  { id: "completed", label: "Completed" },
+  { id: "all", labelKey: "tasks.filters.all", defaultLabel: "All" },
+  { id: "in-progress", labelKey: "tasks.filters.inProgress", defaultLabel: "In Progress" },
+  { id: "under-review", labelKey: "tasks.filters.underReview", defaultLabel: "Under Review" },
+  { id: "completed", labelKey: "tasks.filters.completed", defaultLabel: "Completed" },
 ];
 
 const Tasks = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.language?.startsWith("ar");
 
   const [tasks, setTasks] = useState(INITIAL_TASKS);
   const [activeFilter, setActiveFilter] = useState("all");
@@ -116,7 +117,6 @@ const Tasks = () => {
           ? {
               ...t,
               status: "under-review",
-              statusLabel: "Under Review",
               progress: 100,
               progressColor: "bg-[#3182ce]",
             }
@@ -126,8 +126,33 @@ const Tasks = () => {
     handleCloseTaskUpdate();
   };
 
+  const getPriorityLabel = (priority) => {
+    switch (priority) {
+      case "high":
+        return t("tasks.priority.high", "High priority");
+      case "medium":
+        return t("tasks.priority.medium", "Medium priority");
+      case "low":
+      default:
+        return t("tasks.priority.low", "Low priority");
+    }
+  };
+
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case "in-progress":
+        return t("tasks.status.inProgress", "In Progress");
+      case "under-review":
+        return t("tasks.status.underReview", "Under Review");
+      case "completed":
+        return t("tasks.status.completed", "Completed");
+      default:
+        return status;
+    }
+  };
+
   return (
-    <div className="w-full space-y-6 pb-16 font-sans">
+    <div dir={isRtl ? "rtl" : "ltr"} className="w-full space-y-6 pb-16 font-sans text-[#102a43]">
       {/* 1. Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -136,7 +161,7 @@ const Tasks = () => {
         className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4"
       >
         <div>
-          <p className="text-[11px] font-bold tracking-wider text-[#5b8c6a] uppercase mb-1">
+          <p className="text-[11px] font-bold tracking-wider text-[#2f855a] uppercase mb-1">
             {t("tasks.workManagement", "WORK MANAGEMENT")}
           </p>
           <h1 className="text-2xl md:text-[28px] font-bold text-[#102a43] tracking-tight">
@@ -158,7 +183,7 @@ const Tasks = () => {
           className="inline-flex items-center gap-2 rounded-xl bg-[#1c364f] px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-[#284761] shadow-sm shrink-0 self-start sm:self-auto"
         >
           <FiPlus className="h-4 w-4" />
-          <span>{t("tasks.newTaskUpdate", "New task update")}</span>
+          <span>{t("tasks.employeeTasks.newTaskUpdate", "New task update")}</span>
         </motion.button>
       </motion.div>
 
@@ -185,7 +210,7 @@ const Tasks = () => {
                   : "bg-white border border-[#e2e8f0] text-[#64748b] hover:bg-[#f8fafc]"
               }`}
             >
-              <span>{f.label}</span>
+              <span>{t(f.labelKey, f.defaultLabel)}</span>
               <span
                 className={`inline-flex h-4 min-w-[16px] items-center justify-center rounded-full px-1 text-[10px] ${
                   isActive ? "bg-white/20 text-white" : "bg-[#f1f5f9] text-[#64748b]"
@@ -202,97 +227,99 @@ const Tasks = () => {
       <AnimatePresence mode="popLayout">
         {filteredTasks.length > 0 ? (
           <motion.div layout className="space-y-4">
-            {filteredTasks.map((task, index) => (
-              <motion.article
-                layout
-                key={task.id}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
-                whileHover={{ y: -1, transition: { duration: 0.15 } }}
-                className="relative flex flex-col justify-between rounded-2xl border border-[#e2e8f0] bg-white p-6 pl-10 rtl:pl-6 rtl:pr-10 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-[#cbd5e1] hover:shadow-md transition-shadow"
-              >
-                {/* 
-                  الخط الجانبي المنفصل المطابق تماماً لليو اي (الصورة 1):
-                  له مسافة داخلية (left-5) ومستدير بالكامل من الطرفين (rounded-full)
-                */}
-                <div
-                  className={`absolute left-5 rtl:left-auto rtl:right-5 top-6 bottom-6 w-[3.5px] rounded-full ${task.stripeColor}`}
-                />
+            {filteredTasks.map((task, index) => {
+              const taskTitle = t(task.titleKey, task.defaultTitle);
+              const taskDueDate = t(task.dueDateKey, task.defaultDueDate);
 
-                <div>
-                  {/* Header row: Priority Badge + Actions */}
-                  <div className="flex items-center justify-between">
-                    <span
-                      className={`inline-flex items-center rounded-full px-3 py-0.5 text-xs font-semibold ${task.priorityBadge}`}
-                    >
-                      {task.priorityLabel}
-                    </span>
+              return (
+                <motion.article
+                  layout
+                  key={task.id}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.2 } }}
+                  transition={{ duration: 0.3, delay: index * 0.05, ease: "easeOut" }}
+                  whileHover={{ y: -1, transition: { duration: 0.15 } }}
+                  className="relative flex flex-col justify-between rounded-2xl border border-[#e2e8f0] bg-white p-6 pl-10 pr-6 rtl:pr-10 rtl:pl-6 shadow-[0_1px_3px_rgba(0,0,0,0.02)] hover:border-[#cbd5e1] hover:shadow-md transition-shadow"
+                >
+                  {/* الشريط الجانبي المطابق لليو اي */}
+                  <div
+                    className={`absolute left-5 rtl:left-auto rtl:right-5 top-6 bottom-6 w-[3.5px] rounded-full ${task.stripeColor}`}
+                  />
 
-                    <button
-                      type="button"
-                      className="text-[#94a3b8] hover:text-[#1e293b] p-1 transition"
-                      aria-label="More options"
-                    >
-                      <FiMoreHorizontal className="h-5 w-5" />
-                    </button>
-                  </div>
-
-                  {/* Title & Date */}
-                  <div className="mt-3">
-                    <h3 className="text-base font-bold text-[#102a43] tracking-tight">
-                      {task.title}
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-xs text-[#829ab1] mt-1.5">
-                      <FiCalendar className="h-3.5 w-3.5" />
-                      <span>{task.dueDate}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Row: Status/Progress Bar & Action Button */}
-                <div className="mt-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                  {/* Progress info */}
-                  <div className="w-full md:max-w-md space-y-1.5">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-[#829ab1]">{task.statusLabel}</span>
-                      <span className="font-bold text-[#102a43]">{task.progress}%</span>
-                    </div>
-
-                    <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#f1f5f9]">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${task.progress}%` }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 + index * 0.05 }}
-                        className={`h-full rounded-full ${task.progressColor}`}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="shrink-0 self-end md:self-auto">
-                    {task.status === "in-progress" ? (
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        type="button"
-                        onClick={() => handleOpenTaskUpdate(task)}
-                        className="inline-flex items-center gap-2 rounded-xl border border-[#d9e2ec] bg-white px-4 py-2 text-xs font-semibold text-[#102a43] hover:bg-[#f8fafc] transition shadow-sm"
+                  <div>
+                    {/* Header row: Priority Badge + Actions */}
+                    <div className="flex items-center justify-between">
+                      <span
+                        className={`inline-flex items-center rounded-full px-3 py-0.5 text-xs font-semibold ${task.priorityBadge}`}
                       >
-                        <FiUploadCloud className="h-4 w-4 text-[#64748b]" />
-                        <span>{t("tasks.submitDeliverable", "Submit deliverable")}</span>
-                      </motion.button>
-                    ) : (
-                      <div className="inline-flex items-center gap-2 rounded-xl bg-[#fffaf0] border border-[#feebc8] px-4 py-2 text-xs font-medium text-[#c05621]">
-                        <FiClock className="h-3.5 w-3.5" />
-                        <span>{t("tasks.awaitingReview", "Awaiting review")}</span>
+                        {getPriorityLabel(task.priority)}
+                      </span>
+
+                      <button
+                        type="button"
+                        className="text-[#94a3b8] hover:text-[#1e293b] p-1 transition"
+                        aria-label="More options"
+                      >
+                        <FiMoreHorizontal className="h-5 w-5" />
+                      </button>
+                    </div>
+
+                    {/* Title & Date */}
+                    <div className="mt-3">
+                      <h3 className="text-base font-bold text-[#102a43] tracking-tight">
+                        {taskTitle}
+                      </h3>
+                      <div className="flex items-center gap-1.5 text-xs text-[#829ab1] mt-1.5">
+                        <FiCalendar className="h-3.5 w-3.5" />
+                        <span>{taskDueDate}</span>
                       </div>
-                    )}
+                    </div>
                   </div>
-                </div>
-              </motion.article>
-            ))}
+
+                  {/* Bottom Row: Status/Progress Bar & Action Button */}
+                  <div className="mt-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    {/* Progress info */}
+                    <div className="w-full md:max-w-md space-y-1.5">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-[#829ab1]">{getStatusLabel(task.status)}</span>
+                        <span className="font-bold text-[#102a43]">{task.progress}%</span>
+                      </div>
+
+                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#f1f5f9]">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${task.progress}%` }}
+                          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 + index * 0.05 }}
+                          className={`h-full rounded-full ${task.progressColor}`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="shrink-0 self-end md:self-auto">
+                      {task.status === "in-progress" ? (
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          type="button"
+                          onClick={() => handleOpenTaskUpdate(task)}
+                          className="inline-flex items-center gap-2 rounded-xl border border-[#d9e2ec] bg-white px-4 py-2 text-xs font-semibold text-[#102a43] hover:bg-[#f8fafc] transition shadow-sm"
+                        >
+                          <FiUploadCloud className="h-4 w-4 text-[#64748b]" />
+                          <span>{t("tasks.submitDeliverable", "Submit deliverable")}</span>
+                        </motion.button>
+                      ) : (
+                        <div className="inline-flex items-center gap-2 rounded-xl bg-[#fffaf0] border border-[#feebc8] px-4 py-2 text-xs font-medium text-[#c05621]">
+                          <FiClock className="h-3.5 w-3.5" />
+                          <span>{t("tasks.awaitingReview", "Awaiting review")}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
           </motion.div>
         ) : (
           <motion.div
@@ -312,7 +339,7 @@ const Tasks = () => {
         )}
       </AnimatePresence>
 
-      {/* 4. Task Update Modal (Submit Deliverable - Progress Bar الملوّن بدقة) */}
+      {/* 4. Task Update Modal */}
       <AnimatePresence>
         {showTaskUpdate && selectedTask && (
           <motion.div
@@ -352,17 +379,15 @@ const Tasks = () => {
               {/* Task Title Box */}
               <div className="rounded-xl bg-[#f8fafc] px-4 py-3 border border-[#f1f5f9] mb-5">
                 <p className="text-xs font-semibold text-[#102a43]">
-                  {selectedTask.title}
+                  {t(selectedTask.titleKey, selectedTask.defaultTitle)}
                 </p>
               </div>
 
-              {/* 
-                Progress Slider مع تلوين المسار كاملاً بالأخضر حتى النقطة الحالية 
-              */}
+              {/* Progress Slider */}
               <div className="mb-5 space-y-2">
                 <div className="flex items-center justify-between text-xs">
                   <span className="font-semibold text-[#64748b]">
-                    {t("tasks.progress", "Progress")}
+                    {t("tasks.form.progress", "Progress")}
                   </span>
                   <span className="font-bold text-[#102a43]">{progressVal}%</span>
                 </div>
@@ -374,7 +399,9 @@ const Tasks = () => {
                   value={progressVal}
                   onChange={(e) => setProgressVal(Number(e.target.value))}
                   style={{
-                    background: `linear-gradient(to right, #2f855a 0%, #2f855a ${progressVal}%, #e2e8f0 ${progressVal}%, #e2e8f0 100%)`,
+                    background: isRtl
+                      ? `linear-gradient(to left, #2f855a 0%, #2f855a ${progressVal}%, #e2e8f0 ${progressVal}%, #e2e8f0 100%)`
+                      : `linear-gradient(to right, #2f855a 0%, #2f855a ${progressVal}%, #e2e8f0 ${progressVal}%, #e2e8f0 100%)`,
                   }}
                   className="h-1.5 w-full cursor-pointer appearance-none rounded-full accent-[#2f855a] focus:outline-none 
                     [&::-webkit-slider-thumb]:h-3.5 
@@ -394,15 +421,15 @@ const Tasks = () => {
               {/* Notes */}
               <div className="mb-5">
                 <label className="block text-xs font-semibold text-[#64748b] mb-1.5">
-                  {t("tasks.notes", "Notes")}
+                  {t("tasks.form.notes", "Notes")}
                 </label>
                 <textarea
                   rows={3}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   placeholder={t(
-                    "tasks.notesPlaceholder",
-                    "Add a note for your manager..."
+                    "tasks.form.notesPlaceholder",
+                    "Add notes about this deliverable..."
                   )}
                   className="w-full resize-none rounded-xl border border-[#d9e2ec] px-3.5 py-2.5 text-xs text-[#102a43] placeholder:text-[#94a3b8] focus:outline-none focus:border-[#486581] focus:ring-1 focus:ring-[#486581] transition"
                 />
@@ -432,10 +459,10 @@ const Tasks = () => {
                   ) : (
                     <div className="space-y-1">
                       <p className="text-xs font-semibold text-[#102a43]">
-                        {t("tasks.tapToUpload", "Tap to upload a file")}
+                        {t("tasks.form.uploadFile", "Tap to upload a file")}
                       </p>
                       <p className="text-[10px] text-[#94a3b8]">
-                        PDF, DOCX, PNG up to 10MB
+                        {t("tasks.form.uploadHint", "PDF, DOCX, PNG up to 10MB")}
                       </p>
                     </div>
                   )}
@@ -450,8 +477,8 @@ const Tasks = () => {
                 onClick={handleSubmitForReview}
                 className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1c364f] py-3 px-4 text-xs font-semibold text-white hover:bg-[#254360] transition shadow-sm"
               >
-                <span>{t("tasks.submitForReview", "Submit for review")}</span>
-                <span className="text-sm">→</span>
+                <span>{t("tasks.form.submitForReview", "Submit for review")}</span>
+                <span className="text-sm">{isRtl ? "←" : "→"}</span>
               </motion.button>
             </motion.div>
           </motion.div>
